@@ -8,8 +8,18 @@
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";
 
+import config from "@/configs";
+
 // Composables
 import { createVuetify } from "vuetify";
+
+const { locale, availableLocales, fallbackLocale } = config.locales;
+
+const messages = {};
+
+availableLocales.forEach((l) => {
+  messages[l.code] = l.messages;
+});
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
@@ -22,5 +32,10 @@ export default createVuetify({
         },
       },
     },
+  },
+  locale: {
+    locale: locale,
+    fallback: fallbackLocale,
+    messages: messages,
   },
 });

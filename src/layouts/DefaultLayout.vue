@@ -37,7 +37,13 @@
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar app></v-app-bar>
+    <v-app-bar app>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-toolbar-title>Vuetify</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+      <toolbar-language />
+    </v-app-bar>
     <v-main>
       <v-container class="fill-height">
         <v-layout>
@@ -53,6 +59,7 @@
 import { ref } from "vue";
 import configs from "@/configs";
 import MainMenu from "@/components/navigation/MainMenu";
+import ToolbarLanguage from "../components/toolbar/ToolbarLanguage";
 
 const navigation = ref(configs.navigation);
 const product = ref(configs.product);

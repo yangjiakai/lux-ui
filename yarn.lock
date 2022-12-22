@@ -400,6 +400,11 @@
     "locate-path" "^5.0.0"
     "path-exists" "^4.0.0"
 
+"flag-icons@^6.6.6":
+  "integrity" "sha512-4lHDKxldnQ7q617pf9Dx9nAetT+9zcMpUexbRrc9kjLw9KJgZ83zA5Dky3Vv7ZDzUjAiZ46x/cy5P0HnEnqA2A=="
+  "resolved" "https://registry.npmjs.org/flag-icons/-/flag-icons-6.6.6.tgz"
+  "version" "6.6.6"
+
 "fraction.js@^4.2.0":
   "integrity" "sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA=="
   "resolved" "https://registry.npmjs.org/fraction.js/-/fraction.js-4.2.0.tgz"
@@ -827,10 +832,10 @@
     "@vue/server-renderer" "3.2.45"
     "@vue/shared" "3.2.45"
 
-"vuetify@^3.0.0", "vuetify@^3.0.0-beta.4":
-  "integrity" "sha512-ODqnS2ux/qUjn/E7W600mvy096nUSSf1mEgYN9o1IpfeNOC7RsakPD37t3zmtift54YTrE/upjSpILg3piYKmQ=="
-  "resolved" "https://registry.npmjs.org/vuetify/-/vuetify-3.0.3.tgz"
-  "version" "3.0.3"
+"vuetify@^3.0.0-beta.4", "vuetify@^3.0.5":
+  "integrity" "sha512-Illtc9t8PExlKqUEIivNNMpDif4/tvn+04ZEAwrxpQAG75x6V7oUFOF1kVKAFZ2ryuLnBpscXBR85GwFBmLeMQ=="
+  "resolved" "https://registry.npmjs.org/vuetify/-/vuetify-3.0.6.tgz"
+  "version" "3.0.6"
 
 "webfontloader@^1.0.0":
   "integrity" "sha512-Egb0oFEga6f+nSgasH3E0M405Pzn6y3/9tOVanv/DLfa1YBIgcv90L18YyWnvXkRbIM17v5Kv6IT2N6g1x5tvQ=="

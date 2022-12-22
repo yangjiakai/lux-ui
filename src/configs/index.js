@@ -1,4 +1,5 @@
 import navigation from "./navigation";
+import locales from "./locales";
 export default {
   // product display information
   product: {
@@ -7,4 +8,5 @@ export default {
   },
 
   navigation,
+  locales,
 };
