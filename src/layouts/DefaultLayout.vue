@@ -1,16 +1,40 @@
 <template>
   <div>
     <!-- Navigation menu info -->
-
     <v-navigation-drawer app v-model="drawer" elevation="1">
-      <v-list-item
-        prepend-avatar="https://randomuser.me/api/portraits/men/78.jpg"
-        title="John Leider"
-      ></v-list-item>
+      <template v-slot:prepend>
+        <div class="pa-4">
+          <div
+            class="text-subtitle-1 font-weight-bold text-primary text-uppercase"
+          >
+            {{ product.name }}
+          </div>
+          <div class="text-overline text-grey">
+            {{ product.version }}
+          </div>
+        </div>
+      </template>
+      <v-divider></v-divider>
       <!-- Navigation menu -->
       <main-menu :menu="navigation.menu"></main-menu>
       <!-- Navigation menu footer -->
-      <v-card> footer </v-card>
+      <template v-slot:append>
+        <v-card elevation="4">
+          <v-card-title primary-title> J.K. Inc </v-card-title>
+          <v-card-subtitle>github.com/yangjiakai</v-card-subtitle>
+          <v-card-actions>
+            <v-btn
+              prepend-icon="mdi-cloud-upload"
+              color="blue-grey"
+              block
+              variant="elevated"
+              @click="openGithubSite"
+            >
+              Star-Me
+            </v-btn>
+          </v-card-actions>
+        </v-card>
+      </template>
     </v-navigation-drawer>
 
     <v-app-bar app></v-app-bar>
@@ -31,5 +55,10 @@ import configs from "@/configs";
 import MainMenu from "@/components/navigation/MainMenu";
 
 const navigation = ref(configs.navigation);
+const product = ref(configs.product);
 const drawer = ref(true);
+
+const openGithubSite = () => {
+  window.open("https://github.com/yangjiakai", "_blank");
+};
 </script>

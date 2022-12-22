@@ -9,15 +9,18 @@
           v-for="(menuItem, menuIndex) in menuArea.items"
           :key="menuIndex"
         >
+          <!-- menu level 1 -->
           <v-list-item
             v-if="!menuItem.items"
             :to="menuItem.link"
             :prepend-icon="menuItem.icon || 'mdi-circle-medium'"
             :title="menuItem.key ? menuItem.text : menuItem.text"
             active-class="primary-text"
+            density="compact"
           >
           </v-list-item>
           <v-list-group v-else :value="menuItem.items">
+            <!-- subMenu activator -->
             <template v-slot:activator="{ props }">
               <v-list-item
                 v-bind="props"
@@ -26,15 +29,15 @@
               >
               </v-list-item>
             </template>
+            <!-- menu level 2 -->
             <v-list-item
-              density="compact"
               v-for="(subMenuItem, subMenuIndex) in menuItem.items"
               :key="subMenuIndex"
               :value="title"
               :prepend-icon="subMenuItem.icon || 'mdi-circle-medium'"
               :title="subMenuItem.key ? subMenuItem.text : subMenuItem.text"
               :to="subMenuItem.link"
-              class="subMenuItem"
+              density="compact"
             ></v-list-item>
           </v-list-group>
         </template>
@@ -53,16 +56,10 @@ const props = defineProps({
   },
 });
 
-onMounted(() => {
-  console.log(props.menu);
-});
+onMounted(() => {});
 </script>
 
 <style scoped>
-.subMenuItem {
-  /* padding-left: 8px !important; */
-}
-
 .v-list-group .v-list-item {
   padding-left: 8px !important;
 }
