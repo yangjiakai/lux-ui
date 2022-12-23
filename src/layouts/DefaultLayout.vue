@@ -47,7 +47,13 @@
     <v-main>
       <v-container class="fill-height">
         <v-layout>
-          <slot></slot>
+          <v-container>
+            <PageTitle></PageTitle>
+            <Breadcrumb></Breadcrumb>
+            <v-card elevation="6">
+              <slot></slot>
+            </v-card>
+          </v-container>
         </v-layout>
       </v-container>
       <v-footer app></v-footer>
@@ -61,6 +67,8 @@ import configs from "@/configs";
 import MainMenu from "@/components/navigation/MainMenu";
 import ToolbarLanguage from "../components/toolbar/ToolbarLanguage";
 import PerfectScrollbar from "perfect-scrollbar";
+import Breadcrumb from "@/components/Breadcrumb.vue";
+import PageTitle from "@/components/PageTitle.vue";
 
 const navigation = ref(configs.navigation);
 const product = ref(configs.product);

@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <Breadcrumb></Breadcrumb>
     <v-row>
       <v-col class="mt-2" cols="12">
         <v-card>
@@ -54,6 +55,7 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import Breadcrumb from "@/components/Breadcrumb.vue";
 const open = ref(["Users"]);
 const admins = ref([
   ["Management", "mdi-account-multiple-outline"],

@@ -8,6 +8,7 @@ export default [
       ),
     meta: {
       layout: "auth",
+      title: "SignIn",
     },
   },
   {
@@ -18,7 +19,8 @@ export default [
         /* webpackChunkName: "auth-signup" */ "@/views/auth/SignupPage.vue"
       ),
     meta: {
-      layout: "auth",
+      layout: "Auth",
+      title: "SignOut",
     },
   },
 ];

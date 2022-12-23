@@ -112,9 +112,6 @@ export const constantRoutes = [
       import(
         /* webpackChunkName: "error" */ "@/views/pages/error/NotFoundPage.vue"
       ),
-    meta: {
-      layout: "error",
-    },
   },
   // {
   //   path: "/test",

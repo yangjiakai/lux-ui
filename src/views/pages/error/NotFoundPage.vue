@@ -5,7 +5,7 @@
     color="grey"
   >
     <v-img
-      src="/images/illustrations/404-illustration.svg"
+      src="https://img.freepik.com/free-vector/error-404-concept-landing-page_52683-13617.jpg?w=2000&t=st=1671820416~exp=1671821016~hmac=bc46b386c1ebf9bb390674484f5138b17424d0f4187a3e249b1155fa74db5211"
       max-height="400"
       contain
     />
