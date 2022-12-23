@@ -43,5 +43,6 @@ export default {
     support: "サポート",
     landingPage: "ランディングページ",
     pricingPage: "価格ページ",
+    scrollBar: "スクロールバー",
   },
 };

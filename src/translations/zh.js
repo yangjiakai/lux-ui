@@ -43,5 +43,6 @@ export default {
     support: "支持",
     landingPage: "登陆页面",
     pricingPage: "定价页面",
+    scrollBar: "滚动条美化",
   },
 };

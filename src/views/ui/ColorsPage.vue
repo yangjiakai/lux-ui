@@ -12,9 +12,4 @@
 <script setup>
 import { ref, onMounted, inject } from "vue";
 const userName = inject("userName");
-onMounted(() => {});
-
-const changeLocale = (locale) => {
-  current.value = locale;
-};
 </script>

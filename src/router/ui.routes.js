@@ -12,4 +12,13 @@ export default [
     component: () =>
       import(/* webpackChunkName: "ui-grids" */ "@/views/ui/GridsPage.vue"),
   },
+  {
+    path: "/ui/scrollbar",
+    name: "ui-scrollbar",
+
+    component: () =>
+      import(
+        /* webpackChunkName: "ui-scrollbar" */ "@/views/ui/PerfectScrollbar.vue"
+      ),
+  },
 ];

@@ -15,4 +15,9 @@ export default [
     text: "Grids",
     link: "/ui/grids",
   },
+  {
+    icon: "mdi-page-layout-sidebar-right",
+    text: "Scrollbar",
+    link: "/ui/scrollbar",
+  },
 ];
