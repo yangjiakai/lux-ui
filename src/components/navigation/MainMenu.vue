@@ -14,10 +14,14 @@
             v-if="!menuItem.items"
             :to="menuItem.link"
             :prepend-icon="menuItem.icon || 'mdi-circle-medium'"
-            :title="menuItem.key ? menuItem.text : menuItem.text"
             active-class="primary-text"
             density="compact"
           >
+            <v-list-item-title
+              v-text="
+                menuItem.key ? t(`$vuetify.${menuItem.key}`) : menuItem.text
+              "
+            ></v-list-item-title>
           </v-list-item>
           <v-list-group v-else :value="menuItem.items">
             <!-- subMenu activator -->
@@ -25,7 +29,9 @@
               <v-list-item
                 v-bind="props"
                 :prepend-icon="menuItem.icon || 'mdi-circle-medium'"
-                :title="menuItem.key ? menuItem.text : menuItem.text"
+                :title="
+                  menuItem.key ? t(`$vuetify.${menuItem.key}`) : menuItem.text
+                "
               >
               </v-list-item>
             </template>
@@ -33,9 +39,12 @@
             <v-list-item
               v-for="(subMenuItem, subMenuIndex) in menuItem.items"
               :key="subMenuIndex"
-              :value="title"
               :prepend-icon="subMenuItem.icon || 'mdi-circle-medium'"
-              :title="subMenuItem.key ? subMenuItem.text : subMenuItem.text"
+              :title="
+                subMenuItem.key
+                  ? t(`$vuetify.${subMenuItem.key}`)
+                  : subMenuItem.text
+              "
               :to="subMenuItem.link"
               density="compact"
             ></v-list-item>
@@ -48,6 +57,8 @@
 
 <script setup>
 import { onMounted } from "vue";
+import { useLocale } from "vuetify";
+const { t } = useLocale();
 const props = defineProps({
   // 数据
   menu: {
