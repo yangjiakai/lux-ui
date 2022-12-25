@@ -24,6 +24,7 @@ import { computed } from "vue";
 import { useRoute } from "vue-router";
 import defaultLayout from "@/layouts/DefaultLayout";
 import landingLayout from "@/layouts/LandingLayout";
+import simpleLayout from "@/layouts/SimpleLayout";
 import authLayout from "@/layouts/AuthLayout";
 
 const route = useRoute();
@@ -38,6 +39,8 @@ const currentLayout = computed(() => {
     return authLayout;
   } else if (route.meta.layout === "landing") {
     return landingLayout;
+  } else if (route.meta.layout === "simple") {
+    return simpleLayout;
   } else {
     return defaultLayout;
   }
