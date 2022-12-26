@@ -32,13 +32,15 @@ export default [
     },
   },
   {
-    path: "/ui/waterfull",
-    name: "ui-waterfull",
+    path: "/ui/water-fall",
+    name: "ui-water-fall",
     component: () =>
-      import(/* webpackChunkName: "ui-waterfull" */ "@/views/ui/WaterFull.vue"),
+      import(
+        /* webpackChunkName: "ui-water-fall" */ "@/views/ui/WaterFall.vue"
+      ),
     meta: {
       layout: "UI",
-      title: "WaterFull",
+      title: "WaterFall",
     },
   },
   {
@@ -49,6 +51,30 @@ export default [
     meta: {
       layout: "UI",
       title: "Masonry",
+    },
+  },
+  {
+    path: "/ui/virtual-list",
+    name: "ui-virtual-list",
+    component: () =>
+      import(
+        /* webpackChunkName: "ui-virtual-list" */ "@/views/ui/VirtualList.vue"
+      ),
+    meta: {
+      layout: "UI",
+      title: "Masonry",
+    },
+  },
+  {
+    path: "/ui/virtual-scroller",
+    name: "ui-virtual-scroller",
+    component: () =>
+      import(
+        /* webpackChunkName: "ui-virtual-scroller" */ "@/views/ui/VirtualScroller.vue"
+      ),
+    meta: {
+      layout: "UI",
+      title: "VirtualScroller",
     },
   },
 ];

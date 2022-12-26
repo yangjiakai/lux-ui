@@ -16,6 +16,7 @@
     "vue": "^3.2.38",
     "vue-masonry": "^0.16.0",
     "vue-router": "^4.1.6",
+    "vue-virtual-scroller": "^2.0.0-beta.7",
     "vuetify": "^3.0.5",
     "webfontloader": "^1.0.0"
   },

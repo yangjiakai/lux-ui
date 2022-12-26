@@ -560,6 +560,11 @@
   "resolved" "https://registry.npmjs.org/minimist/-/minimist-1.2.7.tgz"
   "version" "1.2.7"
 
+"mitt@^2.1.0":
+  "integrity" "sha512-ILj2TpLiysu2wkBbWjAmww7TkZb65aiQO+DkVdUTBpBXq+MHYiETENkKFMtsJZX1Lf4pe4QOrTSjIfUwN5lRdg=="
+  "resolved" "https://registry.npmjs.org/mitt/-/mitt-2.1.0.tgz"
+  "version" "2.1.0"
+
 "mitt@^3.0.0":
   "integrity" "sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ=="
   "resolved" "https://registry.npmjs.org/mitt/-/mitt-3.0.0.tgz"
@@ -890,12 +895,31 @@
     "mitt" "^3.0.0"
     "vue-demi" "^0.13.2"
 
+"vue-observe-visibility@^2.0.0-alpha.1":
+  "integrity" "sha512-flFbp/gs9pZniXR6fans8smv1kDScJ8RS7rEpMjhVabiKeq7Qz3D9+eGsypncjfIyyU84saU88XZ0zjbD6Gq/g=="
+  "resolved" "https://registry.npmjs.org/vue-observe-visibility/-/vue-observe-visibility-2.0.0-alpha.1.tgz"
+  "version" "2.0.0-alpha.1"
+
+"vue-resize@^2.0.0-alpha.1":
+  "integrity" "sha512-7+iqOueLU7uc9NrMfrzbG8hwMqchfVfSzpVlCMeJQe4pyibqyoifDNbKTZvwxZKDvGkB+PdFeKvnGZMoEb8esg=="
+  "resolved" "https://registry.npmjs.org/vue-resize/-/vue-resize-2.0.0-alpha.1.tgz"
+  "version" "2.0.0-alpha.1"
+
 "vue-router@^4.1.6":
   "integrity" "sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ=="
   "resolved" "https://registry.npmjs.org/vue-router/-/vue-router-4.1.6.tgz"
   "version" "4.1.6"
   dependencies:
     "@vue/devtools-api" "^6.4.5"
+
+"vue-virtual-scroller@^2.0.0-beta.7":
+  "integrity" "sha512-OrouVj1i2939jaLjVfu8f5fsDlbzhAb4bOsYZYrAkpcVLylAmMoGtIL7eT3hJrdTiaKbwQpRdnv7DKf9Fn+tHg=="
+  "resolved" "https://registry.npmjs.org/vue-virtual-scroller/-/vue-virtual-scroller-2.0.0-beta.7.tgz"
+  "version" "2.0.0-beta.7"
+  dependencies:
+    "mitt" "^2.1.0"
+    "vue-observe-visibility" "^2.0.0-alpha.1"
+    "vue-resize" "^2.0.0-alpha.1"
 
 "vue@^2.0.0 || >=3.0.0", "vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.38", "vue@3.2.45":
   "integrity" "sha512-9Nx/Mg2b2xWlXykmCwiTUCWHbWIj53bnkizBxKai1g61f2Xit700A1ljowpTIM11e3uipOeiPcSqnmBg6gyiaA=="

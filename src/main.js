@@ -9,10 +9,13 @@ import App from "./App.vue";
 
 // Composables
 import { createApp } from "vue";
-
-// Plugins
 import { VueMasonryPlugin } from "vue-masonry";
 import MasonryWall from "@yeger/vue-masonry-wall";
+import VueVirtualScroller from "vue-virtual-scroller";
+import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
+
+// Plugins
+
 import { registerPlugins } from "@/plugins";
 
 import router from "./router";
@@ -29,4 +32,5 @@ registerPlugins(app);
 app.use(router);
 app.use(VueMasonryPlugin);
 app.use(MasonryWall);
+app.use(VueVirtualScroller);
 app.mount("#app");
