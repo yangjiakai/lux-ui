@@ -1,14 +1,38 @@
 <template>
   <v-container>
     <v-card height="1000" elevation="6">
-      <v-container>
-        <v-row>
-          <v-col class="mt-2" cols="12">
-            <v-card>VirtualScroller </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
+      <RecycleScroller
+        class="scroller"
+        :items="list"
+        :item-size="32"
+        key-field="id"
+        v-slot="{ item }"
+      >
+        <div class="user">
+          {{ item.name }}
+        </div>
+      </RecycleScroller>
     </v-card>
   </v-container>
 </template>
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const list = Array.from({ length: 1000 }, (value, index) => ({
+  id: index + "",
+  name: "yjk" + index,
+}));
+</script>
+
+<style scoped>
+.scroller {
+  height: 500px;
+}
+
+.user {
+  height: 32%;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+}
+</style>

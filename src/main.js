@@ -6,6 +6,7 @@
 
 // Components
 import App from "./App.vue";
+import "./styles/main.scss";
 
 // Composables
 import { createApp } from "vue";

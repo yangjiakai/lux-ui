@@ -62,7 +62,7 @@ export default [
       ),
     meta: {
       layout: "UI",
-      title: "Masonry",
+      title: "VirtualList",
     },
   },
   {
