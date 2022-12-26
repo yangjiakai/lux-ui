@@ -31,4 +31,24 @@ export default [
       title: "ScrollBar",
     },
   },
+  {
+    path: "/ui/waterfull",
+    name: "ui-waterfull",
+    component: () =>
+      import(/* webpackChunkName: "ui-waterfull" */ "@/views/ui/WaterFull.vue"),
+    meta: {
+      layout: "UI",
+      title: "WaterFull",
+    },
+  },
+  {
+    path: "/ui/masonry",
+    name: "ui-masonry",
+    component: () =>
+      import(/* webpackChunkName: "ui-masonry" */ "@/views/ui/Masonry.vue"),
+    meta: {
+      layout: "UI",
+      title: "Masonry",
+    },
+  },
 ];

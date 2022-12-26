@@ -44,5 +44,7 @@ export default {
     landingPage: "登陆页面",
     pricingPage: "定价页面",
     scrollBar: "滚动条美化",
+    waterFull: "瀑布流布局",
+    waterFull: "瀑布流布局2",
   },
 };

@@ -43,5 +43,8 @@ export default {
     support: "Support",
     landingPage: "Landing Page",
     childBinding: "Child Binding",
+    scrollBar: "Perfect Scrollbar",
+    waterFull: "Masonry layout",
+    masonry: "Vue-Masonry-Wall ",
   },
 };

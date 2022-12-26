@@ -9,10 +9,12 @@
   "dependencies": {
     "@mdi/font": "7.0.96",
     "@vueuse/core": "^9.6.0",
+    "@yeger/vue-masonry-wall": "^3.4.2",
     "flag-icons": "^6.6.6",
     "perfect-scrollbar": "^1.5.5",
     "roboto-fontface": "*",
     "vue": "^3.2.38",
+    "vue-masonry": "^0.16.0",
     "vue-router": "^4.1.6",
     "vuetify": "^3.0.5",
     "webfontloader": "^1.0.0"

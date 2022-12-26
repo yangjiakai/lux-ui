@@ -11,6 +11,8 @@ import App from "./App.vue";
 import { createApp } from "vue";
 
 // Plugins
+import { VueMasonryPlugin } from "vue-masonry";
+import MasonryWall from "@yeger/vue-masonry-wall";
 import { registerPlugins } from "@/plugins";
 
 import router from "./router";
@@ -25,4 +27,6 @@ app.provide("userName", "yjk");
 registerPlugins(app);
 
 app.use(router);
+app.use(VueMasonryPlugin);
+app.use(MasonryWall);
 app.mount("#app");

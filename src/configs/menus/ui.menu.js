@@ -20,4 +20,14 @@ export default [
     text: "Scrollbar",
     link: "/ui/scrollbar",
   },
+  {
+    icon: "mdi-wall",
+    text: "WaterFull",
+    link: "/ui/waterfull",
+  },
+  {
+    icon: "mdi-wall",
+    text: "masonry",
+    link: "/ui/masonry",
+  },
 ];

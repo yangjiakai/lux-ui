@@ -44,5 +44,7 @@ export default {
     landingPage: "ランディングページ",
     pricingPage: "価格ページ",
     scrollBar: "スクロールバー",
+    waterFull: "おしゃれスクロール",
+    masonry: "おしゃれスクロール2 ",
   },
 };
