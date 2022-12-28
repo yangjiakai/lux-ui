@@ -33,6 +33,7 @@ import UIRoutes from "./ui.routes";
 export const constantRoutes = [
   {
     path: "/",
+    name: "home",
     component: () => import("@/views/landPage.vue"),
     // redirect: "/",
     // children: [

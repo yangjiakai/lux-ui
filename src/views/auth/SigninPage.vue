@@ -5,25 +5,32 @@
     <!-- sign in form -->
 
     <v-card-text>
-      <v-form class="text-left" v-model="isFormValid" lazy-validation>
+      <v-form
+        ref="refLoginForm"
+        class="text-left"
+        v-model="isFormValid"
+        lazy-validation
+      >
         <v-text-field
+          ref="refEmail"
           v-model="email"
           required
-          :validate-on-blur="false"
           :error="error"
           :label="t('$vuetify.login.email')"
           :density="formStyle.density"
           :variant="formStyle.variant"
           :color="formStyle.borderColor"
           :bg-color="formStyle.bgColor"
+          :rules="emailRules"
           name="email"
           outlined
+          validateOn="blur"
           @keyup.enter="submit"
           @change="resetErrors"
         ></v-text-field>
         <v-text-field
+          ref="refPassword"
           v-model="password"
-          :rules="[rules.required]"
           :append-inner-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
           :type="showPassword ? 'text' : 'password'"
           :error="error"
@@ -33,11 +40,13 @@
           :variant="formStyle.variant"
           :color="formStyle.borderColor"
           :bg-color="formStyle.bgColor"
+          :rules="passwordRules"
           name="password"
           outlined
+          validateOn="blur"
           @change="resetErrors"
           @keyup.enter="submit"
-          @click="showPassword = !showPassword"
+          @click:append-inner="showPassword = !showPassword"
         ></v-text-field>
         <v-btn
           :loading="isLoading"
@@ -46,11 +55,12 @@
           size="x-large"
           color="primary"
           @click="submit"
+          class="mt-2"
           >{{ t("$vuetify.login.button") }}</v-btn
         >
 
         <div
-          class="text-center text-caption font-weight-bold text-uppercase my-5"
+          class="text-grey text-center text-caption font-weight-bold text-uppercase my-5"
         >
           {{ t("$vuetify.login.orsign") }}
         </div>
@@ -98,11 +108,28 @@
 import { reactive, ref } from "vue";
 import { useLocale } from "vuetify";
 import { Icon } from "@iconify/vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const { t } = useLocale();
+
+//
+const refLoginForm = ref(null);
+const refEmail = ref(null);
+const refPassword = ref(null);
 
 // sign in buttons
 const isLoading = ref(false);
 const isSignInDisabled = ref(false);
+
+const emailRules = ref([
+  (v) => !!v || "E-mail is required",
+  (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+]);
+
+const passwordRules = ref([
+  (v) => !!v || "Password is required",
+  (v) => (v && v.length <= 10) || "Password must be less than 10 characters",
+]);
 
 const isFormValid = ref(true);
 const email = ref("");
@@ -143,13 +170,25 @@ const rules = reactive({
   required: (value) => (value && Boolean(value)) || "Required",
 });
 
-const submit = () => {};
+const submit = () => {
+  if (refLoginForm.value.validate()) {
+    isLoading.value = true;
+    isSignInDisabled.value = true;
+    signIn(email.value, password.value);
+  }
+};
 
 const signIn = (email, password) => {
-  this.$router.push("/");
+  // TODO API CALL
+  router.push({
+    name: "home",
+  });
 };
 
 const signInProvider = (provider) => {};
 
-const resetErrors = () => {};
+const resetErrors = () => {
+  error.value = false;
+  errorMessages.value = "";
+};
 </script>
