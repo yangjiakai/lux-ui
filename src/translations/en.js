@@ -22,6 +22,17 @@ export default {
     create: "Create one here",
     error: "The email / password combination is invalid",
   },
+  register: {
+    title: "Create Account",
+    name: "Full name",
+    email: "Email",
+    password: "Password",
+    button: "Create Account",
+    orsign: "Or sign up with",
+    agree: "By signing up, you agree to the",
+    account: "Already have an account?",
+    signin: "Sign In",
+  },
   menu: {
     search: 'Search (press "ctrl + /" to focus)',
     dashboard: "Dashboard",

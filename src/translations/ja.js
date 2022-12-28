@@ -22,6 +22,17 @@ export default {
     create: "ここで作成します",
     error: "メールとパスワードの組み合わせが無効です",
   },
+  register: {
+    title: "アカウントを作成する",
+    name: "フルネーム",
+    email: "Eメール",
+    password: "パスワード",
+    button: "アカウントを作成する",
+    orsign: "またはでサインアップ",
+    agree: "サインアップすると、",
+    account: "すでにアカウントをお持ちですか？",
+    signin: "サインイン",
+  },
   menu: {
     search: "検索（フォーカスするには「ctrl + /」を押します）",
     dashboard: "ダッシュボード",

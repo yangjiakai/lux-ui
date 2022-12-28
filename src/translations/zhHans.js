@@ -22,6 +22,17 @@ export default {
     create: "在此处创建一个",
     error: "电子邮件/密码组合无效",
   },
+  register: {
+    title: "创建帐号",
+    name: "全名",
+    email: "电子邮件",
+    password: "密码",
+    button: "创建帐号",
+    orsign: "或注册",
+    agree: "签署即表示您同意",
+    account: "已经有帐号了？",
+    signin: "登录",
+  },
   menu: {
     search: "搜索（按“ Ctrl + /”进行聚焦）",
     dashboard: "仪表板",

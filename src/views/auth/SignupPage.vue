@@ -1,7 +1,9 @@
 <template>
   <v-card class="pa-3" elevation="3">
-    <v-card-title primary-title class="my-4 text-h4"> Welcome </v-card-title>
-    <v-card-subtitle>Sign in to your account</v-card-subtitle>
+    <v-card-title primary-title class="my-4 text-h4">
+      {{ t("$vuetify.register.title") }}
+    </v-card-title>
+    <v-card-subtitle>Let's build amazing products</v-card-subtitle>
     <!-- sign in form -->
 
     <v-card-text>
@@ -12,11 +14,28 @@
         lazy-validation
       >
         <v-text-field
+          ref="refUsername"
+          v-model="username"
+          required
+          :error="error"
+          :label="t('$vuetify.register.name')"
+          :density="formStyle.density"
+          :variant="formStyle.variant"
+          :color="formStyle.borderColor"
+          :bg-color="formStyle.bgColor"
+          :rules="usernameRules"
+          name="username"
+          outlined
+          validateOn="blur"
+          @keyup.enter="submit"
+          @change="resetErrors"
+        ></v-text-field>
+        <v-text-field
           ref="refEmail"
           v-model="email"
           required
           :error="error"
-          :label="t('$vuetify.login.email')"
+          :label="t('$vuetify.register.email')"
           :density="formStyle.density"
           :variant="formStyle.variant"
           :color="formStyle.borderColor"
@@ -35,7 +54,7 @@
           :type="showPassword ? 'text' : 'password'"
           :error="error"
           :error-messages="errorMessages"
-          :label="t('$vuetify.login.password')"
+          :label="t('$vuetify.register.password')"
           :density="formStyle.density"
           :variant="formStyle.variant"
           :color="formStyle.borderColor"
@@ -56,13 +75,13 @@
           color="primary"
           @click="submit"
           class="mt-2"
-          >{{ t("$vuetify.login.button") }}</v-btn
+          >{{ t("$vuetify.register.button") }}</v-btn
         >
 
         <div
           class="text-grey text-center text-caption font-weight-bold text-uppercase my-5"
         >
-          {{ t("$vuetify.login.orsign") }}
+          {{ t("$vuetify.register.orsign") }}
         </div>
 
         <!-- external providers list -->
@@ -87,22 +106,28 @@
           Facebook
         </v-btn>
 
-        <div v-if="errorProvider" class="error--text my-2">
+        <div v-if="errorProvider" class="error--text my-5">
           {{ errorProviderMessages }}
         </div>
 
-        <div class="mt-5 text-center">
-          <router-link class="text-primary" to="/auth/forgot-password">
-            {{ t("$vuetify.login.forgot") }}
-          </router-link>
+        <div class="my-5 text-center">
+          {{ t("$vuetify.register.agree") }}
+          <br />
+          <router-link class="text-primary" to="">{{
+            t("$vuetify.common.tos")
+          }}</router-link>
+          &
+          <router-link class="text-primary" to="">{{
+            t("$vuetify.common.policy")
+          }}</router-link>
         </div>
       </v-form></v-card-text
     >
   </v-card>
   <div class="text-center mt-6">
-    {{ t("$vuetify.login.noaccount") }}
-    <router-link to="/auth/signup" class="text-primary font-weight-bold">
-      {{ t("$vuetify.login.create") }}
+    {{ t("$vuetify.register.account") }}
+    <router-link to="/auth/signin" class="text-primary font-weight-bold">
+      {{ t("$vuetify.register.signin") }}
     </router-link>
   </div>
 </template>
@@ -116,6 +141,7 @@ const { t } = useLocale();
 
 //
 const refLoginForm = ref(null);
+const refUsername = ref(null);
 const refEmail = ref(null);
 const refPassword = ref(null);
 
@@ -126,6 +152,11 @@ const isSignInDisabled = ref(false);
 const emailRules = ref([
   (v) => !!v || "E-mail is required",
   (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+]);
+
+const usernameRules = ref([
+  (v) => !!v || "Password is required",
+  (v) => (v && v.length <= 10) || "Password must be less than 10 characters",
 ]);
 
 const passwordRules = ref([
