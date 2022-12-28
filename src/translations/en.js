@@ -61,6 +61,7 @@ export default {
     feedback: "Feedback",
     support: "Support",
     landingPage: "Landing Page",
+    pricingPage: "Pricing Page",
     childBinding: "Child Binding",
     colors: "Colors",
     grids: "Grid",

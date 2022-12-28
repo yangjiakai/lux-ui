@@ -4,11 +4,13 @@
       class="layout-side d-none d-md-flex flex-column justify-space-between"
     >
       <div class="mt-3 mt-md-10 pa-2">
-        <div class="display-2 font-weight-bold primary--text">Vuetify3</div>
+        <div class="text-primary text-h4 font-weight-bold primary--text">
+          Lux Vuetify3 Admin
+        </div>
         <div class="title my-2">
           Welcome! Let's build amazing things together.
         </div>
-        <v-btn to="/" class="my-4">Take me back</v-btn>
+        <v-btn to="/" class="my-5">Take me back</v-btn>
       </div>
     </v-sheet>
     <v-sheet
@@ -18,7 +20,7 @@
       <div class="layout-content ma-auto w-full">
         <slot></slot>
       </div>
-      <div class="overline mt-4">Vuetify - 3.2</div>
+      <div class="mt-4">Vue3.2 & Vuetify - 3.0.5</div>
     </v-sheet>
   </div>
 </template>

@@ -8,14 +8,6 @@
       </router-view>
     </component>
     <!-- <component :is="currentLayout"  v-if="isRouterLoaded"></component> -->
-    <v-btn
-      prepend-icon="mdi-cloud-upload"
-      class="goHome"
-      to="/"
-      color="rgba(0,0,0,.2)"
-    >
-      回到首页</v-btn
-    >
   </v-app>
 </template>
 
@@ -54,12 +46,6 @@ const currentLayout = computed(() => {
 
 a {
   text-decoration: none;
-}
-
-.goHome {
-  position: fixed;
-  right: 0;
-  bottom: 5%;
 }
 
 /**

@@ -1,8 +1,8 @@
 import en from "../translations/en";
-import zh from "../translations/zh";
+import zhHans from "../translations/zhHans";
 import ja from "../translations/ja";
 
-const supported = ["en", "zh", "ja"];
+const supported = ["en", "zhHans", "ja"];
 let locale = "en";
 
 try {
@@ -30,10 +30,10 @@ export default {
       messages: en,
     },
     {
-      code: "zh",
+      code: "zhHans",
       flag: "cn",
       label: "中文",
-      messages: zh,
+      messages: zhHans,
     },
     {
       code: "ja",
