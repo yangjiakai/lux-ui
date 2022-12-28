@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app id="app">
     <component :is="currentLayout" v-if="isRouterLoaded">
       <router-view v-slot="{ Component }">
         <transition name="fade">
@@ -48,6 +48,10 @@ const currentLayout = computed(() => {
 </script>
 
 <style scoped>
+#app {
+  font-family: "Quicksand", sans-serif;
+}
+
 a {
   text-decoration: none;
 }

@@ -49,6 +49,18 @@
                   cover
                   :aspect-ratio="2 / 3"
                 >
+                  <template v-slot:placeholder>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-progress-circular
+                        indeterminate
+                        color="grey-lighten-5"
+                      ></v-progress-circular>
+                    </v-row>
+                  </template>
                   <v-card-title
                     class="d-flex justify-space-between align-center"
                     >No.{{ item.index }}

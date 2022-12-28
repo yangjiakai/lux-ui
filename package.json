@@ -9,7 +9,9 @@
   "dependencies": {
     "@mdi/font": "7.0.96",
     "@vueuse/core": "^9.6.0",
+    "@vueuse/integrations": "^9.9.0",
     "@yeger/vue-masonry-wall": "^3.4.2",
+    "axios": "^1.2.1",
     "flag-icons": "^6.6.6",
     "perfect-scrollbar": "^1.5.5",
     "roboto-fontface": "*",
@@ -21,6 +23,7 @@
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.2.1",
     "@vitejs/plugin-vue": "^3.0.3",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.20",

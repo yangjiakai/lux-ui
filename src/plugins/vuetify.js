@@ -32,6 +32,7 @@ export default createVuetify({
         },
       },
     },
+    variables: {},
   },
   locale: {
     locale: locale,
