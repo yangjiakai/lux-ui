@@ -71,6 +71,7 @@
           block
           size="x-large"
           to="/"
+          :disabled="isSignInDisabled"
         >
           <Icon icon="logos:google-icon" class="mr-3 my-2" />
           Google
@@ -80,6 +81,7 @@
           block
           size="x-large"
           to="/"
+          :disabled="isSignInDisabled"
         >
           <Icon icon="logos:facebook" class="mr-3" />
           Facebook
@@ -170,19 +172,30 @@ const rules = reactive({
   required: (value) => (value && Boolean(value)) || "Required",
 });
 
-const submit = () => {
-  if (refLoginForm.value.validate()) {
+const validate = async () => {
+  const { valid } = await refLoginForm.value.validate();
+  console.log(valid);
+  return valid;
+};
+
+const submit = async () => {
+  const { valid } = await refLoginForm.value.validate();
+  if (valid) {
     isLoading.value = true;
     isSignInDisabled.value = true;
     signIn(email.value, password.value);
+  } else {
+    console.log("no");
   }
 };
 
 const signIn = (email, password) => {
   // TODO API CALL
-  router.push({
-    name: "home",
-  });
+  setTimeout(() => {
+    router.push({
+      name: "home",
+    });
+  }, 2000);
 };
 
 const signInProvider = (provider) => {};
