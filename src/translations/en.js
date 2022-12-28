@@ -1,7 +1,26 @@
 export default {
   common: {
-    description: "Description",
+    add: "Add",
+    cancel: "Cancel",
+    save: "Save",
+    delete: "Delete",
     title: "Title",
+    description: "Description",
+    faq: "FAQ",
+    contact: "Contact Us",
+    tos: "Terms of Service",
+    policy: "Privacy Policy",
+  },
+  login: {
+    title: "Sign In",
+    email: "Email",
+    password: "Password",
+    button: "Sign In",
+    orsign: "Or sign in with",
+    forgot: "Forgot password?",
+    noaccount: "Don't have an account?",
+    create: "Create one here",
+    error: "The email / password combination is invalid",
   },
   menu: {
     search: 'Search (press "ctrl + /" to focus)',

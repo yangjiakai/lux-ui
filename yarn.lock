@@ -12,6 +12,18 @@
   "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-6.2.1.tgz"
   "version" "6.2.1"
 
+"@iconify/types@^2.0.0":
+  "integrity" "sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg=="
+  "resolved" "https://registry.npmjs.org/@iconify/types/-/types-2.0.0.tgz"
+  "version" "2.0.0"
+
+"@iconify/vue@^4.0.2":
+  "integrity" "sha512-LRp+mYh8N0bcX4lustHtI5o1aEoio9HN3/19uIzVOvI78qopKBjzsDK5hkEZYDSc6+LKG8hfLxTxpW8CejXGZg=="
+  "resolved" "https://registry.npmjs.org/@iconify/vue/-/vue-4.0.2.tgz"
+  "version" "4.0.2"
+  dependencies:
+    "@iconify/types" "^2.0.0"
+
 "@mdi/font@7.0.96":
   "integrity" "sha512-rzlxTfR64hqY8yiBzDjmANfcd8rv+T5C0Yedv/TWk2QyAQYdc66e0kaN1ipmnYU3RukHRTRcBARHzzm+tIhL7w=="
   "resolved" "https://registry.npmjs.org/@mdi/font/-/font-7.0.96.tgz"
@@ -1006,7 +1018,7 @@
     "vue-observe-visibility" "^2.0.0-alpha.1"
     "vue-resize" "^2.0.0-alpha.1"
 
-"vue@^2.0.0 || >=3.0.0", "vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.38", "vue@3.2.45":
+"vue@^2.0.0 || >=3.0.0", "vue@^3.0.0", "vue@^3.0.0-0 || ^2.6.0", "vue@^3.2.0", "vue@^3.2.25", "vue@^3.2.38", "vue@>=3", "vue@3.2.45":
   "integrity" "sha512-9Nx/Mg2b2xWlXykmCwiTUCWHbWIj53bnkizBxKai1g61f2Xit700A1ljowpTIM11e3uipOeiPcSqnmBg6gyiaA=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.45.tgz"
   "version" "3.2.45"
