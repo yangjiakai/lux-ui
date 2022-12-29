@@ -39,7 +39,7 @@ export default {
     logout: "登出",
     profile: "个人资料",
     blank: "空白页",
-    pages: "页数",
+    pages: "页面",
     others: "其他",
     email: "电子邮件",
     chat: "聊天室",

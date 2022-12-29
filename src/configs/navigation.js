@@ -30,7 +30,7 @@ export default {
           link: "/landing",
         },
         {
-          icon: "mdi-cash-usd-outline",
+          icon: "mdi-currency-usd",
           key: "menu.pricingPage",
           text: "Pricing Page",
           link: "/landing/pricing",

@@ -35,4 +35,26 @@ export default [
       title: "VerifyEmail",
     },
   },
+  {
+    path: "/auth/forgot-password",
+    name: "auth-forgot",
+    component: () =>
+      import(
+        /* webpackChunkName: "auth-forgot" */ "@/views/auth/ForgotPage.vue"
+      ),
+    meta: {
+      layout: "auth",
+      title: "ForgotPage",
+    },
+  },
+  {
+    path: "/auth/reset-password",
+    name: "auth-reset",
+    component: () =>
+      import(/* webpackChunkName: "auth-reset" */ "@/views/auth/ResetPage.vue"),
+    meta: {
+      layout: "auth",
+      title: "ResetPage",
+    },
+  },
 ];

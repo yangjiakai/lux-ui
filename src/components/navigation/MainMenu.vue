@@ -2,7 +2,7 @@
   <v-list nav dense color="primary">
     <template v-for="(menuArea, index) in menu" :key="index">
       <div v-if="menuArea.key || menuArea.text" class="pa-1 mt-2 text-overline">
-        {{ menuArea.key ? menuArea.key : menuArea.text }}
+        {{ menuArea.key ? t(`$vuetify.${menuArea.key}`) : menuArea.text }}
       </div>
       <template v-if="menuArea.items">
         <template
