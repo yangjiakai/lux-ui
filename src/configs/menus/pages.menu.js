@@ -6,16 +6,22 @@ export default [
     regex: /^\/auth/,
     items: [
       {
-        icon: "mdi-file-outline",
+        icon: "mdi-login",
         key: "menu.authLogin",
         text: "Signin / Login",
         link: "/auth/signin",
       },
       {
-        icon: "mdi-file-outline",
+        icon: "mdi-logout",
         key: "menu.authRegister",
         text: "Signup / Register",
         link: "/auth/signup",
+      },
+      {
+        icon: "mdi-email-check",
+        key: "menu.authVerify",
+        text: "Signup / AuthVerify",
+        link: "/auth/verify-email",
       },
     ],
   },

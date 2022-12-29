@@ -23,4 +23,16 @@ export default [
       title: "SignUp",
     },
   },
+  {
+    path: "/auth/verify-email",
+    name: "verify-email",
+    component: () =>
+      import(
+        /* webpackChunkName: "verify-email" */ "@/views/auth/VerifyEmailPage.vue"
+      ),
+    meta: {
+      layout: "auth",
+      title: "VerifyEmail",
+    },
+  },
 ];
