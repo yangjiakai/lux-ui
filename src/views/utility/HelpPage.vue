@@ -13,13 +13,10 @@
     <v-row>
       <v-col cols="12" md="3" xl="2">
         <div class="text-subtitle-1 my-5 ml-2">Contents</div>
-        <div v-for="faq in computedFaqs" :id="faq.id" :key="faq.id">
-          <v-btn
-            variant="text"
-            color="primary"
-            @click="$vuetify.goTo(`#${faq.id}`, { offset: 30 })"
-            >{{ faq.title }}</v-btn
-          >
+        <div v-for="faq in computedFaqs" :key="faq.id">
+          <v-btn variant="text" color="primary" @click="goTo(faq.id)">{{
+            faq.title
+          }}</v-btn>
         </div>
       </v-col>
       <v-col cols="12" md="9" xl="10">
@@ -43,6 +40,8 @@
 
 <script setup>
 import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 const searchKey = ref("");
 const loaded = ref(false);
 const loading = ref(false);
@@ -136,6 +135,10 @@ const search = () => {
     loading.value = false;
     loaded.value = true;
   }, 2000);
+};
+
+const goTo = (id) => {
+  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 };
 </script>
 
