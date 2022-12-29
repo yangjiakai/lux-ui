@@ -50,9 +50,7 @@
           <v-container>
             <PageTitle></PageTitle>
             <Breadcrumb></Breadcrumb>
-            <v-card elevation="6">
-              <slot></slot>
-            </v-card>
+            <slot></slot>
           </v-container>
         </v-layout>
       </v-container>

@@ -31,7 +31,6 @@ export default [
         /* webpackChunkName: "utility-help" */ "@/views/utility/HelpPage.vue"
       ),
     meta: {
-      layout: "auth",
       title: "Help",
     },
   },
