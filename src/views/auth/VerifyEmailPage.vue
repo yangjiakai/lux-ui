@@ -17,10 +17,17 @@
   </v-card>
 </template>
 <script setup>
+/*
+|---------------------------------------------------------------------
+| Verify Email Page Component
+|---------------------------------------------------------------------
+|
+| Template to wait for the verification on the user email
+|
+*/
 import { onMounted, ref, onUnmounted } from "vue";
 
 const TIMEOUT = 5;
-
 const isLoading = ref(false);
 const disabled = ref(true);
 const times = ref(0);
