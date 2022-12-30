@@ -1,10 +1,14 @@
 <template>
   <div>
-    <v-card height="300">
-      <h1>Landing Page</h1>
-    </v-card>
-    <v-card>
+    <v-app-bar app>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <v-toolbar-title>Vuetify</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+      <v-btn to="/" color="dark-grey">Home</v-btn>
+    </v-app-bar>
+    <v-main app>
       <slot></slot>
-    </v-card>
+    </v-main>
   </div>
 </template>
