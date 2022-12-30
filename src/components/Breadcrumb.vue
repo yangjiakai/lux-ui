@@ -25,7 +25,7 @@ watchEffect(() => {
   if (route.meta && route.meta.title) {
     breadcrumbs.value = [
       {
-        title: route.meta.layout,
+        title: route.meta.category,
         disabled: false,
       },
       { title: route.meta.title, disabled: true },

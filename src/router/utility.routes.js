@@ -32,6 +32,7 @@ export default [
       ),
     meta: {
       title: "Help",
+      category: "Utility",
     },
   },
 ];

@@ -12,7 +12,7 @@
 
     <v-row>
       <v-col cols="12" md="3" xl="2">
-        <div class="text-subtitle-1 my-5 ml-2">Contents</div>
+        <div class="text-subtitle-1 my-5 ml-2">Category</div>
         <div v-for="faq in computedFaqs" :key="faq.id">
           <v-btn variant="text" color="primary" @click="goTo(faq.id)">{{
             faq.title
