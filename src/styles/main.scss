@@ -1,105 +1,107 @@
-$primary-color: #41b883;
-
 // enforce font globally
 *,
 html,
 body {
   font-family: "Quicksand", sans-serif !important;
-	-webkit-font-smoothing: antialiased !important;
+  -webkit-font-smoothing: antialiased !important;
 }
 
 // Theme gradients
 .gradient {
-	&.primary {
-		color: white;
-		background: linear-gradient(
-			318deg,
-			rgba(67, 56, 202, 1) 12%,
-			rgba(79, 70, 229, 1) 38%,
-			rgba(99, 102, 241, 1) 100%
-		) !important;
-	}
-	&.cancel {
-		// color: #1e293b;
-		background: linear-gradient(
-			318deg,
-			rgba(203, 213, 225, 1) 12%,
-			rgba(226, 232, 240, 1) 38%,
-			rgba(241, 245, 249, 1) 100%
-		) !important;
-	}
-	&.success {
-		color: white;
-		background: linear-gradient(
-			318deg,
-			rgba(21, 128, 61, 1) 12%,
-			rgba(22, 163, 74, 1) 38%,
-			rgba(34, 197, 94, 1) 100%
-		) !important;
-	}
-	&.info {
-		color: white;
-		background: linear-gradient(
-			318deg,
-			rgba(30, 64, 175, 1) 12%,
-			rgba(37, 99, 235, 1) 38%,
-			rgba(59, 130, 246, 1) 100%
-		) !important;
-	}
-	&.warn {
-		color: white;
-		background: linear-gradient(
-			318deg,
-			rgba(180, 83, 9, 1) 12%,
-			rgba(217, 119, 6, 1) 38%,
-			rgba(245, 158, 11, 1) 100%
-		) !important;
-	}
-	&.error {
-		color: white;
-		background: linear-gradient(
-			318deg,
-			rgba(153, 27, 27, 1) 12%,
-			rgba(220, 38, 38, 1) 38%,
-			rgba(248, 113, 113, 1) 100%
-		) !important;
-	}
-	&.gray {
-		color: white;
-		background: linear-gradient(
-			318deg,
-			rgba(30, 41, 59, 1) 12%,
-			rgba(44, 55, 74, 1) 38%,
-			rgba(71, 85, 105, 1) 100%
-		) !important;
-	}
+  &.primary {
+    color: white;
+    background: linear-gradient(
+      318deg,
+      rgba(67, 56, 202, 1) 12%,
+      rgba(79, 70, 229, 1) 38%,
+      rgba(99, 102, 241, 1) 100%
+    ) !important;
+  }
+  &.cancel {
+    // color: #1e293b;
+    background: linear-gradient(
+      318deg,
+      rgba(203, 213, 225, 1) 12%,
+      rgba(226, 232, 240, 1) 38%,
+      rgba(241, 245, 249, 1) 100%
+    ) !important;
+  }
+  &.success {
+    color: white;
+    background: linear-gradient(
+      318deg,
+      rgba(21, 128, 61, 1) 12%,
+      rgba(22, 163, 74, 1) 38%,
+      rgba(34, 197, 94, 1) 100%
+    ) !important;
+  }
+  &.info {
+    color: white;
+    background: linear-gradient(
+      318deg,
+      rgba(30, 64, 175, 1) 12%,
+      rgba(37, 99, 235, 1) 38%,
+      rgba(59, 130, 246, 1) 100%
+    ) !important;
+  }
+  &.warn {
+    color: white;
+    background: linear-gradient(
+      318deg,
+      rgba(180, 83, 9, 1) 12%,
+      rgba(217, 119, 6, 1) 38%,
+      rgba(245, 158, 11, 1) 100%
+    ) !important;
+  }
+  &.error {
+    color: white;
+    background: linear-gradient(
+      318deg,
+      rgba(153, 27, 27, 1) 12%,
+      rgba(220, 38, 38, 1) 38%,
+      rgba(248, 113, 113, 1) 100%
+    ) !important;
+  }
+  &.gray {
+    color: white;
+    background: linear-gradient(
+      318deg,
+      rgba(30, 41, 59, 1) 12%,
+      rgba(44, 55, 74, 1) 38%,
+      rgba(71, 85, 105, 1) 100%
+    ) !important;
+  }
 }
 
 // tables beautify
-.v-table,.v-data-table {
-    table {
-      padding: 4px;
-      padding-bottom: 8px;
-  
-      th {
-        text-transform: uppercase;
-        white-space: nowrap;
-      }
-  
-      td {
-        border-bottom: 0 !important;
-      }
-  
-      tbody {
-        tr {
-          transition: box-shadow 0.2s, transform 0.2s;
-  
-          &:not(.v-data-table__selected):hover {
-            box-shadow: 0 3px 15px -2px rgba(0, 0, 0, 0.12);
-            transform: translateY(-4px);
-          }
+.v-table,
+.v-data-table {
+  table {
+    padding: 4px;
+    padding-bottom: 8px;
+
+    th {
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    td {
+      border-bottom: 0 !important;
+    }
+
+    tbody {
+      tr {
+        transition: box-shadow 0.2s, transform 0.2s;
+
+        &:not(.v-data-table__selected):hover {
+          box-shadow: 0 3px 15px -2px rgba(0, 0, 0, 0.12);
+          transform: translateY(-4px);
         }
       }
     }
   }
+}
 
+.v-btn {
+  text-transform: capitalize;
+}

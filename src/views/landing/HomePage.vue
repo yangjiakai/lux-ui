@@ -3,18 +3,16 @@
     <v-container style="max-width: 1400px" grid-list-xs>
       <v-row>
         <v-col cols="12" md="4">
-          <h1 class="text-h5 my-5 text-white d-flex align-center">
+          <h1 class="text-h5 my-5 d-flex align-center text-title">
             <Icon icon="logos:webix-icon" class="mr-3 my-2" />News
           </h1>
           <v-card
             class="my-5 pa-3"
             v-for="card in newsCards"
             :key="card.id"
-            color="#292944"
-            style="color: rgba(255, 255, 255, 0.6)"
-            theme="dark"
+            color="primary"
           >
-            <v-card-text>
+            <v-card-text class="text-content">
               <v-row align="center" no-gutters>
                 <v-col cols="2" class="text-left">
                   <Icon :icon="card.icon" class="text-h4" />
@@ -28,14 +26,14 @@
                   <span>12:24</span>
                 </v-col>
                 <v-col class="text-h5 text-right" cols="9">
-                  <v-btn variant="text" color="#6180E0">Read➧</v-btn>
+                  <v-btn variant="text" color="accent">Read➧</v-btn>
                 </v-col>
               </v-row>
             </v-card-text>
           </v-card>
         </v-col>
         <v-col cols="12" md="8" class="text-left">
-          <h1 class="text-h5 my-5 text-white d-flex align-center">
+          <h1 class="text-h5 my-5 d-flex align-center text-title">
             <Icon icon="logos:archlinux" class="mr-3 my-2" />TimeLine
           </h1>
           <v-card class="my-card" height="200">
@@ -47,7 +45,11 @@
               />
               <span>Write something...</span>
               <v-spacer></v-spacer>
-              <v-btn variant="text" icon="mdi-account-search"></v-btn>
+              <v-btn
+                variant="text"
+                icon="mdi-account-search"
+                @click="toggleTheme"
+              ></v-btn>
               <v-btn variant="text" icon="mdi-pin"></v-btn>
             </v-card-text>
             <v-card-actions class="my-card-actions">
@@ -77,6 +79,14 @@
 
 <script setup>
 import { Icon } from "@iconify/vue";
+import { reactive } from "@vue/reactivity";
+import { useTheme } from "vuetify";
+
+const theme = useTheme();
+
+const toggleTheme = () => {
+  theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
+};
 const newsCards = [
   {
     id: 1,
@@ -110,22 +120,69 @@ const newsCards = [
       "Help designers/developers building beautiful products more flexible and working with happiness",
   },
 ];
+
+const myTheme = reactive({
+  // primary colors
+  colorPrimary: "#272740",
+  colorPrimaryLight: "#44416d",
+  colorPrimaryDarken: "#1d1f33",
+  // secondary colors
+  colorAccent: "#6386e1",
+  colorInfo: "#24a6c5",
+  colorError: "#e47171",
+  // neutral colors
+  colorTitle: "#FFF",
+  colorContent: "#8381a7",
+  colorBg: "#1d1f33",
+  colorBorder: "#1d1f33",
+  colorDivider: "#1d1f33",
+});
 </script>
 
 <style lang="scss" scoped>
+// primary colors
+$color-primary: #272740;
+$color-primary-light: #44416d;
+$color-primary-darken: #1d1f33;
+// secondary colors
+$color-accent: #6386e1;
+$color-info: #24a6c5;
+$color-error: #e47171;
+// neutral colors
+$color-title: #eeeeee;
+$color-content: #8381a7;
+$color-bg: #1d1f33;
+$color-border: #1d1f33;
+$color-divider: #1d1f33;
+
 .bg {
-  color: rgba(255, 255, 255, 0.6);
+  color: $color-content;
   text-align: left;
   height: 100vh;
-  background-image: linear-gradient(135deg, #1c1e30, #2f3050);
+  // background-image: linear-gradient(135deg, #1c1e30, #2f3050);
 }
 
 .my-card {
-  color: rgba(255, 255, 255, 0.6);
+  color: $color-content;
   margin-bottom: 2rem;
-  background-color: #2b2c47;
+  background-color: $color-primary;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h,
+  .text-h5 {
+    color: $color-title !important;
+  }
+
+  p {
+    color: $color-content;
+  }
+
   .my-card-title {
-    background-color: #323154;
+    background-color: $color-primary-light;
   }
 
   .my-card-text {
@@ -133,7 +190,7 @@ const newsCards = [
   }
 
   .my-card-actions {
-    background-color: #2d2c4a;
+    background-color: $color-primary-light;
   }
 }
 </style>
