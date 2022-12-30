@@ -19,7 +19,7 @@
                 <v-col cols="2" class="text-left">
                   <Icon :icon="card.icon" class="text-h4" />
                 </v-col>
-                <v-col class="text-body-1 text-left" cols="10">
+                <v-col class="text-left" cols="10">
                   {{ card.content }}
                 </v-col>
               </v-row>
@@ -41,7 +41,7 @@
           <v-card class="my-card" height="200">
             <v-card-text class="my-card-text d-flex align-center">
               <Icon
-                 class="mr-4"
+                class="mr-4"
                 icon="logos:browserslist"
                 style="font-size: 2rem"
               />
