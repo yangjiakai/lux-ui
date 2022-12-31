@@ -5,13 +5,17 @@
       <v-toolbar-title>Vuetify</v-toolbar-title>
 
       <v-spacer></v-spacer>
-      <v-switch
-        v-model="theme.global.name"
-        hide-details
-        true-value="dark"
-        false-value="light"
-        :label="`Theme: ${currentTheme}`"
-      ></v-switch>
+      <div class="d-flex align-center">
+        <v-switch
+          v-model="theme.global.name"
+          hide-details
+          true-value="dark"
+          false-value="light"
+          :label="`Theme: ${currentTheme}`"
+          inset
+        ></v-switch>
+      </div>
+
       <v-btn to="/" color="dark-grey">Home</v-btn>
     </v-app-bar>
     <v-main app>
@@ -27,8 +31,7 @@ import { useTheme } from "vuetify";
 const theme = useTheme();
 
 const currentTheme = computed(() => {
-  console.log(theme.global.name.value);
-  return theme.global.name.value;
+  return theme.global.current.value.dark ? "天黑了" : "天亮了";
 });
 
 // onMounted(() => {
