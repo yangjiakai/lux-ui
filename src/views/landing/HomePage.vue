@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex text-center flex-grow-1 bg">
+  <div class="d-flex text-center flex-grow-1 bg-background">
     <v-container style="max-width: 1400px" grid-list-xs>
       <v-row>
         <v-col cols="12" md="4">
@@ -36,13 +36,11 @@
           <h1 class="text-h5 my-5 d-flex align-center text-title">
             <Icon icon="logos:archlinux" class="mr-3 my-2" />TimeLine
           </h1>
-          <v-card class="my-card" height="200">
-            <v-card-text class="my-card-text d-flex align-center">
-              <Icon
-                class="mr-4"
-                icon="logos:browserslist"
-                style="font-size: 2rem"
-              />
+          <!-- Info Card1 -->
+
+          <v-card color="primary" class="info-card">
+            <v-card-text class="d-flex align-center text-content">
+              <Icon class="mr-5 text-h4" icon="logos:browserslist" />
               <span>Write something...</span>
               <v-spacer></v-spacer>
               <v-btn
@@ -52,25 +50,76 @@
               ></v-btn>
               <v-btn variant="text" icon="mdi-pin"></v-btn>
             </v-card-text>
-            <v-card-actions class="my-card-actions">
+            <v-card-actions class="bg-primary-lighten-1 py-5 text-title">
+              <v-checkbox
+                density="default"
+                hide-details
+                label="Checkbox"
+              ></v-checkbox>
+
+              <v-select
+                variant="outlined"
+                placeholder="who can see"
+                density="compact"
+                hide-details
+                class="ml-n10 mr-2"
+                :items="[
+                  'California',
+                  'Colorado',
+                  'Florida',
+                  'Georgia',
+                  'Texas',
+                  'Wyoming',
+                ]"
+              ></v-select>
+              <v-select
+                variant="outlined"
+                placeholder="channel"
+                density="compact"
+                hide-details
+                :items="[
+                  'California',
+                  'Colorado',
+                  'Florida',
+                  'Georgia',
+                  'Texas',
+                  'Wyoming',
+                ]"
+              ></v-select>
+              <v-btn variant="text" icon="mdi-pin"></v-btn>
+              <v-spacer></v-spacer>
+              <v-btn variant="tonal" icon="mdi-heart" color="accent"></v-btn>
+            </v-card-actions>
+          </v-card>
+
+          <!-- Info Card 2 -->
+          <v-card color="primary" class="info-card">
+            <v-card-title class="bg-primary-lighten-1 text-content">
+              <Icon class="mr-5 text-h4" icon="logos:capacitorjs-icon" />
+              <span
+                >Hho has the advantage now? Who do you think will win the
+                election?</span
+              >
+              <v-spacer></v-spacer>
+              <span>9:31 am</span>
+            </v-card-title>
+            <v-card-text class="text-content"> </v-card-text>
+            <v-card-actions class="bg-primary-lighten-1 text-content">
               <v-btn>btn</v-btn>
             </v-card-actions>
           </v-card>
-          <v-card class="my-card" height="300">
-            <v-card-title class="my-card-title"> title </v-card-title>
-            <v-card-text class="my-card-text"> text </v-card-text>
-            <v-card-actions class="my-card-actions">
+          <!-- Info Card3 -->
+          <v-card color="primary" class="info-card">
+            <v-card-title class="bg-primary-lighten-1 text-content">
+              title
+            </v-card-title>
+            <v-card-text class=""> text </v-card-text>
+            <v-card-actions class="bg-primary-lighten-1 text-content">
               <v-btn>btn</v-btn>
             </v-card-actions>
           </v-card>
-          <v-card class="my-card" height="250">
-            <v-card-title class="my-card-title"> title </v-card-title>
-            <v-card-text class="my-card-text"> text </v-card-text>
-            <v-card-actions class="my-card-actions">
-              <v-btn>btn</v-btn>
-            </v-card-actions>
-          </v-card>
-          <v-card class="my-card" height="100"></v-card>
+          <!-- Info Card4 -->
+          <v-card color="primary" class="info-card" height="100"></v-card>
         </v-col>
       </v-row>
     </v-container>
@@ -140,57 +189,33 @@ const myTheme = reactive({
 </script>
 
 <style lang="scss" scoped>
-// primary colors
-$color-primary: #272740;
-$color-primary-light: #44416d;
-$color-primary-darken: #1d1f33;
-// secondary colors
-$color-accent: #6386e1;
-$color-info: #24a6c5;
-$color-error: #e47171;
-// neutral colors
-$color-title: #eeeeee;
-$color-content: #8381a7;
-$color-bg: #1d1f33;
-$color-border: #1d1f33;
-$color-divider: #1d1f33;
-
 .bg {
-  color: $color-content;
   text-align: left;
   height: 100vh;
   // background-image: linear-gradient(135deg, #1c1e30, #2f3050);
 }
 
-.my-card {
-  color: $color-content;
+.info-card {
   margin-bottom: 2rem;
-  background-color: $color-primary;
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h,
-  .text-h5 {
-    color: $color-title !important;
+  .v-card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    font-size: 1rem;
   }
 
-  p {
-    color: $color-content;
+  .v-card-text {
+    padding: 2rem;
   }
 
-  .my-card-title {
-    background-color: $color-primary-light;
-  }
-
-  .my-card-text {
-    padding: 1rem;
-  }
-
-  .my-card-actions {
-    background-color: $color-primary-light;
+  .v-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    font-size: 1rem;
   }
 }
 </style>
