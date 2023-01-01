@@ -147,25 +147,82 @@
                   </v-radio>
                 </v-radio-group>
                 <div class="d-flex justify-space-between align-center">
-                  <span>9850 votes。Final result</span>
+                  <span>9850 votes.Final result</span>
                   <v-btn variant="outlined" color="accent">Vote</v-btn>
                 </div>
               </div>
             </v-card-text>
             <v-card-actions class="bg-primary-lighten-1 text-content">
-              <v-btn prepend-icon="mdi-heart">Like</v-btn>
-              <v-btn prepend-icon="mdi-comment">Comment</v-btn>
-              <v-btn prepend-icon="mdi-share">Share</v-btn>
+              <v-btn prepend-icon="mdi-heart"> Like(2.7k)</v-btn>
+              <v-btn prepend-icon="mdi-comment">CommentLike(35)</v-btn>
+              <v-btn prepend-icon="mdi-share">ShareLike(99)</v-btn>
             </v-card-actions>
           </v-card>
           <!-- Info Card3 -->
           <v-card color="primary" class="info-card">
             <v-card-title class="bg-primary-lighten-1 text-content">
-              title
+              <Icon class="mr-5 text-h4" icon="logos:engine-yard-icon" />
+              <div>
+                <p>
+                  <span class="text-accent">Elon Mask</span> shared a
+                  <span class="text-accent">link</span>
+                </p>
+                <p>
+                  Who has the advantage now? Who do you think will win the
+                  election?
+                </p>
+              </div>
+              <v-spacer></v-spacer>
+              <span>9:31 am</span>
             </v-card-title>
-            <v-card-text class=""> text </v-card-text>
+            <v-card-text class="">
+              <v-card color="primary-lighten-1">
+                <v-img
+                  class="align-end text-white"
+                  height="200"
+                  src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                  cover
+                >
+                  <v-card-title>Top 10 Australian beaches</v-card-title>
+                </v-img>
+                <v-card-subtitle class="pt-4"> Number 10 </v-card-subtitle>
+
+                <v-card-text>
+                  <div>Whitehaven Beach</div>
+
+                  <div>Whitsunday Island, Whitsunday Islands</div>
+                </v-card-text>
+              </v-card>
+
+              <v-card class="d-flex mt-5" color="primary-lighten-1">
+                <v-img
+                  max-width="200"
+                  aspect-ratio="1"
+                  cover
+                  src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+                >
+                </v-img>
+
+                <div class="pa-2 flex-1">
+                  <v-card-subtitle class="pt-4"> Number 10 </v-card-subtitle>
+                  <v-card-text>
+                    <div>Whitehaven BeachAA</div>
+                    <div>Whitsunday Island, Whitsunday Islands</div>
+                  </v-card-text>
+                  <v-card-actions>
+                    <span>Nov.1.2016</span>
+                    <v-spacer></v-spacer>
+                    <span class="text-accent">BBC.COM</span>
+                  </v-card-actions>
+                </div>
+              </v-card>
+            </v-card-text>
             <v-card-actions class="bg-primary-lighten-1 text-content">
-              <v-btn>btn</v-btn>
+              <v-btn color="#D84B82" prepend-icon="mdi-heart">
+                Like(2.7k)</v-btn
+              >
+              <v-btn prepend-icon="mdi-comment">CommentLike(35)</v-btn>
+              <v-btn prepend-icon="mdi-share">ShareLike(99)</v-btn>
             </v-card-actions>
           </v-card>
           <!-- Info Card4 -->
@@ -264,9 +321,8 @@ const myTheme = reactive({
 
   .v-card-actions {
     display: flex;
-
     align-items: center;
-    padding: 1.5rem;
+    padding: 1.5rem 2rem;
     font-size: 1rem;
   }
 }
