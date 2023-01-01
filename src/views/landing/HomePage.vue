@@ -226,7 +226,24 @@
             </v-card-actions>
           </v-card>
           <!-- Info Card4 -->
-          <v-card color="primary" class="info-card" height="100"></v-card>
+          <v-card
+            color="primary"
+            class="info-card d-flex justify-space-between align-center pa-5 text-content"
+          >
+            <v-avatar size="50" color="red">
+              <v-img
+                src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+              ></v-img>
+            </v-avatar>
+            <span class="text-h4 mx-5">67903</span>
+            <div class="flex-1 text-content">
+              people viewed your profile in the past 90 days
+            </div>
+            <v-img
+              max-width="50"
+              src="https://cdn.vuetifyjs.com/images/cards/foster.jpg"
+            ></v-img>
+          </v-card>
         </v-col>
       </v-row>
     </v-container>
