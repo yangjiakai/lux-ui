@@ -37,7 +37,6 @@
             <Icon icon="logos:archlinux" class="mr-3 my-2" />TimeLine
           </h1>
           <!-- Info Card1 -->
-
           <v-card color="primary" class="info-card">
             <v-card-text class="d-flex align-center text-content">
               <Icon class="mr-5 text-h4" icon="logos:browserslist" />
@@ -103,9 +102,60 @@
               <v-spacer></v-spacer>
               <span>9:31 am</span>
             </v-card-title>
-            <v-card-text class="text-content"> </v-card-text>
+            <v-card-text class="text-content">
+              <div>
+                <v-radio-group color="accent" v-model="favoriteRadios">
+                  <template v-slot:label>
+                    <div>Your favorite <strong>search engine</strong></div>
+                  </template>
+                  <v-radio value="Google">
+                    <template v-slot:label>
+                      <v-row align="center">
+                        <v-col cols="3">
+                          <span> Of course it's</span>
+                          <strong class="text-info">Google</strong></v-col
+                        >
+                        <v-col cols="6">
+                          <v-progress-linear
+                            model-value="79"
+                            color="#E89888"
+                            rounded
+                          ></v-progress-linear
+                        ></v-col>
+                        <v-col cols="3">79%</v-col>
+                      </v-row>
+                    </template>
+                  </v-radio>
+                  <v-radio value="Duckduckgo">
+                    <template v-slot:label>
+                      <v-row align="center">
+                        <v-col cols="3">
+                          <span> Of course it's</span>
+                          <strong class="text-info">Meta</strong></v-col
+                        >
+                        <v-col cols="6">
+                          <v-progress-linear
+                            model-value="21"
+                            color="#B931F0"
+                            rounded
+                          ></v-progress-linear
+                        ></v-col>
+                        <v-col cols="3">70%</v-col>
+                      </v-row>
+                      <div></div>
+                    </template>
+                  </v-radio>
+                </v-radio-group>
+                <div class="d-flex justify-space-between align-center">
+                  <span>9850 votes。Final result</span>
+                  <v-btn variant="outlined" color="accent">Vote</v-btn>
+                </div>
+              </div>
+            </v-card-text>
             <v-card-actions class="bg-primary-lighten-1 text-content">
-              <v-btn>btn</v-btn>
+              <v-btn prepend-icon="mdi-heart">Like</v-btn>
+              <v-btn prepend-icon="mdi-comment">Comment</v-btn>
+              <v-btn prepend-icon="mdi-share">Share</v-btn>
             </v-card-actions>
           </v-card>
           <!-- Info Card3 -->
@@ -128,7 +178,7 @@
 
 <script setup>
 import { Icon } from "@iconify/vue";
-import { reactive } from "@vue/reactivity";
+import { ref, reactive } from "vue";
 import { useTheme } from "vuetify";
 
 const theme = useTheme();
@@ -169,6 +219,8 @@ const newsCards = [
       "Help designers/developers building beautiful products more flexible and working with happiness",
   },
 ];
+
+const favoriteRadios = ref("Duckduckgo");
 
 const myTheme = reactive({
   // primary colors
@@ -212,9 +264,9 @@ const myTheme = reactive({
 
   .v-card-actions {
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
-    padding: 2rem;
+    padding: 1.5rem;
     font-size: 1rem;
   }
 }
