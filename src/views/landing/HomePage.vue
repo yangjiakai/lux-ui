@@ -318,6 +318,7 @@ const myTheme = reactive({
 .bg {
   text-align: left;
   height: 100vh;
+  // 更新
   // background-image: linear-gradient(135deg, #1c1e30, #2f3050);
 }
 
