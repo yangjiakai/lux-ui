@@ -21,12 +21,14 @@
     <v-main app>
       <slot></slot>
     </v-main>
+    <CustomizationMenu />
   </div>
 </template>
 
 <script setup>
 import { computed, ref, onMounted } from "vue";
 import { useTheme } from "vuetify";
+import CustomizationMenu from "@/components/CustomizationMenu";
 
 const theme = useTheme();
 
