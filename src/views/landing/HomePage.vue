@@ -7,6 +7,7 @@
             <Icon icon="logos:webix-icon" class="mr-3 my-2" />News
           </h1>
           <v-card
+            elevation="2"
             class="my-5 pa-3"
             v-for="card in newsCards"
             :key="card.id"
@@ -37,7 +38,7 @@
             <Icon icon="logos:archlinux" class="mr-3 my-2" />TimeLine
           </h1>
           <!-- Info Card1 -->
-          <v-card color="primary" class="info-card">
+          <v-card elevation="2" color="primary" class="info-card gradient">
             <v-card-text class="d-flex align-center text-content">
               <Icon class="mr-5 text-h4" icon="logos:browserslist" />
               <span>Write something...</span>
@@ -50,18 +51,13 @@
               <v-btn variant="text" icon="mdi-pin"></v-btn>
             </v-card-text>
             <v-card-actions class="bg-primary-lighten-1 py-5 text-title">
-              <v-checkbox
-                density="default"
-                hide-details
-                label="Checkbox"
-              ></v-checkbox>
-
+              <div></div>
               <v-select
                 variant="outlined"
                 placeholder="who can see"
                 density="compact"
                 hide-details
-                class="ml-n10 mr-2"
+                class="mr-2"
                 :items="[
                   'California',
                   'Colorado',
@@ -85,7 +81,7 @@
                   'Wyoming',
                 ]"
               ></v-select>
-              <v-btn variant="text" icon="mdi-pin"></v-btn>
+
               <v-spacer></v-spacer>
               <v-btn variant="tonal" icon="mdi-heart" color="accent"></v-btn>
             </v-card-actions>
@@ -93,15 +89,14 @@
 
           <!-- Info Card 2 -->
           <v-card color="primary" class="info-card">
-            <v-card-title class="bg-primary-lighten-1 text-content">
+            <div class="card-top bg-primary-lighten-1 text-content">
               <Icon class="mr-5 text-h4" icon="logos:capacitorjs-icon" />
-              <span
-                >Hho has the advantage now? Who do you think will win the
-                election?</span
-              >
-              <v-spacer></v-spacer>
+              <div class="flex-1">
+                Who has the advantage now? Who do you think will win the
+                election?
+              </div>
               <span>9:31 am</span>
-            </v-card-title>
+            </div>
             <v-card-text class="text-content">
               <div>
                 <v-radio-group color="accent" v-model="favoriteRadios">
@@ -111,36 +106,36 @@
                   <v-radio value="Google">
                     <template v-slot:label>
                       <v-row align="center">
-                        <v-col cols="3">
+                        <v-col cols="6" sm="5" md="3">
                           <span> Of course it's</span>
-                          <strong class="text-info">Google</strong></v-col
+                          <strong class="ml-1 text-info">Google</strong></v-col
                         >
-                        <v-col cols="6">
+                        <v-col cols="4" sm="5" md="7">
                           <v-progress-linear
                             model-value="79"
                             color="#E89888"
                             rounded
                           ></v-progress-linear
                         ></v-col>
-                        <v-col cols="3">79%</v-col>
+                        <v-col cols="2">79%</v-col>
                       </v-row>
                     </template>
                   </v-radio>
                   <v-radio value="Duckduckgo">
                     <template v-slot:label>
                       <v-row align="center">
-                        <v-col cols="3">
+                        <v-col cols="6" sm="5" md="3">
                           <span> Of course it's</span>
-                          <strong class="text-info">Meta</strong></v-col
+                          <strong class="ml-1 text-info">Meta</strong></v-col
                         >
-                        <v-col cols="6">
+                        <v-col cols="4" sm="5" md="7">
                           <v-progress-linear
                             model-value="21"
                             color="#B931F0"
                             rounded
                           ></v-progress-linear
                         ></v-col>
-                        <v-col cols="3">70%</v-col>
+                        <v-col cols="2">70%</v-col>
                       </v-row>
                       <div></div>
                     </template>
@@ -160,9 +155,9 @@
           </v-card>
           <!-- Info Card3 -->
           <v-card color="primary" class="info-card">
-            <v-card-title class="bg-primary-lighten-1 text-content">
-              <Icon class="mr-5 text-h4" icon="logos:engine-yard-icon" />
-              <div>
+            <div class="card-top bg-primary-lighten-1 text-content">
+              <Icon class="text-h4" icon="logos:engine-yard-icon" />
+              <div class="flex-1 mx-4">
                 <p>
                   <span class="text-accent">Elon Mask</span> shared a
                   <span class="text-accent">link</span>
@@ -172,9 +167,9 @@
                   election?
                 </p>
               </div>
-              <v-spacer></v-spacer>
+
               <span>9:31 am</span>
-            </v-card-title>
+            </div>
             <v-card-text class="">
               <v-card color="primary-lighten-1">
                 <v-img
@@ -240,6 +235,7 @@
               people viewed your profile in the past 90 days
             </div>
             <v-img
+              class="d-none d-md-block"
               max-width="50"
               src="https://cdn.vuetifyjs.com/images/cards/foster.jpg"
             ></v-img>
@@ -333,6 +329,14 @@ const myTheme = reactive({
     font-size: 1rem;
   }
 
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    font-size: 1rem;
+  }
+
   .v-card-text {
     padding: 2rem;
   }
@@ -340,7 +344,7 @@ const myTheme = reactive({
   .v-card-actions {
     display: flex;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 1rem;
     font-size: 1rem;
   }
 }

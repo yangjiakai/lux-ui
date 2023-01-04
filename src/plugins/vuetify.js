@@ -27,9 +27,18 @@ export default createVuetify({
     themes: {
       light: {
         colors: {
-          primary: "#fff",
+          primary: "#2B2B49",
           accent: "#6386e1",
           content: "#333333",
+          background: "#F9F9FA",
+          secondary: "#a0b9c8",
+          error: "#ef476f",
+          info: "#2196F3",
+          success: "#06d6a0",
+          warning: "#ffd166",
+          content: "#8381a7",
+          "primary-darken-1": "#1d1f33",
+          "primary-lighten-1": "#303052",
         },
       },
       dark: {
@@ -37,7 +46,7 @@ export default createVuetify({
           primary: "#2B2B49",
           "primary-darken-1": "#1d1f33",
           "primary-lighten-1": "#303052",
-          surface: "#44426B",
+          surface: "#282843",
           secondary: "#5CBBF6",
           title: "#C3C1D5",
           content: "#8381a7",
