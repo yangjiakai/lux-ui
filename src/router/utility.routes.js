@@ -35,4 +35,16 @@ export default [
       category: "Utility",
     },
   },
+  {
+    path: "/utility/board",
+    name: "utility-board",
+    component: () =>
+      import(
+        /* webpackChunkName: "utility-board" */ "@/views/utility/BoardPage.vue"
+      ),
+    meta: {
+      title: "Board",
+      category: "Utility",
+    },
+  },
 ];
