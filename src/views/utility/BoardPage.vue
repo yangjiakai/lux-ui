@@ -1,23 +1,55 @@
 <template>
-  <div>Board</div>
+  <!-- <div>Board</div>
   <v-btn theme="dark" color="success" @click="add">add</v-btn>
   <v-btn theme="dark" color="success" @click="sort">sort</v-btn>
-
+  <v-divider></v-divider> -->
   <!-- board column -->
-  <v-row>
+  <v-row style="min-width: 800px">
     <v-col cols="3" v-for="column in columns" :key="column.key" class="pa-4">
       <div class="d-flex">
         <h5 class="font-weight-bold flex-1">{{ column.key }}</h5>
         <v-spacer></v-spacer>
         <!-- add new card form -->
         <v-btn
+          variant="text"
+          rounded
+          icon="mdi-plus"
           size="small"
           color="primary"
+          class="mr-n3"
           @click="column.isAddVisible = !column.isAddVisible"
         >
-          <v-icon>mdi-plus</v-icon>
         </v-btn>
       </div>
+
+      <v-card v-show="column.isAddVisible" class="pa-2 my-2">
+        <v-text-field
+          color="primary"
+          v-model="column.addTitle"
+          label="Title"
+          variant="underlined"
+          hideDetails
+          placeholder="Input title for this card"
+          autofocus
+          @keyup.enter="addCard(column)"
+          @keyup.esc="column.isAddVisible = false"
+        ></v-text-field>
+        <div class="my-3 d-flex flex-md-row flex-column">
+          <v-btn
+            class="flex-1 ma-1"
+            size="small"
+            @click="column.isAddVisible = !column.isAddVisible"
+            >Cancel</v-btn
+          >
+          <v-btn
+            class="flex-1 ma-1"
+            size="small"
+            color="primary"
+            @click="addCard(column)"
+            >Add</v-btn
+          >
+        </div>
+      </v-card>
 
       <!-- draggable cards -->
       <vue-draggable
@@ -148,8 +180,10 @@ const parseCards = (cards) => {
       .filter((card) => card.state === column.key)
       .sort((a, b) => (a.order < b.order ? -1 : 0));
   });
+};
 
-  console.log(columns.value);
+const addCard = (column) => {
+  console.log(column);
 };
 </script>
 
@@ -163,7 +197,7 @@ const parseCards = (cards) => {
   transition: transform 0.2s;
   &:hover {
     transition: transform 0.2s;
-    transform: translateY(-6px);
+    transform: translateY(-3px);
   }
 }
 </style>
