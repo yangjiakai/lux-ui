@@ -11,7 +11,7 @@
             class="my-5 pa-3"
             v-for="card in newsCards"
             :key="card.id"
-            color="primary"
+            color="secondary"
           >
             <v-card-text class="text-content">
               <v-row align="center" no-gutters>
@@ -38,7 +38,7 @@
             <Icon icon="logos:archlinux" class="mr-3 my-2" />TimeLine
           </h1>
           <!-- Info Card1 -->
-          <v-card elevation="2" color="primary" class="info-card gradient">
+          <v-card elevation="2" color="secondary" class="info-card gradient">
             <v-card-text class="d-flex align-center text-content">
               <Icon class="mr-5 text-h4" icon="logos:browserslist" />
               <span>Write something...</span>
@@ -50,7 +50,7 @@
               ></v-btn>
               <v-btn variant="text" icon="mdi-pin"></v-btn>
             </v-card-text>
-            <v-card-actions class="bg-primary-lighten-1 py-5 text-title">
+            <v-card-actions class="bg-secondary-lighten-1 py-5 text-title">
               <div></div>
               <v-select
                 variant="outlined"
@@ -88,8 +88,8 @@
           </v-card>
 
           <!-- Info Card 2 -->
-          <v-card color="primary" class="info-card">
-            <div class="card-top bg-primary-lighten-1 text-content">
+          <v-card color="secondary" class="info-card">
+            <div class="card-top bg-secondary-lighten-1 text-content">
               <Icon class="mr-5 text-h4" icon="logos:capacitorjs-icon" />
               <div class="flex-1">
                 Who has the advantage now? Who do you think will win the
@@ -147,15 +147,15 @@
                 </div>
               </div>
             </v-card-text>
-            <v-card-actions class="bg-primary-lighten-1 text-content">
+            <v-card-actions class="bg-secondary-lighten-1 text-content">
               <v-btn prepend-icon="mdi-heart"> Like(2.7k)</v-btn>
               <v-btn prepend-icon="mdi-comment">CommentLike(35)</v-btn>
               <v-btn prepend-icon="mdi-share">ShareLike(99)</v-btn>
             </v-card-actions>
           </v-card>
           <!-- Info Card3 -->
-          <v-card color="primary" class="info-card">
-            <div class="card-top bg-primary-lighten-1 text-content">
+          <v-card color="secondary" class="info-card">
+            <div class="card-top bg-secondary-lighten-1 text-content">
               <Icon class="text-h4" icon="logos:engine-yard-icon" />
               <div class="flex-1 mx-4">
                 <p>
@@ -171,7 +171,7 @@
               <span>9:31 am</span>
             </div>
             <v-card-text class="">
-              <v-card color="primary-lighten-1">
+              <v-card color="secondary-lighten-1">
                 <v-img
                   class="align-end text-white"
                   height="200"
@@ -189,7 +189,7 @@
                 </v-card-text>
               </v-card>
 
-              <v-card class="d-flex mt-5" color="primary-lighten-1">
+              <v-card class="d-flex mt-5" color="secondary-lighten-1">
                 <v-img
                   max-width="200"
                   aspect-ratio="1"
@@ -212,7 +212,7 @@
                 </div>
               </v-card>
             </v-card-text>
-            <v-card-actions class="bg-primary-lighten-1 text-content">
+            <v-card-actions class="bg-secondary-lighten-1 text-content">
               <v-btn color="#D84B82" prepend-icon="mdi-heart">
                 Like(2.7k)</v-btn
               >
@@ -222,7 +222,7 @@
           </v-card>
           <!-- Info Card4 -->
           <v-card
-            color="primary"
+            color="secondary"
             class="info-card d-flex justify-space-between align-center pa-5 text-content"
           >
             <v-avatar size="50" color="red">
@@ -311,23 +311,6 @@ const newsCards = [
 ];
 
 const favoriteRadios = ref("Duckduckgo");
-
-const myTheme = reactive({
-  // primary colors
-  colorPrimary: "#272740",
-  colorPrimaryLight: "#44416d",
-  colorPrimaryDarken: "#1d1f33",
-  // secondary colors
-  colorAccent: "#6386e1",
-  colorInfo: "#24a6c5",
-  colorError: "#e47171",
-  // neutral colors
-  colorTitle: "#FFF",
-  colorContent: "#8381a7",
-  colorBg: "#1d1f33",
-  colorBorder: "#1d1f33",
-  colorDivider: "#1d1f33",
-});
 
 const desserts = [
   {

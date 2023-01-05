@@ -25,7 +25,7 @@
           <v-card-actions>
             <v-btn
               prepend-icon="mdi-cloud-upload"
-              color="blue-grey"
+              color="primary"
               block
               variant="elevated"
               @click="openGithubSite"

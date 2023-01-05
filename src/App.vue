@@ -7,6 +7,7 @@
         </transition>
       </router-view>
     </component>
+    <CustomizationMenu />
     <!-- <component :is="currentLayout"  v-if="isRouterLoaded"></component> -->
   </v-app>
 </template>
@@ -18,6 +19,7 @@ import defaultLayout from "@/layouts/DefaultLayout";
 import landingLayout from "@/layouts/LandingLayout";
 import simpleLayout from "@/layouts/SimpleLayout";
 import authLayout from "@/layouts/AuthLayout";
+import CustomizationMenu from "@/components/CustomizationMenu";
 
 const route = useRoute();
 
