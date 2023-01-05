@@ -1,16 +1,31 @@
 <template>
   <div>Board</div>
-  <v-btn color="success" @click="add">add</v-btn>
-  <v-btn color="success" @click="sort">sort</v-btn>
+  <v-btn theme="dark" color="success" @click="add">add</v-btn>
+  <v-btn theme="dark" color="success" @click="sort">sort</v-btn>
+
+  <!-- board column -->
   <v-row>
-    <v-col cols="3">
-      <h3>Draggable 1</h3>
+    <v-col cols="3" v-for="column in columns" :key="column.key" class="pa-4">
+      <div class="d-flex">
+        <h5 class="font-weight-bold flex-1">{{ column.key }}</h5>
+        <v-spacer></v-spacer>
+        <!-- add new card form -->
+        <v-btn
+          size="small"
+          color="primary"
+          @click="column.isAddVisible = !column.isAddVisible"
+        >
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
+      </div>
+
+      <!-- draggable cards -->
       <vue-draggable
-        class="list-group"
-        :list="list1"
-        @change="log"
-        itemKey="id"
+        v-model="column.cards"
         v-bind="dragOptions"
+        class="list-group"
+        @change="column.callback"
+        itemKey="id"
       >
         <template #item="{ element, index }">
           <board-card
@@ -18,33 +33,21 @@
             :card="element"
             class="board-item my-2 pa-2"
           />
-        </template> </vue-draggable
-    ></v-col>
-    <v-col cols="3">
-      <h3>vue-draggable 2</h3>
-      <vue-draggable
-        class="list-group"
-        :list="list2"
-        @change="log"
-        itemKey="id"
-        v-bind="dragOptions"
-      >
-        <template #item="{ element, index }">
-          <board-card
-            :key="index"
-            :card="element"
-            class="board-item my-2 pa-2"
-          />
-        </template> </vue-draggable
-    ></v-col>
+        </template>
+      </vue-draggable>
+    </v-col>
   </v-row>
+  <div
+    class="board-column pa-2"
+    v-for="column in columns"
+    :key="column.key"
+  ></div>
 </template>
 <script setup>
 import { ref, reactive, onMounted, computed } from "vue";
 import VueDraggable from "vuedraggable";
 import BoardCard from "@/components/BoardCard";
 
-onMounted(() => {});
 const list1 = ref([
   { title: "John", id: 1, description: "des" },
   { title: "Joao", id: 2, description: "des" },
@@ -78,6 +81,76 @@ const dragOptions = computed(() => {
     ghostClass: "ghost",
   };
 });
+
+// board states
+const states = ref(["TODO", "INPROGRESS", "TESTING", "DONE"]);
+const cards = ref([
+  {
+    id: 1,
+    title: "fix: 💭 channel label on chat app",
+    description: "we need it bolder",
+    order: 1,
+    state: "TODO",
+  },
+  {
+    id: 2,
+    title: "feature: new emojis on board 🤘",
+    description: "we need it for reasons 🤤",
+    order: 0,
+    state: "TODO",
+  },
+  {
+    id: 3,
+    title: "feature: add stripe account on signup",
+    description: "",
+    order: 1,
+    state: "TESTING",
+  },
+  {
+    id: 4,
+    title: "refactor: scroll 📜 directive on big pages",
+    description: "remember to check the scroll",
+    order: 0,
+    state: "INPROGRESS",
+  },
+  {
+    id: 5,
+    title: "feature: add big cards on dashboard",
+    description: "everyone loves cards",
+    order: 3,
+    state: "TODO",
+  },
+]);
+
+const columns = ref([]);
+
+onMounted(() => {
+  initColumns();
+  parseCards(cards.value);
+});
+
+const initColumns = () => {
+  states.value.forEach((state, index) => {
+    columns.value.push({
+      key: state,
+      cards: [],
+      isAddVisible: false,
+      callback: (e) => changeState(e, index),
+    });
+  });
+};
+
+const parseCards = (cards) => {
+  if (!cards) return columns.value.map((column) => (column.cards = []));
+
+  columns.value.forEach((column) => {
+    column.cards = cards
+      .filter((card) => card.state === column.key)
+      .sort((a, b) => (a.order < b.order ? -1 : 0));
+  });
+
+  console.log(columns.value);
+};
 </script>
 
 <style lang="scss" scoped>

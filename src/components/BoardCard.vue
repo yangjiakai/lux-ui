@@ -1,7 +1,7 @@
 <template>
   <v-card @click="edit">
-    <div class="font-weight-bold">{{ card.title }}</div>
-    <div>{{ card.description }}</div>
+    <div class="font-weight-bold text-title">{{ card.title }}</div>
+    <div class="text-content">{{ card.description }}</div>
   </v-card>
 </template>
 <script setup>
