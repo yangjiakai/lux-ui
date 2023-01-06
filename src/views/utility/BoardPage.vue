@@ -1,11 +1,16 @@
 <template>
   <!-- board column -->
   <v-row style="min-width: 800px">
-    <v-col cols="3" v-for="column in columns" :key="column.key" class="pa-4">
+    <v-col
+      cols="3"
+      v-for="column in columns"
+      :key="column.key"
+      class="pa-4 flex-1"
+    >
       <div class="d-flex align-center">
-        <h5 class="font-weight-bold flex-1">{{ column.key }}</h5>
+        <h5 class="font-weight-bold">{{ column.key }}</h5>
         <v-spacer></v-spacer>
-        <!-- add new card form -->
+        <!-- add new card button -->
         <v-btn
           variant="text"
           rounded
@@ -18,7 +23,8 @@
         </v-btn>
       </div>
 
-      <v-card v-show="column.isAddVisible" class="pa-2 my-2">
+      <!-- add new card form -->
+      <v-card v-show="column.isAddVisible" class="pa-5 my-2">
         <v-text-field
           color="primary"
           v-model="column.addTitle"
@@ -180,8 +186,28 @@ const parseCards = (cards) => {
 
 const addCard = (column) => {
   const { addTitle, key } = column;
+  if (!addTitle) return;
+  let newCard = {
+    id: "_" + Math.random().toString(36).substring(2, 11),
+    state: key,
+    title: addTitle,
+    description: "",
+    order: -1,
+  };
+  column.cards.unshift(newCard);
+  column.addTitle = "";
+  column.isAddVisible = false;
+};
 
-  console.log(column);
+const changeState = (e, colIndex) => {
+  if (e.added || e.moved) {
+    const column = columns.value[colIndex];
+    const state = column.key;
+    for (let i = 0; i < column.cards.length; i++) {
+      column.cards[i].order = i;
+      column.cards[i].state = state;
+    }
+  }
 };
 </script>
 
@@ -197,5 +223,8 @@ const addCard = (column) => {
     transition: transform 0.2s;
     transform: translateY(-3px);
   }
+}
+.list-group {
+  min-height: 100%;
 }
 </style>
