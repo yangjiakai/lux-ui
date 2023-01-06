@@ -66,16 +66,61 @@
             :key="index"
             :card="element"
             class="board-item my-2 pa-2"
+            @edit="showEdit(element)"
           />
         </template>
       </vue-draggable>
     </v-col>
   </v-row>
-  <div
-    class="board-column pa-2"
-    v-for="column in columns"
-    :key="column.key"
-  ></div>
+  <!-- edit card dialog -->
+  <v-dialog v-model="editDialog" width="600">
+    <v-card>
+      <v-card-title class="pa-2">
+        <span>Edit Card</span>
+
+        <v-btn
+          variant="text"
+          rounded
+          icon="mdi-close"
+          size="small"
+          color="primary"
+          class="mr-n3"
+          @click="editDialog = false"
+        >
+        </v-btn>
+      </v-card-title>
+      <v-divider></v-divider>
+      <div>
+        <v-text-field
+          color="primary"
+          v-model="title"
+          label="Title"
+          variant="underlined"
+          hideDetails
+          placeholder="Title"
+          autofocus
+          @keyup.enter="save"
+        ></v-text-field>
+        <v-divider></v-divider>
+        <v-textarea
+          v-model="description"
+          class="px-2 py-1"
+          variant="underlined"
+          placeholder="Description"
+          hide-details
+        ></v-textarea>
+      </div>
+      <v-divider></v-divider>
+      <v-card-actions class="pa-2">
+        <v-btn class="flex-1 ma-1" size="small" @click="editDialog = false"
+          >Cancel</v-btn
+        >
+        <v-btn class="flex-1 ma-1" size="small" color="primary" @click="save"
+          >Save</v-btn
+        >
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 <script setup>
 import { ref, reactive, onMounted, computed } from "vue";
@@ -208,6 +253,17 @@ const changeState = (e, colIndex) => {
       column.cards[i].state = state;
     }
   }
+};
+
+const cardToEdit = ref(null);
+const title = ref("");
+const description = ref("");
+const editDialog = ref(false);
+const showEdit = (card) => {
+  cardToEdit.value = card;
+  title.value = card.title;
+  description.value = card.description;
+  editDialog.value = true;
 };
 </script>
 
