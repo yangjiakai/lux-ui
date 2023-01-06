@@ -136,7 +136,7 @@
   </v-dialog>
 </template>
 <script setup>
-import { ref, reactive, onMounted, computed } from "vue";
+import { ref, reactive, onMounted, computed, watch } from "vue";
 import VueDraggable from "vuedraggable";
 import BoardCard from "@/components/BoardCard";
 
@@ -168,7 +168,7 @@ const sort = (e) => {
 const dragOptions = computed(() => {
   return {
     animation: 200,
-    group: "people",
+    group: "task",
     disabled: false,
     ghostClass: "ghost",
   };
@@ -221,6 +221,7 @@ onMounted(() => {
   parseCards(cards.value);
 });
 
+// Init
 const initColumns = () => {
   states.value.forEach((state, index) => {
     columns.value.push({
@@ -242,6 +243,7 @@ const parseCards = (cards) => {
   });
 };
 
+// Add
 const addCard = (column) => {
   const { addTitle, key } = column;
   if (!addTitle) return;
@@ -298,7 +300,20 @@ const showDelete = (card) => {
   deleteDialog.value = true;
 };
 
-const deleteCard = () => {};
+const deleteCard = () => {
+  deleteDialog.value = false;
+  const cardIndex = cards.value.findIndex(
+    (card) => card.id === cardToDelete.value.id
+  );
+
+  if (cardIndex !== -1) {
+    cards.value.splice(cardIndex, 1);
+  }
+};
+
+watch(cards.value, (newCards) => {
+  parseCards(newCards);
+});
 </script>
 
 <style lang="scss" scoped>
