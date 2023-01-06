@@ -74,7 +74,7 @@
     </v-col>
   </v-row>
   <!-- edit card dialog -->
-  <v-dialog v-model="editDialog" width="600">
+  <v-dialog persistent v-model="editDialog" width="600">
     <v-card>
       <v-card-title class="pa-4 d-flex align-center">
         <span class="flex-1">Edit Card</span>
@@ -100,7 +100,7 @@
           hideDetails
           placeholder="Title"
           autofocus
-          @keyup.enter="save"
+          @keyup.enter="saveCard"
         ></v-text-field>
         <v-divider></v-divider>
         <v-textarea
@@ -280,7 +280,15 @@ const showEdit = (card) => {
   editDialog.value = true;
 };
 
-const saveCard = () => {};
+const saveCard = () => {
+  let targetCard = cards.value.find((card) => card.id === cardToEdit.value.id);
+  console.log(targetCard);
+  if (targetCard) {
+    targetCard.title = title.value;
+    targetCard.description = description.value;
+    editDialog.value = false;
+  }
+};
 
 // Delete
 const deleteDialog = ref(false);
