@@ -67,6 +67,7 @@
             :card="element"
             class="board-item my-2 pa-2"
             @edit="showEdit(element)"
+            @delete="showDelete(element)"
           />
         </template>
       </vue-draggable>
@@ -75,9 +76,8 @@
   <!-- edit card dialog -->
   <v-dialog v-model="editDialog" width="600">
     <v-card>
-      <v-card-title class="pa-2">
-        <span>Edit Card</span>
-
+      <v-card-title class="pa-4 d-flex align-center">
+        <span class="flex-1">Edit Card</span>
         <v-btn
           variant="text"
           rounded
@@ -90,12 +90,13 @@
         </v-btn>
       </v-card-title>
       <v-divider></v-divider>
-      <div>
+      <div class="pa-4">
         <v-text-field
+          class="py-2 px-1"
           color="primary"
           v-model="title"
           label="Title"
-          variant="underlined"
+          variant="plain"
           hideDetails
           placeholder="Title"
           autofocus
@@ -105,22 +106,21 @@
         <v-textarea
           v-model="description"
           class="px-2 py-1"
-          variant="underlined"
+          variant="plain"
           placeholder="Description"
           hide-details
         ></v-textarea>
       </div>
       <v-divider></v-divider>
-      <v-card-actions class="pa-2">
-        <v-btn class="flex-1 ma-1" size="small" @click="editDialog = false"
-          >Cancel</v-btn
-        >
-        <v-btn class="flex-1 ma-1" size="small" color="primary" @click="save"
-          >Save</v-btn
-        >
+      <v-card-actions class="pa-4">
+        <v-btn variant="outlined" @click="editDialog = false">Cancel</v-btn>
+        <v-spacer></v-spacer>
+        <v-btn variant="flat" color="primary" @click="save">Save</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
+
+  <!-- delete card dialog -->
 </template>
 <script setup>
 import { ref, reactive, onMounted, computed } from "vue";
@@ -264,6 +264,13 @@ const showEdit = (card) => {
   title.value = card.title;
   description.value = card.description;
   editDialog.value = true;
+};
+
+const deleteDialog = ref(false);
+const cardToDelete = ref(null);
+const showDelete = (card) => {
+  cardToDelete.value = card;
+  deleteDialog.value = true;
 };
 </script>
 

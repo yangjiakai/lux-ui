@@ -1,5 +1,5 @@
 <template>
-  <v-card @click="edit" class="pa-5 mt-4 card-shadow">
+  <v-card @click="$emit('edit')" class="pa-5 mt-4 card-shadow">
     <div class="d-flex align-start font-weight-bold text-title">
       <span class="flex-1">{{ card.title }}</span>
       <v-menu location="bottom end" transition="slide-x-transition">
@@ -49,6 +49,7 @@
 <script setup>
 import { ref, reactive, onMounted } from "vue";
 import { Icon } from "@iconify/vue";
+
 const props = defineProps({
   // Card content to display
   card: {
