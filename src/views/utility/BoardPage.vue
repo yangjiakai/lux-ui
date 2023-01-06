@@ -115,12 +115,25 @@
       <v-card-actions class="pa-4">
         <v-btn variant="outlined" @click="editDialog = false">Cancel</v-btn>
         <v-spacer></v-spacer>
-        <v-btn variant="flat" color="primary" @click="save">Save</v-btn>
+        <v-btn variant="flat" color="primary" @click="saveCard">Save</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
 
   <!-- delete card dialog -->
+  <v-dialog v-model="deleteDialog" max-width="300">
+    <v-card>
+      <v-card-title class="text-headline">Delete</v-card-title>
+      <v-card-text>DeleteDescription</v-card-text>
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn variant="plain" color="primary" @click="deleteDialog = false"
+          >Cancel</v-btn
+        >
+        <v-btn variant="flat" color="error" @click="deleteCard()">Delete</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 <script setup>
 import { ref, reactive, onMounted, computed } from "vue";
@@ -255,6 +268,7 @@ const changeState = (e, colIndex) => {
   }
 };
 
+// Edit
 const cardToEdit = ref(null);
 const title = ref("");
 const description = ref("");
@@ -266,12 +280,17 @@ const showEdit = (card) => {
   editDialog.value = true;
 };
 
+const saveCard = () => {};
+
+// Delete
 const deleteDialog = ref(false);
 const cardToDelete = ref(null);
 const showDelete = (card) => {
   cardToDelete.value = card;
   deleteDialog.value = true;
 };
+
+const deleteCard = () => {};
 </script>
 
 <style lang="scss" scoped>
