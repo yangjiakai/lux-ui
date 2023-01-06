@@ -9,12 +9,19 @@
       location="right"
       temporary
       width="300"
+      color="rgba(255,255,255,.7)"
     >
       <div class="d-flex align-center pa-2">
         <div class="text-body-2">Settings</div>
         <v-spacer></v-spacer>
-        <v-btn variant="icon" @click="themeDrawer = false">
-          <v-icon>mdi-close</v-icon>
+        <v-btn
+          variant="text"
+          color="primary"
+          size="small"
+          rounded
+          icon="mdi-close"
+          @click="themeDrawer = false"
+        >
         </v-btn>
       </div>
       <v-divider></v-divider>

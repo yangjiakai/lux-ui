@@ -1,12 +1,8 @@
 <template>
-  <!-- <div>Board</div>
-  <v-btn theme="dark" color="success" @click="add">add</v-btn>
-  <v-btn theme="dark" color="success" @click="sort">sort</v-btn>
-  <v-divider></v-divider> -->
   <!-- board column -->
   <v-row style="min-width: 800px">
     <v-col cols="3" v-for="column in columns" :key="column.key" class="pa-4">
-      <div class="d-flex">
+      <div class="d-flex align-center">
         <h5 class="font-weight-bold flex-1">{{ column.key }}</h5>
         <v-spacer></v-spacer>
         <!-- add new card form -->
@@ -183,6 +179,8 @@ const parseCards = (cards) => {
 };
 
 const addCard = (column) => {
+  const { addTitle, key } = column;
+
   console.log(column);
 };
 </script>
