@@ -212,6 +212,20 @@ const cards = ref([
     order: 3,
     state: "TODO",
   },
+  {
+    id: 6,
+    title: "feature: add big cards on dashboard",
+    description: "everyone loves cards",
+    order: 3,
+    state: "TESTING",
+  },
+  {
+    id: 7,
+    title: "feature: add big cards on dashboard",
+    description: "everyone loves cards",
+    order: 3,
+    state: "DONE",
+  },
 ]);
 
 const columns = ref([]);
