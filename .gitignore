@@ -1,7 +1,6 @@
 .DS_Store
 node_modules
 /dist
-/src/styles/vuetify_ref.css
 
 
 # local env files
