@@ -1,5 +1,5 @@
 <template>
-  <v-sheet class="bg text-center error-page w-full pa-3" color="red">
+  <v-sheet class="bg text-center error-page w-full pa-3">
     <v-btn
       to="/"
       class="text-h3 text-white"
