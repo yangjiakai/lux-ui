@@ -3,7 +3,7 @@
 </p>
 
 <h6 align='center'>
-<a href="https://jkpic.com/">Live Demo</a>
+<a href="https://shirabako.com/">Live Demo</a>
 </h6>
 
 <br>
