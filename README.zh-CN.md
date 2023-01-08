@@ -12,6 +12,10 @@
 <a href="https://github.com/yangjiakai/jk-vuetify3-lux-admin/blob/main/README.md">English</a> | <b>简体中文</b>| <a href="https://github.com/yangjiakai/jk-vuetify3-lux-admin/blob/main/README.jp.md">日本語</a>
 </p>
 
+## 序文
+
+Vue2 时代开始,Vuetify 就一直是我最喜欢的一款 Vue 的 UI 框架。随着 Vue3.0 在 2020 年底发布,到 Vue3.2 大版本在 2022 年初逐渐稳定。两年之后,Vuetify 适配于 Vue3.x 的 Vuetify3 终于在 2022 年 11 月正式上线。Vue 作者尤雨溪也在表达了对 Vuetify3 的肯定。现阶段 Vuetify3 的文档依然大部分属于沿用 Vuetify2 的未更新状态,并且多语言版本依然遥遥无期。这种状态下初次接触 Vuetify 的开发者,以及从想要尽早拥抱 Vuetify3 的开发者,想必着手时会有许多困惑。一方面是自己对储备的前端知识和 Vuetify 框架的总结回顾。另一方面也希望可以可以通过自己的摸索给其他开发者带来帮助,所以在 2022 年 11 月 Vuetify3 正式一上线后便开始着手这个项目。预想主要偏向前端 UI 设计,自适应,组件开发,与常用插件的整合以及简单的逻辑。是否要开发相应的 api 和业务逻辑依然待定(有余力再说)。
+
 ## 特性
 
 - ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite 3](https://github.com/vitejs/vite), [Vuetify 3](https://pnpm.io/)
