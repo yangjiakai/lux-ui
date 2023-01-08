@@ -5,9 +5,10 @@
       <template v-slot:prepend>
         <div class="pa-4">
           <div
-            class="text-subtitle-1 font-weight-bold text-primary text-uppercase"
+            class="text-subtitle-1 font-weight-bold text-primary text-uppercase d-flex align-center"
           >
-            {{ product.name }}
+            <img width="30" src="@/assets/logo.png" alt="" />
+            <span class="ml-2"> {{ product.name }}</span>
           </div>
           <div class="text-overline text-grey">
             {{ product.version }}

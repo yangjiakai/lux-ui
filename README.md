@@ -12,7 +12,7 @@
 
 <br>
 
-<p align='center'>
+<p align='c enter'>
 <b>English</b> | <a href="https://github.com/yangjiakai/jk-vuetify3-lux-admin/blob/main/README.zh-CN.md">简体中文</a>
 <!-- Contributors: Thanks for geting interested, however we DON'T accept new transitions to the README, thanks. -->
 </p>
