@@ -13,7 +13,7 @@
 <br>
 
 <p align='center'>
-<b>English</b> | <a href="https://github.com/yangjiakai/jk-vuetify3-lux-admin/blob/main/README.zh-CN.md">简体中文</a>
+<a href="https://github.com/yangjiakai/jk-vuetify3-lux-admin/blob/main/README.md">English</a> | <b>简体中文</b>
 <!-- Contributors: Thanks for geting interested, however we DON'T accept new transitions to the README, thanks. -->
 </p>
 
