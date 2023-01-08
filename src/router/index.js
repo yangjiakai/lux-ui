@@ -14,7 +14,7 @@ export const constantRoutes = [
   {
     path: "/",
     name: "home",
-    component: () => import("@/views/landPage.vue"),
+    component: () => import("@/views/LandPage.vue"),
   },
   {
     path: "/:pathMatch(.*)*",
