@@ -9,7 +9,7 @@
 <br>
 
 <p align='center'>
-<a href="https://github.com/antfu/vitesse-lite/blob/main/README.md">English</a> | <b>简体中文</b>| <a href="https://github.com/antfu/vitesse-lite/blob/main/README.jp.md">日本語</a>
+<a href="https://github.com/yangjiakai/jk-vuetify3-lux-admin/blob/main/README.md">English</a> | <b>简体中文</b>| <a href="https://github.com/yangjiakai/jk-vuetify3-lux-admin/blob/main/README.jp.md">日本語</a>
 </p>
 
 ## 特性
