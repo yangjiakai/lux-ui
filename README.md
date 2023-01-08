@@ -1,59 +1,33 @@
 <p align='center'>
-  <img src='https://user-images.githubusercontent.com/11247099/111864893-a457fd00-899e-11eb-9f05-f4b88987541d.png' alt='Vitesse - Opinionated Vite Starter Template' width='600'/>
+  <img src='/src/assets/logo.svg' alt='Vitesse - Opinionated Vite Starter Template' width='50'/>
 </p>
 
 <h6 align='center'>
-<a href="https://vitesse-lite.netlify.app/">Live Demo</a>
+<a href="https://jkpic.com/">Live Demo</a>
 </h6>
-
-<h5 align='center'>
-<b>Lightweight version of <a href="https://github.com/antfu/vitesse">Vitesse</a></b>
-</h5>
 
 <br>
 
-<p align='c enter'>
-<b>English</b> | <a href="https://github.com/yangjiakai/jk-vuetify3-lux-admin/blob/main/README.zh-CN.md">简体中文</a>
-<!-- Contributors: Thanks for geting interested, however we DON'T accept new transitions to the README, thanks. -->
+<p align='center'>
+<b>English</b> | <a href="https://github.com/antfu/vitesse-lite/blob/main/README.zh-CN.md">简体中文</a>| <a href="https://github.com/antfu/vitesse-lite/blob/main/README.jp.md">日本語</a>
 </p>
 
 ## Features
 
-- ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite 3](https://github.com/vitejs/vite), [pnpm](https://pnpm.io/), [ESBuild](https://github.com/evanw/esbuild) - born with fastness
+- ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite 3](https://github.com/vitejs/vite), [Vuetify 3](https://pnpm.io/)
 
-- 🗂 [File based routing](./src/pages)
+- 🗂 Use the [new `<script setup>` style](https://github.com/vuejs/rfcs/pull/227)
 
-- 📦 [Components auto importing](./src/components)
-
-- 🎨 [UnoCSS](https://github.com/antfu/unocss) - The instant on-demand atomic CSS engine.
-
-- 😃 Use icons from any icon sets in [Pure CSS](https://github.com/antfu/unocss/tree/main/packages/preset-icons)
-
-- 🔥 Use the [new `<script setup>` style](https://github.com/vuejs/rfcs/pull/227)
-
-- ✅ Use [Vitest](http://vitest.dev/) for unit and components testing
-
-- 🦾 TypeScript, of course
+- 😃 Use icons from any icon sets in [Iconify](https://icon-sets.iconify.design/)
 
 - ☁️ Deploy on Netlify, zero-config
 
 <br>
-
-See [Vitesse](https://github.com/antfu/vitesse) for full featureset.
-
-## Dropped Features from [Vitesse](https://github.com/antfu/vitesse)
-
-- ~~i18n~~
-- ~~Layouts~~
-- ~~SSG~~
-- ~~PWA~~
-- ~~Markdown~~
-
 ## Pre-packed
 
 ### UI Frameworks
 
-- [UnoCSS](https://github.com/antfu/unocss) - The instant on-demand atomic CSS engine.
+- [Vuetify3](https://next.vuetifyjs.com/en/) - Vuetify is a no design skills required UI Framework with beautifully handcrafted Vue Components.
 
 ### Icons
 
@@ -62,25 +36,20 @@ See [Vitesse](https://github.com/antfu/vitesse) for full featureset.
 
 ### Plugins
 
-- [Vue Router](https://github.com/vuejs/vue-router)
-  - [`vite-plugin-pages`](https://github.com/hannoeru/vite-plugin-pages) - file system based routing
-- [`unplugin-auto-import`](https://github.com/antfu/unplugin-auto-import) - Directly use Vue Composition API and others without importing
-- [`unplugin-vue-components`](https://github.com/antfu/unplugin-vue-components) - components auto import
-- [`unplugin-vue-macros`](https://github.com/sxzz/unplugin-vue-macros) - Explore and extend more macros and syntax sugar to Vue.
+- [Vue Router4](https://router.vuejs.org/)
 - [VueUse](https://github.com/antfu/vueuse) - collection of useful composition APIs
+- [VuedDaggable](https://github.com/SortableJS/Vue.Draggable) - allowing drag-and-drop and synchronization with view model array.
+- [Vue-Masonry-Wall](https://github.com/DerYeger/yeger/tree/main/packages/vue-masonry-wall) - Responsive masonry layout with SSR support and zero dependencies for Vue 3.
+- [Vue-Virtual-Scroller](https://github.com/Akryum/vue-virtual-scroller) - Blazing fast scrolling of any amount of data
 
 ## Try it now!
 
-### GitHub Template
+```
+git clone https://github.com/yangjiakai/jk-vuetify3-lux-admin.git
 
-[Create a repo from this template on GitHub](https://github.com/antfu/vitesse-lite/generate).
+cd jk-vuetify3-lux-admin
 
-### Clone to local
+npm install
 
-If you prefer to do it manually with the cleaner git history
-
-```bash
-npx degit antfu/vitesse-lite my-vitesse-app
-cd my-vitesse-app
-pnpm i # If you don't have pnpm installed, run: npm install -g pnpm
+npm run dev
 ```
