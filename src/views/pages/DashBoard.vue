@@ -18,7 +18,9 @@
   </v-row>
   <v-row class="card-shadow flex-grow-0" dense>
     <v-col cols="12" xl="6">
-      <v-card class="card-shadow" min-height="380">table-card </v-card>
+      <v-card class="card-shadow" min-height="380">
+        <table-card></table-card>
+      </v-card>
     </v-col>
     <v-col cols="12" xl="6">
       <v-card class="card-shadow h-full"> track-card </v-card>
@@ -39,6 +41,8 @@ import { ref } from "@vue/reactivity";
 import SalesCard from "@/components/dashboard/SalesCard";
 import SourcesCard from "@/components/dashboard/SourcesCard";
 import ActivityCard from "@/components/dashboard/ActivityCard";
+import TableCard from "@/components/dashboard/TableCard";
+
 import router, { constantRoutes, dynamicRoutes } from "@/router";
 console.log(router);
 console.log(constantRoutes);

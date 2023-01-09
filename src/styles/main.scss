@@ -81,33 +81,6 @@ body {
 }
 
 // tables beautify
-.v-table,
-.v-data-table {
-  table {
-    padding: 4px;
-    padding-bottom: 8px;
-
-    th {
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    td {
-      border-bottom: 0 !important;
-    }
-
-    tbody {
-      tr {
-        transition: box-shadow 0.2s, transform 0.2s;
-
-        &:not(.v-data-table__selected):hover {
-          box-shadow: 0 3px 15px -2px rgba(0, 0, 0, 0.12);
-          transform: translateY(-4px);
-        }
-      }
-    }
-  }
-}
 
 .v-btn {
   text-transform: capitalize;
