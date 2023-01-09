@@ -13,7 +13,7 @@ import { VueMasonryPlugin } from "vue-masonry";
 import MasonryWall from "@yeger/vue-masonry-wall";
 import VueVirtualScroller from "vue-virtual-scroller";
 import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
-
+import VueApexCharts from "vue3-apexcharts";
 // Plugins
 
 import { registerPlugins } from "@/plugins";
@@ -33,4 +33,5 @@ app.use(router);
 app.use(VueMasonryPlugin);
 app.use(MasonryWall);
 app.use(VueVirtualScroller);
+app.use(VueApexCharts);
 app.mount("#app");
