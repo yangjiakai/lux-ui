@@ -46,15 +46,13 @@
       <toolbar-language />
     </v-app-bar>
     <v-main>
-      <v-container class="fill-height">
-        <v-layout>
-          <v-container>
-            <PageTitle></PageTitle>
-            <Breadcrumb></Breadcrumb>
-            <slot></slot>
-          </v-container>
-        </v-layout>
-      </v-container>
+      <v-layout>
+        <v-container fluid>
+          <PageTitle></PageTitle>
+          <Breadcrumb></Breadcrumb>
+          <slot></slot>
+        </v-container>
+      </v-layout>
       <v-footer app></v-footer>
     </v-main>
   </div>

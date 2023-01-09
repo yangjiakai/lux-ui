@@ -11,10 +11,15 @@ import UtilityRoutes from "./utility.routes";
 import PagesRoutes from "./pages.routes";
 
 export const constantRoutes = [
+  // {
+  //   path: "/",
+  //   name: "home",
+  //   component: () => import("@/views/landPage.vue"),
+  // },
   {
     path: "/",
-    name: "home",
-    component: () => import("@/views/LandPage.vue"),
+    name: "dashboard",
+    component: () => import("@/views/pages/DashBoard.vue"),
   },
   {
     path: "/:pathMatch(.*)*",
