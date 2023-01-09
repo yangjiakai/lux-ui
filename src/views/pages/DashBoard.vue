@@ -6,7 +6,9 @@
       </v-card>
     </v-col>
     <v-col cols="12" md="6" xl="4">
-      <v-card class="card-shadow h-full"> activity-card </v-card>
+      <v-card class="card-shadow h-full">
+        <activity-card></activity-card>
+      </v-card>
     </v-col>
     <v-col cols="12" md="6" xl="4">
       <v-card class="card-shadow h-full" min-height="380">
@@ -36,6 +38,7 @@
 import { ref } from "@vue/reactivity";
 import SalesCard from "@/components/dashboard/SalesCard";
 import SourcesCard from "@/components/dashboard/SourcesCard";
+import ActivityCard from "@/components/dashboard/ActivityCard";
 import router, { constantRoutes, dynamicRoutes } from "@/router";
 console.log(router);
 console.log(constantRoutes);
