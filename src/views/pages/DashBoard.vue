@@ -23,15 +23,19 @@
       </v-card>
     </v-col>
     <v-col cols="12" xl="6">
-      <v-card class="card-shadow h-full"> track-card </v-card>
+      <v-card class="card-shadow h-full"> <track-card></track-card> </v-card>
     </v-col>
   </v-row>
   <v-row class="card-shadow flex-grow-0" dense>
     <v-col cols="12" xl="6">
-      <v-card class="card-shadow" min-height="380">todo-card</v-card>
+      <v-card class="card-shadow" min-height="380"
+        ><todo-card></todo-card
+      ></v-card>
     </v-col>
     <v-col cols="12" xl="6">
-      <v-card class="card-shadow h-full">tickets-card </v-card>
+      <v-card class="card-shadow h-full" min-height="380"
+        ><tickets-card></tickets-card>
+      </v-card>
     </v-col>
   </v-row>
 </template>
@@ -42,7 +46,9 @@ import SalesCard from "@/components/dashboard/SalesCard";
 import SourcesCard from "@/components/dashboard/SourcesCard";
 import ActivityCard from "@/components/dashboard/ActivityCard";
 import TableCard from "@/components/dashboard/TableCard";
-
+import TicketsCard from "@/components/dashboard/TicketsCard";
+import TrackCard from "@/components/dashboard/TrackCard";
+import TodoCard from "@/components/dashboard/TodoCard";
 import router, { constantRoutes, dynamicRoutes } from "@/router";
 console.log(router);
 console.log(constantRoutes);
