@@ -1,8 +1,8 @@
 <template>
   <v-row class="flex-0" dense>
     <v-col cols="12" xl="4">
-      <v-card class="card-shadow h-full" min-height="380">
-        <!-- <sales-card></sales-card> -->
+      <v-card class="gradient gray card-shadow h-full" min-height="380">
+        <sales-card></sales-card>
       </v-card>
     </v-col>
     <v-col cols="12" md="6" xl="4">

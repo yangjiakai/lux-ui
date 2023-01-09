@@ -5,7 +5,7 @@
       hide-details=""
       density="compact"
       variant="solo"
-      label="Last 28 Days"
+      label="Last 28"
     ></v-select>
   </h6>
 
