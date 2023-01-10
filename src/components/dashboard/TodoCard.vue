@@ -7,140 +7,42 @@
     <v-progress-circular indeterminate color="primary"></v-progress-circular>
   </div>
   <div v-else>
-    <h6 class="text-h6 pa-5 d-flex align-center">
-      <span class="flex-1">Table</span>
-    </h6>
-    <v-table class="pa-3">
-      <thead>
-        <tr>
-          <th class="text-left" v-for="header in headers" :key="header.text">
-            {{ header.text }}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="item in items" :key="item.id">
-          <td>#{{ item.id }}</td>
-          <td>
-            <div class="d-flex align-center py-1">
-              <v-avatar size="40" class="elevation-1 grey lighten-3">
-                <img :src="item.user.avatar" />
-              </v-avatar>
-              <div class="ml-1">
-                <div class="font-weight-bold">{{ item.user.name }}</div>
-                <div class="caption">
-                  {{ item.user.email }}
-                </div>
-              </div>
-            </div>
-          </td>
-          <td>{{ item.date }}</td>
-          <td>{{ item.company }}</td>
-          <td>{{ item.amount }}</td>
-          <td>
-            <div v-if="item.status === 'PENDING'" class="text-warning">
-              <v-icon size="small" color="warning">mdi-circle-medium</v-icon>
-              <span>Pending</span>
-            </div>
-            <div v-if="item.status === 'PAID'" class="text-success">
-              <v-icon size="small" color="success">mdi-circle-medium</v-icon>
-              <span>Paid</span>
-            </div>
-          </td>
-          <td>
-            <v-btn
-              size="small"
-              variant="text"
-              icon="mdi-open-in-new"
-              @click="open(item)"
-            >
-            </v-btn>
-          </td>
-        </tr>
-      </tbody>
-    </v-table>
+    <v-text-field
+      class="shadow-1"
+      variant="flat"
+      hide-details
+      comfortable
+      prepend-inner-icon="mdi-magnify"
+      placeholder="Filter Tasks"
+      v-model="searchKey"
+    ></v-text-field>
+    <div v-for="item in todoList" :key="item.title">
+      <div class="ma-5" v-if="item.type === 'subheader'">
+        {{ item.title }}
+      </div>
+      <v-divider v-else-if="item.type === 'divider'"></v-divider>
+      <div class="todo-item d-flex align-center pa-5" v-else>
+        <v-avatar size="40" color="red">
+          <v-img :src="item.prependAvatar" alt="alt" />
+        </v-avatar>
+        <div class="flex-1 mx-5">
+          <div>{{ item.title }}</div>
+          <div>{{ item.subtitle }}</div>
+        </div>
+        <v-btn
+          size="small"
+          icon="mdi-close"
+          variant="text"
+          color="error"
+        ></v-btn>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 const loading = ref(true);
-
-const headers = [
-  { text: "Order Id", align: "start", value: "id" },
-  {
-    text: "User",
-    sortable: false,
-    value: "user",
-  },
-  { text: "Date", value: "date" },
-  { text: "Company", value: "company" },
-  { text: "Amount", value: "amount" },
-  { text: "Status", value: "status" },
-  { text: "", sortable: false, align: "right", value: "action" },
-];
-const items = [
-  {
-    id: "2837",
-    user: {
-      name: "John Simon",
-      email: "johnsimon@blobhill.com",
-      avatar: "https://i.pravatar.cc/150?img=1",
-    },
-    date: "2020-05-10",
-    company: "BlobHill",
-    amount: 52877,
-    status: "PAID",
-  },
-  {
-    id: "2838",
-    user: {
-      name: "Greg Cool J",
-      email: "cool@caprimooner.com",
-      avatar: "https://i.pravatar.cc/150?img=2",
-    },
-    date: "2020-05-11",
-    company: "Caprimooner",
-    amount: 2123,
-    status: "PENDING",
-  },
-  {
-    id: "2839",
-    user: {
-      name: "Samantha Bush",
-      email: "bush@catloveisstilllove.com",
-      avatar: "https://i.pravatar.cc/150?img=3",
-    },
-    date: "2020-05-11",
-    company: "CatLovers",
-    amount: 12313,
-    status: "PENDING",
-  },
-  {
-    id: "2840",
-    user: {
-      name: "Ben Howard",
-      email: "ben@indiecoolers.com",
-      avatar: "https://i.pravatar.cc/150?img=4",
-    },
-    date: "2020-05-12",
-    company: "IndieCoolers",
-    amount: 9873,
-    status: "PAID",
-  },
-  {
-    id: "2841",
-    user: {
-      name: "Jack Candy",
-      email: "jack@candylooove.com",
-      avatar: "https://i.pravatar.cc/150?img=5",
-    },
-    date: "2020-05-13",
-    company: "CandyLooove",
-    amount: 29573,
-    status: "PAID",
-  },
-];
 
 const open = (item) => {};
 
@@ -149,33 +51,59 @@ onMounted(() => {
     loading.value = false;
   }, 2000);
 });
+
+const todoList = ref([
+  { type: "subheader", title: "Today" },
+  {
+    prependAvatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
+    title: "Brunch this weekend?",
+    subtitle: `<span class="text-primary">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
+    appendIcon: "mdi-close",
+  },
+  { type: "divider", inset: true },
+  {
+    prependAvatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
+    title: "Summer BBQ",
+    subtitle: `<span class="text-primary">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`,
+  },
+  { type: "divider", inset: true },
+  {
+    prependAvatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
+    title: "Oui oui",
+    subtitle:
+      '<span class="text-primary">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?',
+  },
+  { type: "divider", inset: true },
+  {
+    prependAvatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
+    title: "Birthday gift",
+    subtitle:
+      '<span class="text-primary">Trevor Hansen</span> &mdash; Have any ideas about what we should get Heidi for her birthday?',
+  },
+  { type: "divider", inset: true },
+  {
+    prependAvatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
+    title: "Recipe to try",
+    subtitle:
+      '<span class="text-primary">Britta Holt</span> &mdash; We should eat this: Grate, Squash, Corn, and tomatillo Tacos.',
+  },
+]);
+
+const searchKey = ref("");
 </script>
 
 <style lang="scss" scoped>
-.v-table {
-  table {
-    padding: 4px;
-    padding-bottom: 8px;
+.shadow-1 {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+}
 
-    th {
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    td {
-      border-bottom: 0 !important;
-    }
-
-    tbody {
-      tr {
-        transition: box-shadow 0.2s, transform 0.2s;
-
-        &:not(.v-data-table__selected):hover {
-          box-shadow: 0 3px 15px -2px rgba(0, 0, 0, 0.12);
-          transform: translateY(-4px);
-        }
-      }
-    }
+.todo-item {
+  transition: all 0.3s;
+  &:hover {
+    transition: all 0.3s;
+    background-color: rgba(99, 99, 99, 0.2);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+    cursor: pointer;
   }
 }
 </style>
