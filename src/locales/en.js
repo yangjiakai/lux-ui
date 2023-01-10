@@ -81,5 +81,12 @@ export default {
     masonry: "Vue-Masonry-Wall ",
     virtualList: "Virtual List ",
     virtualScroller: "Virtual Scroller ",
+    charts: "Charts ",
+    echartLine: "Echart Line ",
+    echartBar: "Echart Bar ",
+    echartPie: "Echart Pie ",
+    echartScatter: "Echart Scatter ",
+    echartOthers: "Echart Others ",
+    apexChart: "ApexChart ",
   },
 };

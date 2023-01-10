@@ -80,5 +80,12 @@ export default {
     masonry: "おしゃれスクロール2 ",
     virtualList: "バーチャルリスト ",
     virtualScroller: "バーチャルスクロールバー ",
+    charts: "チャート ",
+    echartLine: "Echart Line ",
+    echartBar: "Echart Bar ",
+    echartPie: "Echart Pie ",
+    echartScatter: "Echart Scatter ",
+    echartOthers: "Echart Others ",
+    apexChart: "ApexChart ",
   },
 };

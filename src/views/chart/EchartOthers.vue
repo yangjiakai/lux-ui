@@ -1,7 +1,7 @@
 <!--
-* @Component: EchartPie
+* @Component: EcharOthers
 * @Maintainer: J.K. Yang
-* @Description: Echart 饼图页
+* @Description: Echart 其他图表
 -->
 <template>
   <div class=""></div>

@@ -1,7 +1,7 @@
 <!--
-* @Component: EchartPie
+* @Component: Apex Chart
 * @Maintainer: J.K. Yang
-* @Description: Echart 饼图页
+* @Description: ApexChart
 -->
 <template>
   <div class=""></div>
