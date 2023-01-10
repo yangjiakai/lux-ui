@@ -92,6 +92,7 @@ onBeforeUnmount(() => {});
 }
 ::v-deep ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 ::v-deep ::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px #424242;
