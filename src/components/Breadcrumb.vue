@@ -11,8 +11,6 @@
 </template>
 
 <script setup>
-import { ref, watchEffect } from "vue";
-import { useRoute } from "vue-router";
 const route = useRoute();
 
 const breadcrumbs = ref([]);

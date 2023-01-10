@@ -1,6 +1,7 @@
 import menuUI from "./menus/ui.menu";
 import menuApps from "./menus/apps.menu";
 import menuPages from "./menus/pages.menu";
+import menuCharts from "./menus/charts.menu";
 
 export default {
   menu: [
@@ -45,6 +46,11 @@ export default {
       text: "Pages",
       key: "menu.pages",
       items: menuPages,
+    },
+    {
+      text: "Charts",
+      key: "menu.charts",
+      items: menuCharts,
     },
   ],
 };

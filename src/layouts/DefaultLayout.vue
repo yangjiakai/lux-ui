@@ -59,7 +59,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
 import configs from "@/configs";
 import MainMenu from "@/components/navigation/MainMenu";
 import ToolbarLanguage from "../components/toolbar/ToolbarLanguage";
@@ -86,15 +85,15 @@ onBeforeUnmount(() => {});
 </script>
 
 <style scoped>
-::v-deep ::-webkit-scrollbar-track {
+:deep(::-webkit-scrollbar-track) {
   -webkit-box-shadow: inset 0 0 6px #5d5d5d;
   background-color: #b9b9b9;
 }
-::v-deep ::-webkit-scrollbar {
+:deep(::-webkit-scrollbar) {
   width: 5px;
   height: 5px;
 }
-::v-deep ::-webkit-scrollbar-thumb {
+:deep(::-webkit-scrollbar-thumb) {
   -webkit-box-shadow: inset 0 0 6px #424242;
   background-color: #424242;
 }

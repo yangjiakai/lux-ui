@@ -56,7 +56,6 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
 import { useLocale } from "vuetify";
 const { t } = useLocale();
 const props = defineProps({

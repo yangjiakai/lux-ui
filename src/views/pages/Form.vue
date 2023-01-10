@@ -161,7 +161,6 @@
 </template>
 
 <script setup>
-import { reactive, ref } from "vue";
 const formStyle = reactive({
   labelColor: "3B64A0",
   mainColor: "#3F69F4",

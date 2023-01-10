@@ -268,7 +268,6 @@
 
 <script setup>
 import { Icon } from "@iconify/vue";
-import { ref, reactive } from "vue";
 import { useTheme } from "vuetify";
 
 const theme = useTheme();

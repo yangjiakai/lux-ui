@@ -28,12 +28,10 @@
   </v-row>
   <v-row class="card-shadow flex-grow-0" dense>
     <v-col cols="12" xl="6">
-      <v-card class="card-shadow" min-height="380"
-        ><todo-card></todo-card
-      ></v-card>
+      <v-card class="card-shadow" height="380"><todo-card></todo-card></v-card>
     </v-col>
     <v-col cols="12" xl="6">
-      <v-card class="card-shadow h-full" min-height="380"
+      <v-card class="card-shadow h-full" height="380"
         ><tickets-card></tickets-card>
       </v-card>
     </v-col>

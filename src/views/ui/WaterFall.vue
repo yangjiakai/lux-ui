@@ -46,7 +46,6 @@
   </v-container>
 </template>
 <script setup>
-import { computed } from "vue";
 import { useDisplay } from "vuetify";
 const { name } = useDisplay();
 const columnNumber = computed(() => {

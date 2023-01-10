@@ -4,12 +4,8 @@
       <v-container>
         <v-row>
           <v-col class="mt-2" cols="12">
-            <v-card
-              color="primary"
-              height="300"
-              class="d-flex align-center justify-center"
-            >
-              <Loading />
+            <v-card height="300">
+              {{ a }}
             </v-card>
           </v-col>
         </v-row>
@@ -18,6 +14,6 @@
   </v-container>
 </template>
 <script setup>
-import Loading from "@/components/loading/Loading01";
+let a = ref("acaas");
 </script>
 <style scoped></style>

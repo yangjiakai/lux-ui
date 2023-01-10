@@ -99,7 +99,6 @@
   </v-container>
 </template>
 <script setup>
-import { computed } from "vue";
 import { useAxios } from "@vueuse/integrations/useAxios";
 import Loading from "@/components/loading/Loading01";
 

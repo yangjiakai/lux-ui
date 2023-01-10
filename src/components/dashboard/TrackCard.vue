@@ -63,7 +63,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
 const loading = ref(true);
 
 const headers = [

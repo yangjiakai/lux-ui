@@ -78,7 +78,6 @@
 </template>
 <script setup>
 import { useVirtualList } from "@vueuse/core";
-import { ref, computed } from "vue";
 
 const index = ref(2);
 const search = ref("");

@@ -13,8 +13,6 @@
 </template>
 
 <script setup>
-import { computed } from "vue";
-import { useRoute } from "vue-router";
 import defaultLayout from "@/layouts/DefaultLayout";
 import landingLayout from "@/layouts/LandingLayout";
 import simpleLayout from "@/layouts/SimpleLayout";

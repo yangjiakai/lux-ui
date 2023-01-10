@@ -78,7 +78,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
 import { Icon } from "@iconify/vue";
 const loading = ref(true);
 const activityList = [

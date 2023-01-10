@@ -59,7 +59,6 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from "vue";
 import { useDisplay } from "vuetify";
 
 import { useWindowScroll } from "@vueuse/core";

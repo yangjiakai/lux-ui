@@ -25,7 +25,6 @@
 | Template to wait for the verification on the user email
 |
 */
-import { onMounted, ref, onUnmounted } from "vue";
 
 const TIMEOUT = 5;
 const isLoading = ref(false);

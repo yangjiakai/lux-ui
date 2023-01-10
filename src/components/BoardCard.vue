@@ -47,7 +47,6 @@
   </v-card>
 </template>
 <script setup>
-import { ref, reactive, onMounted } from "vue";
 import { Icon } from "@iconify/vue";
 
 const props = defineProps({

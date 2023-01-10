@@ -25,7 +25,6 @@
   </v-menu>
 </template>
 <script setup>
-import { computed } from "vue";
 import FlagIcon from "../common/FlagIcon";
 import config from "@/configs";
 

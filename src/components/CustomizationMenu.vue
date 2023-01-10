@@ -46,7 +46,6 @@
 </template>
 
 <script setup>
-import { ref, reactive, watch } from "vue";
 import { useTheme } from "vuetify";
 const theme = useTheme();
 

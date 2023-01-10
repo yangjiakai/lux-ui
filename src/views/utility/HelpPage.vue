@@ -39,7 +39,6 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 const searchKey = ref("");

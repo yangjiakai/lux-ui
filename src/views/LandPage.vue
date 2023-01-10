@@ -19,7 +19,6 @@
   </v-container>
 </template>
 <script setup>
-import { ref } from "vue";
 const countryList = ref([
   {
     countryName: "蒙德",

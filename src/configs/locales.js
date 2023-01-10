@@ -1,6 +1,6 @@
-import en from "../translations/en";
-import zhHans from "../translations/zhHans";
-import ja from "../translations/ja";
+import en from "../locales/en";
+import zhHans from "../locales/zhHans";
+import ja from "../locales/ja";
 
 const supported = ["en", "zhHans", "ja"];
 let locale = "en";

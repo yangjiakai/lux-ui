@@ -136,7 +136,6 @@
   </v-dialog>
 </template>
 <script setup>
-import { ref, reactive, onMounted, computed, watch } from "vue";
 import VueDraggable from "vuedraggable";
 import BoardCard from "@/components/BoardCard";
 

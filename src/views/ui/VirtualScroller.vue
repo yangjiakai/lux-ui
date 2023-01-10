@@ -16,8 +16,6 @@
   </v-container>
 </template>
 <script setup>
-import { ref } from "vue";
-
 const list = Array.from({ length: 1000 }, (value, index) => ({
   id: index + "",
   name: "yjk" + index,

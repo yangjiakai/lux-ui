@@ -25,7 +25,6 @@
 </template>
 
 <script setup>
-import { computed, ref, onMounted } from "vue";
 import { useTheme } from "vuetify";
 
 const theme = useTheme();

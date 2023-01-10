@@ -16,25 +16,27 @@
       placeholder="Filter Tasks"
       v-model="searchKey"
     ></v-text-field>
-    <div v-for="item in todoList" :key="item.title">
-      <div class="ma-5" v-if="item.type === 'subheader'">
-        {{ item.title }}
-      </div>
-      <v-divider v-else-if="item.type === 'divider'"></v-divider>
-      <div class="todo-item d-flex align-center pa-5" v-else>
-        <v-avatar size="40" color="red">
-          <v-img :src="item.prependAvatar" alt="alt" />
-        </v-avatar>
-        <div class="flex-1 mx-5">
-          <div>{{ item.title }}</div>
-          <div>{{ item.subtitle }}</div>
+    <div class="todo-list">
+      <div v-for="item in todoList" :key="item.title">
+        <div class="ma-5" v-if="item.type === 'subheader'">
+          {{ item.title }}
         </div>
-        <v-btn
-          size="small"
-          icon="mdi-close"
-          variant="text"
-          color="error"
-        ></v-btn>
+        <v-divider v-else-if="item.type === 'divider'"></v-divider>
+        <div class="todo-item d-flex align-center pa-5" v-else>
+          <v-avatar size="40" color="red">
+            <v-img :src="item.prependAvatar" alt="alt" />
+          </v-avatar>
+          <div class="flex-1 mx-5">
+            <div>{{ item.title }}</div>
+            <div>{{ item.subtitle }}</div>
+          </div>
+          <v-btn
+            size="small"
+            icon="mdi-close"
+            variant="text"
+            color="error"
+          ></v-btn>
+        </div>
       </div>
     </div>
   </div>
@@ -94,13 +96,17 @@ const searchKey = ref("");
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
 }
 
-.todo-item {
-  transition: all 0.3s;
-  &:hover {
+.todo-list {
+  max-height: 380px;
+  overflow: scroll;
+  .todo-item {
     transition: all 0.3s;
-    background-color: rgba(99, 99, 99, 0.2);
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
-    cursor: pointer;
+    &:hover {
+      transition: all 0.3s;
+      background-color: rgba(99, 99, 99, 0.2);
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+      cursor: pointer;
+    }
   }
 }
 </style>

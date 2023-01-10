@@ -31,7 +31,6 @@
   </v-container>
 </template>
 <script setup>
-import { ref, onMounted, inject, onBeforeUnmount } from "vue";
 import PerfectScrollbar from "perfect-scrollbar";
 const userName = inject("userName");
 const scrollbar = ref(null);

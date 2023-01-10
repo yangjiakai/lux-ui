@@ -132,7 +132,6 @@
   </div>
 </template>
 <script setup>
-import { reactive, ref } from "vue";
 import { useLocale } from "vuetify";
 import { Icon } from "@iconify/vue";
 import { useRouter } from "vue-router";

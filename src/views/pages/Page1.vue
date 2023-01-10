@@ -109,9 +109,7 @@
 
 <script setup>
 import { useDisplay } from "vuetify";
-import { reactive, ref, onMounted, computed, watch } from "vue";
 import sitesData from "@data/sites.json";
-
 import { useWindowScroll } from "@vueuse/core";
 const { name } = useDisplay();
 

@@ -35,6 +35,7 @@
     "postcss": "^8.4.20",
     "sass": "^1.57.1",
     "tailwindcss": "^3.2.4",
+    "unplugin-auto-import": "^0.12.1",
     "vite": "^3.1.9",
     "vite-plugin-vuetify": "^1.0.0-alpha.12"
   }
