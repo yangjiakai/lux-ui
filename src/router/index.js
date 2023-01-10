@@ -9,6 +9,7 @@ import UIRoutes from "./ui.routes";
 import LandingRoutes from "./landing.routes";
 import UtilityRoutes from "./utility.routes";
 import PagesRoutes from "./pages.routes";
+import ChartsRoutes from "./charts.routes";
 
 export const constantRoutes = [
   // {
@@ -37,6 +38,7 @@ export const constantRoutes = [
   ...PagesRoutes,
   ...UtilityRoutes,
   ...UIRoutes,
+  ...ChartsRoutes,
 ];
 
 // 动态路由，基于用户权限动态去加载

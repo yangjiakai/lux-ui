@@ -1,10 +1,10 @@
 <!--
-* @Component: EcharScatter
+* @Component: EchartScatter
 * @Maintainer: J.K. Yang
 * @Description: Echart 散点图
 -->
 <template>
-  <div class=""></div>
+  <div class="">EchartScatter</div>
 </template>
 
 <script setup></script>

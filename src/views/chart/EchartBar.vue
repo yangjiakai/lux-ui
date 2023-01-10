@@ -1,10 +1,10 @@
 <!--
-* @Component: EcharBar
+* @Component: EchartBar
 * @Maintainer: J.K. Yang
 * @Description: Echart 柱状图
 -->
 <template>
-  <div class=""></div>
+  <div class="">EchartBar</div>
 </template>
 
 <script setup></script>

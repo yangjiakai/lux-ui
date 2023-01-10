@@ -4,7 +4,7 @@
 * @Description: ApexChart
 -->
 <template>
-  <div class=""></div>
+  <div class="">ApexChart</div>
 </template>
 
 <script setup></script>

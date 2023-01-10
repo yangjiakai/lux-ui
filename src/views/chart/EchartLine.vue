@@ -1,10 +1,12 @@
 <!--
-* @Component: EcharLine
+* @Component: EchartLine
 * @Maintainer: J.K. Yang
 * @Description: Echart 折线图
 -->
 <template>
-  <div class=""></div>
+  <div class="">
+    <v-card height="600"> EchartLine </v-card>
+  </div>
 </template>
 
 <script setup></script>

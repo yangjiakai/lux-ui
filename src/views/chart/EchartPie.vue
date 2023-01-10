@@ -4,7 +4,7 @@
 * @Description: Echart 饼图页
 -->
 <template>
-  <div class=""></div>
+  <div class="">EchartPie</div>
 </template>
 
 <script setup></script>
