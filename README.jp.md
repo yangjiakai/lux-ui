@@ -18,15 +18,19 @@ Vue2 の j 時代から、Vuetify は私の一番気に入った Vue の UI フ�
 
 ## 特徴
 
-- ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite 3](https://github.com/vitejs/vite), [Vuetify 3](https://pnpm.io/)
-
-- 🗂 新しい Composition Api [ `<script setup lang="ts">` ](https://github.com/vuejs/rfcs/pull/227)
-
-- 😃 Use icons from any icon sets in [Iconify](https://icon-sets.iconify.design/)
-
+- ⚡️ [Vue 3](https://github.com/vuejs/core)
+- ⚡️ [Vite](https://github.com/vitejs/vite)
+- ⚡️ UI Framework [Vuetify 3](https://next.vuetifyjs.com/en/)
+- ⚡️ TypeScript
+- 📦 Component Auto Importing
+- 🍍 [Pinia](https://pinia.vuejs.org/)
+- ⚡️ `<script setup>`
+- ⚡️ Use icons from any icon sets in [Iconify](https://icon-sets.iconify.design/)
 - ☁️ Deploy on Netlify, zero-config
+- ☁️ Responsive multi-platform adaptive
 
 <br>
+
 ## プリパック
 
 ### UI Frameworks

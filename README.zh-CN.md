@@ -18,14 +18,15 @@ Vue2 时代开始,Vuetify 就一直是我最喜欢的一款 Vue 的 UI 框架。
 
 ## 特性
 
-- ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite 3](https://github.com/vitejs/vite), [Vuetify 3](https://pnpm.io/)
-
-- 🗂 使用新的 `<script setup lang="ts">` 语法
-
-- 😃 使用任意的图标集 [Iconify](https://icon-sets.iconify.design/)
-
-- ☁️ 零配置部署在 Netlify
-
+- ⚡️ [Vue 3](https://github.com/vuejs/core)
+- ⚡️ [Vite](https://github.com/vitejs/vite)
+- ⚡️ UI Framework [Vuetify 3](https://next.vuetifyjs.com/en/)
+- ⚡️ TypeScript
+- 📦 组件自动导入
+- 🍍 通过 [Pinia](https://pinia.vuejs.org/)进行状态管理
+- ⚡️ 使用新的 `<script setup>` 语法
+- ⚡️ 使用任意的图标集 [Iconify](https://icon-sets.iconify.design/)
+- ⚡️ 零配置部署在 Netlify
 - ☁️ 响应式多平台自适应
 
 <br>
