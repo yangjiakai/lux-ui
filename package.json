@@ -16,6 +16,7 @@
     "echarts": "^5.4.1",
     "flag-icons": "^6.6.6",
     "perfect-scrollbar": "^1.5.5",
+    "pinia": "^2.0.28",
     "roboto-fontface": "*",
     "vue": "^3.2.38",
     "vue-echarts": "^6.5.0",

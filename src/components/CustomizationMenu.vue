@@ -25,6 +25,14 @@
         </v-btn>
       </div>
       <v-divider></v-divider>
+
+      <v-switch
+        v-model="customizeTheme.darkTheme"
+        hide-details
+        :label="`Theme: ${currentTheme}`"
+        inset
+      ></v-switch>
+      <v-divider></v-divider>
       <div class="pa-2">
         <div class="font-weight-bold my-1">Global Theme</div>
         <v-btn-toggle v-model="theme" color="primary" mandatory class="mb-2">
@@ -47,6 +55,8 @@
 
 <script setup lang="ts">
 import { useTheme } from "vuetify";
+import { useCustomizeThemeStore } from "@/stores/customizeTheme";
+const customizeTheme = useCustomizeThemeStore();
 const theme = useTheme();
 
 const themeDrawer = ref(false);
@@ -56,6 +66,10 @@ const swatches = [
   ["#EE4f12", "#46BBB1"],
   ["#ee44aa", "#55BB46"],
 ];
+
+const currentTheme = computed(() => {
+  return customizeTheme.darkTheme ? "天黑了" : "天亮了";
+});
 
 watch(color, (newVal) => {
   console.log(newVal);

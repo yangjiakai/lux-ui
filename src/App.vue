@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app">
+  <v-app id="app" :theme="customizeTheme.darkTheme ? 'dark' : 'light'">
     <component :is="currentLayout" v-if="isRouterLoaded">
       <router-view v-slot="{ Component }">
         <transition name="fade">
@@ -18,6 +18,8 @@ import landingLayout from "@/layouts/LandingLayout.vue";
 import simpleLayout from "@/layouts/SimpleLayout.vue";
 import authLayout from "@/layouts/AuthLayout.vue";
 import CustomizationMenu from "@/components/CustomizationMenu.vue";
+import { useCustomizeThemeStore } from "@/stores/customizeTheme";
+const customizeTheme = useCustomizeThemeStore();
 
 const route = useRoute();
 
