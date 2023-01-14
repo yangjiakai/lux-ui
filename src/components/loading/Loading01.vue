@@ -1,7 +1,7 @@
 <template>
   <span class="loader"></span>
 </template>
-<script setup></script>
+<script setup lang="ts"></script>
 <style scoped>
 .loader {
   width: 48px;

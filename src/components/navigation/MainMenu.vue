@@ -55,7 +55,7 @@
   </v-list>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useLocale } from "vuetify";
 const { t } = useLocale();
 const props = defineProps({

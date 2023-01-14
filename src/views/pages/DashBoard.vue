@@ -38,7 +38,7 @@
   </v-row>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "@vue/reactivity";
 import SalesCard from "@/components/dashboard/SalesCard";
 import SourcesCard from "@/components/dashboard/SourcesCard";

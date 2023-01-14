@@ -58,7 +58,7 @@
   </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useDisplay } from "vuetify";
 
 import { useWindowScroll } from "@vueuse/core";

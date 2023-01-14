@@ -106,7 +106,7 @@
     </router-link>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { useLocale } from "vuetify";
 import { Icon } from "@iconify/vue";
 import { useRouter } from "vue-router";

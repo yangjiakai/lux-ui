@@ -15,7 +15,7 @@
     </v-card>
   </v-container>
 </template>
-<script setup>
+<script setup lang="ts">
 const list = Array.from({ length: 1000 }, (value, index) => ({
   id: index + "",
   name: "yjk" + index,

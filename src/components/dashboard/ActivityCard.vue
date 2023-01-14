@@ -77,7 +77,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { Icon } from "@iconify/vue";
 const loading = ref(true);
 const activityList = [

@@ -10,7 +10,7 @@
   </v-breadcrumbs>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const route = useRoute();
 
 const breadcrumbs = ref([]);

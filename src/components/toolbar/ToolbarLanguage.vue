@@ -24,7 +24,7 @@
     </v-list>
   </v-menu>
 </template>
-<script setup>
+<script setup lang="ts">
 import FlagIcon from "../common/FlagIcon";
 import config from "@/configs";
 

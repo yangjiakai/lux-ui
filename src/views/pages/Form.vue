@@ -160,7 +160,7 @@
   </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const formStyle = reactive({
   labelColor: "3B64A0",
   mainColor: "#3F69F4",

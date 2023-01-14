@@ -76,7 +76,7 @@
     </div>
   </v-container>
 </template>
-<script setup>
+<script setup lang="ts">
 import { useVirtualList } from "@vueuse/core";
 
 const index = ref(2);

@@ -2,7 +2,7 @@
   <h1 class="text-h4 mt-5">{{ title }}</h1>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const route = useRoute();
 
 const title = ref("");

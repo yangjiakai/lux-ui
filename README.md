@@ -20,7 +20,7 @@ Since the era of Vue2, Vuetify has been one of my favorite UI frameworks for Vue
 
 - ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite 3](https://github.com/vitejs/vite), [Vuetify 3](https://pnpm.io/)
 
-- 🗂 Use the [new `<script setup>` style](https://github.com/vuejs/rfcs/pull/227)
+- 🗂 Use the [new `<script setup lang="ts">` style](https://github.com/vuejs/rfcs/pull/227)
 
 - 😃 Use icons from any icon sets in [Iconify](https://icon-sets.iconify.design/)
 

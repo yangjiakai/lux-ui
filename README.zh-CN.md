@@ -20,7 +20,7 @@ Vue2 时代开始,Vuetify 就一直是我最喜欢的一款 Vue 的 UI 框架。
 
 - ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite 3](https://github.com/vitejs/vite), [Vuetify 3](https://pnpm.io/)
 
-- 🗂 使用新的 `<script setup>` 语法
+- 🗂 使用新的 `<script setup lang="ts">` 语法
 
 - 😃 使用任意的图标集 [Iconify](https://icon-sets.iconify.design/)
 

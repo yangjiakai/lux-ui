@@ -16,7 +16,7 @@
     </v-btn>
   </v-card>
 </template>
-<script setup>
+<script setup lang="ts">
 /*
 |---------------------------------------------------------------------
 | Verify Email Page Component

@@ -5,7 +5,7 @@
   ></span>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 const props = defineProps({
   // 数据

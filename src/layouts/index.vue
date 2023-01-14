@@ -32,7 +32,7 @@
   </v-layout>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "@vue/reactivity";
 
 const order = ref(1);

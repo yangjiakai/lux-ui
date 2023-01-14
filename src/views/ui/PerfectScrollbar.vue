@@ -30,7 +30,7 @@
     </v-row>
   </v-container>
 </template>
-<script setup>
+<script setup lang="ts">
 import PerfectScrollbar from "perfect-scrollbar";
 const userName = inject("userName");
 const scrollbar = ref(null);

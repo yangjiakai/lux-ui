@@ -38,7 +38,6 @@ export default createVuetify({
           info: "#2196F3",
           success: "#06d6a0",
           warning: "#ffd166",
-          content: "#8381a7",
         },
       },
       dark: {
@@ -57,7 +56,6 @@ export default createVuetify({
         },
       },
     },
-    variables: {},
   },
   locale: {
     locale: locale,

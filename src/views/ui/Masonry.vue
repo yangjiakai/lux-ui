@@ -98,7 +98,7 @@
     </masonry-wall> -->
   </v-container>
 </template>
-<script setup>
+<script setup lang="ts">
 import { useAxios } from "@vueuse/integrations/useAxios";
 import Loading from "@/components/loading/Loading01";
 

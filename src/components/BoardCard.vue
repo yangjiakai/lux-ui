@@ -46,7 +46,7 @@
     <div class="text-content">{{ card.description }}</div>
   </v-card>
 </template>
-<script setup>
+<script setup lang="ts">
 import { Icon } from "@iconify/vue";
 
 const props = defineProps({

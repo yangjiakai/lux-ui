@@ -45,7 +45,7 @@
     </v-card>
   </v-container>
 </template>
-<script setup>
+<script setup lang="ts">
 import { useDisplay } from "vuetify";
 const { name } = useDisplay();
 const columnNumber = computed(() => {

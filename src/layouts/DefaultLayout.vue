@@ -58,7 +58,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import configs from "@/configs";
 import MainMenu from "@/components/navigation/MainMenu";
 import ToolbarLanguage from "../components/toolbar/ToolbarLanguage";

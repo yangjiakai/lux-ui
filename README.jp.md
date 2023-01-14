@@ -20,7 +20,7 @@ Vue2 の j 時代から、Vuetify は私の一番気に入った Vue の UI フ�
 
 - ⚡️ [Vue 3](https://github.com/vuejs/core), [Vite 3](https://github.com/vitejs/vite), [Vuetify 3](https://pnpm.io/)
 
-- 🗂 新しい Composition Api [ `<script setup>` ](https://github.com/vuejs/rfcs/pull/227)
+- 🗂 新しい Composition Api [ `<script setup lang="ts">` ](https://github.com/vuejs/rfcs/pull/227)
 
 - 😃 Use icons from any icon sets in [Iconify](https://icon-sets.iconify.design/)
 

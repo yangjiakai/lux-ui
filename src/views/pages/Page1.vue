@@ -107,7 +107,7 @@
   </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useDisplay } from "vuetify";
 import sitesData from "@data/sites.json";
 import { useWindowScroll } from "@vueuse/core";

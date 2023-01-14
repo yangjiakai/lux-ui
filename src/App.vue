@@ -12,12 +12,12 @@
   </v-app>
 </template>
 
-<script setup>
-import defaultLayout from "@/layouts/DefaultLayout";
-import landingLayout from "@/layouts/LandingLayout";
-import simpleLayout from "@/layouts/SimpleLayout";
-import authLayout from "@/layouts/AuthLayout";
-import CustomizationMenu from "@/components/CustomizationMenu";
+<script setup lang="ts">
+import defaultLayout from "@/layouts/DefaultLayout.vue";
+import landingLayout from "@/layouts/LandingLayout.vue";
+import simpleLayout from "@/layouts/SimpleLayout.vue";
+import authLayout from "@/layouts/AuthLayout.vue";
+import CustomizationMenu from "@/components/CustomizationMenu.vue";
 
 const route = useRoute();
 
