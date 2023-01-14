@@ -11,6 +11,19 @@ export default [
     },
   },
   {
+    path: "/ui/gradient",
+    name: "ui-gradient",
+    component: () =>
+      import(
+        /* webpackChunkName: "ui-gradient" */ "@/views/ui/GradientPage.vue"
+      ),
+    meta: {
+      layout: "default",
+      category: "UI",
+      title: "Gradients",
+    },
+  },
+  {
     path: "/ui/grids",
     name: "ui-grids",
     component: () =>

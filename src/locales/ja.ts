@@ -74,6 +74,7 @@ export default {
     landingPage: "ランディングページ",
     pricingPage: "価格ページ",
     colors: "カラー",
+    gradient: "Gradient",
     grids: "グリッドレイアウト",
     scrollbar: "スクロールバー",
     waterFall: "おしゃれスクロール",

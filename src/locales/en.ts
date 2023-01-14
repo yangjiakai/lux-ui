@@ -75,6 +75,7 @@ export default {
     pricingPage: "Pricing Page",
     childBinding: "Child Binding",
     colors: "Colors",
+    gradient: "Gradient",
     grids: "Grid",
     scrollbar: "Perfect Scrollbar",
     waterFall: "Masonry layout",

@@ -2,7 +2,7 @@
   <h6 class="text-h6 pa-5 d-flex align-center">
     <span class="flex-1">Traffic Sources</span>
     <v-select
-      hide-details=""
+      hide-details
       density="compact"
       variant="solo"
       label="Last 28"

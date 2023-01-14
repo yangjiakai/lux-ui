@@ -16,6 +16,12 @@ export default [
     key: "menu.colors",
   },
   {
+    icon: "mdi-format-color-fill",
+    text: "Gradient",
+    link: "/ui/gradient",
+    key: "menu.gradient",
+  },
+  {
     icon: "mdi-view-dashboard-variant-outline",
     text: "Grids",
     link: "/ui/grids",

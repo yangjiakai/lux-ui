@@ -74,6 +74,7 @@ export default {
     landingPage: "登陆页面",
     pricingPage: "定价页面",
     colors: "色彩",
+    gradient: "渐变色",
     grids: "网格",
     scrollbar: "滚动条美化",
     waterFall: "瀑布流布局",
