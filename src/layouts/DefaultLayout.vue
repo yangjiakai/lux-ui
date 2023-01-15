@@ -5,7 +5,7 @@
       <template v-slot:prepend>
         <div class="pa-4">
           <div
-            class="text-subtitle-1 font-weight-bold text-primary text-uppercase d-flex align-center"
+            class="text-h5 text-uppercase font-weight-bold d-flex align-center"
           >
             <img width="30" src="@/assets/logo.png" alt="" />
             <span class="ml-2"> {{ product.name }}</span>
@@ -20,15 +20,19 @@
       <main-menu :menu="navigation.menu"></main-menu>
       <!-- Navigation menu footer -->
       <template v-slot:append>
-        <v-card theme="dark" height="300" class="pa-3" variant="text">
-          <v-card class="gradient primary pa-2" height="200">
+        <v-card theme="dark" height="225" class="pa-3" variant="text">
+          <v-card class="d-flex flex-column gradient primary pa-2" height="200">
             <v-card-title primary-title>
-              <v-btn color="white" size="40" icon>
+              <v-btn class="mr-2" color="white" size="40" icon>
                 <img width="20" src="@/assets/logo.png" alt="" />
               </v-btn>
-              J.K. Inc
+              Yang J.K.
             </v-card-title>
-            <v-card-subtitle>github.com/yangjiakai</v-card-subtitle>
+            <v-card-subtitle> </v-card-subtitle>
+            <v-card-text>
+              <div><b>Github:</b></div>
+              <div>github.com/yangjiakai</div>
+            </v-card-text>
             <v-card-actions>
               <v-btn
                 color="white"
