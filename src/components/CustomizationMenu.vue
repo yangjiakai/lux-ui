@@ -4,16 +4,8 @@ import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 import { Icon } from "@iconify/vue";
 const customizeTheme = useCustomizeThemeStore();
 const theme = useTheme();
-
 const themeDrawer = ref(false);
-const color = ref("#0096c7");
 const colorIndex = ref(0);
-const swatches = [
-  ["#0096c7", "#31944f"],
-  ["#EE4f12", "#46BBB1"],
-  ["#ee44aa", "#55BB46"],
-];
-
 const primaryColors = ref([
   "#0096c7",
   "#31944f",
@@ -23,14 +15,8 @@ const primaryColors = ref([
   "#55BB46",
 ]);
 
-const currentTheme = computed(() => {
-  return customizeTheme.darkTheme ? "天黑了" : "天亮了";
-});
-
 watch(colorIndex, (newVal) => {
-  console.log(newVal);
   theme.themes.value.light.colors.primary = primaryColors.value[newVal];
-  console.log(theme.current.value.colors.primary);
 });
 </script>
 
@@ -113,10 +99,10 @@ watch(colorIndex, (newVal) => {
               @click="toggle"
               class="text-white mr-1"
               icon
-              size="26"
+              size="30"
               :color="color"
             >
-              <Icon width="21" v-if="isSelected" icon="line-md:confirm" />
+              <Icon width="22" v-if="isSelected" icon="line-md:confirm" />
             </v-btn>
           </v-item>
         </v-item-group>
@@ -140,7 +126,7 @@ watch(colorIndex, (newVal) => {
   transition: all 0.5s;
   cursor: pointer;
   &:hover {
-    box-shadow: 1px 1px 18px #ee44aa;
+    box-shadow: 1px 1px 18px #c02b84;
     transition: all 0.5s;
   }
 

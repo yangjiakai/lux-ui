@@ -32,7 +32,8 @@ export default defineConfig({
   },
   css: {
     preprocessorOptions: {
-      scss: { additionalData: ` @import "@/styles/main.scss";` },
+      scss: { charset: false },
+      css: { charset: false },
     },
   },
 });

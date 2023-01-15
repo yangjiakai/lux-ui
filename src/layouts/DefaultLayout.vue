@@ -20,25 +20,32 @@
       <main-menu :menu="navigation.menu"></main-menu>
       <!-- Navigation menu footer -->
       <template v-slot:append>
-        <v-card elevation="4">
-          <v-card-title primary-title> J.K. Inc </v-card-title>
-          <v-card-subtitle>github.com/yangjiakai</v-card-subtitle>
-          <v-card-actions>
-            <v-btn
-              prepend-icon="mdi-cloud-upload"
-              color="primary"
-              block
-              variant="elevated"
-              @click="openGithubSite"
-            >
-              Star-Me
-            </v-btn>
-          </v-card-actions>
+        <v-card theme="dark" height="300" class="pa-3" variant="text">
+          <v-card class="gradient primary pa-2" height="200">
+            <v-card-title primary-title>
+              <v-btn color="white" size="40" icon>
+                <img width="20" src="@/assets/logo.png" alt="" />
+              </v-btn>
+              J.K. Inc
+            </v-card-title>
+            <v-card-subtitle>github.com/yangjiakai</v-card-subtitle>
+            <v-card-actions>
+              <v-btn
+                color="white"
+                block
+                prepend-icon="mdi-thumb-up-outline"
+                variant="elevated"
+                @click="openGithubSite"
+              >
+                Star-Me
+              </v-btn>
+            </v-card-actions>
+          </v-card>
         </v-card>
       </template>
     </v-navigation-drawer>
 
-    <v-app-bar app>
+    <v-app-bar>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Vuetify</v-toolbar-title>
 
@@ -60,8 +67,8 @@
 
 <script setup lang="ts">
 import configs from "@/configs";
-import MainMenu from "@/components/navigation/MainMenu";
-import ToolbarLanguage from "../components/toolbar/ToolbarLanguage";
+import MainMenu from "@/components/navigation/MainMenu.vue";
+import ToolbarLanguage from "@/components/toolbar/ToolbarLanguage.vue";
 import PerfectScrollbar from "perfect-scrollbar";
 import Breadcrumb from "@/components/Breadcrumb.vue";
 import PageTitle from "@/components/PageTitle.vue";
