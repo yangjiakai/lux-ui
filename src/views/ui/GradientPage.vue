@@ -21,7 +21,7 @@ const changeBgColor = (gradient) => {
   gradientFrom.value = gradient.colors[0];
   gradientTo.value = gradient.colors[1];
   bgColor.value = `linear-gradient(${gradientFrom.value}, ${gradientTo.value}`;
-  //   isDetailShow.value = true;
+  isDetailShow.value = true;
   dialog.value = true;
 };
 
@@ -35,82 +35,6 @@ const changeGradientAngel = () => {
 </script>
 <template>
   <div class="jk-gradient">
-    <teleport to="body">
-      <transition name="fade">
-        <div
-          class="jk-mask"
-          v-if="isDetailShow"
-          @click.self="isDetailShow = false"
-        >
-          <div
-            class="gradient-detail-card shadow-2xl"
-            :style="`background: ${bgGradient}`"
-          >
-            <div class="gradient-message shadow-md">
-              <div class="left-area">
-                <Icon
-                  @click="changeGradientAngel"
-                  class="feature-icon"
-                  icon="ic:baseline-switch-access-shortcut"
-                />
-                <Icon
-                  @click="isCodeShow = !isCodeShow"
-                  class="feature-icon"
-                  icon="entypo:code"
-                />
-              </div>
-
-              <div class="center-area">
-                <div class="gradient-from" @click="copy(gradientFrom)">
-                  <Icon
-                    :color="gradientFrom"
-                    icon="academicons:ceur-square"
-                    inline="true"
-                    class="color-icon"
-                  />
-                  <span> {{ gradientFrom }}</span>
-                </div>
-                <Icon
-                  class="right-icon"
-                  icon="akar-icons:circle-chevron-right-fill"
-                />
-                <div class="gradient-to" @click="copy(gradientTo)">
-                  <Icon
-                    icon="academicons:ceur-square"
-                    inline="true"
-                    class="color-icon"
-                    :color="gradientTo"
-                  />
-                  {{ gradientTo }}
-                </div>
-              </div>
-
-              <div class="right-area">
-                <Icon
-                  class="feature-icon"
-                  icon="eva:close-circle-fill"
-                  @click="isDetailShow = false"
-                />
-              </div>
-            </div>
-            <div class="gradient-name">{{ gradientName }}</div>
-            <div class="gradient-code">
-              <transition name="fade">
-                <div
-                  class="gradient-code-content"
-                  v-if="isCodeShow"
-                  @click="copy(bgGradient)"
-                >
-                  <Icon class="feature-icon mr-1" icon="ep:copy-document" />
-                  {{ bgGradient }}
-                </div></transition
-              >
-            </div>
-          </div>
-        </div>
-      </transition>
-    </teleport>
-
     <div class="display-area">
       <div class="gradient-list shadow-md">
         <div
@@ -125,72 +49,70 @@ const changeGradientAngel = () => {
       </div>
     </div>
   </div>
-  <v-dialog transition="fade" v-model="dialog">
-    <v-card>
-      <div
-        class="gradient-detail-card shadow-2xl"
-        :style="`background: ${bgGradient}`"
-      >
-        <div class="gradient-message shadow-md">
-          <div class="left-area">
+  <v-dialog transition="fade" v-model="isDetailShow">
+    <v-card
+      height="80vh"
+      color="red"
+      class="gradient-detail-card"
+      :style="`background: ${bgGradient}`"
+    >
+      <div class="card-header">
+        <div class="left-area">
+          <Icon
+            @click="changeGradientAngel"
+            class="feature-icon"
+            icon="ic:baseline-switch-access-shortcut"
+          />
+          <Icon
+            @click="isCodeShow = !isCodeShow"
+            class="feature-icon"
+            icon="entypo:code"
+          />
+        </div>
+        <div class="center-area">
+          <div class="gradient-from" @click="copy(gradientFrom)">
             <Icon
-              @click="changeGradientAngel"
-              class="feature-icon"
-              icon="ic:baseline-switch-access-shortcut"
+              :color="gradientFrom"
+              icon="academicons:ceur-square"
+              inline="true"
+              class="color-icon"
             />
-            <Icon
-              @click="isCodeShow = !isCodeShow"
-              class="feature-icon"
-              icon="entypo:code"
-            />
+            <span> {{ gradientFrom }}</span>
           </div>
-
-          <div class="center-area">
-            <div class="gradient-from" @click="copy(gradientFrom)">
-              <Icon
-                :color="gradientFrom"
-                icon="academicons:ceur-square"
-                inline="true"
-                class="color-icon"
-              />
-              <span> {{ gradientFrom }}</span>
-            </div>
+          <Icon
+            class="right-icon"
+            icon="akar-icons:circle-chevron-right-fill"
+          />
+          <div class="gradient-to" @click="copy(gradientTo)">
             <Icon
-              class="right-icon"
-              icon="akar-icons:circle-chevron-right-fill"
+              icon="academicons:ceur-square"
+              inline="true"
+              class="color-icon"
+              :color="gradientTo"
             />
-            <div class="gradient-to" @click="copy(gradientTo)">
-              <Icon
-                icon="academicons:ceur-square"
-                inline="true"
-                class="color-icon"
-                :color="gradientTo"
-              />
-              {{ gradientTo }}
-            </div>
-          </div>
-
-          <div class="right-area">
-            <Icon
-              class="feature-icon"
-              icon="eva:close-circle-fill"
-              @click="isDetailShow = false"
-            />
+            {{ gradientTo }}
           </div>
         </div>
-        <div class="gradient-name">{{ gradientName }}</div>
-        <div class="gradient-code">
-          <transition name="fade">
-            <div
-              class="gradient-code-content"
-              v-if="isCodeShow"
-              @click="copy(bgGradient)"
-            >
-              <Icon class="feature-icon mr-1" icon="ep:copy-document" />
-              {{ bgGradient }}
-            </div></transition
+        <div class="right-area">
+          <Icon
+            class="feature-icon"
+            icon="eva:close-circle-fill"
+            @click="isDetailShow = false"
+          />
+        </div>
+      </div>
+      <div class="gradient-name">{{ gradientName }}</div>
+      <div class="gradient-code">
+        <transition name="fade">
+          <div
+            class="gradient-code-content"
+            v-if="isCodeShow"
+            @click="copy(bgGradient)"
           >
-        </div>
+            <Icon class="feature-icon mr-1" icon="ep:copy-document" />
+            {{ bgGradient }}
+          </div></transition
+        >
       </div>
     </v-card>
   </v-dialog>
@@ -227,16 +149,11 @@ const changeGradientAngel = () => {
 }
 
 .gradient-detail-card {
-  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 80%;
-  height: 80%;
-  z-index: 999;
-  color: rgba(255, 255, 255, 0.9);
 
-  .gradient-message {
+  .card-header {
     display: flex;
     justify-content: center;
     align-items: center;
