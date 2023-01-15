@@ -1,0 +1,58 @@
+<!--
+* @Component: CopyLabel
+* @Maintainer: J.K. Yang
+* @Description: 
+-->
+<script setup lang="ts">
+import { useClipboard } from "@vueuse/core";
+const { copy } = useClipboard();
+const tooltip = ref("Copy");
+const timeout = ref("1000");
+const snackbar = ref(false);
+const copiedText = "Copied to clipboard!";
+
+const props = defineProps({
+  // Text to copy to clipboard
+  text: {
+    type: String,
+    default: "",
+  },
+});
+
+const copyText = (text: string) => {
+  copy(text);
+  tooltip.value = "Copied!";
+  snackbar.value = true;
+  setTimeout(() => {
+    tooltip.value = "Copy!";
+  }, 1000);
+};
+</script>
+
+<template>
+  <v-snackbar v-model="snackbar" :timeout="timeout">
+    {{ copiedText }}
+
+    <template v-slot:actions>
+      <v-btn color="blue" variant="text" @click="snackbar = false">
+        Close
+      </v-btn>
+    </template>
+  </v-snackbar>
+  <v-tooltip location="bottom left">
+    <template v-slot:activator="{ props }">
+      <span class="text" v-bind="props" @click.stop.prevent="copyText(text)">
+        {{ text }}
+      </span>
+    </template>
+    <span>{{ tooltip }}</span>
+  </v-tooltip>
+</template>
+
+<style scoped lang="scss">
+.text {
+  cursor: pointer;
+  display: inline-block;
+  border-bottom: 1px dashed;
+}
+</style>
