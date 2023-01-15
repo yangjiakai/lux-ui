@@ -2,6 +2,7 @@
 import { useClipboard } from "@vueuse/core";
 import { gradients } from "@/data/gradients";
 import { Icon } from "@iconify/vue";
+import CopyLabel from "@/components/common/CopyLabel.vue";
 const { copy, copied } = useClipboard();
 
 const dialog = ref(false);
@@ -77,7 +78,8 @@ const changeGradientAngel = () => {
               inline="true"
               class="color-icon"
             />
-            <span> {{ gradientFrom }}</span>
+
+            <copy-label :text="gradientFrom" />
           </div>
           <Icon
             class="right-icon"
@@ -90,7 +92,8 @@ const changeGradientAngel = () => {
               class="color-icon"
               :color="gradientTo"
             />
-            {{ gradientTo }}
+
+            <copy-label :text="gradientTo" />
           </div>
         </div>
         <div class="right-area">
@@ -109,10 +112,8 @@ const changeGradientAngel = () => {
             v-if="isCodeShow"
             @click="copy(bgGradient)"
           >
-            <Icon class="feature-icon mr-1" icon="ep:copy-document" />
-            {{ bgGradient }}
-          </div></transition
-        >
+            <copy-label :text="bgGradient" /></div
+        ></transition>
       </div>
     </v-card>
   </v-dialog>
@@ -231,10 +232,6 @@ const changeGradientAngel = () => {
       align-items: center;
       transition: 0.3s;
       cursor: pointer;
-      &:hover {
-        opacity: 0.8;
-        transition: 0.3s;
-      }
     }
   }
 }
