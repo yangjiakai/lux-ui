@@ -7,19 +7,29 @@ const theme = useTheme();
 
 const themeDrawer = ref(false);
 const color = ref("#0096c7");
+const colorIndex = ref(0);
 const swatches = [
   ["#0096c7", "#31944f"],
   ["#EE4f12", "#46BBB1"],
   ["#ee44aa", "#55BB46"],
 ];
 
+const primaryColors = ref([
+  "#0096c7",
+  "#31944f",
+  "#EE4f12",
+  "#46BBB1",
+  "#ee44aa",
+  "#55BB46",
+]);
+
 const currentTheme = computed(() => {
   return customizeTheme.darkTheme ? "天黑了" : "天亮了";
 });
 
-watch(color, (newVal) => {
+watch(colorIndex, (newVal) => {
   console.log(newVal);
-  theme.themes.value.light.colors.primary = newVal;
+  theme.themes.value.light.colors.primary = primaryColors.value[newVal];
   console.log(theme.current.value.colors.primary);
 });
 </script>
@@ -39,7 +49,7 @@ watch(color, (newVal) => {
     >
       <div class="top-area">
         <div class="d-flex align-center">
-          <b>Soft UI Configurator</b>
+          <b>UI Configurator</b>
           <v-spacer></v-spacer>
           <v-btn
             variant="text"
@@ -86,23 +96,32 @@ watch(color, (newVal) => {
       </div>
       <hr class="my-6" />
 
-      <v-divider></v-divider>
-      <div class="pa-2">
-        <div class="font-weight-bold my-1">Global Theme</div>
-        <v-btn-toggle v-model="theme" color="primary" mandatory class="mb-2">
-          <v-btn x-large>Light</v-btn>
-          <v-btn x-large>Dark</v-btn>
-        </v-btn-toggle>
-        <v-divider></v-divider>
-        <v-color-picker
-          v-model="color"
-          mode="hexa"
-          :swatches="swatches"
-          show-swatches
-        ></v-color-picker>
-        <v-btn color="primary">text</v-btn>
-        <h1 class="text-primary">3333</h1>
+      <div class="primary-color-area">
+        <b>Primary Colors</b>
+        <v-item-group
+          class="mt-3"
+          v-model="colorIndex"
+          selected-class="elevation-12"
+          mandatory
+        >
+          <v-item
+            v-for="color in primaryColors"
+            :key="color"
+            v-slot="{ isSelected, toggle }"
+          >
+            <v-btn
+              @click="toggle"
+              class="text-white mr-1"
+              icon
+              size="26"
+              :color="color"
+            >
+              <Icon width="21" v-if="isSelected" icon="line-md:confirm" />
+            </v-btn>
+          </v-item>
+        </v-item-group>
       </div>
+      <hr class="my-6" />
     </v-navigation-drawer>
   </div>
 </template>
