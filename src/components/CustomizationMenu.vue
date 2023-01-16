@@ -10,7 +10,11 @@ interface Color {
 const customizeTheme = useCustomizeThemeStore();
 const theme = useTheme();
 const themeDrawer = ref(false);
-const currentColor = ref<Color>();
+const currentColor = ref<Color>({
+  colorId: 2,
+  colorName: "grey",
+  colorValue: "#344767",
+});
 const primaryColors = ref([
   {
     colorId: 1,
@@ -147,6 +151,12 @@ watch(currentColor, (newVal) => {
           hide-details
           :label="`Mini: ${customizeTheme.miniSidebar}`"
         ></v-switch>
+      </div>
+      <hr class="my-6" />
+      <div>
+        <v-btn color="" class="gradient info" block size="large"
+          >Contact Me</v-btn
+        >
       </div>
     </v-navigation-drawer>
   </div>

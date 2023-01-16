@@ -1,3 +1,107 @@
+<script setup lang="ts">
+import { useLocale } from "vuetify";
+import { Icon } from "@iconify/vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
+const { t } = useLocale();
+
+//
+const refLoginForm = ref(null);
+const refUsername = ref(null);
+const refEmail = ref(null);
+const refPassword = ref(null);
+
+// sign in buttons
+const isLoading = ref(false);
+const isSignInDisabled = ref(false);
+
+const emailRules = ref([
+  (v) => !!v || "E-mail is required",
+  (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+]);
+
+const usernameRules = ref([
+  (v) => !!v || "Password is required",
+  (v) => (v && v.length <= 10) || "Password must be less than 10 characters",
+]);
+
+const passwordRules = ref([
+  (v) => !!v || "Password is required",
+  (v) => (v && v.length <= 10) || "Password must be less than 10 characters",
+]);
+
+const isFormValid = ref(true);
+const email = ref("");
+const password = ref("");
+
+const error = ref(false);
+const errorMessages = ref("");
+
+const errorProvider = ref(false);
+const errorProviderMessages = ref("");
+
+// show password field
+const showPassword = ref(false);
+
+const providers = ref([
+  {
+    id: "google",
+    label: "Google",
+    isLoading: false,
+  },
+  {
+    id: "facebook",
+    label: "Facebook",
+    isLoading: false,
+  },
+]);
+
+const formStyle = reactive({
+  labelColor: "3B64A0",
+  mainColor: "#3F69F4",
+  borderColor: "#42a5f5",
+  bgColor: "#fff",
+  density: "default", //	'default' | 'comfortable' | 'compact'
+  variant: "underlined", // 'flat' | 'elevated' | 'tonal' | 'outlined' | 'text' | 'plain'
+});
+
+const rules = reactive({
+  required: (value) => (value && Boolean(value)) || "Required",
+});
+
+const validate = async () => {
+  const { valid } = await refLoginForm.value.validate();
+  console.log(valid);
+  return valid;
+};
+
+const submit = async () => {
+  const { valid } = await refLoginForm.value.validate();
+  if (valid) {
+    isLoading.value = true;
+    isSignInDisabled.value = true;
+    signIn(email.value, password.value);
+  } else {
+    console.log("no");
+  }
+};
+
+const signIn = (email, password) => {
+  // TODO API CALL
+  setTimeout(() => {
+    router.push({
+      name: "home",
+    });
+  }, 2000);
+};
+
+const signInProvider = (provider) => {};
+
+const resetErrors = () => {
+  error.value = false;
+  errorMessages.value = "";
+};
+</script>
 <template>
   <v-card class="pa-3" elevation="3">
     <v-card-title primary-title class="my-4 text-h4">
@@ -131,107 +235,3 @@
     </router-link>
   </div>
 </template>
-<script setup lang="ts">
-import { useLocale } from "vuetify";
-import { Icon } from "@iconify/vue";
-import { useRouter } from "vue-router";
-const router = useRouter();
-const { t } = useLocale();
-
-//
-const refLoginForm = ref(null);
-const refUsername = ref(null);
-const refEmail = ref(null);
-const refPassword = ref(null);
-
-// sign in buttons
-const isLoading = ref(false);
-const isSignInDisabled = ref(false);
-
-const emailRules = ref([
-  (v) => !!v || "E-mail is required",
-  (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-]);
-
-const usernameRules = ref([
-  (v) => !!v || "Password is required",
-  (v) => (v && v.length <= 10) || "Password must be less than 10 characters",
-]);
-
-const passwordRules = ref([
-  (v) => !!v || "Password is required",
-  (v) => (v && v.length <= 10) || "Password must be less than 10 characters",
-]);
-
-const isFormValid = ref(true);
-const email = ref("");
-const password = ref("");
-
-const error = ref(false);
-const errorMessages = ref("");
-
-const errorProvider = ref(false);
-const errorProviderMessages = ref("");
-
-// show password field
-const showPassword = ref(false);
-
-const providers = ref([
-  {
-    id: "google",
-    label: "Google",
-    isLoading: false,
-  },
-  {
-    id: "facebook",
-    label: "Facebook",
-    isLoading: false,
-  },
-]);
-
-const formStyle = reactive({
-  labelColor: "3B64A0",
-  mainColor: "#3F69F4",
-  borderColor: "#42a5f5",
-  bgColor: "#fff",
-  density: "default", //	'default' | 'comfortable' | 'compact'
-  variant: "underlined", // 'flat' | 'elevated' | 'tonal' | 'outlined' | 'text' | 'plain'
-});
-
-const rules = reactive({
-  required: (value) => (value && Boolean(value)) || "Required",
-});
-
-const validate = async () => {
-  const { valid } = await refLoginForm.value.validate();
-  console.log(valid);
-  return valid;
-};
-
-const submit = async () => {
-  const { valid } = await refLoginForm.value.validate();
-  if (valid) {
-    isLoading.value = true;
-    isSignInDisabled.value = true;
-    signIn(email.value, password.value);
-  } else {
-    console.log("no");
-  }
-};
-
-const signIn = (email, password) => {
-  // TODO API CALL
-  setTimeout(() => {
-    router.push({
-      name: "home",
-    });
-  }, 2000);
-};
-
-const signInProvider = (provider) => {};
-
-const resetErrors = () => {
-  error.value = false;
-  errorMessages.value = "";
-};
-</script>

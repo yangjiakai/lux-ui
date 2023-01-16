@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import { ref } from "@vue/reactivity";
+
+const order = ref(1);
+</script>
 <template>
   <v-layout>
     <v-app-bar height="22" color="grey-darken-3" elevation="0"></v-app-bar>
@@ -31,9 +36,3 @@
     </v-main>
   </v-layout>
 </template>
-
-<script setup lang="ts">
-import { ref } from "@vue/reactivity";
-
-const order = ref(1);
-</script>

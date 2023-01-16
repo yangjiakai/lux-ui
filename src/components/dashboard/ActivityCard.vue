@@ -110,7 +110,7 @@ const activityList = [
 onMounted(() => {
   setTimeout(() => {
     loading.value = false;
-  }, 2000);
+  }, 1000);
 });
 </script>
 
