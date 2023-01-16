@@ -69,30 +69,4 @@ const copyText = (text: string) => {
   display: inline-block;
   border-bottom: 1px dashed;
 }
-
-.heartBeat {
-  animation: heartBeat 0.5s;
-}
-
-@keyframes heartBeat {
-  0% {
-    transform: scale(1);
-  }
-
-  14% {
-    transform: scale(1.3);
-  }
-
-  28% {
-    transform: scale(1);
-  }
-
-  42% {
-    transform: scale(1.3);
-  }
-
-  70% {
-    transform: scale(1);
-  }
-}
 </style>

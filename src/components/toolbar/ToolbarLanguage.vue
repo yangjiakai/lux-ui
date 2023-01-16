@@ -17,15 +17,13 @@
           <flag-icon :flag="locale.flag" class="mr-1"></flag-icon>
         </template>
 
-        <v-list-item-title class="text-caption">
-          {{ locale.label }}</v-list-item-title
-        >
+        <v-list-item-title> {{ locale.label }}</v-list-item-title>
       </v-list-item>
     </v-list>
   </v-menu>
 </template>
 <script setup lang="ts">
-import FlagIcon from "../common/FlagIcon";
+import FlagIcon from "../common/FlagIcon.vue";
 import config from "@/configs";
 
 import { useLocale } from "vuetify";

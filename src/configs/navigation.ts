@@ -7,7 +7,7 @@ export default {
   menu: [
     {
       text: "",
-      keys: "",
+      key: "",
       items: [
         {
           key: "menu.dashboard",

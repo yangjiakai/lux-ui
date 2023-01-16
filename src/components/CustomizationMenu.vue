@@ -69,7 +69,6 @@ watch(currentColor, (newVal) => {
           <v-spacer></v-spacer>
           <v-btn
             variant="text"
-            color="primary"
             size="small"
             rounded
             icon="mdi-close"
@@ -139,6 +138,16 @@ watch(currentColor, (newVal) => {
         </v-item-group>
       </div>
       <hr class="my-6" />
+      <div class="">
+        <b>MiniSideBar</b>
+        <v-switch
+          color="primary"
+          class="ml-2"
+          v-model="customizeTheme.miniSidebar"
+          hide-details
+          :label="`Mini: ${customizeTheme.miniSidebar}`"
+        ></v-switch>
+      </div>
     </v-navigation-drawer>
   </div>
 </template>

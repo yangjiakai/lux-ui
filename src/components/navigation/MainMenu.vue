@@ -1,7 +1,26 @@
+<script setup lang="ts">
+import { useLocale } from "vuetify";
+import { useCustomizeThemeStore } from "@/stores/customizeTheme";
+const { t } = useLocale();
+const customizeTheme = useCustomizeThemeStore();
+
+const props = defineProps({
+  // 数据
+  menu: {
+    type: Array<any>,
+    default: () => [],
+  },
+});
+
+onMounted(() => {});
+</script>
 <template>
   <v-list nav dense color="primary">
     <template v-for="(menuArea, index) in menu" :key="index">
-      <div v-if="menuArea.key || menuArea.text" class="pa-1 mt-2 text-overline">
+      <div
+        v-if="!customizeTheme.miniSidebar && (menuArea.key || menuArea.text)"
+        class="pa-1 mt-2 text-overline"
+      >
         {{ menuArea.key ? t(`$vuetify.${menuArea.key}`) : menuArea.text }}
       </div>
       <template v-if="menuArea.items">
@@ -54,20 +73,6 @@
     </template>
   </v-list>
 </template>
-
-<script setup lang="ts">
-import { useLocale } from "vuetify";
-const { t } = useLocale();
-const props = defineProps({
-  // 数据
-  menu: {
-    type: Array,
-    default: () => [],
-  },
-});
-
-onMounted(() => {});
-</script>
 
 <style scoped>
 .v-list-group .v-list-item {

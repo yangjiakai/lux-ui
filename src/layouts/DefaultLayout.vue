@@ -29,8 +29,14 @@ onBeforeUnmount(() => {});
 <template>
   <div>
     <!-- Navigation menu info -->
-    <v-navigation-drawer app v-model="drawer" elevation="1" id="mainMenu">
-      <template v-slot:prepend>
+    <v-navigation-drawer
+      app
+      v-model="drawer"
+      :rail="customizeTheme.miniSidebar"
+      elevation="1"
+      id="mainMenu"
+    >
+      <template v-if="!customizeTheme.miniSidebar" v-slot:prepend>
         <div class="pa-4">
           <div
             class="text-h5 text-uppercase font-weight-bold d-flex align-center"
@@ -47,7 +53,7 @@ onBeforeUnmount(() => {});
       <!-- Navigation menu -->
       <main-menu :menu="navigation.menu"></main-menu>
       <!-- Navigation menu footer -->
-      <template v-slot:append>
+      <template v-if="!customizeTheme.miniSidebar" v-slot:append>
         <v-card theme="dark" height="225" class="pa-3" variant="text">
           <v-card
             class="d-flex flex-column gradient pa-2"
@@ -62,7 +68,7 @@ onBeforeUnmount(() => {});
                 :class="`text-${customizeTheme.primaryColor}`"
                 icon
               >
-                <Icon width="30" icon="line-md:moon-filled-loop" />
+                <Icon width="30" icon="line-md:github-loop" />
               </v-btn>
               Yang J.K.
             </v-card-title>
