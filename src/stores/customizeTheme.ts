@@ -1,9 +1,15 @@
 import { defineStore } from "pinia";
 
+interface Color {
+  colorId: number;
+  colorName: string;
+  colorValue: string;
+}
+
 interface State {
   miniSidebar: boolean;
   darkTheme: boolean;
-  primaryColor: string;
+  primaryColor: Color;
 }
 
 export const useCustomizeThemeStore = defineStore({
@@ -11,7 +17,11 @@ export const useCustomizeThemeStore = defineStore({
   state: (): State => ({
     miniSidebar: false,
     darkTheme: false,
-    primaryColor: "grey",
+    primaryColor: {
+      colorId: 2,
+      colorName: "grey",
+      colorValue: "#344767",
+    },
   }),
 
   getters: {},
@@ -19,7 +29,7 @@ export const useCustomizeThemeStore = defineStore({
     setMiniSideBar(payload: boolean) {
       this.miniSidebar = payload;
     },
-    setPrimaryColor(payload: string) {
+    setPrimaryColor(payload: Color) {
       this.primaryColor = payload;
     },
   },

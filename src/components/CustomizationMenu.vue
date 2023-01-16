@@ -50,7 +50,7 @@ const primaryColors = ref([
 
 watch(currentColor, (newVal) => {
   theme.themes.value.light.colors.primary = newVal.colorValue;
-  customizeTheme.setPrimaryColor(newVal.colorName);
+  customizeTheme.setPrimaryColor(newVal);
 });
 </script>
 

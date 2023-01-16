@@ -69,7 +69,7 @@ export default [
     name: "chart-apexchart",
     component: () =>
       import(
-        /* webpackChunkName: "chart-apexchart" */ "@/views/chart/ApexChart.vue"
+        /* webpackChunkName: "chart-apexchart" */ "@/views/chart/ApexCharts.vue"
       ),
     meta: {
       layout: "default",

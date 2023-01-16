@@ -1,7 +1,7 @@
 <template>
   <v-row class="flex-0" dense>
     <v-col cols="12" xl="4">
-      <v-card class="gradient gray card-shadow h-full" min-height="380">
+      <v-card class="card-shadow h-full" min-height="380">
         <sales-card></sales-card>
       </v-card>
     </v-col>
@@ -18,12 +18,12 @@
   </v-row>
   <v-row class="card-shadow flex-grow-0" dense>
     <v-col cols="12" xl="6">
-      <v-card class="card-shadow" min-height="380">
+      <v-card class="card-shadow" max-height="380">
         <table-card></table-card>
       </v-card>
     </v-col>
     <v-col cols="12" xl="6">
-      <v-card class="card-shadow h-full"> <track-card></track-card> </v-card>
+      <v-card class="card-shadow h-full"> <task-card></task-card> </v-card>
     </v-col>
   </v-row>
   <v-row class="card-shadow flex-grow-0" dense>
@@ -40,13 +40,15 @@
 
 <script setup lang="ts">
 import { ref } from "@vue/reactivity";
-import SalesCard from "@/components/dashboard/SalesCard";
-import SourcesCard from "@/components/dashboard/SourcesCard";
-import ActivityCard from "@/components/dashboard/ActivityCard";
-import TableCard from "@/components/dashboard/TableCard";
-import TicketsCard from "@/components/dashboard/TicketsCard";
-import TrackCard from "@/components/dashboard/TrackCard";
-import TodoCard from "@/components/dashboard/TodoCard";
+import SalesCard from "@/components/dashboard/SalesCard.vue";
+import SourcesCard from "@/components/dashboard/SourcesCard.vue";
+import ActivityCard from "@/components/dashboard/ActivityCard.vue";
+import TableCard from "@/components/dashboard/TableCard.vue";
+import TicketsCard from "@/components/dashboard/TicketsCard.vue";
+import TrackCard from "@/components/dashboard/TrackCard.vue";
+import TodoCard from "@/components/dashboard/TodoCard.vue";
+import TaskCard from "@/components/dashboard/TaskCard.vue";
+
 import router, { constantRoutes, dynamicRoutes } from "@/router";
 console.log(router);
 console.log(constantRoutes);

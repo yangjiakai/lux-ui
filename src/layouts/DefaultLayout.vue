@@ -57,7 +57,7 @@ onBeforeUnmount(() => {});
         <v-card theme="dark" height="225" class="pa-3" variant="text">
           <v-card
             class="d-flex flex-column gradient pa-2"
-            :class="customizeTheme.primaryColor"
+            :class="customizeTheme.primaryColor.colorName"
             height="200"
           >
             <v-card-title>
@@ -65,7 +65,7 @@ onBeforeUnmount(() => {});
                 class="mr-2"
                 size="40"
                 color="white"
-                :class="`text-${customizeTheme.primaryColor}`"
+                :class="`text-${customizeTheme.primaryColor.colorName}`"
                 icon
               >
                 <Icon width="30" icon="line-md:github-loop" />

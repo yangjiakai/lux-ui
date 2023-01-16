@@ -1,3 +1,13 @@
+<script setup lang="ts">
+import ApexLineAreaCharts from "@/components/charts/apexchart/ApexLineAreaCharts.vue";
+const loading = ref(true);
+
+onMounted(() => {
+  setTimeout(() => {
+    loading.value = false;
+  }, 1000);
+});
+</script>
 <template>
   <!-- loading spinner -->
   <div
@@ -12,38 +22,8 @@
       <v-btn variant="text" color="grey">查看报告</v-btn>
     </h6>
 
-    <apexchart
-      height="300"
-      type="bar"
-      :options="options"
-      :series="series"
-    ></apexchart>
+    <ApexLineAreaCharts />
   </div>
 </template>
-
-<script setup lang="ts">
-const loading = ref(true);
-
-onMounted(() => {
-  setTimeout(() => {
-    loading.value = false;
-  }, 1000);
-});
-const options = {
-  chart: {
-    id: "vuechart-example",
-  },
-  xaxis: {
-    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
-  },
-};
-
-const series = [
-  {
-    name: "series-1",
-    data: [30, 40, 45, 50, 49, 60, 70, 91],
-  },
-];
-</script>
 
 <style lang="scss" scoped></style>
