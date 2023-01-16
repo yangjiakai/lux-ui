@@ -75,6 +75,7 @@ export default {
     pricingPage: "価格ページ",
     colors: "カラー",
     gradient: "Gradient",
+    card: "カード",
     grids: "グリッドレイアウト",
     scrollbar: "スクロールバー",
     waterFall: "おしゃれスクロール",

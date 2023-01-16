@@ -76,6 +76,7 @@ export default {
     childBinding: "Child Binding",
     colors: "Colors",
     gradient: "Gradient",
+    card: "Card",
     grids: "Grid",
     scrollbar: "Perfect Scrollbar",
     waterFall: "Masonry layout",

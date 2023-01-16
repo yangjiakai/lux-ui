@@ -24,6 +24,17 @@ export default [
     },
   },
   {
+    path: "/ui/card",
+    name: "ui-card",
+    component: () =>
+      import(/* webpackChunkName: "ui-card" */ "@/views/ui/CardPage.vue"),
+    meta: {
+      layout: "default",
+      category: "UI",
+      title: "CardPage",
+    },
+  },
+  {
     path: "/ui/grids",
     name: "ui-grids",
     component: () =>

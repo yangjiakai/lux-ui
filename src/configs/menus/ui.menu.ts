@@ -22,6 +22,12 @@ export default [
     key: "menu.gradient",
   },
   {
+    icon: "mdi-card",
+    text: "Card",
+    link: "/ui/card",
+    key: "menu.card",
+  },
+  {
     icon: "mdi-view-dashboard-variant-outline",
     text: "Grids",
     link: "/ui/grids",
