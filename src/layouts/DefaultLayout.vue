@@ -1,3 +1,31 @@
+<script setup lang="ts">
+import configs from "@/configs";
+import MainMenu from "@/components/navigation/MainMenu.vue";
+import ToolbarLanguage from "@/components/toolbar/ToolbarLanguage.vue";
+import PerfectScrollbar from "perfect-scrollbar";
+import Breadcrumb from "@/components/Breadcrumb.vue";
+import PageTitle from "@/components/PageTitle.vue";
+import { useCustomizeThemeStore } from "@/stores/customizeTheme";
+import { Icon } from "@iconify/vue";
+const customizeTheme = useCustomizeThemeStore();
+const navigation = ref(configs.navigation);
+const product = ref(configs.product);
+const drawer = ref(true);
+
+const openGithubSite = () => {
+  window.open("https://github.com/yangjiakai", "_blank");
+};
+
+// const mainMenu = ref(null);
+const scrollbar = ref(null);
+onMounted(() => {
+  const container = document.querySelector("#mainMenu");
+  scrollbar.value = new PerfectScrollbar(container);
+});
+
+onBeforeUnmount(() => {});
+</script>
+
 <template>
   <div>
     <!-- Navigation menu info -->
@@ -21,10 +49,20 @@
       <!-- Navigation menu footer -->
       <template v-slot:append>
         <v-card theme="dark" height="225" class="pa-3" variant="text">
-          <v-card class="d-flex flex-column gradient primary pa-2" height="200">
-            <v-card-title primary-title>
-              <v-btn class="mr-2" color="white" size="40" icon>
-                <img width="20" src="@/assets/logo.png" alt="" />
+          <v-card
+            class="d-flex flex-column gradient pa-2"
+            :class="customizeTheme.primaryColor"
+            height="200"
+          >
+            <v-card-title>
+              <v-btn
+                class="mr-2"
+                size="40"
+                color="white"
+                :class="`text-${customizeTheme.primaryColor}`"
+                icon
+              >
+                <Icon width="30" icon="line-md:moon-filled-loop" />
               </v-btn>
               Yang J.K.
             </v-card-title>
@@ -68,32 +106,6 @@
     </v-main>
   </div>
 </template>
-
-<script setup lang="ts">
-import configs from "@/configs";
-import MainMenu from "@/components/navigation/MainMenu.vue";
-import ToolbarLanguage from "@/components/toolbar/ToolbarLanguage.vue";
-import PerfectScrollbar from "perfect-scrollbar";
-import Breadcrumb from "@/components/Breadcrumb.vue";
-import PageTitle from "@/components/PageTitle.vue";
-
-const navigation = ref(configs.navigation);
-const product = ref(configs.product);
-const drawer = ref(true);
-
-const openGithubSite = () => {
-  window.open("https://github.com/yangjiakai", "_blank");
-};
-
-// const mainMenu = ref(null);
-const scrollbar = ref(null);
-onMounted(() => {
-  const container = document.querySelector("#mainMenu");
-  scrollbar.value = new PerfectScrollbar(container);
-});
-
-onBeforeUnmount(() => {});
-</script>
 
 <style scoped>
 :deep(::-webkit-scrollbar-track) {

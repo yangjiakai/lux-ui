@@ -2,21 +2,51 @@
 import { useTheme } from "vuetify";
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 import { Icon } from "@iconify/vue";
+interface Color {
+  colorId: number;
+  colorName: string;
+  colorValue: string;
+}
 const customizeTheme = useCustomizeThemeStore();
 const theme = useTheme();
 const themeDrawer = ref(false);
-const colorIndex = ref(0);
+const currentColor = ref<Color>();
 const primaryColors = ref([
-  "#0096c7",
-  "#31944f",
-  "#EE4f12",
-  "#46BBB1",
-  "#ee44aa",
-  "#55BB46",
+  {
+    colorId: 1,
+    colorName: "purple",
+    colorValue: "#CB0C9F",
+  },
+  {
+    colorId: 2,
+    colorName: "grey",
+    colorValue: "#344767",
+  },
+  {
+    colorId: 3,
+    colorName: "info",
+    colorValue: "#17C1E8",
+  },
+  {
+    colorId: 4,
+    colorName: "success",
+    colorValue: "#82D616",
+  },
+  {
+    colorId: 5,
+    colorName: "warning",
+    colorValue: "#F2825A",
+  },
+  {
+    colorId: 6,
+    colorName: "error",
+    colorValue: "#EA0606",
+  },
 ]);
 
-watch(colorIndex, (newVal) => {
-  theme.themes.value.light.colors.primary = primaryColors.value[newVal];
+watch(currentColor, (newVal) => {
+  theme.themes.value.light.colors.primary = newVal.colorValue;
+  customizeTheme.setPrimaryColor(newVal.colorName);
 });
 </script>
 
@@ -86,13 +116,14 @@ watch(colorIndex, (newVal) => {
         <b>Primary Colors</b>
         <v-item-group
           class="mt-3"
-          v-model="colorIndex"
+          v-model="currentColor"
           selected-class="elevation-12"
           mandatory
         >
           <v-item
             v-for="color in primaryColors"
-            :key="color"
+            :key="color.colorId"
+            :value="color"
             v-slot="{ isSelected, toggle }"
           >
             <v-btn
@@ -100,7 +131,7 @@ watch(colorIndex, (newVal) => {
               class="text-white mr-1"
               icon
               size="30"
-              :color="color"
+              :color="color.colorValue"
             >
               <Icon width="22" v-if="isSelected" icon="line-md:confirm" />
             </v-btn>
