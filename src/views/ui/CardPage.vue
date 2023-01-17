@@ -8,6 +8,8 @@
           <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 4" :key="i">
             <v-card class="card-1 pa-5 mx-auto" height="400" width="300">
               <h1 class="text-white">Let Test Some thing</h1>
+
+              <v-img src="https://picsum.photos/350/165?random"></v-img>
             </v-card>
           </v-col>
         </v-row>
@@ -40,7 +42,11 @@
         <v-row align="center" justify="center">
           <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 4" :key="i">
             <div class="card-4 mx-auto my-5">
-              <v-card variant="flat" height="400" width="300"> </v-card>
+              <v-card variant="flat" height="400" width="300">
+                <v-img
+                  :src="'https://picsum.photos/300/200?random=' + i"
+                ></v-img>
+              </v-card>
             </div>
           </v-col>
         </v-row>
@@ -103,26 +109,37 @@ $black: #000000;
     content: "";
     box-shadow: 0 5px 60px rgba(0, 0, 0, 0.5);
   }
-}
-.cup-warp {
-  width: 100px;
-  height: 100px;
-  background-color: #fff;
-  position: absolute;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, -50%);
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.cup {
-  width: 70px;
-  height: 70px;
-  color: #ffda00;
-  filter: drop-shadow(0 0 40px rgba(255, 218, 0, 0.7));
-  animation: rotation 10s linear infinite;
+
+  .cup-warp {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cup {
+    width: 70px;
+    height: 70px;
+    color: #ffda00;
+    filter: drop-shadow(0 0 40px rgba(255, 218, 0, 0.7));
+    animation: rotate 10s linear infinite;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }
 
 .card-3 {
@@ -159,9 +176,11 @@ $black: #000000;
   position: relative;
   height: 400px;
   width: 300px;
+
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+
   &:after {
     position: absolute;
     left: 5px;
