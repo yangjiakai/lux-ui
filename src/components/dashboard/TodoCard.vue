@@ -9,7 +9,7 @@
   <div v-else>
     <v-text-field
       class="shadow-1"
-      variant="flat"
+      variant="plain"
       hide-details
       comfortable
       prepend-inner-icon="mdi-magnify"
@@ -92,10 +92,6 @@ const searchKey = ref("");
 </script>
 
 <style lang="scss" scoped>
-.shadow-1 {
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
-}
-
 .todo-list {
   max-height: 380px;
   overflow: scroll;
