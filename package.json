@@ -18,6 +18,7 @@
     "perfect-scrollbar": "^1.5.5",
     "pinia": "^2.0.28",
     "roboto-fontface": "*",
+    "unsplash-js": "^7.0.15",
     "vue": "^3.2.38",
     "vue-echarts": "^6.5.0",
     "vue-masonry": "^0.16.0",

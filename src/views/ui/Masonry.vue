@@ -100,13 +100,17 @@
 </template>
 <script setup lang="ts">
 import { useAxios } from "@vueuse/integrations/useAxios";
-import Loading from "@/components/loading/Loading01";
+import Loading from "@/components/loading/Loading01.vue";
 
 // const { data, isLoading, isFinished, execute } = useAxios(
 //   "https://jsonplaceholder.typicode.com/todos"
 // );
+// const { data, isLoading, isFinished, execute } = useAxios(
+//   "https://picsum.photos/v2/list?page=2&limit=20"
+// );
+
 const { data, isLoading, isFinished, execute } = useAxios(
-  "https://picsum.photos/v2/list?page=2&limit=20"
+  "`https://api.unsplash.com/v2/list?page=2&limit=20`"
 );
 
 const filteredItems = computed(() => {

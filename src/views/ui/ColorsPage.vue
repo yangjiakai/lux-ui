@@ -42,14 +42,47 @@
         <!-- <div class="card" v-for="i in 30" :key="i">aa</div> -->
       </div>
     </v-item-group>
-    <v-card color="black" height="500">
-      <span class="loader"></span>
+    <v-card
+      color="grey"
+      class="d-flex align-center justify-center"
+      height="500"
+    >
+      <v-card class="anime-card shadow-1" color="white"> </v-card>
+    </v-card>
+
+    <v-card class="card-box d-flex flex-wrap" v-if="isFinished">
+      <v-card v-for="image in filteredItems" :key="image.id">
+        <v-img :src="image.urls.small"></v-img>
+        <v-card-title>
+          {{ image.user.username }}
+        </v-card-title>
+      </v-card>
     </v-card>
   </v-container>
 </template>
 
 <script setup lang="ts">
 import { Icon, listIcons } from "@iconify/vue";
+
+import { useAxios } from "@vueuse/integrations/useAxios";
+
+const url = ref("https://api.unsplash.com/search/photos?page=1&query=chair");
+const accessKey = ref("mfB0t1DgccWtivNuh8KD06FMIZcun7vE_x_BSYQrfq8");
+
+const { data, isLoading, isFinished, execute } = useAxios(
+  `${url.value}&client_id=${accessKey.value}`
+);
+
+console.log(data.value);
+
+const filteredItems = computed(() => {
+  let result = [];
+  if (isFinished.value) {
+    result = data.value.results;
+    console.log(data.value);
+  }
+  return result;
+});
 </script>
 <style scoped lang="scss">
 @keyframes rotate {
@@ -104,59 +137,15 @@ import { Icon, listIcons } from "@iconify/vue";
   border-radius: 14px;
 }
 
-.loader {
-  width: 100px;
-  height: 100px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.anime-card {
+  width: 400px;
+  height: 200px;
 
-  max-width: 6rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-.loader:before,
-.loader:after {
-  content: "";
-  position: absolute;
-
-  animation: pulsOut 1.8s ease-in-out;
-  filter: drop-shadow(0 0 1rem rgba(255, 255, 255, 0.75));
-}
-.loader:before {
-  width: 100%;
-  padding-bottom: 100%;
-  box-shadow: inset 0 0 0 1rem #fff;
-  animation-name: pulsIn;
-}
-.loader:after {
-  width: calc(100% - 2rem);
-  padding-bottom: calc(100% - 2rem);
-  box-shadow: 0 0 0 0 #fff;
-}
-
-@keyframes pulsIn {
-  0% {
-    box-shadow: inset 0 0 0 1rem #fff;
-    opacity: 1;
-  }
-  50%,
-  100% {
-    box-shadow: inset 0 0 0 0 #fff;
-    opacity: 0;
-  }
-}
-
-@keyframes pulsOut {
-  0%,
-  50% {
-    box-shadow: 0 0 0 0 #fff;
-    opacity: 0;
-  }
-  100% {
-    box-shadow: 0 0 0 1rem #fff;
-    opacity: 1;
+  transition: 0.3s ease-in;
+  &:hover {
+    border-radius: 50%;
+    height: 400px;
+    transition: 0.3s ease-out;
   }
 }
 </style>
