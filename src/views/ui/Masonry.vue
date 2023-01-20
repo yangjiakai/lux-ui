@@ -113,7 +113,7 @@ const { data, isLoading, isFinished, execute } = useAxios(
   "`https://api.unsplash.com/v2/list?page=2&limit=20`"
 );
 
-const filteredItems = computed(() => {
+const filteredItems: any = computed(() => {
   return data;
 });
 
