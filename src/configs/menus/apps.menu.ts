@@ -35,4 +35,10 @@ export default [
     text: "Ikea",
     link: "/apps/ikea",
   },
+  {
+    icon: "mdi-bookmark-plus",
+    key: "menu.unsplash",
+    text: "Unsplash",
+    link: "/apps/unsplash",
+  },
 ];

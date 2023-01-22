@@ -9,14 +9,9 @@
       <Loading />
     </v-card>
     <v-card v-else>
-      <masonry-wall
-        :items="filteredItems"
-        :ssr-columns="1"
-        :column-width="300"
-        :padding="30"
-      >
+      <masonry-wall :items="filteredItems" :ssr-columns="1" :padding="30">
         <template #default="{ item }">
-          <v-card class="ma-3" max-width="400">
+          <v-card class="ma-3">
             <v-img
               class="align-end text-white"
               :src="item.download_url"
@@ -105,13 +100,13 @@ import Loading from "@/components/loading/Loading01.vue";
 // const { data, isLoading, isFinished, execute } = useAxios(
 //   "https://jsonplaceholder.typicode.com/todos"
 // );
-// const { data, isLoading, isFinished, execute } = useAxios(
-//   "https://picsum.photos/v2/list?page=2&limit=20"
-// );
-
 const { data, isLoading, isFinished, execute } = useAxios(
-  "`https://api.unsplash.com/v2/list?page=2&limit=20`"
+  "https://picsum.photos/v2/list?page=2&limit=20"
 );
+
+// const { data, isLoading, isFinished, execute } = useAxios(
+//   "`https://api.unsplash.com/v2/list?page=2&limit=5`"
+// );
 
 const filteredItems: any = computed(() => {
   return data;

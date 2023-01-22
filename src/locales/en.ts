@@ -45,8 +45,10 @@ export default {
     chat: "Chat",
     todo: "To Do",
     nitori: "Nitori",
+    unsplash: "Unsplash",
     booking: "Booking",
     ikea: "IKEA",
+
     board: "Task Board",
     users: "Users",
     usersList: "List",

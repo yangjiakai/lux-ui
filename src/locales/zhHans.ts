@@ -46,6 +46,7 @@ export default {
     todo: "去做",
     nitori: "Nitori",
     booking: "Booking",
+    unsplash: "Unsplash",
     ikea: "宜家",
     board: "任务板",
     users: "用户数",

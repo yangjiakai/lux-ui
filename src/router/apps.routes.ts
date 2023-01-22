@@ -41,4 +41,12 @@ export default [
       import(/* webpackChunkName: "app-ikea" */ "@/views/app/ikea/IkeaApp.vue"),
     children: [],
   },
+  {
+    path: "/apps/unsplash",
+    component: () =>
+      import(
+        /* webpackChunkName: "app-unsplash" */ "@/views/app/unsplash/UnsplashApp.vue"
+      ),
+    children: [],
+  },
 ];

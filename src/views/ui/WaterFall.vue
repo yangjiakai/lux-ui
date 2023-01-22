@@ -61,15 +61,4 @@ const columnNumber = computed(() => {
   }
 });
 </script>
-<style scoped>
-.masonry {
-  align-items: center;
-  justify-content: center;
-}
-
-.item {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-</style>
+<style scoped></style>

@@ -47,6 +47,7 @@ export default {
     nitori: "Nitori",
     booking: "Booking",
     ikea: "IKEA",
+    unsplash: "Unsplash",
     board: "タスクボード",
     users: "ユーザー",
     usersList: "リスト",
