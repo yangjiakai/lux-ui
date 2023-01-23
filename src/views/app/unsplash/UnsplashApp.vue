@@ -11,7 +11,7 @@ import { useAxios } from "@vueuse/integrations/useAxios";
 import { log } from "console";
 import { LazyImg, Waterfall } from "vue-waterfall-plugin-next";
 import "vue-waterfall-plugin-next/style.css";
-const url = ref("https://api.unsplash.com/search/photos?");
+const url = ref("https://api.unsplash.com/search?");
 const accessKey = ref("mfB0t1DgccWtivNuh8KD06FMIZcun7vE_x_BSYQrfq8");
 let currentList = [];
 
@@ -31,19 +31,27 @@ let currentList = [];
 const searchParams = reactive({
   accessKey: "mfB0t1DgccWtivNuh8KD06FMIZcun7vE_x_BSYQrfq8",
   query: "book",
-  perPage: 10,
+  perPage: 20,
   page: 1,
 });
 
 const searchResult = ref([]);
+const photos = ref([]);
+const collections = ref([]);
+const users = ref([]);
+const relatedSearches = ref([]);
 
 const search = async () => {
   const response = await axios.get(
     `${url.value}client_id=${searchParams.accessKey}&page=${searchParams.page}&per_page=${searchParams.perPage}&query=${searchParams.query}`
   );
 
-  currentList = response.data.results;
-  searchResult.value = currentList;
+  // searchResult.value = response.data.results;
+  // console.log(searchResult.value);
+  photos.value = response.data.photos.results;
+  collections.value = response.data.collections.results;
+  users.value = response.data.users.results;
+  relatedSearches.value = response.data.related_searches;
 };
 
 onMounted(() => {
@@ -70,41 +78,41 @@ const more = async () => {
 //   searchResult.value.push(...response.data.results);
 // };
 
-const options = reactive({
-  // 唯一key值
-  rowKey: "id",
-  // 卡片之间的间隙
-  gutter: 10,
-  // 是否有周围的gutter
-  hasAroundGutter: true,
-  // 卡片在PC上的宽度
-  width: 200,
+// const options = reactive({
+//   // 唯一key值
+//   rowKey: "id",
+//   // 卡片之间的间隙
+//   gutter: 10,
+//   // 是否有周围的gutter
+//   hasAroundGutter: true,
+//   // 卡片在PC上的宽度
+//   width: 200,
 
-  // 自定义行显示个数，主要用于对移动端的适配
-  breakpoints: {
-    1200: {
-      // 当屏幕宽度小于等于1200
-      rowPerView: 4,
-    },
-    800: {
-      // 当屏幕宽度小于等于800
-      rowPerView: 3,
-    },
-    500: {
-      // 当屏幕宽度小于等于500
-      rowPerView: 2,
-    },
-  },
-  // 动画效果
-  animationEffect: "animate__fadeInUp",
-  // 动画时间
-  animationDuration: 1000,
-  // 动画延迟
-  animationDelay: 300,
-  // 背景色
-  backgroundColor: "#2C2E3A",
-  // 是否懒加载
-});
+//   // 自定义行显示个数，主要用于对移动端的适配
+//   breakpoints: {
+//     1200: {
+//       // 当屏幕宽度小于等于1200
+//       rowPerView: 4,
+//     },
+//     800: {
+//       // 当屏幕宽度小于等于800
+//       rowPerView: 3,
+//     },
+//     500: {
+//       // 当屏幕宽度小于等于500
+//       rowPerView: 2,
+//     },
+//   },
+//   // 动画效果
+//   animationEffect: "animate__fadeInUp",
+//   // 动画时间
+//   animationDuration: 1000,
+//   // 动画延迟
+//   animationDelay: 300,
+//   // 背景色
+//   backgroundColor: "#2C2E3A",
+//   // 是否懒加载
+// });
 </script>
 
 <template>
@@ -231,18 +239,32 @@ const options = reactive({
           </v-card>
         </template>
       </masonry-wall> -->
-      <v-card>
-        <v-row class="pa-5">
+      <v-card
+        min-height="80vh"
+        class="pa-5 d-flex align-center justify-center"
+        v-if="photos.length === 0"
+      >
+        <v-img
+          src="https://unsplash-assets.imgix.net/empty-states/photos.png"
+          height="400"
+        ></v-img>
+      </v-card>
+      <v-card min-height="80vh" class="pa-5" v-else>
+        <v-row>
           <v-col
             cols="12"
             xl="2"
             lg="3"
             md="4"
             sm="6"
-            v-for="item in searchResult"
+            v-for="item in photos"
             :key="item.id"
           >
-            <v-card width="100%" height="450">
+            <v-card
+              width="100%"
+              height="480"
+              class="d-flex flex-column justify-space-between"
+            >
               <v-img
                 class="align-end text-white"
                 :src="item.urls.small"
@@ -262,9 +284,12 @@ const options = reactive({
                     ></v-progress-circular>
                   </v-row>
                 </template>
-                <v-card-title class="card-title">{{
-                  item.user.username
-                }}</v-card-title>
+                <v-card-title class="card-title">
+                  <v-avatar size="avatarSize">
+                    <img :src="item.user.profile_image.small" alt="alt" />
+                  </v-avatar>
+                  {{ item.user.username }}</v-card-title
+                >
               </v-img>
 
               <v-card-subtitle class="pt-4">
@@ -278,13 +303,30 @@ const options = reactive({
               </v-card-text>
 
               <v-card-actions>
-                <v-btn color="primary"> Share </v-btn>
-
-                <v-btn color="primary"> Explore </v-btn>
+                <v-btn prepend-icon="mdi-heart">
+                  Like({{ item.likes }})
+                  <v-tooltip activator="parent" location="bottom"
+                    >Like</v-tooltip
+                  >
+                </v-btn>
+                <v-spacer></v-spacer>
+                <v-tooltip location="bottom" text="Download">
+                  <template v-slot:activator="{ props }">
+                    <v-btn v-bind="props" icon="mdi-download"> </v-btn>
+                  </template>
+                </v-tooltip>
+                <v-tooltip location="bottom" text="Add To Collection">
+                  <template v-slot:activator="{ props }">
+                    <v-btn v-bind="props" icon="mdi-plus"> </v-btn>
+                  </template>
+                </v-tooltip>
               </v-card-actions>
             </v-card>
           </v-col>
         </v-row>
+        <v-btn class="mt-10" block color="primary" dark @click="more"
+          >More...</v-btn
+        >
       </v-card>
       <!-- <div class="masonrys">
         <div class="aa" v-for="item in searchResult" :key="item.id">
@@ -342,11 +384,12 @@ const options = reactive({
           </v-card>
         </template>
       </Waterfall> -->
-      <v-btn class="mt-10" block color="primary" dark @click="more"
-        >More...</v-btn
-      >
     </v-card>
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.card-title {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+</style>
