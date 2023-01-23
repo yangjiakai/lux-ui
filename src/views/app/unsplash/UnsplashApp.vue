@@ -136,11 +136,19 @@ const searchRelated = (query: string) => {
     <v-card class="mt-2">
       <v-tabs v-model="tab" bg-color="primary">
         <v-tab value="photos"
-          ><v-icon class="mr-2">mdi-image-outline</v-icon> photos</v-tab
+          ><v-icon class="mr-2">mdi-image-outline</v-icon> photos
+          <span class="ml-2">({{ photoData.total }})</span></v-tab
         >
-        <v-tab value="collections"> collections</v-tab>
+        <v-tab value="collections">
+          collections<span class="ml-2"
+            >({{ collectionData.total }})</span
+          ></v-tab
+        >
         <v-tab value="users"
-          ><v-icon class="mr-2">mdi-account-multiple</v-icon> users</v-tab
+          ><v-icon class="mr-2">mdi-account-multiple</v-icon> users<span
+            class="ml-2"
+            >({{ userData.total }})</span
+          ></v-tab
         >
       </v-tabs>
 
@@ -270,7 +278,7 @@ const searchRelated = (query: string) => {
             <v-card
               min-height="80vh"
               class="pa-5 d-flex align-center justify-center"
-              v-if="photos.length === 0"
+              v-if="collectionData.total === 0"
             >
               <v-img
                 src="https://unsplash-assets.imgix.net/empty-states/photos.png"
@@ -303,7 +311,7 @@ const searchRelated = (query: string) => {
                   lg="3"
                   md="4"
                   sm="6"
-                  v-for="item in photos"
+                  v-for="item in collectionData.collections"
                   :key="item.id"
                 >
                   <v-card
@@ -313,8 +321,8 @@ const searchRelated = (query: string) => {
                   >
                     <v-img
                       class="align-end text-white"
-                      :src="item.urls.small"
-                      :lazy-src="item.urls.small"
+                      :src="item.cover_photo.urls.small"
+                      :lazy-src="item.cover_photo.urls.small"
                       height="300"
                       cover
                     >
@@ -340,19 +348,19 @@ const searchRelated = (query: string) => {
 
                     <v-card-subtitle class="pt-4">
                       <div>
-                        size: height:{{ item.height }} width:{{ item.width }}
+                        <!-- size: height:{{ item.height }} width:{{ item.width }} -->
                       </div>
                     </v-card-subtitle>
 
                     <v-card-text>
                       {{ item.alt_description }}
 
-                      <div>{{ item.download_url }}</div>
+                      <!-- <div>{{ item.download_url }}</div> -->
                     </v-card-text>
 
                     <v-card-actions>
                       <v-btn prepend-icon="mdi-heart">
-                        Like({{ item.likes }})
+                        Like
                         <v-tooltip activator="parent" location="bottom"
                           >Like</v-tooltip
                         >
@@ -383,7 +391,7 @@ const searchRelated = (query: string) => {
             <v-card
               min-height="80vh"
               class="pa-5 d-flex align-center justify-center"
-              v-if="photos.length === 0"
+              v-if="userData.total === 0"
             >
               <v-img
                 src="https://unsplash-assets.imgix.net/empty-states/photos.png"
@@ -416,7 +424,7 @@ const searchRelated = (query: string) => {
                   lg="3"
                   md="4"
                   sm="6"
-                  v-for="item in photos"
+                  v-for="item in userData.users"
                   :key="item.id"
                 >
                   <v-card
@@ -426,8 +434,8 @@ const searchRelated = (query: string) => {
                   >
                     <v-img
                       class="align-end text-white"
-                      :src="item.urls.small"
-                      :lazy-src="item.urls.small"
+                      :src="item.profile_image.small"
+                      :lazy-src="item.profile_image.small"
                       height="300"
                       cover
                     >
@@ -445,27 +453,27 @@ const searchRelated = (query: string) => {
                       </template>
                       <v-card-title class="card-title">
                         <v-avatar size="avatarSize">
-                          <img :src="item.user.profile_image.small" alt="alt" />
+                          <img :src="item.profile_image.small" alt="alt" />
                         </v-avatar>
-                        {{ item.user.username }}</v-card-title
+                        {{ item.username }}</v-card-title
                       >
                     </v-img>
 
                     <v-card-subtitle class="pt-4">
                       <div>
-                        size: height:{{ item.height }} width:{{ item.width }}
+                        <!-- size: height:{{ item.height }} width:{{ item.width }} -->
                       </div>
                     </v-card-subtitle>
 
                     <v-card-text>
-                      {{ item.alt_description }}
-
-                      <div>{{ item.download_url }}</div>
+                      {{ item.instagram_username }}
+                      {{ item.total_photos }}
+                      <!-- <div>{{ item.download_url }}</div> -->
                     </v-card-text>
 
                     <v-card-actions>
                       <v-btn prepend-icon="mdi-heart">
-                        Like({{ item.likes }})
+                        Like
                         <v-tooltip activator="parent" location="bottom"
                           >Like</v-tooltip
                         >
