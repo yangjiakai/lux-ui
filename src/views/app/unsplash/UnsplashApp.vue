@@ -11,6 +11,7 @@ import { useAxios } from "@vueuse/integrations/useAxios";
 import { log } from "console";
 import { LazyImg, Waterfall } from "vue-waterfall-plugin-next";
 import "vue-waterfall-plugin-next/style.css";
+import { relative } from "path";
 const url = ref("https://api.unsplash.com/search?");
 const accessKey = ref("mfB0t1DgccWtivNuh8KD06FMIZcun7vE_x_BSYQrfq8");
 let currentList = [];
@@ -64,6 +65,11 @@ const more = async () => {
     `${url.value}client_id=${searchParams.accessKey}&page=${searchParams.page}&per_page=${searchParams.perPage}&query=${searchParams.query}`
   );
   searchResult.value.push(...response.data.results);
+};
+
+const searchRelated = (query: string) => {
+  searchParams.query = query;
+  search();
 };
 
 // const append = async () => {
@@ -128,7 +134,7 @@ const more = async () => {
         @keyup.enter="search"
       ></v-text-field>
       <v-spacer></v-spacer>
-      <v-btn color="success">text</v-btn>
+      <v-btn color="">Go</v-btn>
     </v-toolbar>
     <v-card>
       <!-- <div
@@ -239,6 +245,7 @@ const more = async () => {
           </v-card>
         </template>
       </masonry-wall> -->
+
       <v-card
         min-height="80vh"
         class="pa-5 d-flex align-center justify-center"
@@ -250,6 +257,24 @@ const more = async () => {
         ></v-img>
       </v-card>
       <v-card min-height="80vh" class="pa-5" v-else>
+        <v-row>
+          <v-slide-group show-arrows>
+            <v-slide-group-item
+              v-for="item in relatedSearches"
+              :key="item.title"
+              v-slot="{ isSelected }"
+            >
+              <v-btn
+                class="ma-2"
+                rounded
+                :color="isSelected ? 'primary' : undefined"
+                @click="searchRelated(item.title)"
+              >
+                {{ item.title }}
+              </v-btn>
+            </v-slide-group-item>
+          </v-slide-group>
+        </v-row>
         <v-row>
           <v-col
             cols="12"
