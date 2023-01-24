@@ -6,16 +6,9 @@
 <script setup lang="ts">
 import { Icon, listIcons } from "@iconify/vue";
 import axios from "axios";
-
 import { useAxios } from "@vueuse/integrations/useAxios";
-import { log } from "console";
-import { LazyImg, Waterfall } from "vue-waterfall-plugin-next";
-import "vue-waterfall-plugin-next/style.css";
-import { relative } from "path";
 const url = ref("https://api.unsplash.com/search?");
 const accessKey = ref("mfB0t1DgccWtivNuh8KD06FMIZcun7vE_x_BSYQrfq8");
-let currentList = [];
-
 // const { data, isLoading, isFinished, execute } = useAxios(
 //   `${url.value}&client_id=${accessKey.value}`
 // );
@@ -28,10 +21,45 @@ let currentList = [];
 //   }
 //   return result;
 // });
+const BASE_URL = "https://api.unsplash.com/";
+const ACCESS_KEY = "mfB0t1DgccWtivNuh8KD06FMIZcun7vE_x_BSYQrfq8";
 
-const searchParams = reactive({
-  accessKey: "mfB0t1DgccWtivNuh8KD06FMIZcun7vE_x_BSYQrfq8",
-  query: "book",
+interface SearchParams {
+  url: string;
+  accessKey: string;
+  query: string;
+  perPage: number;
+  page: number;
+}
+
+const searchParams: SearchParams = reactive({
+  url: BASE_URL + "search?",
+  accessKey: ACCESS_KEY,
+  query: "blue",
+  perPage: 20,
+  page: 1,
+});
+
+const photoParams: SearchParams = reactive({
+  url: BASE_URL + "photos?",
+  accessKey: ACCESS_KEY,
+  query: "blue",
+  perPage: 20,
+  page: 1,
+});
+
+const collectionParams: SearchParams = reactive({
+  url: BASE_URL + "collections?",
+  accessKey: ACCESS_KEY,
+  query: "blue",
+  perPage: 20,
+  page: 1,
+});
+
+const userParams: SearchParams = reactive({
+  url: BASE_URL + "search/users?",
+  accessKey: ACCESS_KEY,
+  query: "blue",
   perPage: 20,
   page: 1,
 });
@@ -57,8 +85,6 @@ const userData = reactive({
   totalPages: 0,
 });
 
-const collections = ref([]);
-const users = ref([]);
 const relatedSearches = ref([]);
 
 const tab = ref(null);
@@ -68,8 +94,6 @@ const search = async () => {
     `${url.value}client_id=${searchParams.accessKey}&page=${searchParams.page}&per_page=${searchParams.perPage}&query=${searchParams.query}`
   );
 
-  // searchResult.value = response.data.results;
-  // console.log(searchResult.value);
   // Photos
   photoData.photos = response.data.photos.results;
   photoData.total = response.data.photos.total;
@@ -85,9 +109,6 @@ const search = async () => {
   userData.total = response.data.users.total;
   userData.totalPages = response.data.users.total_pages;
 
-  // photos.value = response.data.photos.results;
-  // collections.value = response.data.collections.results;
-  // users.value = response.data.users.results;
   // RelatedSearches
   relatedSearches.value = response.data.related_searches;
 };
@@ -105,11 +126,27 @@ const more = async () => {
 };
 
 const morePhotos = async () => {
-  searchParams.page++;
+  photoParams.page++;
   const response = await axios.get(
-    `${url.value}client_id=${searchParams.accessKey}&page=${searchParams.page}&per_page=${searchParams.perPage}&query=${searchParams.query}`
+    `${photoParams.url}client_id=${photoParams.accessKey}&page=${photoParams.page}&per_page=${photoParams.perPage}&query=${photoParams.query}`
   );
-  photoData.photos.push(...response.data.photos.results);
+  photoData.photos.push(...response.data);
+};
+
+const moreCollections = async () => {
+  collectionParams.page++;
+  const response = await axios.get(
+    `${collectionParams.url}client_id=${collectionParams.accessKey}&page=${collectionParams.page}&per_page=${collectionParams.perPage}&query=${collectionParams.query}`
+  );
+  collectionData.collections.push(...response.data);
+};
+
+const moreUsers = async () => {
+  userParams.page++;
+  const response = await axios.get(
+    `${userParams.url}client_id=${userParams.accessKey}&page=${userParams.page}&per_page=${userParams.perPage}&query=${userParams.query}`
+  );
+  userData.users.push(...response.data.results);
 };
 
 const searchRelated = (query: string) => {
@@ -262,13 +299,13 @@ const searchRelated = (query: string) => {
                 </v-col>
               </v-row>
               <v-btn
-                v-if="searchParams.page < photoData.totalPages"
-                class="mt-10"
+                v-if="photoParams.page < photoData.totalPages"
+                color=""
+                class="gradient info mt-5"
                 block
-                color="primary"
-                dark
-                @click="more"
-                >More...</v-btn
+                size="large"
+                @click="morePhotos"
+                >More Photos...</v-btn
               >
             </v-card>
           </v-window-item>
@@ -380,8 +417,14 @@ const searchRelated = (query: string) => {
                   </v-card>
                 </v-col>
               </v-row>
-              <v-btn class="mt-10" block color="primary" dark @click="more"
-                >More...</v-btn
+              <v-btn
+                v-if="collectionParams.page < collectionData.totalPages"
+                color=""
+                class="gradient info mt-5"
+                block
+                size="large"
+                @click="moreCollections"
+                >More Collections...</v-btn
               >
             </v-card>
           </v-window-item>
@@ -493,8 +536,14 @@ const searchRelated = (query: string) => {
                   </v-card>
                 </v-col>
               </v-row>
-              <v-btn class="mt-10" block color="primary" dark @click="more"
-                >More...</v-btn
+              <v-btn
+                v-if="userParams.page < userData.totalPages"
+                color=""
+                class="gradient info mt-5"
+                block
+                size="large"
+                @click="moreUsers"
+                >More Users...</v-btn
               >
             </v-card>
           </v-window-item>
