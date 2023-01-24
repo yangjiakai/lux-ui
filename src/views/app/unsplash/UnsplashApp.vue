@@ -168,7 +168,16 @@ const toggleLike = (item) => {
   item.liked_by_user = !item.liked_by_user;
 };
 
-const downloadPhoto = (photo) => {};
+const downloadPhoto = (photo) => {
+  const a = document.createElement("a");
+  a.href = photo.links.download + "&force=true";
+  a.download = photo.id + ".jpg";
+  a.click();
+  snackbar.text = "Downloading now, please wait";
+  snackbar.timeout = 2000;
+  snackbar.isShow = true;
+  snackbar.timeout = 1000;
+};
 </script>
 
 <template>
