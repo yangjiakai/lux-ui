@@ -41,7 +41,7 @@ const searchParams: SearchParams = reactive({
 });
 
 const photoParams: SearchParams = reactive({
-  url: BASE_URL + "photos?",
+  url: BASE_URL + "search/photos?",
   accessKey: ACCESS_KEY,
   query: "blue",
   perPage: 20,
@@ -49,7 +49,7 @@ const photoParams: SearchParams = reactive({
 });
 
 const collectionParams: SearchParams = reactive({
-  url: BASE_URL + "collections?",
+  url: BASE_URL + "search/collections?",
   accessKey: ACCESS_KEY,
   query: "blue",
   perPage: 20,
@@ -117,20 +117,12 @@ onMounted(() => {
   search();
 });
 
-const more = async () => {
-  searchParams.page++;
-  const response = await axios.get(
-    `${url.value}client_id=${searchParams.accessKey}&page=${searchParams.page}&per_page=${searchParams.perPage}&query=${searchParams.query}`
-  );
-  photoData.photos.push(...response.data.photos.results);
-};
-
 const morePhotos = async () => {
   photoParams.page++;
   const response = await axios.get(
     `${photoParams.url}client_id=${photoParams.accessKey}&page=${photoParams.page}&per_page=${photoParams.perPage}&query=${photoParams.query}`
   );
-  photoData.photos.push(...response.data);
+  photoData.photos.push(...response.data.results);
 };
 
 const moreCollections = async () => {
@@ -138,7 +130,7 @@ const moreCollections = async () => {
   const response = await axios.get(
     `${collectionParams.url}client_id=${collectionParams.accessKey}&page=${collectionParams.page}&per_page=${collectionParams.perPage}&query=${collectionParams.query}`
   );
-  collectionData.collections.push(...response.data);
+  collectionData.collections.push(...response.data.results);
 };
 
 const moreUsers = async () => {
@@ -151,6 +143,9 @@ const moreUsers = async () => {
 
 const searchRelated = (query: string) => {
   searchParams.query = query;
+  photoParams.query = query;
+  collectionParams.query = query;
+  userParams.query = query;
   search();
 };
 </script>
@@ -344,76 +339,40 @@ const searchRelated = (query: string) => {
               <v-row>
                 <v-col
                   cols="12"
-                  xl="2"
-                  lg="3"
-                  md="4"
-                  sm="6"
+                  lg="6"
+                  xl="4"
                   v-for="item in collectionData.collections"
                   :key="item.id"
                 >
-                  <v-card
-                    width="100%"
-                    height="480"
-                    class="d-flex flex-column justify-space-between"
-                  >
+                  <v-card class="d-flex mt-5" color="secondary-lighten-1">
                     <v-img
-                      class="align-end text-white"
+                      max-width="200"
+                      aspect-ratio="1"
+                      cover
                       :src="item.cover_photo.urls.small"
                       :lazy-src="item.cover_photo.urls.small"
-                      height="300"
-                      cover
                     >
-                      <template v-slot:placeholder>
-                        <v-row
-                          class="fill-height ma-0"
-                          align="center"
-                          justify="center"
-                        >
-                          <v-progress-circular
-                            indeterminate
-                            color="grey-lighten-5"
-                          ></v-progress-circular>
-                        </v-row>
-                      </template>
-                      <v-card-title class="card-title">
+                    </v-img>
+
+                    <div class="pa-2 flex-1">
+                      <v-card-title>
+                        {{ item.title }}
+                      </v-card-title>
+                      <v-card-subtitle class="pt-4">
                         <v-avatar size="avatarSize">
                           <img :src="item.user.profile_image.small" alt="alt" />
                         </v-avatar>
-                        {{ item.user.username }}</v-card-title
-                      >
-                    </v-img>
-
-                    <v-card-subtitle class="pt-4">
-                      <div>
-                        <!-- size: height:{{ item.height }} width:{{ item.width }} -->
-                      </div>
-                    </v-card-subtitle>
-
-                    <v-card-text>
-                      {{ item.alt_description }}
-
-                      <!-- <div>{{ item.download_url }}</div> -->
-                    </v-card-text>
-
-                    <v-card-actions>
-                      <v-btn prepend-icon="mdi-heart">
-                        Like
-                        <v-tooltip activator="parent" location="bottom"
-                          >Like</v-tooltip
-                        >
-                      </v-btn>
-                      <v-spacer></v-spacer>
-                      <v-tooltip location="bottom" text="Download">
-                        <template v-slot:activator="{ props }">
-                          <v-btn v-bind="props" icon="mdi-download"> </v-btn>
-                        </template>
-                      </v-tooltip>
-                      <v-tooltip location="bottom" text="Add To Collection">
-                        <template v-slot:activator="{ props }">
-                          <v-btn v-bind="props" icon="mdi-plus"> </v-btn>
-                        </template>
-                      </v-tooltip>
-                    </v-card-actions>
+                        {{ item.user.username }}
+                      </v-card-subtitle>
+                      <v-card-text>
+                        <div>{{ item.description }}</div>
+                      </v-card-text>
+                      <v-card-actions>
+                        <span>{{ item.published_at }}</span>
+                        <v-spacer></v-spacer>
+                        <span class="text-accent">{{ item.total_photos }}</span>
+                      </v-card-actions>
+                    </div>
                   </v-card>
                 </v-col>
               </v-row>
@@ -472,64 +431,34 @@ const searchRelated = (query: string) => {
                 >
                   <v-card
                     width="100%"
-                    height="480"
-                    class="d-flex flex-column justify-space-between"
+                    class="user-card d-flex flex-column justify-space-between"
                   >
-                    <v-img
-                      class="align-end text-white"
-                      :src="item.profile_image.small"
-                      :lazy-src="item.profile_image.small"
-                      height="300"
-                      cover
-                    >
-                      <template v-slot:placeholder>
-                        <v-row
-                          class="fill-height ma-0"
-                          align="center"
-                          justify="center"
-                        >
-                          <v-progress-circular
-                            indeterminate
-                            color="grey-lighten-5"
-                          ></v-progress-circular>
-                        </v-row>
-                      </template>
-                      <v-card-title class="card-title">
-                        <v-avatar size="avatarSize">
-                          <img :src="item.profile_image.small" alt="alt" />
-                        </v-avatar>
-                        {{ item.username }}</v-card-title
-                      >
-                    </v-img>
-
-                    <v-card-subtitle class="pt-4">
-                      <div>
-                        <!-- size: height:{{ item.height }} width:{{ item.width }} -->
+                    <div class="card-top bg-secondary-lighten-1 text-content">
+                      <v-avatar class="mr-5" size="avatarSize">
+                        <img :src="item.profile_image.small" alt="alt" />
+                      </v-avatar>
+                      <div class="flex-1">
+                        <h5>{{ item.name }}</h5>
+                        <h5>{{ item.username }}</h5>
                       </div>
-                    </v-card-subtitle>
-
-                    <v-card-text>
-                      {{ item.instagram_username }}
-                      {{ item.total_photos }}
-                      <!-- <div>{{ item.download_url }}</div> -->
-                    </v-card-text>
-
-                    <v-card-actions>
-                      <v-btn prepend-icon="mdi-heart">
-                        Like
-                        <v-tooltip activator="parent" location="bottom"
-                          >Like</v-tooltip
-                        >
-                      </v-btn>
-                      <v-spacer></v-spacer>
-                      <v-tooltip location="bottom" text="Download">
-                        <template v-slot:activator="{ props }">
-                          <v-btn v-bind="props" icon="mdi-download"> </v-btn>
-                        </template>
-                      </v-tooltip>
                       <v-tooltip location="bottom" text="Add To Collection">
                         <template v-slot:activator="{ props }">
                           <v-btn v-bind="props" icon="mdi-plus"> </v-btn>
+                        </template>
+                      </v-tooltip>
+                    </div>
+
+                    <v-card-actions>
+                      <v-tooltip location="bottom" text="Add To Collection">
+                        <template v-slot:activator="{ props }">
+                          <v-btn
+                            color="primary"
+                            variant="flat"
+                            block
+                            v-bind="props"
+                          >
+                            Profile</v-btn
+                          >
                         </template>
                       </v-tooltip>
                     </v-card-actions>
@@ -556,5 +485,15 @@ const searchRelated = (query: string) => {
 <style scoped lang="scss">
 .card-title {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.user-card {
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    font-size: 1rem;
+  }
 }
 </style>
