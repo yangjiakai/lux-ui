@@ -148,6 +148,27 @@ const searchRelated = (query: string) => {
   userParams.query = query;
   search();
 };
+
+const snackbar = reactive({
+  isShow: false,
+  timeout: 1000,
+  text: "",
+});
+
+const toggleLike = (item) => {
+  if (!item.liked_by_user) {
+    snackbar.text = "Added to your favorite";
+    snackbar.isShow = true;
+    item.likes++;
+  } else {
+    snackbar.text = "Removed from your favorite";
+    snackbar.isShow = true;
+    item.likes--;
+  }
+  item.liked_by_user = !item.liked_by_user;
+};
+
+const downloadPhoto = (photo) => {};
 </script>
 
 <template>
@@ -252,7 +273,7 @@ const searchRelated = (query: string) => {
                         </v-row>
                       </template>
                       <v-card-title class="card-title">
-                        <v-avatar size="avatarSize">
+                        <v-avatar size="avatarSize" class="mr-2">
                           <img :src="item.user.profile_image.small" alt="alt" />
                         </v-avatar>
                         {{ item.user.username }}</v-card-title
@@ -272,16 +293,32 @@ const searchRelated = (query: string) => {
                     </v-card-text>
 
                     <v-card-actions>
-                      <v-btn prepend-icon="mdi-heart">
+                      <v-btn @click="toggleLike(item)">
+                        <v-icon
+                          v-if="item.liked_by_user"
+                          start
+                          color="pink"
+                          icon="mdi-heart"
+                          class="heartBeat"
+                        ></v-icon>
+                        <v-icon v-else start icon="mdi-heart-outline"></v-icon>
                         Like({{ item.likes }})
-                        <v-tooltip activator="parent" location="bottom"
-                          >Like</v-tooltip
-                        >
+                        <v-tooltip
+                          activator="parent"
+                          location="bottom"
+                          class=""
+                          :text="item.liked_by_user ? 'Liked' : 'Like'"
+                        ></v-tooltip>
                       </v-btn>
                       <v-spacer></v-spacer>
                       <v-tooltip location="bottom" text="Download">
                         <template v-slot:activator="{ props }">
-                          <v-btn v-bind="props" icon="mdi-download"> </v-btn>
+                          <v-btn
+                            v-bind="props"
+                            icon="mdi-download"
+                            @click="downloadPhoto(item)"
+                          >
+                          </v-btn>
                         </template>
                       </v-tooltip>
                       <v-tooltip location="bottom" text="Add To Collection">
@@ -482,6 +519,16 @@ const searchRelated = (query: string) => {
         </v-window>
       </v-card-text>
     </v-card>
+
+    <!-- SnackBar -->
+    <v-snackbar v-model="snackbar.isShow" :timeout="snackbar.timeout">
+      {{ snackbar.text }}
+      <template v-slot:actions>
+        <v-btn color="blue" variant="text" @click="snackbar.isShow = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
   </div>
 </template>
 
@@ -493,7 +540,7 @@ const searchRelated = (query: string) => {
 .info-card {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
   &:hover {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 15px 0px !important;
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 24px 0px !important;
   }
 }
 
