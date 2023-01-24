@@ -17,6 +17,7 @@
     "flag-icons": "^6.6.6",
     "perfect-scrollbar": "^1.5.5",
     "pinia": "^2.0.28",
+    "pinia-plugin-persist": "^1.0.0",
     "roboto-fontface": "*",
     "unsplash-js": "^7.0.15",
     "vue": "^3.2.38",

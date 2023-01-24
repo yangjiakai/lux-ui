@@ -14,8 +14,9 @@ import MasonryWall from "@yeger/vue-masonry-wall";
 import VueVirtualScroller from "vue-virtual-scroller";
 import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
 import VueApexCharts from "vue3-apexcharts";
-
+import piniaPersist from "pinia-plugin-persist";
 const pinia = createPinia();
+pinia.use(piniaPersist);
 import "@/styles/main.scss";
 // Plugins
 

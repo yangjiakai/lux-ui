@@ -24,6 +24,11 @@ export const useCustomizeThemeStore = defineStore({
     },
   }),
 
+  persist: {
+    enabled: true,
+    strategies: [{ storage: localStorage, paths: ["darkTheme"] }],
+  },
+
   getters: {},
   actions: {
     setMiniSideBar(payload: boolean) {
