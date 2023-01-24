@@ -230,7 +230,7 @@ const searchRelated = (query: string) => {
                   <v-card
                     width="100%"
                     height="480"
-                    class="d-flex flex-column justify-space-between"
+                    class="info-card photo-card d-flex flex-column justify-space-between"
                   >
                     <v-img
                       class="align-end text-white"
@@ -344,7 +344,10 @@ const searchRelated = (query: string) => {
                   v-for="item in collectionData.collections"
                   :key="item.id"
                 >
-                  <v-card class="d-flex mt-5" color="secondary-lighten-1">
+                  <v-card
+                    class="info-card collection-card d-flex mt-5"
+                    color="secondary-lighten-1"
+                  >
                     <v-img
                       max-width="200"
                       aspect-ratio="1"
@@ -431,7 +434,7 @@ const searchRelated = (query: string) => {
                 >
                   <v-card
                     width="100%"
-                    class="user-card d-flex flex-column justify-space-between"
+                    class="info-card user-card d-flex flex-column justify-space-between"
                   >
                     <div class="card-top bg-secondary-lighten-1 text-content">
                       <v-avatar class="mr-5" size="avatarSize">
@@ -485,6 +488,13 @@ const searchRelated = (query: string) => {
 <style scoped lang="scss">
 .card-title {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+.info-card {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+  &:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 15px 0px !important;
+  }
 }
 
 .user-card {
