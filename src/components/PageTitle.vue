@@ -8,7 +8,7 @@ const route = useRoute();
 const title = ref("");
 
 watchEffect(() => {
-  if (route.meta) {
+  if (route.meta && route.meta.title) {
     title.value = route.meta.title;
   }
 });

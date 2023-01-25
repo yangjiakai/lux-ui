@@ -13,9 +13,9 @@ import { useUnsplashStore } from "./unsplashStore";
 const unsplashStore = useUnsplashStore();
 const url = ref("https://api.unsplash.com/search?");
 const accessKey = ref("mfB0t1DgccWtivNuh8KD06FMIZcun7vE_x_BSYQrfq8");
-// const { data, isLoading, isFinished, execute } = useAxios(
-//   `${url.value}&client_id=${accessKey.value}`
-// );
+const { data, isLoading, isFinished, execute } = useAxios(
+  `${url.value}&client_id=${accessKey.value}`
+);
 
 // const filteredItems = computed(() => {
 //   let result = [];
@@ -192,6 +192,11 @@ const downloadPhoto = (photo) => {
 };
 
 const photoDialog = ref(false);
+const photoId = ref("");
+const openPhotoDialog = (id: string) => {
+  photoId.value = id;
+  photoDialog.value = true;
+};
 </script>
 
 <template>
@@ -208,13 +213,6 @@ const photoDialog = ref(false);
       ></v-text-field>
       <v-spacer></v-spacer>
       <v-btn color="">Go</v-btn>
-      <!-- Photo Dialog -->
-      <v-dialog v-model="photoDialog">
-        <template v-slot:activator="{ props }">
-          <v-btn v-bind="props"> Open Dialog </v-btn>
-        </template>
-        <PhotoDetail />
-      </v-dialog>
     </v-toolbar>
     <v-row>
       <v-col cols="12" xl="10">
@@ -292,6 +290,7 @@ const photoDialog = ref(false);
                             :lazy-src="item.urls.small"
                             height="300"
                             cover
+                            @click="openPhotoDialog(item.id)"
                           >
                             <template v-slot:placeholder>
                               <v-row
@@ -583,6 +582,10 @@ const photoDialog = ref(false);
         </v-btn>
       </template>
     </v-snackbar>
+
+    <v-dialog v-model="photoDialog">
+      <PhotoDetail :photoId="photoId" />
+    </v-dialog>
   </div>
 </template>
 
