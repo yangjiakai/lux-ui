@@ -5,6 +5,7 @@
 -->
 <script setup lang="ts">
 import FavoriteCard from "./FavoriteCard.vue";
+import PhotoDetail from "./PhotoDetail.vue";
 import { Icon, listIcons } from "@iconify/vue";
 import axios from "axios";
 import { useAxios } from "@vueuse/integrations/useAxios";
@@ -189,6 +190,8 @@ const downloadPhoto = (photo) => {
   snackbar.isShow = true;
   snackbar.timeout = 1000;
 };
+
+const photoDialog = ref(false);
 </script>
 
 <template>
@@ -205,6 +208,13 @@ const downloadPhoto = (photo) => {
       ></v-text-field>
       <v-spacer></v-spacer>
       <v-btn color="">Go</v-btn>
+      <!-- Photo Dialog -->
+      <v-dialog v-model="photoDialog">
+        <template v-slot:activator="{ props }">
+          <v-btn v-bind="props"> Open Dialog </v-btn>
+        </template>
+        <PhotoDetail />
+      </v-dialog>
     </v-toolbar>
     <v-row>
       <v-col cols="12" xl="10">
