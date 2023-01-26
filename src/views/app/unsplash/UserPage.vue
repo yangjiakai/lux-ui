@@ -6,7 +6,8 @@
 <script setup lang="ts">
 import { BASE_URL, config } from "./unsplashConfig";
 import axios from "axios";
-
+import { useUnsplashStore } from "./unsplashStore";
+const unsplashStore = useUnsplashStore();
 const route = useRoute();
 const userProfileUrl = computed(() => {
   return BASE_URL + "users/" + route.params.username;
@@ -24,20 +25,208 @@ const userCollectionsUrl = computed(() => {
   return BASE_URL + "users/" + route.params.username + "/collections";
 });
 
+const userProfileData = ref(null);
+const userPhotosData = ref(null);
+const userLikesData = ref(null);
+const userCollectionsData = ref(null);
+const tab = ref(null);
+
 const isLoading = ref(false);
 
 const initData = async () => {
   isLoading.value = true;
   const userProfileResponse = await axios.get(userProfileUrl.value, config);
-  const userPhotosResponse = await axios.get(userPhotosUrl.value, config);
+  const userLikesResponse = await axios.get(userLikesUrl.value, config);
+  const userCollectionsResponse = await axios.get(
+    userCollectionsUrl.value,
+    config
+  );
+  userProfileData.value = userProfileResponse.data;
+  userLikesData.value = userLikesResponse.data;
+  userCollectionsData.value = userCollectionsResponse.data;
   isLoading.value = false;
+};
+
+const snackbar = reactive({
+  isShow: false,
+  timeout: 1000,
+  text: "",
+});
+
+const downloadPhoto = (photo) => {
+  const a = document.createElement("a");
+  a.href = photo.links.download + "&force=true";
+  a.download = photo.id + ".jpg";
+  a.click();
+  snackbar.text = "Downloading now, please wait";
+  snackbar.timeout = 2000;
+  snackbar.isShow = true;
+  snackbar.timeout = 1000;
+};
+
+const toggleLike = (item) => {
+  if (!item.liked_by_user) {
+    snackbar.text = "Added to your favorite";
+    snackbar.isShow = true;
+    unsplashStore.addToFavorite(item);
+    item.likes++;
+  } else {
+    snackbar.text = "Removed from your favorite";
+    snackbar.isShow = true;
+    unsplashStore.removeFromFavorite(item);
+    item.likes--;
+  }
+  item.liked_by_user = !item.liked_by_user;
 };
 
 initData();
 </script>
 
 <template>
-  <div class="">{{ route.params.username }}</div>
+  <v-container v-if="!isLoading">
+    <v-row>
+      <v-col cols="12" md="2">
+        <v-avatar class="mr-5" size="">
+          <img :src="userProfileData.profile_image.large" alt="alt" />
+        </v-avatar>
+      </v-col>
+      <v-col cols="12" md="10">
+        <h1 class="text-h3 font-weight-bold">{{ userProfileData.username }}</h1>
+        <p class="my-5">
+          Download free, beautiful high-quality photos curated by
+          <b> {{ userProfileData.first_name }}</b>
+        </p>
+        <p class="mb-3">Interests</p>
+        <div>
+          <v-chip
+            class="interest-chip ma-2"
+            color="primary"
+            label
+            v-for="item in userProfileData.tags.aggregated"
+            :key="item.title"
+          >
+            <v-icon start icon="mdi-bookmark-outline"></v-icon>
+            {{ item.title }}
+          </v-chip>
+        </div>
+      </v-col>
+    </v-row>
+  </v-container>
+  <v-card class="shadow-1">
+    <v-tabs v-model="tab" bg-color="transparent" sliderColor="primary">
+      <v-tab value="likes"> <v-icon class="mr-2">mdi-heart</v-icon>Likes</v-tab>
+      <v-tab value="collections">
+        <v-icon class="mr-2">mdi-image</v-icon>Collections</v-tab
+      >
+    </v-tabs>
+
+    <v-card-text>
+      <v-window v-model="tab">
+        <v-window-item value="likes">
+          <v-row v-if="!isLoading">
+            <v-col
+              cols="12"
+              sm="6"
+              md="3"
+              v-for="photo in userLikesData"
+              :key="photo.id"
+            >
+              <v-card class="shadow-1">
+                <v-img
+                  :src="photo.urls.small"
+                  height="400"
+                  cover
+                  aspect-ratio="1/2"
+                >
+                  <v-card class="photo-card text-white">
+                    <div class="card-top">
+                      <v-spacer></v-spacer>
+
+                      <v-btn icon variant="text" @click="toggleLike(photo)">
+                        <v-icon
+                          v-if="photo.liked_by_user"
+                          color="pink"
+                          icon="mdi-heart"
+                          class="heartBeat"
+                        ></v-icon>
+                        <v-icon v-else icon="mdi-heart-outline"></v-icon>
+                        <v-tooltip
+                          activator="parent"
+                          location="bottom"
+                          class=""
+                          :text="photo.liked_by_user ? 'Liked' : 'Like'"
+                        ></v-tooltip>
+                      </v-btn>
+                      <v-tooltip location="bottom" text="Add To Collection">
+                        <template v-slot:activator="{ props }">
+                          <v-btn variant="text" v-bind="props" icon="mdi-plus">
+                          </v-btn>
+                        </template>
+                      </v-tooltip>
+                    </div>
+
+                    <v-spacer></v-spacer>
+                    <div class="card-bottom">
+                      <v-avatar>
+                        <v-img
+                          :src="photo.user.profile_image.small"
+                          :lazy-src="photo.user.profile_image.small"
+                          alt="alt"
+                        ></v-img>
+                      </v-avatar>
+                      <div class="flex-1 mx-3 text-white">
+                        {{ photo.user.username }}
+                      </div>
+                      <v-tooltip location="bottom" text="Download">
+                        <template v-slot:activator="{ props }">
+                          <v-btn
+                            variant="text"
+                            v-bind="props"
+                            icon="mdi-download"
+                            @click="downloadPhoto(photo)"
+                          >
+                          </v-btn>
+                        </template>
+                      </v-tooltip>
+                    </div>
+                  </v-card>
+                </v-img>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-window-item>
+        <v-window-item value="collections"> Collections </v-window-item>
+      </v-window>
+    </v-card-text>
+  </v-card>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.interest-chip {
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
+    transition: all 0.3s;
+  }
+}
+
+.photo-card {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 100%;
+  padding: 1rem;
+  opacity: 0;
+  cursor: zoom-in;
+  &:hover {
+    opacity: 1;
+  }
+
+  .card-top,
+  .card-bottom {
+    display: flex;
+    align-items: center;
+  }
+}
+</style>
