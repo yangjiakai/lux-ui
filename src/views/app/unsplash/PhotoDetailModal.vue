@@ -4,7 +4,7 @@
 * @Description: 
 -->
 <script setup lang="ts">
-import { BASE_URL, ACCESS_KEY, config } from "./unsplashApi";
+import { BASE_URL, ACCESS_KEY, config } from "./unsplashConfig";
 import axios from "axios";
 
 // Props

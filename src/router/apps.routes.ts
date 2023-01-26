@@ -1,3 +1,5 @@
+import unsplashRoutes from "@/views/app/unsplash/UnsplashRoutes";
+
 export default [
   {
     path: "/apps/email",
@@ -47,6 +49,6 @@ export default [
       import(
         /* webpackChunkName: "app-unsplash" */ "@/views/app/unsplash/UnsplashApp.vue"
       ),
-    children: [],
+    children: [...unsplashRoutes],
   },
 ];
