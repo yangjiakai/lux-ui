@@ -121,6 +121,7 @@ const downloadPhoto = (photo: Photo) => {
   cursor: zoom-in;
   &:hover {
     opacity: 1;
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 24px 0px !important;
   }
   .card-top,
   .card-bottom {

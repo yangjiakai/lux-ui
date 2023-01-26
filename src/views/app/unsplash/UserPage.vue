@@ -8,6 +8,7 @@ import { BASE_URL, config } from "./unsplashConfig";
 import axios from "axios";
 import { useUnsplashStore } from "./unsplashStore";
 import PhotoCard from "./components/PhotoCard.vue";
+import CollectionCard from "./components/CollectionCard.vue";
 const unsplashStore = useUnsplashStore();
 const route = useRoute();
 const userProfileUrl = computed(() => {
@@ -124,19 +125,36 @@ initData();
     <v-card-text>
       <v-window v-model="tab">
         <v-window-item value="likes">
-          <v-row v-if="!isLoading">
-            <v-col
-              cols="12"
-              sm="6"
-              md="3"
-              v-for="photo in userLikesData"
-              :key="photo.id"
-            >
-              <PhotoCard :photo="photo"></PhotoCard>
-            </v-col>
-          </v-row>
+          <v-sheet min-height="80vh">
+            <v-row v-if="!isLoading">
+              <v-col
+                cols="12"
+                sm="6"
+                md="4"
+                lg="3"
+                v-for="photo in userLikesData"
+                :key="photo.id"
+              >
+                <PhotoCard :photo="photo"></PhotoCard>
+              </v-col>
+            </v-row>
+          </v-sheet>
         </v-window-item>
-        <v-window-item value="collections"> Collections </v-window-item>
+        <v-window-item value="collections" class="pa-1">
+          <v-sheet min-height="80vh">
+            <v-row v-if="!isLoading">
+              <v-col
+                cols="12"
+                sm="6"
+                lg="4"
+                v-for="collection in userCollectionsData"
+                :key="collection.id"
+              >
+                <CollectionCard :collection="collection"></CollectionCard>
+              </v-col>
+            </v-row>
+          </v-sheet>
+        </v-window-item>
       </v-window>
     </v-card-text>
   </v-card>
