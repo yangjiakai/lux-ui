@@ -6,6 +6,7 @@
 <script setup lang="ts">
 import FavoriteCard from "./components/FavoriteCard.vue";
 import PhotoDetail from "./PhotoDetailModal.vue";
+import UserCard from "./components/UserCard.vue";
 import { Icon, listIcons } from "@iconify/vue";
 import axios from "axios";
 import { useAxios } from "@vueuse/integrations/useAxios";
@@ -555,6 +556,17 @@ const openPhotoDialog = (id: string) => {
                     @click="moreUsers"
                     >More Users...</v-btn
                   >
+                  <v-row>
+                    <v-col
+                      cols="12"
+                      lg="4"
+                      sm="6"
+                      v-for="item in userData.users"
+                      :key="item.id"
+                    >
+                      <UserCard :user="item" />
+                    </v-col>
+                  </v-row>
                 </v-card>
               </v-window-item>
             </v-window>
