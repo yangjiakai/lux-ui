@@ -8,7 +8,7 @@ export default [
       ),
   },
   {
-    path: "user/:id",
+    path: "user/:username",
     name: "unsplash-user",
     component: () =>
       import(

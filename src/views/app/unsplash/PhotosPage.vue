@@ -10,28 +10,12 @@ import { Icon, listIcons } from "@iconify/vue";
 import axios from "axios";
 import { useAxios } from "@vueuse/integrations/useAxios";
 import { useUnsplashStore } from "./unsplashStore";
+import { BASE_URL, ACCESS_KEY, config } from "./unsplashConfig";
 const unsplashStore = useUnsplashStore();
-const url = ref("https://api.unsplash.com/search?");
-const accessKey = ref("mfB0t1DgccWtivNuh8KD06FMIZcun7vE_x_BSYQrfq8");
-const { data, isLoading, isFinished, execute } = useAxios(
-  `${url.value}&client_id=${accessKey.value}`
-);
 const router = useRouter();
-
-// const filteredItems = computed(() => {
-//   let result = [];
-//   if (isFinished.value) {
-//     result = data.value.results;
-//     console.log(data.value);
-//   }
-//   return result;
-// });
-const BASE_URL = "https://api.unsplash.com/";
-const ACCESS_KEY = "mfB0t1DgccWtivNuh8KD06FMIZcun7vE_x_BSYQrfq8";
 
 interface SearchParams {
   url: string;
-  accessKey: string;
   query: string;
   perPage: number;
   page: number;
@@ -39,7 +23,6 @@ interface SearchParams {
 
 const searchParams: SearchParams = reactive({
   url: BASE_URL + "search?",
-  accessKey: ACCESS_KEY,
   query: "blue",
   perPage: 20,
   page: 1,
@@ -47,7 +30,6 @@ const searchParams: SearchParams = reactive({
 
 const photoParams: SearchParams = reactive({
   url: BASE_URL + "search/photos?",
-  accessKey: ACCESS_KEY,
   query: "blue",
   perPage: 20,
   page: 1,
@@ -55,7 +37,6 @@ const photoParams: SearchParams = reactive({
 
 const collectionParams: SearchParams = reactive({
   url: BASE_URL + "search/collections?",
-  accessKey: ACCESS_KEY,
   query: "blue",
   perPage: 20,
   page: 1,
@@ -63,7 +44,6 @@ const collectionParams: SearchParams = reactive({
 
 const userParams: SearchParams = reactive({
   url: BASE_URL + "search/users?",
-  accessKey: ACCESS_KEY,
   query: "blue",
   perPage: 20,
   page: 1,
@@ -93,7 +73,8 @@ const tab = ref(null);
 
 const search = async () => {
   const response = await axios.get(
-    `${url.value}client_id=${searchParams.accessKey}&page=${searchParams.page}&per_page=${searchParams.perPage}&query=${searchParams.query}`
+    `${searchParams.url}page=${searchParams.page}&per_page=${searchParams.perPage}&query=${searchParams.query}`,
+    config
   );
 
   // Photos
@@ -131,7 +112,8 @@ const initData = () => {
 const morePhotos = async () => {
   photoParams.page++;
   const response = await axios.get(
-    `${photoParams.url}client_id=${photoParams.accessKey}&page=${photoParams.page}&per_page=${photoParams.perPage}&query=${photoParams.query}`
+    `${photoParams.url}page=${photoParams.page}&per_page=${photoParams.perPage}&query=${photoParams.query}`,
+    config
   );
   photoData.photos.push(...response.data.results);
 };
@@ -139,7 +121,8 @@ const morePhotos = async () => {
 const moreCollections = async () => {
   collectionParams.page++;
   const response = await axios.get(
-    `${collectionParams.url}client_id=${collectionParams.accessKey}&page=${collectionParams.page}&per_page=${collectionParams.perPage}&query=${collectionParams.query}`
+    `${collectionParams.url}page=${collectionParams.page}&per_page=${collectionParams.perPage}&query=${collectionParams.query}`,
+    config
   );
   collectionData.collections.push(...response.data.results);
 };
@@ -147,7 +130,8 @@ const moreCollections = async () => {
 const moreUsers = async () => {
   userParams.page++;
   const response = await axios.get(
-    `${userParams.url}client_id=${userParams.accessKey}&page=${userParams.page}&per_page=${userParams.perPage}&query=${userParams.query}`
+    `${userParams.url}page=${userParams.page}&per_page=${userParams.perPage}&query=${userParams.query}`,
+    config
   );
   userData.users.push(...response.data.results);
 };
@@ -553,7 +537,7 @@ const openPhotoDialog = (id: string) => {
                                 variant="flat"
                                 block
                                 v-bind="props"
-                                :to="`/apps/unsplash/user/${item.id}`"
+                                :to="`/apps/unsplash/user/${item.username}`"
                               >
                                 Profile</v-btn
                               >
