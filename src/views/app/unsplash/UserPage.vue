@@ -29,8 +29,8 @@ const userCollectionsUrl = computed(() => {
 
 const userProfileData = ref(null);
 const userPhotosData = ref(null);
-const userLikesData = ref(null);
-const userCollectionsData = ref(null);
+const userLikesData = ref([]);
+const userCollectionsData = ref([]);
 const tab = ref(null);
 
 const isLoading = ref(false);
@@ -38,11 +38,13 @@ const isLoading = ref(false);
 const initData = async () => {
   isLoading.value = true;
   const userProfileResponse = await axios.get(userProfileUrl.value, config);
+  const userPhotosResponse = await axios.get(userPhotosUrl.value, config);
   const userLikesResponse = await axios.get(userLikesUrl.value, config);
   const userCollectionsResponse = await axios.get(
     userCollectionsUrl.value,
     config
   );
+  userPhotosData.value = userPhotosResponse.data;
   userProfileData.value = userProfileResponse.data;
   userLikesData.value = userLikesResponse.data;
   userCollectionsData.value = userCollectionsResponse.data;
@@ -85,37 +87,57 @@ initData();
 </script>
 
 <template>
-  <v-container v-if="!isLoading">
-    <v-row>
-      <v-col cols="12" md="2">
-        <v-avatar class="mr-5" size="">
-          <img :src="userProfileData.profile_image.large" alt="alt" />
-        </v-avatar>
-      </v-col>
-      <v-col cols="12" md="10">
-        <h1 class="text-h3 font-weight-bold">{{ userProfileData.username }}</h1>
-        <p class="my-5">
-          Download free, beautiful high-quality photos curated by
-          <b> {{ userProfileData.first_name }}</b>
-        </p>
-        <p class="mb-3">Interests</p>
-        <div>
-          <v-chip
-            class="interest-chip ma-2"
-            color="primary"
-            label
-            v-for="item in userProfileData.tags.aggregated"
-            :key="item.title"
-          >
-            <v-icon start icon="mdi-bookmark-outline"></v-icon>
-            {{ item.title }}
-          </v-chip>
-        </div>
-      </v-col>
-    </v-row>
-  </v-container>
-  <v-card class="shadow-1">
-    <v-tabs v-model="tab" bg-color="transparent" sliderColor="primary">
+  <v-sheet v-if="userProfileData" class="profile-sheet">
+    <v-container class="profile-container">
+      <v-row>
+        <v-col cols="12" md="3" class="pr-5">
+          <v-img
+            class="mx-auto"
+            width="200"
+            style="border-radius: 50%"
+            :src="userProfileData.profile_image.large"
+          ></v-img>
+        </v-col>
+        <v-col cols="12" md="9">
+          <h1 class="text-h3 font-weight-bold">
+            {{ userProfileData.username }}
+          </h1>
+          <p class="my-5">
+            Download free, beautiful high-quality photos curated by
+            <b> {{ userProfileData.first_name }}</b>
+          </p>
+          <p v-if="userProfileData.location">
+            <v-icon>mdi-map-marker</v-icon>{{ userProfileData.location }}
+          </p>
+
+          <p class="mb-3">Interests</p>
+          <div>
+            <v-chip
+              class="interest-chip ma-2"
+              color="primary"
+              label
+              v-for="item in userProfileData.tags.aggregated"
+              :key="item.title"
+            >
+              <v-icon start icon="mdi-bookmark-outline"></v-icon>
+              {{ item.title }}
+            </v-chip>
+          </div>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-sheet>
+
+  <v-sheet class="mt-5 shadow-1">
+    <v-tabs
+      color="primary"
+      v-model="tab"
+      bg-color="transparent"
+      sliderColor="primary"
+    >
+      <v-tab value="photos">
+        <v-icon class="mr-2">mdi-image</v-icon>Photos</v-tab
+      >
       <v-tab value="likes"> <v-icon class="mr-2">mdi-heart</v-icon>Likes</v-tab>
       <v-tab value="collections">
         <v-icon class="mr-2">mdi-image</v-icon>Collections</v-tab
@@ -124,9 +146,35 @@ initData();
 
     <v-card-text>
       <v-window v-model="tab">
+        <v-window-item value="photos">
+          <v-sheet v-if="userLikesData.length > 0" min-height="80vh">
+            <v-row>
+              <v-col
+                cols="12"
+                sm="6"
+                md="4"
+                lg="3"
+                v-for="photo in userPhotosData"
+                :key="photo.id"
+              >
+                <PhotoCard :photo="photo"></PhotoCard>
+              </v-col>
+            </v-row>
+          </v-sheet>
+          <v-sheet
+            v-else
+            min-height="80vh"
+            class="d-flex align-center justify-center"
+          >
+            <v-img
+              src="https://unsplash-assets.imgix.net/empty-states/photos.png"
+              height="400"
+            ></v-img>
+          </v-sheet>
+        </v-window-item>
         <v-window-item value="likes">
-          <v-sheet min-height="80vh">
-            <v-row v-if="!isLoading">
+          <v-sheet v-if="userLikesData.length > 0" min-height="80vh">
+            <v-row>
               <v-col
                 cols="12"
                 sm="6"
@@ -139,10 +187,20 @@ initData();
               </v-col>
             </v-row>
           </v-sheet>
+          <v-sheet
+            v-else
+            min-height="80vh"
+            class="d-flex align-center justify-center"
+          >
+            <v-img
+              src="https://unsplash-assets.imgix.net/empty-states/photos.png"
+              height="400"
+            ></v-img>
+          </v-sheet>
         </v-window-item>
         <v-window-item value="collections" class="pa-1">
-          <v-sheet min-height="80vh">
-            <v-row v-if="!isLoading">
+          <v-sheet v-if="userCollectionsData.length > 0" min-height="80vh">
+            <v-row>
               <v-col
                 cols="12"
                 sm="6"
@@ -154,10 +212,20 @@ initData();
               </v-col>
             </v-row>
           </v-sheet>
+          <v-sheet
+            v-else
+            min-height="80vh"
+            class="d-flex align-center justify-center"
+          >
+            <v-img
+              src="https://unsplash-assets.imgix.net/empty-states/photos.png"
+              height="400"
+            ></v-img>
+          </v-sheet>
         </v-window-item>
       </v-window>
     </v-card-text>
-  </v-card>
+  </v-sheet>
 </template>
 
 <style scoped lang="scss">
@@ -187,5 +255,12 @@ initData();
     display: flex;
     align-items: center;
   }
+}
+
+.profile-container {
+  margin: 0 auto;
+  padding: 100px 0px;
+  max-width: 1600px;
+  background-color: rgab(0, 0, 0, 0);
 }
 </style>

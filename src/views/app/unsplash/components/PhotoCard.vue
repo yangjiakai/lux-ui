@@ -6,6 +6,7 @@
 <script setup lang="ts">
 import { useUnsplashStore } from "../unsplashStore";
 import { Photo } from "../unsplashTypes";
+import PhotoDetailModal from "../PhotoDetailModal.vue";
 
 const unsplashStore = useUnsplashStore();
 const props = defineProps<{
@@ -43,12 +44,24 @@ const downloadPhoto = (photo: Photo) => {
   snackbar.isShow = true;
   snackbar.timeout = 1000;
 };
+
+const photoDetailModal = ref(false);
+
+const openDetailModal = () => {
+  photoDetailModal.value = true;
+};
 </script>
 
 <template>
   <div class="">
     <v-card class="shadow-1">
-      <v-img :src="photo.urls.small" height="400" cover aspect-ratio="1/2">
+      <v-img
+        @click="openDetailModal"
+        :src="photo.urls.small"
+        height="400"
+        cover
+        aspect-ratio="1/2"
+      >
         <v-card class="photo-card text-white">
           <div class="card-top">
             <v-spacer></v-spacer>
@@ -107,6 +120,18 @@ const downloadPhoto = (photo: Photo) => {
         </v-card>
       </v-img>
     </v-card>
+    <!-- SnackBar -->
+    <v-snackbar v-model="snackbar.isShow" :timeout="snackbar.timeout">
+      {{ snackbar.text }}
+      <template v-slot:actions>
+        <v-btn color="blue" variant="text" @click="snackbar.isShow = false">
+          Close
+        </v-btn>
+      </template>
+    </v-snackbar>
+    <v-dialog v-model="photoDetailModal" scrollable>
+      <PhotoDetailModal :photoId="photo.id"></PhotoDetailModal>
+    </v-dialog>
   </div>
 </template>
 
