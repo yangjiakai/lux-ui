@@ -48,53 +48,48 @@ initData();
 </script>
 
 <template>
-  <div>
-    <div class="d-flex align-center">
-      <div>
-        <v-icon color="white" size="50" class="mx-5">mdi-arrow-left</v-icon>
-      </div>
-      <v-card class="flex-1" height="90%">
-        <v-card height="200" v-if="isLoading"> loading.... </v-card>
-        <div v-else>
-          <div class="d-flex align-center clas pa-3">
-            <div class="flex-1 d-flex align-center">
-              <div>
-                <v-avatar class="mr-3" size="avatarSize" color="red">
-                  <img :src="photo.user.profile_image.small" alt="alt" />
-                </v-avatar>
-              </div>
+  <v-card height="200" v-if="isLoading"> loading.... </v-card>
+  <v-card v-else height="90%">
+    <v-card-title>
+      <div class="d-flex align-center pa-3">
+        <div class="flex-1 d-flex align-center">
+          <div>
+            <v-avatar class="mr-3" size="avatarSize" color="red">
+              <img :src="photo.user.profile_image.small" alt="alt" />
+            </v-avatar>
+          </div>
 
-              <div>
-                <p>{{ photo.user.name }}</p>
-                <p v-if="photo.user.for_hire" class="text-info">
-                  Available for hire
-                  <v-icon size="16">mdi-check-circle</v-icon>
-                </p>
-              </div>
-            </div>
-            <div>
-              <v-btn color="grey" variant="text" icon="mdi-heart"></v-btn>
-              <v-btn color="grey" variant="text" icon="mdi-plus"></v-btn>
+          <div>
+            <p>{{ photo.user.name }}</p>
+            <p v-if="photo.user.for_hire" class="text-info">
+              Available for hire
+              <v-icon size="16">mdi-check-circle</v-icon>
+            </p>
+          </div>
+        </div>
+        <div>
+          <v-btn color="grey" variant="text" icon="mdi-heart"></v-btn>
+          <v-btn color="grey" variant="text" icon="mdi-plus"></v-btn>
 
-              <v-btn-toggle size="small" variant="outlined" divided>
-                <v-btn size="small"> Download </v-btn>
+          <v-btn-toggle size="small" variant="outlined" divided>
+            <v-btn size="small"> Download </v-btn>
 
-                <v-menu transition="slide-x-transition" location="bottom end">
-                  <template v-slot:activator="{ props }">
-                    <v-btn size="small" v-bind="props">
-                      <v-icon icon="mdi-chevron-down"></v-icon>
-                    </v-btn>
-                  </template>
-                  <v-list>
-                    <v-list-item value="small"> Small </v-list-item>
-                    <v-list-item value="medium"> Medium </v-list-item>
-                    <v-list-item value="large"> Large </v-list-item>
-                    <v-divider></v-divider>
-                    <v-list-item value="row">
-                      Row ({{ photo.width }} x {{ photo.height }})
-                    </v-list-item>
-                  </v-list>
-                  <!-- <v-list>
+            <v-menu transition="slide-x-transition" location="bottom end">
+              <template v-slot:activator="{ props }">
+                <v-btn size="small" v-bind="props">
+                  <v-icon icon="mdi-chevron-down"></v-icon>
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item value="small"> Small </v-list-item>
+                <v-list-item value="medium"> Medium </v-list-item>
+                <v-list-item value="large"> Large </v-list-item>
+                <v-divider></v-divider>
+                <v-list-item value="row">
+                  Row ({{ photo.width }} x {{ photo.height }})
+                </v-list-item>
+              </v-list>
+              <!-- <v-list>
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
@@ -102,39 +97,41 @@ initData();
           <v-list-item-title>{{ item.title }}</v-list-item-title>
         </v-list-item>
       </v-list> -->
-                </v-menu>
-              </v-btn-toggle>
-            </div>
-          </div>
-          <v-img
-            class="mx-auto"
-            width="1080"
-            contain
-            :src="photo.urls.regular"
-            :lazy-src="photo.urls.regular"
-          ></v-img>
+            </v-menu>
+          </v-btn-toggle>
         </div>
-
-        <!-- <v-card class="d-flex" v-if="isLoading">
-          <div class="loader" v-for="i in 20" :key="i"></div>
-        </v-card>
-
-        <v-card class="d-flex" v-else>
-          <v-img
-            width="215"
-            height="220"
-            v-for="relatedPhoto in relatedPhotos"
-            :key="relatedPhoto.id"
-            :src="relatedPhoto.urls.small"
-            :lazy-src="relatedPhoto.urls.small"
-          ></v-img>
-        </v-card> -->
-      </v-card>
-      <div>
-        <v-icon color="white" size="50" class="mx-5">mdi-arrow-right</v-icon>
       </div>
-    </div>
-  </div>
+    </v-card-title>
+    <v-divider></v-divider>
+    <v-card-text class="scrollbar-beautify">
+      <v-img
+        class="mx-auto"
+        width="1080"
+        contain
+        :src="photo.urls.regular"
+        :lazy-src="photo.urls.regular"
+      ></v-img>
+      <div class="photo-info">AAA</div>
+      <div class="related-photos">
+        <v-sheet v-if="relatedPhotos.length > 0" min-height="80vh">
+          <v-row>
+            <v-col
+              cols="12"
+              sm="6"
+              md="4"
+              lg="3"
+              v-for="photo in relatedPhotos"
+              :key="photo.id"
+            >
+              <PhotoCard :photo="photo"></PhotoCard>
+            </v-col>
+          </v-row>
+        </v-sheet>
+      </div>
+    </v-card-text>
+    <v-divider></v-divider>
+    <v-card-actions> AAAA </v-card-actions>
+  </v-card>
 </template>
 
 <style scoped lang="scss">
