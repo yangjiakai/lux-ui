@@ -5,6 +5,7 @@
 -->
 <script setup lang="ts">
 import { BASE_URL, ACCESS_KEY, config } from "./unsplashConfig";
+import PhotoCard from "./components/PhotoCard.vue";
 import axios from "axios";
 
 // Props
@@ -114,6 +115,7 @@ initData();
       <div class="photo-info">AAA</div>
       <div class="related-photos">
         <v-sheet v-if="relatedPhotos.length > 0" min-height="80vh">
+          <h4 class="text-h4">Related Photos</h4>
           <v-row>
             <v-col
               cols="12"
@@ -124,6 +126,16 @@ initData();
               :key="photo.id"
             >
               <PhotoCard :photo="photo"></PhotoCard>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
+              <h4 class="text-h4">Related Collections</h4>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
+              <h4 class="text-h4">Related tags</h4>
             </v-col>
           </v-row>
         </v-sheet>
