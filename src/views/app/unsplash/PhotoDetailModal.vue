@@ -6,6 +6,7 @@
 <script setup lang="ts">
 import { BASE_URL, ACCESS_KEY, config } from "./unsplashConfig";
 import PhotoCard from "./components/PhotoCard.vue";
+import PhotoInfoChartCard from "./components/PhotoInfoChartCard.vue";
 import CollectionCard from "./components/CollectionCard.vue";
 import axios from "axios";
 
@@ -115,8 +116,39 @@ initData();
         :src="photo.urls.regular"
         :lazy-src="photo.urls.regular"
       ></v-img>
+      <v-divider></v-divider>
       <div class="related-photos px-3">
         <v-sheet v-if="relatedPhotos.length > 0" min-height="80vh">
+          <div class="photos-info">
+            <v-row>
+              <v-col cols="12" md="6">
+                <v-card variant="flat">
+                  <div class="my-3">
+                    <v-icon class="mx-3">mdi-map</v-icon>
+                    <span>{{ photo.location.country }}</span>
+                    <span>{{ photo.location.city }}</span>
+                    <span>{{ photo.location.name }}</span>
+                  </div>
+                  <div>
+                    <v-icon class="mx-3">mdi-calendar</v-icon>
+                    <span>{{ photo.created_at }}</span>
+                  </div>
+                  <div class="mt-3">
+                    <v-icon class="mx-3">mdi-camera</v-icon>
+                    <span>{{ photo.exif.make }}</span>
+                    <span>{{ photo.exif.modal }}</span>
+                  </div>
+                  <div class="mt-3">
+                    <v-icon class="mx-3">mdi-shield</v-icon>
+                    <span>Free to use under the Unsplash License</span>
+                  </div>
+                </v-card>
+              </v-col>
+              <v-col cols="12" md="6">
+                <PhotoInfoChartCard :photoId="photo.id"> </PhotoInfoChartCard>
+              </v-col>
+            </v-row>
+          </div>
           <h4 class="text-h6 font-weight-bold py-3">Related Photos</h4>
           <v-row>
             <v-col
