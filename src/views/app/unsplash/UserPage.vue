@@ -148,18 +148,7 @@ initData();
       <v-window v-model="tab">
         <v-window-item value="photos">
           <v-sheet v-if="userLikesData.length > 0" min-height="80vh">
-            <v-row>
-              <v-col
-                cols="12"
-                sm="6"
-                md="4"
-                lg="3"
-                v-for="photo in userPhotosData"
-                :key="photo.id"
-              >
-                <PhotoCard :photo="photo"></PhotoCard>
-              </v-col>
-            </v-row>
+            <v-row> </v-row>
           </v-sheet>
           <v-sheet
             v-else

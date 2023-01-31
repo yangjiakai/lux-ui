@@ -6,6 +6,7 @@
 <script setup lang="ts">
 import { BASE_URL, ACCESS_KEY, config } from "./unsplashConfig";
 import PhotoCard from "./components/PhotoCard.vue";
+import CollectionCard from "./components/CollectionCard.vue";
 import axios from "axios";
 
 // Props
@@ -103,8 +104,10 @@ initData();
         </div>
       </div>
     </v-card-title>
+
     <v-divider></v-divider>
-    <v-card-text class="scrollbar-beautify">
+
+    <v-card-text class="scrollbar-beautify pa-0">
       <v-img
         class="mx-auto"
         width="1080"
@@ -112,37 +115,50 @@ initData();
         :src="photo.urls.regular"
         :lazy-src="photo.urls.regular"
       ></v-img>
-      <div class="photo-info">AAA</div>
-      <div class="related-photos">
+      <div class="related-photos px-3">
         <v-sheet v-if="relatedPhotos.length > 0" min-height="80vh">
-          <h4 class="text-h4">Related Photos</h4>
+          <h4 class="text-h6 font-weight-bold py-3">Related Photos</h4>
+          <v-row>
+            <v-col
+              col="12"
+              md="4"
+              lg="3"
+              v-for="relatedPhoto in relatedPhotos"
+              :key="relatedPhoto.id"
+            >
+              <PhotoCard :photo="relatedPhoto"></PhotoCard>
+            </v-col>
+          </v-row>
+
+          <h4 class="text-h6 font-weight-bold py-3">Related Collections</h4>
           <v-row>
             <v-col
               cols="12"
-              sm="6"
               md="4"
-              lg="3"
-              v-for="photo in relatedPhotos"
-              :key="photo.id"
+              v-for="collection in photo.related_collections.results"
+              :key="collection.id"
             >
-              <PhotoCard :photo="photo"></PhotoCard>
+              <CollectionCard :collection="collection"></CollectionCard>
             </v-col>
           </v-row>
-          <v-row>
-            <v-col>
-              <h4 class="text-h4">Related Collections</h4>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col>
-              <h4 class="text-h4">Related tags</h4>
-            </v-col>
-          </v-row>
+          <h4 class="text-h6 font-weight-bold py-3">Related tags</h4>
+          <v-card class="shadow-1 mb-3">
+            <v-chip
+              class="interest-chip ma-2"
+              color="primary"
+              label
+              v-for="tag in photo.tags"
+              :key="tag.title"
+            >
+              <v-icon start icon="mdi-bookmark-outline"></v-icon>
+              {{ tag.title }}
+            </v-chip>
+          </v-card>
         </v-sheet>
       </div>
     </v-card-text>
     <v-divider></v-divider>
-    <v-card-actions> AAAA </v-card-actions>
+    <v-card-actions> </v-card-actions>
   </v-card>
 </template>
 
