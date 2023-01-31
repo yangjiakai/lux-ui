@@ -7,20 +7,35 @@
       variant="solo"
       label="Last 28"
     ></v-select>
-    <v-btn color="success" @click="changeColor">change</v-btn>
   </h6>
-
+  <v-btn color="success" @click="changeColor">change</v-btn>
   <v-chart class="chart" :option="option" autoresize />
 </template>
 
 <script setup lang="ts">
+import { use } from "echarts/core";
+import { CanvasRenderer } from "echarts/renderers";
+import { PieChart } from "echarts/charts";
+import {
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+} from "echarts/components";
 import VChart from "vue-echarts";
 
-const changeColor = () => {
-  option.value.color[0] = "#ACCACC";
-};
+use([
+  CanvasRenderer,
+  PieChart,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+]);
 
 const option = ref({
+  title: {
+    text: "Traffic Sources",
+    left: "center",
+  },
   color: ["#73BFB8", "#3BA2D5", "#2364AA", "#FEC601", "#0096C7"],
   tooltip: {
     trigger: "item",
@@ -67,6 +82,11 @@ const option = ref({
     },
   ],
 });
+
+const changeColor = () => {
+  option.value.color[0] = "#ACCACC";
+  option.value.title.text = "AAA";
+};
 </script>
 
 <style lang="scss" scoped></style>

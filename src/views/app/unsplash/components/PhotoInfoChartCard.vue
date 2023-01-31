@@ -6,6 +6,26 @@
 <script setup lang="ts">
 import axios from "axios";
 import { BASE_URL, config } from "../unsplashConfig";
+import VChart from "vue-echarts";
+import { use } from "echarts/core";
+import { CanvasRenderer } from "echarts/renderers";
+import { BarChart } from "echarts/charts";
+import {
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  GridComponent,
+} from "echarts/components";
+
+use([
+  GridComponent,
+  CanvasRenderer,
+  BarChart,
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+]);
+
 const isLoading = ref(false);
 const props = defineProps<{
   photoId: string;
@@ -17,6 +37,10 @@ const photoStatisticsUrl = computed(() => {
 
 const photoStatistics = ref(null);
 
+const downloadsData = ref([]);
+const likesData = ref([]);
+const viewsData = ref([]);
+
 const initData = async () => {
   isLoading.value = true;
   const photoStatisticsResponse = await axios.get(
@@ -24,109 +48,123 @@ const initData = async () => {
     config
   );
   photoStatistics.value = photoStatisticsResponse.data;
-  console.log(photoStatistics.value);
 
   xAxis.value = photoStatistics.value.downloads.historical.values.map(
     (value) => value.date
   );
-  isLoading.value = false;
+
+  downloadsData.value = photoStatistics.value.downloads.historical.values.map(
+    (value) => value.value
+  );
+
+  //   likesData.value = photoStatistics.value.likes.historical.values.map(
+  //     (value) => value.value
+  //   );
+
+  viewsData.value = photoStatistics.value.views.historical.values.map(
+    (value) => value.value
+  );
+
+  chartData.value = viewsData.value;
 };
 
 const xAxis = ref([]);
 
 initData();
 
-const chartOptions = ref({});
-
-const themeColors = ["#ee8a6a", "#0cb9c5", "#fec90f", "#05b187", "#fc4b6c"];
-const columnChart = {
-  series: [
-    {
-      name: "Download",
-      data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
-    },
-    {
-      name: "Likes",
-      data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
-    },
-    {
-      name: "Views",
-      data: [35, 41, 36, 26, 45, 48, 52, 53, 41],
-    },
-  ],
-  chartOptions: {
-    colors: themeColors,
-    plotOptions: {
-      bar: {
-        horizontal: false,
-        endingShape: "rounded",
-        columnWidth: "55%",
-      },
-    },
-    dataLabels: {
-      enabled: false,
-    },
-    stroke: {
-      show: true,
-      width: 2,
-      colors: ["transparent"],
-    },
-
-    xaxis: {
-      categories: [
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-      ],
-      labels: {
-        style: {
-          cssClass: "grey--text lighten-2--text fill-color",
-        },
-      },
-    },
-    yaxis: {
-      title: {
-        text: "$ (thousands)",
-      },
-      labels: {
-        style: {
-          cssClass: "grey--text lighten-2--text fill-color",
-        },
-      },
-    },
-    fill: {
-      opacity: 1,
-    },
-    grid: {
-      borderColor: "rgba(0,0,0,0.1)",
+const chartOptions = computed(() => {
+  return {
+    title: {
+      text: "Photo Info",
     },
     tooltip: {
-      theme: "dark",
-      y: {
-        formatter: function (val: any) {
-          return "$ " + val + " thousands";
-        },
+      trigger: "axis",
+      axisPointer: {
+        type: "shadow",
       },
     },
-  },
+    // legend: {},
+    grid: {
+      left: "2%",
+      right: "2%",
+      bottom: "2%",
+      containLabel: true,
+    },
+    xAxis: {
+      type: "category",
+      data: xAxis.value,
+      axisLabel: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+    },
+    yAxis: {
+      type: "value",
+      axisLabel: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+      splitLine: {
+        interval: 1,
+      },
+    },
+    series: [
+      {
+        name: chartDataName.value,
+        type: "bar",
+        data: chartData.value,
+        itemStyle: {
+          color: "#46A3F3",
+        },
+      },
+    ],
+  };
+});
+
+const themeColors = ["#ee8a6a", "#0cb9c5", "#fec90f", "#05b187", "#fc4b6c"];
+const chartDataName = ref("Views");
+const chartData = ref([]);
+const currentChart = ref("view");
+const changeChart = (type) => {
+  currentChart.value = type;
+  if (type === "view") {
+    chartDataName.value = "Views";
+    chartData.value = viewsData.value;
+  } else {
+    chartDataName.value = "Downloads";
+    chartData.value = downloadsData.value;
+  }
 };
 </script>
 
 <template>
   <div class="">
-    <h1>Info Chart {{ photoId }}</h1>
-    <apexchart
-      type="bar"
-      height="350"
-      :options="columnChart.chartOptions"
-      :series="columnChart.series"
-    ></apexchart>
+    <v-card class="shadow-1 my-3">
+      <v-card-text style="height: 300px">
+        <v-chart :option="chartOptions" autoresize />
+      </v-card-text>
+      <v-divider></v-divider>
+      <div class="flex mx-5 my-3 bg-grey-lighten-3 pa-2">
+        <v-btn
+          :variant="currentChart === 'view' ? 'flat' : 'text'"
+          color="primary"
+          class="flex-1 mr-3"
+          @click="changeChart('view')"
+          >Views</v-btn
+        >
+        <v-btn
+          :variant="currentChart === 'download' ? 'flat' : 'text'"
+          color="primary"
+          class="flex-1"
+          @click="changeChart('download')"
+          >Download</v-btn
+        >
+      </div>
+    </v-card>
   </div>
 </template>
 
