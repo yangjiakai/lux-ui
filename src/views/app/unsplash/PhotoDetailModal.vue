@@ -117,12 +117,12 @@ initData();
         :lazy-src="photo.urls.regular"
       ></v-img>
       <v-divider></v-divider>
-      <div class="related-photos px-3">
+      <div class="related-photos pa-3">
         <v-sheet v-if="relatedPhotos.length > 0" min-height="80vh">
-          <div class="photos-info">
+          <div class="photos-info mt-5">
             <v-row>
               <v-col cols="12" md="6">
-                <v-card variant="flat">
+                <v-card class="shadow-1 h-full">
                   <div class="my-3">
                     <v-icon class="mx-3">mdi-map</v-icon>
                     <span>{{ photo.location.country }}</span>
@@ -138,14 +138,14 @@ initData();
                     <span>{{ photo.exif.make }}</span>
                     <span>{{ photo.exif.modal }}</span>
                   </div>
-                  <div class="mt-3">
+                  <div class="my-3">
                     <v-icon class="mx-3">mdi-shield</v-icon>
                     <span>Free to use under the Unsplash License</span>
                   </div>
                 </v-card>
               </v-col>
               <v-col cols="12" md="6">
-                <PhotoInfoChartCard :photoId="photo.id"> </PhotoInfoChartCard>
+                <PhotoInfoChartCard :photo="photo"> </PhotoInfoChartCard>
               </v-col>
             </v-row>
           </div>

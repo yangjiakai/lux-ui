@@ -6,10 +6,12 @@
 <script setup lang="ts">
 import axios from "axios";
 import { BASE_URL, config } from "../unsplashConfig";
+import { Photo } from "../unsplashTypes";
 import VChart from "vue-echarts";
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { BarChart } from "echarts/charts";
+
 import {
   TitleComponent,
   TooltipComponent,
@@ -28,11 +30,11 @@ use([
 
 const isLoading = ref(false);
 const props = defineProps<{
-  photoId: string;
+  photo: Photo;
 }>();
 
 const photoStatisticsUrl = computed(() => {
-  return BASE_URL + "photos/" + props.photoId + "/statistics";
+  return BASE_URL + "photos/" + props.photo.id + "/statistics";
 });
 
 const photoStatistics = ref(null);
@@ -66,6 +68,7 @@ const initData = async () => {
   );
 
   chartData.value = viewsData.value;
+  chartTitle.value = `Photo Info (Total Views: ${photoStatistics.value.views.total})`;
 };
 
 const xAxis = ref([]);
@@ -75,7 +78,7 @@ initData();
 const chartOptions = computed(() => {
   return {
     title: {
-      text: "Photo Info",
+      text: chartTitle.value,
     },
     tooltip: {
       trigger: "axis",
@@ -128,22 +131,25 @@ const chartOptions = computed(() => {
 const themeColors = ["#ee8a6a", "#0cb9c5", "#fec90f", "#05b187", "#fc4b6c"];
 const chartDataName = ref("Views");
 const chartData = ref([]);
+const chartTitle = ref("");
 const currentChart = ref("view");
 const changeChart = (type) => {
   currentChart.value = type;
   if (type === "view") {
     chartDataName.value = "Views";
     chartData.value = viewsData.value;
+    chartTitle.value = `Photo Info (Total Views: ${photoStatistics.value.views.total})`;
   } else {
     chartDataName.value = "Downloads";
     chartData.value = downloadsData.value;
+    chartTitle.value = `Photo Info (Total Downloads: ${photoStatistics.value.downloads.total})`;
   }
 };
 </script>
 
 <template>
   <div class="">
-    <v-card class="shadow-1 my-3">
+    <v-card class="shadow-1">
       <v-card-text style="height: 300px">
         <v-chart :option="chartOptions" autoresize />
       </v-card-text>
