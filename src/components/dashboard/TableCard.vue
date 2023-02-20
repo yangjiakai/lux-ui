@@ -10,6 +10,7 @@
     <h6 class="text-h6 pa-5 d-flex align-center">
       <span class="flex-1">Table</span>
     </h6>
+
     <v-table class="pa-3">
       <thead>
         <tr>
@@ -18,6 +19,7 @@
           </th>
         </tr>
       </thead>
+
       <tbody>
         <tr v-for="item in items" :key="item.id">
           <td>#{{ item.id }}</td>

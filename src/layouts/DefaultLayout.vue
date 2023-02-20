@@ -29,13 +29,7 @@ onBeforeUnmount(() => {});
 <template>
   <div>
     <!-- Navigation menu info -->
-    <v-navigation-drawer
-      app
-      v-model="drawer"
-      :rail="customizeTheme.miniSidebar"
-      elevation="1"
-      id="mainMenu"
-    >
+    <v-navigation-drawer v-model="drawer" elevation="1" id="mainMenu">
       <template v-if="!customizeTheme.miniSidebar" v-slot:prepend>
         <div class="pa-4">
           <div

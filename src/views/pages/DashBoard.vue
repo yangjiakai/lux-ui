@@ -1,37 +1,54 @@
 <template>
+  <!-- ---------------------------------------------- -->
+  <!---First Row -->
+  <!-- ---------------------------------------------- -->
   <v-row class="flex-0" dense>
     <v-col cols="12" xl="4">
-      <v-card class="card-shadow h-full" min-height="380">
+      <!-- Sales Card -->
+      <v-card class="card-shadow" height="460">
         <sales-card></sales-card>
       </v-card>
     </v-col>
     <v-col cols="12" md="6" xl="4">
-      <v-card class="card-shadow h-full">
+      <!-- Activity Card -->
+      <v-card class="card-shadow" height="460">
         <activity-card></activity-card>
       </v-card>
     </v-col>
     <v-col cols="12" md="6" xl="4">
-      <v-card class="card-shadow h-full" min-height="380">
+      <!-- Trafiic Card-->
+      <v-card class="card-shadow h-full" height="460">
         <sources-card></sources-card>
       </v-card>
     </v-col>
   </v-row>
+  <!-- ---------------------------------------------- -->
+  <!---Second Row -->
+  <!-- ---------------------------------------------- -->
   <v-row class="card-shadow flex-grow-0" dense>
     <v-col cols="12" xl="6">
-      <v-card class="card-shadow" max-height="380">
+      <!-- Table Card-->
+      <v-card class="card-shadow" height="460">
         <table-card></table-card>
       </v-card>
     </v-col>
     <v-col cols="12" xl="6">
-      <v-card class="card-shadow h-full"> <task-card></task-card> </v-card>
+      <!-- Task Card-->
+      <v-card class="card-shadow" height="460">
+        <task-card></task-card>
+      </v-card>
     </v-col>
   </v-row>
+  <!-- ---------------------------------------------- -->
+  <!---Third Row -->
+  <!-- ---------------------------------------------- -->
   <v-row class="card-shadow flex-grow-0" dense>
     <v-col cols="12" xl="6">
-      <v-card class="card-shadow" height="380"><todo-card></todo-card></v-card>
+      <!-- Target Card-->
+      <v-card class="card-shadow" height="460"><todo-card></todo-card></v-card>
     </v-col>
     <v-col cols="12" xl="6">
-      <v-card class="card-shadow h-full" height="380"
+      <v-card class="card-shadow" height="460"
         ><tickets-card></tickets-card>
       </v-card>
     </v-col>

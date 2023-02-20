@@ -1,14 +1,9 @@
 <template>
   <v-app id="app" :theme="customizeTheme.darkTheme ? 'dark' : 'light'">
     <component :is="currentLayout" v-if="isRouterLoaded">
-      <router-view v-slot="{ Component }">
-        <transition name="fade">
-          <component :is="Component"> </component>
-        </transition>
-      </router-view>
+      <router-view> </router-view>
     </component>
     <CustomizationMenu />
-    <!-- <component :is="currentLayout"  v-if="isRouterLoaded"></component> -->
   </v-app>
 </template>
 
