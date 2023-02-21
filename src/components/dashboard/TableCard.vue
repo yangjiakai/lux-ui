@@ -7,60 +7,61 @@
     <v-progress-circular indeterminate color="primary"></v-progress-circular>
   </div>
   <div v-else>
-    <h6 class="text-h6 pa-5 d-flex align-center">
+    <h6 class="text-h6 px-5 pt-5 d-flex align-center">
       <span class="flex-1">Table</span>
     </h6>
+    <perfect-scrollbar style="height: 400px">
+      <v-table class="pa-3">
+        <thead>
+          <tr>
+            <th class="text-left" v-for="header in headers" :key="header.text">
+              {{ header.text }}
+            </th>
+          </tr>
+        </thead>
 
-    <v-table class="pa-3">
-      <thead>
-        <tr>
-          <th class="text-left" v-for="header in headers" :key="header.text">
-            {{ header.text }}
-          </th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr v-for="item in items" :key="item.id">
-          <td>#{{ item.id }}</td>
-          <td>
-            <div class="d-flex align-center py-1">
-              <v-avatar size="40" class="elevation-1 grey lighten-3">
-                <img :src="item.user.avatar" />
-              </v-avatar>
-              <div class="ml-1">
-                <div class="font-weight-bold">{{ item.user.name }}</div>
-                <div class="caption">
-                  {{ item.user.email }}
+        <tbody>
+          <tr v-for="item in items" :key="item.id">
+            <td>#{{ item.id }}</td>
+            <td>
+              <div class="d-flex align-center py-2">
+                <v-avatar size="40" class="elevation-1 grey lighten-3">
+                  <img :src="item.user.avatar" />
+                </v-avatar>
+                <div class="ml-1">
+                  <div class="font-weight-bold">{{ item.user.name }}</div>
+                  <div class="caption">
+                    {{ item.user.email }}
+                  </div>
                 </div>
               </div>
-            </div>
-          </td>
-          <td>{{ item.date }}</td>
-          <td>{{ item.company }}</td>
-          <td>{{ item.amount }}</td>
-          <td>
-            <div v-if="item.status === 'PENDING'" class="text-warning">
-              <v-icon size="small" color="warning">mdi-circle-medium</v-icon>
-              <span>Pending</span>
-            </div>
-            <div v-if="item.status === 'PAID'" class="text-success">
-              <v-icon size="small" color="success">mdi-circle-medium</v-icon>
-              <span>Paid</span>
-            </div>
-          </td>
-          <td>
-            <v-btn
-              size="small"
-              variant="text"
-              icon="mdi-open-in-new"
-              @click="open(item)"
-            >
-            </v-btn>
-          </td>
-        </tr>
-      </tbody>
-    </v-table>
+            </td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.company }}</td>
+            <td>{{ item.amount }}</td>
+            <td>
+              <div v-if="item.status === 'PENDING'" class="text-warning">
+                <v-icon size="small" color="warning">mdi-circle-medium</v-icon>
+                <span>Pending</span>
+              </div>
+              <div v-if="item.status === 'PAID'" class="text-success">
+                <v-icon size="small" color="success">mdi-circle-medium</v-icon>
+                <span>Paid</span>
+              </div>
+            </td>
+            <td>
+              <v-btn
+                size="small"
+                variant="text"
+                icon="mdi-open-in-new"
+                @click="open(item)"
+              >
+              </v-btn>
+            </td>
+          </tr>
+        </tbody>
+      </v-table>
+    </perfect-scrollbar>
   </div>
 </template>
 

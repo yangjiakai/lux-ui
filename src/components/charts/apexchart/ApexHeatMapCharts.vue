@@ -10,7 +10,7 @@ import { heatMapChart } from "./ApexChartsData";
   <div class="">ApexHeatMapCharts</div>
   <apexchart
     type="heatmap"
-    height="220"
+    height="310"
     :options="heatMapChart.chartOptions"
     :series="heatMapChart.series"
   ></apexchart>

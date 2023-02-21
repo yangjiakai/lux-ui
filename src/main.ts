@@ -1,7 +1,6 @@
 /**
  * main.js
  *
- * Bootstraps Vuetify and other plugins then mounts the App`
  */
 
 // Components
@@ -15,25 +14,20 @@ import VueVirtualScroller from "vue-virtual-scroller";
 import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
 import VueApexCharts from "vue3-apexcharts";
 import piniaPersist from "pinia-plugin-persist";
-const pinia = createPinia();
-pinia.use(piniaPersist);
+import PerfectScrollbar from "vue3-perfect-scrollbar";
 import "@/styles/main.scss";
-// Plugins
-
 import { registerPlugins } from "@/plugins";
-
 import router from "./router";
 
+const pinia = createPinia();
+pinia.use(piniaPersist);
 const app = createApp(App);
-
-// 全局方法挂载
-// app.config.globalProperties.run = "run";
-app.provide("userName", "yjk");
 
 // RegisterPlugins
 registerPlugins(app);
 
 app.use(router);
+app.use(PerfectScrollbar);
 app.use(VueMasonryPlugin);
 app.use(MasonryWall);
 app.use(VueVirtualScroller);

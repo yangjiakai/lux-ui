@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import { useTodoStore } from "@/stores/todoStore";
+const todoStore = useTodoStore();
+
+const loading = ref(true);
+onMounted(() => {
+  setTimeout(() => {
+    loading.value = false;
+  }, 1000);
+});
+
+const searchKey = ref("");
+</script>
 <template>
   <!-- loading spinner -->
   <div
@@ -9,91 +22,47 @@
   <div v-else>
     <v-text-field
       class="shadow-1"
-      variant="plain"
       hide-details
-      comfortable
       prepend-inner-icon="mdi-magnify"
       placeholder="Filter Tasks"
       v-model="searchKey"
     ></v-text-field>
-    <div class="todo-list">
-      <div v-for="item in todoList" :key="item.title">
-        <div class="ma-5" v-if="item.type === 'subheader'">
-          {{ item.title }}
-        </div>
-        <v-divider v-else-if="item.type === 'divider'"></v-divider>
-        <div class="todo-item d-flex align-center pa-5" v-else>
-          <v-avatar size="40" color="red">
-            <v-img :src="item.prependAvatar" alt="alt" />
-          </v-avatar>
-          <div class="flex-1 mx-5">
-            <div>{{ item.title }}</div>
-            <div>{{ item.subtitle }}</div>
+
+    <perfect-scrollbar class="todo-list">
+      <transition-group name="fade" class="">
+        <div v-for="todo in todoStore.todoList" :key="todo.id">
+          <div class="todo-item d-flex align-center pa-5">
+            <v-avatar size="40" color="red">
+              <v-img
+                src="https://avatars.githubusercontent.com/u/35951244?v=4"
+                alt="alt"
+              />
+            </v-avatar>
+            <div class="flex-1 mx-5">
+              <div>{{ todo.title }}</div>
+              <div>{{ todo.detail }}</div>
+            </div>
+            <v-btn
+              size="small"
+              icon="mdi-close"
+              variant="text"
+              color="error"
+              @click="
+                todoStore.todoList = todoStore.todoList.filter(
+                  (item) => item.id !== todo.id
+                )
+              "
+            ></v-btn>
           </div>
-          <v-btn
-            size="small"
-            icon="mdi-close"
-            variant="text"
-            color="error"
-          ></v-btn>
         </div>
-      </div>
-    </div>
+      </transition-group>
+    </perfect-scrollbar>
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted, computed } from "vue";
-const loading = ref(true);
-
-const open = (item) => {};
-
-onMounted(() => {
-  setTimeout(() => {
-    loading.value = false;
-  }, 1000);
-});
-
-const todoList = ref([
-  { type: "subheader", title: "Today" },
-  {
-    prependAvatar: "https://cdn.vuetifyjs.com/images/lists/1.jpg",
-    title: "Brunch this weekend?",
-    subtitle: `I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`,
-    appendIcon: "mdi-close",
-  },
-  { type: "divider", inset: true },
-  {
-    prependAvatar: "https://cdn.vuetifyjs.com/images/lists/2.jpg",
-    title: "Summer BBQ",
-    subtitle: ` &mdash; Wish I could come, but I'm out of town this weekend.`,
-  },
-  { type: "divider", inset: true },
-  {
-    prependAvatar: "https://cdn.vuetifyjs.com/images/lists/3.jpg",
-    title: "Oui oui",
-    subtitle: " Do you have Paris recommendations? Have you ever been?",
-  },
-  { type: "divider", inset: true },
-  {
-    prependAvatar: "https://cdn.vuetifyjs.com/images/lists/4.jpg",
-    title: "Birthday gift",
-    subtitle: "Have any ideas about what we should get Heidi for her birthday?",
-  },
-  { type: "divider", inset: true },
-  {
-    prependAvatar: "https://cdn.vuetifyjs.com/images/lists/5.jpg",
-    title: "Recipe to try",
-    subtitle: "sWe should eat this: Grate, Squash, Corn, and tomatillo Tacos.",
-  },
-]);
-
-const searchKey = ref("");
-</script>
-
 <style lang="scss" scoped>
 .todo-list {
-  max-height: 380px;
+  max-height: 400px;
   overflow: scroll;
   .todo-item {
     transition: all 0.3s;
