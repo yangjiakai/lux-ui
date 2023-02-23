@@ -1,59 +1,78 @@
-<template>
-  <v-container>
-    <v-row>
-      <v-col class="mt-2" cols="6">
-        <v-card class="my-card" height="500" width="800">
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-        </v-card>
-      </v-col>
-      <v-col class="mt-2" cols="6">
-        <v-card class="my-card2" height="500" width="800">
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-          <h1 class="text-h2">PerfectScrollbar</h1>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
-</template>
+<!--
+* @Component: 
+* @Maintainer: J.K. Yang
+* @Description: 
+-->
 <script setup lang="ts">
-import PerfectScrollbar from "perfect-scrollbar";
-const userName = inject("userName");
-const scrollbar = ref(null);
-onMounted(() => {
-  const container = document.querySelector(".my-card2");
-  scrollbar.value = new PerfectScrollbar(container);
-});
-
-onBeforeUnmount(() => {});
+import usersData from "@/data/users";
+import { Icon } from "@iconify/vue";
 </script>
-<style scoped>
-.my-card {
-  overflow: scroll;
-}
 
-.my-card::-webkit-scrollbar {
-  width: 12px;
-  background-color: #f5f5f5;
-}
+<template>
+  <div class="">
+    <v-card>
+      <perfect-scrollbar class="user-card">
+        <v-table>
+          <thead>
+            <tr>
+              <th class="text-left">Id</th>
+              <th class="text-left">Name</th>
+              <th class="text-left">EMAIL</th>
+              <th class="text-left">VERIFIED</th>
+              <th class="text-left">ROLE</th>
+              <th class="text-left">CREATED</th>
+              <th class="text-left">LAST SIGNIN</th>
+              <th class="text-left">DISABLED</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="user in usersData" :key="user.name">
+              <td># {{ user.id }}</td>
+              <td>
+                <v-avatar>
+                  <img :src="user.avatar" alt="alt" />
+                </v-avatar>
+                {{ user.name }}
+              </td>
+              <td>{{ user.email }}</td>
+              <td>
+                <Icon v-if="user.verified" icon="flat-color-icons:ok" />
+                <Icon v-else icon="mdi:checkbox-blank-circle-outline" />
+              </td>
+              <td>
+                <v-chip
+                  v-if="user.role === 'ADMIN'"
+                  color="blue"
+                  dark
+                  size="small"
+                >
+                  {{ user.role }}
+                </v-chip>
+                <v-chip
+                  v-else-if="user.role === 'EDITOR'"
+                  color="success"
+                  dark
+                  size="small"
+                >
+                  {{ user.role }}
+                </v-chip>
+                <v-chip v-else-if="user.role === 'USER'" size="small">
+                  {{ user.role }}
+                </v-chip>
+              </td>
+              <td>{{ user.created }}</td>
+              <td>{{ user.lastSignIn }}</td>
+              <td>{{ user.disabled }}</td>
+            </tr>
+          </tbody>
+        </v-table>
+      </perfect-scrollbar>
+    </v-card>
+  </div>
+</template>
 
-.my-card::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #555;
+<style scoped lang="scss">
+.user-card {
+  height: 1000px;
 }
 </style>

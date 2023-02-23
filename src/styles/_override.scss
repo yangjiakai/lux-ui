@@ -1,11 +1,14 @@
 html {
   font-family: $font-family;
 
+
   .v-application {
     [class*="text-"] {
       font-family: $font-family, sans-serif !important;
     }
-    font-family: $font-family, sans-serif !important;
+
+    font-family: $font-family,
+    sans-serif !important;
   }
 
   h1,
@@ -21,6 +24,7 @@ html {
   // tables beautify
   .v-table {
     table {
+      font-size: 14px;
       padding: 4px;
       padding-bottom: 8px;
 
