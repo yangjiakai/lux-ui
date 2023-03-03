@@ -10,6 +10,7 @@ interface State {
   miniSidebar: boolean;
   darkTheme: boolean;
   primaryColor: Color;
+  mainSidebar: any;
 }
 
 export const useCustomizeThemeStore = defineStore({
@@ -22,6 +23,7 @@ export const useCustomizeThemeStore = defineStore({
       colorName: "grey",
       colorValue: "#344767",
     },
+    mainSidebar: ref(true),
   }),
 
   persist: {

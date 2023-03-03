@@ -66,6 +66,26 @@ export default createVuetify({
       },
     },
   },
+  defaults: {
+    VBtn: {
+      rounded: "md",
+      flat: true,
+      fontWeight: "400",
+      letterSpacing: "0",
+    },
+    VCard: {
+      elevation: 1,
+    },
+    VSheet: {
+      elevation: 1,
+    },
+    VAppBar: {
+      elevation: 1,
+    },
+    VNavigationDrawer: {
+      elevation: 1,
+    },
+  },
   locale: {
     locale: locale,
     fallback: fallbackLocale,
