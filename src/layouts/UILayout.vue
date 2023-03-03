@@ -2,7 +2,6 @@
 import configs from "@/configs";
 import MainMenu from "@/components/navigation/MainMenu.vue";
 import ToolbarLanguage from "@/components/toolbar/ToolbarLanguage.vue";
-import PerfectScrollbar from "perfect-scrollbar";
 import Breadcrumb from "@/components/Breadcrumb.vue";
 import PageTitle from "@/components/PageTitle.vue";
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
@@ -15,38 +14,40 @@ const drawer = ref(true);
 const openGithubSite = () => {
   window.open("https://github.com/yangjiakai", "_blank");
 };
-
-// const mainMenu = ref(null);
-const scrollbar = ref(null);
-onMounted(() => {
-  const container = document.querySelector("#mainMenu");
-  scrollbar.value = new PerfectScrollbar(container);
-});
-
-onBeforeUnmount(() => {});
 </script>
 
 <template>
   <div>
     <!-- Navigation menu info -->
     <v-navigation-drawer v-model="drawer" elevation="1" id="mainMenu">
+      <!-- ---------------------------------------------- -->
+      <!---Top Area -->
+      <!-- ---------------------------------------------- -->
       <template v-if="!customizeTheme.miniSidebar" v-slot:prepend>
-        <div class="pa-4">
-          <div
-            class="text-h5 text-uppercase font-weight-bold d-flex align-center"
-          >
-            <img width="30" src="@/assets/logo.png" alt="" />
-            <span class="ml-2"> {{ product.name }}</span>
+        <v-card height="100">
+          <div class="pa-4">
+            <div
+              class="text-h5 text-uppercase font-weight-bold d-flex align-center"
+            >
+              <img width="30" src="@/assets/logo.png" alt="" />
+              <span class="ml-2"> {{ product.name }}</span>
+            </div>
+            <div class="text-overline text-grey">
+              {{ product.version }}
+            </div>
           </div>
-          <div class="text-overline text-grey">
-            {{ product.version }}
-          </div>
-        </div>
+        </v-card>
       </template>
       <v-divider></v-divider>
-      <!-- Navigation menu -->
-      <main-menu :menu="navigation.menu"></main-menu>
-      <!-- Navigation menu footer -->
+      <!-- ---------------------------------------------- -->
+      <!---Nav List -->
+      <!-- ---------------------------------------------- -->
+      <perfect-scrollbar class="scrollnav">
+        <main-menu :menu="navigation.menu"></main-menu>
+      </perfect-scrollbar>
+      <!-- ---------------------------------------------- -->
+      <!---Bottom Area -->
+      <!-- ---------------------------------------------- -->
       <template v-if="!customizeTheme.miniSidebar" v-slot:append>
         <v-card theme="dark" height="225" class="pa-3" variant="text">
           <v-card
@@ -108,16 +109,7 @@ onBeforeUnmount(() => {});
 </template>
 
 <style scoped>
-:deep(::-webkit-scrollbar-track) {
-  -webkit-box-shadow: inset 0 0 6px #5d5d5d;
-  background-color: #b9b9b9;
-}
-:deep(::-webkit-scrollbar) {
-  width: 5px;
-  height: 5px;
-}
-:deep(::-webkit-scrollbar-thumb) {
-  -webkit-box-shadow: inset 0 0 6px #424242;
-  background-color: #424242;
+.scrollnav {
+  height: calc(100vh - 326px);
 }
 </style>
