@@ -5,7 +5,7 @@ export default [
     component: () =>
       import(/* webpackChunkName: "ui-colors" */ "@/views/ui/ColorsPage.vue"),
     meta: {
-      layout: "default",
+      layout: "ui",
       category: "UI",
       title: "Colors",
     },
@@ -18,7 +18,7 @@ export default [
         /* webpackChunkName: "ui-gradient" */ "@/views/ui/GradientPage.vue"
       ),
     meta: {
-      layout: "default",
+      layout: "ui",
       category: "UI",
       title: "Gradients",
     },
@@ -29,7 +29,7 @@ export default [
     component: () =>
       import(/* webpackChunkName: "ui-card" */ "@/views/ui/CardPage.vue"),
     meta: {
-      layout: "default",
+      layout: "ui",
       category: "UI",
       title: "CardPage",
     },
@@ -40,7 +40,7 @@ export default [
     component: () =>
       import(/* webpackChunkName: "ui-grids" */ "@/views/ui/GridsPage.vue"),
     meta: {
-      layout: "default",
+      layout: "ui",
       category: "UI",
       title: "Grids",
     },
@@ -53,7 +53,7 @@ export default [
         /* webpackChunkName: "ui-scrollbar" */ "@/views/ui/PerfectScrollbar.vue"
       ),
     meta: {
-      layout: "default",
+      layout: "ui",
       category: "UI",
       title: "ScrollBar",
     },
@@ -66,7 +66,7 @@ export default [
         /* webpackChunkName: "ui-water-fall" */ "@/views/ui/WaterFall.vue"
       ),
     meta: {
-      layout: "default",
+      layout: "ui",
       category: "UI",
       title: "WaterFall",
     },
@@ -77,7 +77,7 @@ export default [
     component: () =>
       import(/* webpackChunkName: "ui-masonry" */ "@/views/ui/Masonry.vue"),
     meta: {
-      layout: "default",
+      layout: "ui",
       category: "UI",
       title: "Masonry",
     },
@@ -90,7 +90,7 @@ export default [
         /* webpackChunkName: "ui-virtual-list" */ "@/views/ui/VirtualList.vue"
       ),
     meta: {
-      layout: "default",
+      layout: "ui",
       category: "UI",
       title: "VirtualList",
     },
@@ -103,7 +103,7 @@ export default [
         /* webpackChunkName: "ui-virtual-scroller" */ "@/views/ui/VirtualScroller.vue"
       ),
     meta: {
-      layout: "default",
+      layout: "ui",
       category: "UI",
       title: "VirtualScroller",
     },

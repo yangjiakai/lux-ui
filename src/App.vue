@@ -8,14 +8,13 @@
 </template>
 
 <script setup lang="ts">
-import defaultLayout from "@/layouts/DefaultLayout.vue";
-import landingLayout from "@/layouts/LandingLayout.vue";
-import simpleLayout from "@/layouts/SimpleLayout.vue";
-import authLayout from "@/layouts/AuthLayout.vue";
+import UILayout from "@/layouts/UILayout.vue";
+import LandingLayout from "@/layouts/LandingLayout.vue";
+import DefaultLayout from "@/layouts/DefaultLayout.vue";
+import AuthLayout from "@/layouts/AuthLayout.vue";
 import CustomizationMenu from "@/components/CustomizationMenu.vue";
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 const customizeTheme = useCustomizeThemeStore();
-
 const route = useRoute();
 
 const isRouterLoaded = computed(() => {
@@ -23,16 +22,21 @@ const isRouterLoaded = computed(() => {
   return false;
 });
 
+const layouts = {
+  default: DefaultLayout,
+  ui: UILayout,
+  landing: LandingLayout,
+  auth: AuthLayout,
+};
+
+type LayoutName = "default" | "ui" | "landing" | "auth" | "error";
+
 const currentLayout = computed(() => {
-  if (route.meta.layout === "auth") {
-    return authLayout;
-  } else if (route.meta.layout === "landing") {
-    return landingLayout;
-  } else if (route.meta.layout === "simple") {
-    return simpleLayout;
-  } else {
-    return defaultLayout;
+  const layoutName = route.meta.layout as LayoutName;
+  if (!layoutName) {
+    return DefaultLayout;
   }
+  return layouts[layoutName];
 });
 </script>
 
