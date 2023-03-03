@@ -32,6 +32,7 @@ export default [
       ),
     meta: {
       title: "Help",
+      layout: "ui",
       category: "Utility",
     },
   },
@@ -44,6 +45,7 @@ export default [
       ),
     meta: {
       title: "Board",
+      layout: "ui",
       category: "Utility",
     },
   },

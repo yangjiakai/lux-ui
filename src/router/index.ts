@@ -13,11 +13,6 @@ import ChartsRoutes from "./charts.routes";
 import AppsRoutes from "./apps.routes";
 
 export const constantRoutes = [
-  // {
-  //   path: "/",
-  //   name: "home",
-  //   component: () => import("@/views/landPage.vue"),
-  // },
   {
     path: "/",
     name: "dashboard",

@@ -21,6 +21,21 @@ export default {
       text: "Apps",
       items: menuApps,
     },
+
+    {
+      text: "UI - Theme Preview",
+      items: menuUI,
+    },
+    {
+      text: "Pages",
+      key: "menu.pages",
+      items: menuPages,
+    },
+    {
+      text: "Charts",
+      key: "menu.charts",
+      items: menuCharts,
+    },
     {
       text: "Landing Pages",
       items: [
@@ -37,20 +52,6 @@ export default {
           link: "/landing/pricing",
         },
       ],
-    },
-    {
-      text: "UI - Theme Preview",
-      items: menuUI,
-    },
-    {
-      text: "Pages",
-      key: "menu.pages",
-      items: menuPages,
-    },
-    {
-      text: "Charts",
-      key: "menu.charts",
-      items: menuCharts,
     },
   ],
 };
