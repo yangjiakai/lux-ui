@@ -27,20 +27,12 @@ const openGithubSite = () => {
     <!---Top Area -->
     <!-- ---------------------------------------------- -->
     <template v-if="!customizeTheme.miniSidebar" v-slot:prepend>
-      <v-card elevation="0" height="100">
-        <div class="pa-4">
-          <div
-            class="text-h5 text-uppercase font-weight-bold d-flex align-center"
-          >
-            <img width="30" src="@/assets/logo.png" alt="" />
-            <span class="ml-2"> {{ product.name }}</span>
-          </div>
-
-          <v-divider></v-divider>
-          <div class="text-overline text-grey">
-            {{ product.version }}
-          </div>
-        </div>
+      <v-card
+        elevation="0"
+        height="100"
+        class="d-flex align-center justify-center"
+      >
+        <img width="200" src="@/assets/logo3.svg" alt="" />
       </v-card>
     </template>
 

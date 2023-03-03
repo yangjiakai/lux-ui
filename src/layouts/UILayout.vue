@@ -4,6 +4,7 @@ import Breadcrumb from "@/components/Breadcrumb.vue";
 import PageTitle from "@/components/PageTitle.vue";
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 import MainSidevar from "@/components/navigation/MainSiderbar.vue";
+import MainAppbar from "@/components/toolbar/MainAppbar.vue";
 const customizeTheme = useCustomizeThemeStore();
 </script>
 
@@ -16,15 +17,7 @@ const customizeTheme = useCustomizeThemeStore();
     <!-- ---------------------------------------------- -->
     <!---Top AppBar -->
     <!-- ---------------------------------------------- -->
-    <v-app-bar>
-      <v-app-bar-nav-icon
-        @click="customizeTheme.mainSidebar = !customizeTheme.mainSidebar"
-      ></v-app-bar-nav-icon>
-      <v-toolbar-title>Vuetify</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-      <toolbar-language />
-    </v-app-bar>
+    <MainAppbar />
     <!-- ---------------------------------------------- -->
     <!---MainArea -->
     <!-- ---------------------------------------------- -->
