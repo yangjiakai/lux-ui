@@ -78,6 +78,8 @@ export default {
     support: "Support",
     landingPage: "Landing Page",
     pricingPage: "Pricing Page",
+    heroPage: "Hero Page",
+    featurePage: "Feature Page",
     childBinding: "Child Binding",
     colors: "Colors",
     gradient: "Gradient",

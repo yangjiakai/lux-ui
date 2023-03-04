@@ -21,4 +21,26 @@ export default [
       layout: "landing",
     },
   },
+  {
+    path: "/landing/hero",
+    name: "landing-hero",
+    component: () =>
+      import(
+        /* webpackChunkName: "landing-hero" */ "@/views/landing/hero/HeroPage.vue"
+      ),
+    meta: {
+      layout: "landing",
+    },
+  },
+  {
+    path: "/landing/feature",
+    name: "landing-feature",
+    component: () =>
+      import(
+        /* webpackChunkName: "landing-feature" */ "@/views/landing/feature/FeaturePage.vue"
+      ),
+    meta: {
+      layout: "landing",
+    },
+  },
 ];

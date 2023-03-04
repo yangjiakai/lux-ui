@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div>
     <v-app-bar app>
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
@@ -32,13 +32,42 @@ const theme = useTheme();
 const currentTheme = computed(() => {
   return theme.global.current.value.dark ? "天黑了" : "天亮了";
 });
-
-// onMounted(() => {
-//   console.log(theme.global.name.value);
-// });
-
-// const toggleTheme = () => {
-//   theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
-//   currentTheme.value = theme.global.name.value;
-// };
+</script> -->
+<script setup lang="ts">
+import Breadcrumb from "@/components/Breadcrumb.vue";
+import PageTitle from "@/components/PageTitle.vue";
+import MainSidevar from "@/components/navigation/MainSiderbar.vue";
+import MainAppbar from "@/components/toolbar/MainAppbar.vue";
 </script>
+
+<template>
+  <div>
+    <!-- ---------------------------------------------- -->
+    <!---Main Sidebar -->
+    <!-- ---------------------------------------------- -->
+    <MainSidevar />
+    <!-- ---------------------------------------------- -->
+    <!---Top AppBar -->
+    <!-- ---------------------------------------------- -->
+    <MainAppbar />
+    <!-- ---------------------------------------------- -->
+    <!---MainArea -->
+    <!-- ---------------------------------------------- -->
+    <v-main>
+      <v-layout>
+        <v-container fluid>
+          <PageTitle></PageTitle>
+          <Breadcrumb></Breadcrumb>
+          <slot></slot>
+        </v-container>
+      </v-layout>
+      <v-footer app></v-footer>
+    </v-main>
+  </div>
+</template>
+
+<style scoped>
+.scrollnav {
+  height: calc(100vh - 326px);
+}
+</style>

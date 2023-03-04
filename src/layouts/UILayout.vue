@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import ToolbarLanguage from "@/components/toolbar/ToolbarLanguage.vue";
 import Breadcrumb from "@/components/Breadcrumb.vue";
 import PageTitle from "@/components/PageTitle.vue";
-import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 import MainSidevar from "@/components/navigation/MainSiderbar.vue";
 import MainAppbar from "@/components/toolbar/MainAppbar.vue";
-const customizeTheme = useCustomizeThemeStore();
 </script>
 
 <template>

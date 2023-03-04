@@ -77,6 +77,8 @@ export default {
     support: "サポート",
     landingPage: "ランディングページ",
     pricingPage: "価格ページ",
+    heroPage: "Hero",
+    featurePage: "Feature",
     colors: "カラー",
     gradient: "Gradient",
     card: "カード",

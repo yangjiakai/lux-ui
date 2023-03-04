@@ -77,6 +77,8 @@ export default {
     support: "支持",
     landingPage: "登陆页面",
     pricingPage: "定价页面",
+    heroPage: "引导页面",
+    featurePage: "功能页面",
     colors: "色彩",
     gradient: "渐变色",
     card: "卡片",
