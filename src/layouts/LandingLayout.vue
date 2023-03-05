@@ -53,21 +53,21 @@ import MainAppbar from "@/components/toolbar/MainAppbar.vue";
     <!-- ---------------------------------------------- -->
     <!---MainArea -->
     <!-- ---------------------------------------------- -->
-    <v-main>
-      <v-layout>
-        <v-container fluid>
-          <PageTitle></PageTitle>
-          <Breadcrumb></Breadcrumb>
-          <slot></slot>
-        </v-container>
-      </v-layout>
-      <v-footer app></v-footer>
-    </v-main>
+    <perfect-scrollbar>
+      <v-main class="main-area">
+        <slot></slot>
+      </v-main>
+    </perfect-scrollbar>
   </div>
 </template>
 
 <style scoped>
 .scrollnav {
   height: calc(100vh - 326px);
+}
+
+.main-area {
+  height: 100vh;
+  /* background-color: #ccc; */
 }
 </style>
