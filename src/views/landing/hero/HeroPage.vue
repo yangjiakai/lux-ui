@@ -4,6 +4,9 @@
 * @Description: 
 -->
 <script setup lang="ts">
+import Hero1 from "./components/Hero1.vue";
+import Hero2 from "./components/Hero2.vue";
+import Hero3 from "./components/Hero3.vue";
 const mode = ref("");
 const search = ref("");
 </script>
@@ -28,47 +31,13 @@ const search = ref("");
       <v-icon>mdi-dots-vertical</v-icon>
     </v-btn>
   </v-toolbar>
-  <v-toolbar color="#F9FAFB" height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
-      <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
-      <span>Hero1</span>
-
-      <v-btn-toggle
-        class="ml-3"
-        v-model="mode"
-        variant="outlined"
-        divided
-        density="compact"
-      >
-        <v-btn color="#705CF6" value="desktop"> Desktop </v-btn>
-        <v-btn color="#705CF6" value="mobile"> Mobile </v-btn>
-      </v-btn-toggle>
-    </v-toolbar-title>
-  </v-toolbar>
-  <v-container>
-    <v-sheet
-      elevation="0"
-      class="mx-auto model-warp"
-      rounded
-      height="1000"
-      :width="mode === 'desktop' ? '100%' : 420"
-    >
-      <v-container class="py-6 py-lg-12 text-center">
-        <h1 class="font-weight-black text-h5 text-sm-h4 text-md-h3 text-lg-h2">
-          A better way to build your next
-          <span class="text-primary">web project</span>
-        </h1>
-        <h2 class="text-h6 text-sm-h5 text-secondary w-100 mt-4 mx-auto">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi ex
-          facilis ad atque natus tenetur debitis qui quisquam iure amet.
-        </h2>
-      </v-container>
-    </v-sheet>
-  </v-container>
+  <Hero1 />
+  <Hero2 />
+  <Hero3 />
 </template>
 
-<style scoped lang="scss">
-.model-warp {
+<style lang="scss">
+.landing-warpper {
   border: 2px dashed #aaa;
 }
 </style>

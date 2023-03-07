@@ -54,6 +54,10 @@ html {
     text-transform: capitalize;
   }
 
+  .elevation-0 {
+    box-shadow: none !important;
+  }
+
   .elevation-1 {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
   }
