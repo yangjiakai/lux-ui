@@ -7,6 +7,7 @@
 import Hero1 from "./components/Hero1.vue";
 import Hero2 from "./components/Hero2.vue";
 import Hero3 from "./components/Hero3.vue";
+import Hero4 from "./components/Hero4.vue";
 const mode = ref("");
 const search = ref("");
 </script>
@@ -34,6 +35,7 @@ const search = ref("");
   <Hero1 />
   <Hero2 />
   <Hero3 />
+  <Hero4 />
 </template>
 
 <style lang="scss">
