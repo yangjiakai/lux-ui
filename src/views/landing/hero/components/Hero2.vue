@@ -61,6 +61,7 @@
         <v-col cols="0" md="6">
           <v-card>
             <v-img
+              height="420"
               src="https://img.freepik.com/free-vector/group-people-working-together_52683-28615.jpg?w=2000&t=st=1678176451~exp=1678177051~hmac=5848d02937d139b407d25a00e631d57a3161339e32e353f832f53e31d6424624"
             ></v-img>
           </v-card>
