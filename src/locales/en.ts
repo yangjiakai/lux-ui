@@ -80,6 +80,7 @@ export default {
     pricingPage: "Pricing Page",
     heroPage: "Hero Page",
     featurePage: "Feature Page",
+    cardPage: "Card Page",
     childBinding: "Child Binding",
     colors: "Colors",
     gradient: "Gradient",

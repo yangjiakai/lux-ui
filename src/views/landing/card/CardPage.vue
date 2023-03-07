@@ -4,10 +4,10 @@
 * @Description: 
 -->
 <script setup lang="ts">
-import Hero1 from "./components/Hero1.vue";
-import Hero2 from "./components/Hero2.vue";
-import Hero3 from "./components/Hero3.vue";
-import Hero4 from "./components/Hero4.vue";
+import Card1 from "./components/Card1.vue";
+import Card2 from "./components/Card2.vue";
+import Card3 from "./components/Card3.vue";
+import Card4 from "./components/Card4.vue";
 const mode = ref("");
 const search = ref("");
 </script>
@@ -19,7 +19,7 @@ const search = ref("");
   <v-toolbar height="100" color="white">
     <v-toolbar-title class="text-h5 font-weight-bold">
       <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
-      <span>Hero</span>
+      <span>Card</span>
       <v-chip class="ma-2" color="primary" text-color="white">
         9 Components
       </v-chip>
@@ -32,10 +32,10 @@ const search = ref("");
       <v-icon>mdi-dots-vertical</v-icon>
     </v-btn>
   </v-toolbar>
-  <Hero1 />
-  <Hero2 />
-  <Hero3 />
-  <Hero4 />
+  <Card1 />
+  <Card2 />
+  <Card3 />
+  <Card4 />
 </template>
 
 <style lang="scss"></style>
