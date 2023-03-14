@@ -3,13 +3,93 @@
 * @Maintainer: J.K. Yang
 * @Description: 
 -->
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { RouterLink } from "vue-router";
+
+const navs = [
+  {
+    title: "Product",
+    icon: "mdi-home",
+    to: "/",
+    subNavs: [
+      {
+        title: "Overview",
+        to: "/",
+      },
+      {
+        title: "Features",
+        to: "/",
+      },
+      {
+        title: "Pricing",
+        to: "/",
+      },
+    ],
+  },
+  {
+    title: "Resources",
+    icon: "mdi-home",
+    to: "/",
+    subNavs: [
+      {
+        title: "Documentation",
+        to: "/",
+      },
+      {
+        title: "News",
+        to: "/",
+      },
+      {
+        title: "FAQ",
+        to: "/",
+      },
+    ],
+  },
+  {
+    title: "Company",
+    icon: "mdi-home",
+    to: "/",
+    subNavs: [
+      {
+        title: "About us",
+        to: "/",
+      },
+      {
+        title: "Carrers",
+        to: "/",
+      },
+      {
+        title: "Press",
+        to: "/",
+      },
+    ],
+  },
+  {
+    title: "Contact",
+    icon: "mdi-home",
+    to: "/",
+    subNavs: [
+      {
+        title: "Contact us",
+        to: "/",
+      },
+      {
+        title: "Offices",
+        to: "/",
+      },
+      {
+        title: "Twitter",
+        to: "/",
+      },
+    ],
+  },
+];
+</script>
 
 <template>
   <v-toolbar color="#F9FAFB" height="60">
     <v-toolbar-title class="text-h6 font-weight-bold">
-      <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
-      <span>Pricing1</span>
+      <span>Footer1</span>
     </v-toolbar-title>
   </v-toolbar>
 
@@ -19,34 +99,37 @@
     color="#F2F5F8"
     rounded
   >
-    <v-container class="text-center">
-      <v-sheet color="transparent" elevation="0">
-        <img class="mx-auto" width="200" src="@/assets/logo2.svg" alt="" />
-        <v-card
-          color="transparent"
-          elevation="0"
-          max-width="800"
-          class="mx-auto my-10 py-0py-md-12"
-        >
-          <h1
-            style="color: #4a4d6d"
-            class="font-weight-black text-h3 text-lg-h2 text-xl-h1"
-          >
-            We organize chaotic
-            <span class="text-primary">internet</span>
-          </h1>
-          <h2 class="text-h6 text-secondary mt-4 mx-auto">
-            Stack is a Spatial Browser for Mindful Online Living
-          </h2>
-        </v-card>
-        <div>
-          <v-btn width="200" height="60" class="text-white mr-5" color="primary"
-            >Get Stack</v-btn
-          >
-          <v-btn variant="outlined" width="200" height="60" class="text-primary"
-            >Watch Demo</v-btn
-          >
-        </div>
+    <v-container class="text-left">
+      <v-sheet
+        class="mx-auto"
+        color="transparent"
+        elevation="0"
+        max-width="1600"
+      >
+        <v-row>
+          <v-col cols="12" md="8">
+            <v-row>
+              <v-col cols="12" md="3" v-for="nav in navs">
+                <p class="text-h6 mb-4">
+                  <b>{{ nav.title }}</b>
+                </p>
+                <p
+                  class="text-body-2 text-primary mb-2"
+                  v-for="subNav in nav.subNavs"
+                  :key="subNav.title"
+                >
+                  <router-link :to="nav.to">
+                    {{ subNav.title }}
+                  </router-link>
+                </p>
+              </v-col>
+            </v-row>
+          </v-col>
+          <v-col cols="12" md="4">
+            <img class="my-2" width="150" src="@/assets/logo3.svg" alt="" />
+            <p class="my-4">2000+ Our clients are subscribe Around the World</p>
+          </v-col>
+        </v-row>
       </v-sheet>
     </v-container>
   </v-sheet>
