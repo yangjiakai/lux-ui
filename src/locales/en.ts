@@ -108,4 +108,5 @@ export default {
     echartOthers: "Echart Others ",
     apexChart: "ApexChart ",
   },
+  badge: {},
 };
