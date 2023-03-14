@@ -5,7 +5,7 @@
 -->
 <script setup lang="ts">
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
-
+import ToolbarLanguage from "@/components/toolbar/ToolbarLanguage.vue";
 const customizeTheme = useCustomizeThemeStore();
 </script>
 
