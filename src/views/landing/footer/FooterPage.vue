@@ -21,7 +21,7 @@ const search = ref("");
       <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
       <span>Footer</span>
       <v-chip class="ma-2" color="primary" text-color="white">
-        9 Components
+        4 Components
       </v-chip>
     </v-toolbar-title>
     <v-spacer></v-spacer>

@@ -107,6 +107,10 @@ const navs = [
         max-width="1600"
       >
         <v-row>
+          <v-col cols="12" md="4">
+            <img class="my-2" width="150" src="@/assets/logo3.svg" alt="" />
+            <p class="my-4">2000+ Our clients are subscribe Around the World</p>
+          </v-col>
           <v-col cols="12" md="8">
             <v-row>
               <v-col cols="12" md="3" v-for="nav in navs">
@@ -125,11 +129,13 @@ const navs = [
               </v-col>
             </v-row>
           </v-col>
-          <v-col cols="12" md="4">
-            <img class="my-2" width="150" src="@/assets/logo3.svg" alt="" />
-            <p class="my-4">2000+ Our clients are subscribe Around the World</p>
-          </v-col>
         </v-row>
+        <hr class="my-3" />
+        <p class="text-center text-body-2 py-5">
+          <span>© INDIELAYER 2021</span>
+          <a class="text-blue-grey mx-5" href="#">PRIVACY POLICY</a>
+          <a class="text-blue-grey" href="#">TEARMS OF SERVICE</a>
+        </p>
       </v-sheet>
     </v-container>
   </v-sheet>
