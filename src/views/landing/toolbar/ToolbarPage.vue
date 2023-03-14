@@ -8,6 +8,7 @@ import Toolbar1 from "./components/Toolbar1.vue";
 import Toolbar2 from "./components/Toolbar2.vue";
 import Toolbar3 from "./components/Toolbar3.vue";
 import Toolbar4 from "./components/Toolbar4.vue";
+import Toolbar5 from "./components/Toolbar5.vue";
 const mode = ref("");
 const search = ref("");
 </script>
@@ -37,6 +38,7 @@ const search = ref("");
   <Toolbar2 />
   <Toolbar3 />
   <Toolbar4 />
+  <Toolbar5 />
 </template>
 
 <style lang="scss"></style>

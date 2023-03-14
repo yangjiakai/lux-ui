@@ -1,7 +1,7 @@
 <!--
-* @Component:
+* @Component: 
 * @Maintainer: J.K. Yang
-* @Description:
+* @Description: 
 -->
 <script setup lang="ts"></script>
 
@@ -9,59 +9,63 @@
   <v-toolbar color="#F9FAFB" height="60">
     <v-toolbar-title class="text-h6 font-weight-bold">
       <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
-      <span>Pricing4</span>
+      <span>Toobar4</span>
     </v-toolbar-title>
   </v-toolbar>
+
   <v-sheet
     elevation="0"
-    class="mx-auto landing-warpper text-left"
+    class="mx-auto landing-warpper"
     color="#F2F5F8"
     rounded
   >
-    <v-row align="center">
-      <v-col cols="12" md="6">
-        <v-sheet color="transparent" elevation="0" class="py-10">
-          <v-card
-            color="transparent"
-            elevation="0"
-            max-width="800"
-            class="mx-auto my-10 px-10"
-          >
-            <img class="mb-10" width="200" src="@/assets/logo2.svg" alt="" />
-            <h1
-              style="color: #4a4d6d"
-              class="font-weight-black text-h3 text-lg-h2 text-xl-h1"
-            >
-              We organize chaotic
-              <span class="text-primary">internet</span>
-            </h1>
-            <h2 class="text-h6 text-secondary mt-4 mx-auto">
-              Stack is a Spatial Browser for Mindful Online Living
-            </h2>
-            <v-row class="mt-5">
-              <v-col cols="12" sm="6">
-                <v-btn block height="60" class="text-white mr-5" color="primary"
-                  >Get Stack</v-btn
-                >
-              </v-col>
-              <v-col cols="12" sm="6">
-                <v-btn variant="outlined" block height="60" class="text-primary"
-                  >Watch Demo</v-btn
-                >
-              </v-col>
-            </v-row>
-          </v-card>
-        </v-sheet>
-      </v-col>
-      <v-col md="6">
-        <v-card class="h-full" color="blue">
-          <v-img
-            cover
-            src="https://images.pexels.com/photos/389819/pexels-photo-389819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          ></v-img>
-        </v-card>
-      </v-col>
-    </v-row>
+    <v-toolbar color="blue-grey-darken-3">
+      <div class="ml-5 mr-5">
+        <h3 class="text-h5 font-weight-bold">Vuetify</h3>
+      </div>
+      <v-btn icon>
+        <v-badge dot color="success">
+          <v-icon>mdi-google</v-icon>
+        </v-badge>
+      </v-btn>
+      <v-btn icon>
+        <v-badge dot color="success">
+          <v-icon>mdi-home-outline</v-icon>
+        </v-badge>
+      </v-btn>
+      <v-btn icon>
+        <v-badge dot color="success">
+          <v-icon>mdi-home-outline</v-icon>
+        </v-badge>
+      </v-btn>
+      <v-spacer></v-spacer>
+
+      <v-btn class="text-none" stacked>
+        <v-badge dot color="success">
+          <v-icon>mdi-home-outline</v-icon>
+        </v-badge>
+      </v-btn>
+
+      <v-btn class="text-none" stacked>
+        <v-icon>mdi-account-multiple-outline</v-icon>
+      </v-btn>
+
+      <v-btn class="text-none" stacked>
+        <v-badge content="9+" color="error">
+          <v-icon>mdi-store-outline</v-icon>
+        </v-badge>
+      </v-btn>
+
+      <v-btn class="text-none" stacked>
+        <v-badge content="2" color="error">
+          <v-icon>mdi-bell-outline</v-icon>
+        </v-badge>
+      </v-btn>
+
+      <v-avatar class="mx-5">
+        <v-img src="https://cdn.vuetifyjs.com/images/lists/1.jpg"></v-img>
+      </v-avatar>
+    </v-toolbar>
   </v-sheet>
 </template>
 
