@@ -26,18 +26,21 @@ export default {
     {
       code: "en",
       flag: "us",
+      name: "united-states",
       label: "English",
       messages: en,
     },
     {
       code: "zhHans",
       flag: "cn",
+      name: "china",
       label: "中文",
       messages: zhHans,
     },
     {
       code: "ja",
       flag: "jp",
+      name: "japan",
       label: "日本語",
       messages: ja,
     },

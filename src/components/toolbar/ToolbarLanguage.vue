@@ -2,7 +2,7 @@
   <v-menu scroll-y>
     <template v-slot:activator="{ props }">
       <v-btn width="100" class="ma-2" v-bind="props">
-        <flag-icon :flag="currentLocale.flag" class="mr-1"></flag-icon>
+        <Icon :icon="`twemoji:flag-${currentLocale.name}`" class="mr-2" />
         <span class="text-body-2">{{ currentLocale.label }}</span>
       </v-btn>
     </template>
@@ -14,7 +14,7 @@
         density="compact"
       >
         <template v-slot:prepend>
-          <flag-icon :flag="locale.flag" class="mr-1"></flag-icon>
+          <Icon :icon="`twemoji:flag-${locale.name}`" class="mr-2" />
         </template>
 
         <v-list-item-title> {{ locale.label }}</v-list-item-title>
@@ -23,9 +23,8 @@
   </v-menu>
 </template>
 <script setup lang="ts">
-import FlagIcon from "../common/FlagIcon.vue";
 import config from "@/configs";
-
+import { Icon } from "@iconify/vue";
 import { useLocale } from "vuetify";
 const { current, t } = useLocale();
 const { availableLocales } = config.locales;

@@ -24,13 +24,13 @@ const props = defineProps({
 
 <style scoped>
 .flag-icon {
-  height: 16px;
-  width: 16px;
+  height: 14px;
+  width: 14px;
 }
 .flag-round {
   background-size: cover;
   border-radius: 100%;
-  height: 16px;
-  width: 16px;
+  height: 14px;
+  width: 14px;
 }
 </style>
