@@ -5,7 +5,7 @@
 -->
 <script setup lang="ts">
 import { RouterLink } from "vue-router";
-
+import { Icon } from "@iconify/vue";
 const navs = [
   {
     title: "Product",
@@ -43,6 +43,16 @@ const navs = [
         title: "FAQ",
         to: "/",
       },
+      // Package
+      {
+        title: "Package",
+        to: "/",
+      },
+      // Components
+      {
+        title: "Components",
+        to: "/",
+      },
     ],
   },
   {
@@ -60,25 +70,6 @@ const navs = [
       },
       {
         title: "Press",
-        to: "/",
-      },
-    ],
-  },
-  {
-    title: "Contact",
-    icon: "mdi-home",
-    to: "/",
-    subNavs: [
-      {
-        title: "Contact us",
-        to: "/",
-      },
-      {
-        title: "Offices",
-        to: "/",
-      },
-      {
-        title: "Twitter",
         to: "/",
       },
     ],
@@ -107,8 +98,16 @@ const navs = [
         max-width="1600"
       >
         <v-row>
-          <v-col cols="12" md="8">
-            <v-row>
+          <v-col cols="12" md="3">
+            <img class="my-2" width="150" src="@/assets/logo3.svg" alt="" />
+            <p class="my-4">2000+ Our clients are subscribe Around the World</p>
+            <h6 class="font-weight-bold text-blue-grey my-2">Email</h6>
+            <p class="text-body-2 text-primary">
+              <a href="#">yjkbako@gmail.com</a>
+            </p>
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-row justify="center">
               <v-col cols="12" md="3" v-for="nav in navs">
                 <p class="text-h6 mb-4">
                   <b>{{ nav.title }}</b>
@@ -125,9 +124,28 @@ const navs = [
               </v-col>
             </v-row>
           </v-col>
-          <v-col cols="12" md="4">
-            <img class="my-2" width="150" src="@/assets/logo3.svg" alt="" />
-            <p class="my-4">2000+ Our clients are subscribe Around the World</p>
+          <v-col cols="12" md="3">
+            <p class="text-h6 mb-4">
+              <b>DownLoad App</b>
+            </p>
+            <div>
+              <v-btn
+                class="mb-3"
+                color="blue-grey"
+                variant="outlined"
+                size="x-large"
+                block
+              >
+                <template v-slot:prepend
+                  ><Icon width="30" icon="logos:google-play-icon" /></template
+                >Google Play
+              </v-btn>
+              <v-btn color="blue-grey" variant="outlined" size="x-large" block>
+                <template v-slot:prepend
+                  ><Icon width="30" icon="logos:apple-app-store" /></template
+                >Apple Store
+              </v-btn>
+            </div>
           </v-col>
         </v-row>
       </v-sheet>
