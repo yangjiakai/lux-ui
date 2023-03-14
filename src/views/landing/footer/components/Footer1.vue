@@ -99,7 +99,7 @@ const navs = [
     color="#F2F5F8"
     rounded
   >
-    <v-container class="text-left">
+    <v-container class="text-left pa-10">
       <v-sheet
         class="mx-auto"
         color="transparent"

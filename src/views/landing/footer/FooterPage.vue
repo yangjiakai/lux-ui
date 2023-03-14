@@ -32,10 +32,12 @@ const search = ref("");
       <v-icon>mdi-dots-vertical</v-icon>
     </v-btn>
   </v-toolbar>
-  <Footer1 />
-  <Footer2 />
-  <Footer3 />
-  <Footer4 />
+  <div class="pa-5">
+    <Footer1 />
+    <Footer2 />
+    <Footer3 />
+    <Footer4 />
+  </div>
 </template>
 
 <style lang="scss"></style>
