@@ -4,10 +4,10 @@
 * @Description: 
 -->
 <script setup lang="ts">
-import Pricing1 from "./components/Pricing1.vue";
-import Pricing2 from "./components/Pricing2.vue";
-import Pricing3 from "./components/Pricing3.vue";
-import Pricing4 from "./components/Pricing4.vue";
+import FAQ1 from "./components/FAQ1.vue";
+import FAQ2 from "./components/FAQ2.vue";
+import FAQ3 from "./components/FAQ3.vue";
+import FAQ4 from "./components/FAQ4.vue";
 const mode = ref("");
 const search = ref("");
 </script>
@@ -17,13 +17,14 @@ const search = ref("");
   <!---Top Toolbar -->
   <!-- ---------------------------------------------- -->
   <v-toolbar height="100" color="white">
-    <v-toolbar-title class="text-h5 font-weight-bold">
-      <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
-      <span>Pricing</span>
-      <v-chip class="ma-2" color="primary" text-color="white">
-        9 Components
-      </v-chip>
-    </v-toolbar-title>
+    <div class="ml-5">
+      <h3 class="text-h5 font-weight-bold">
+        FAQ
+        <v-chip size="small" class="ma-2" color="primary" text-color="white">
+          4 Components
+        </v-chip>
+      </h3>
+    </div>
     <v-spacer></v-spacer>
     <v-btn icon>
       <v-icon>mdi-magnify</v-icon>
@@ -32,10 +33,10 @@ const search = ref("");
       <v-icon>mdi-dots-vertical</v-icon>
     </v-btn>
   </v-toolbar>
-  <Pricing1 />
-  <Pricing2 />
-  <Pricing3 />
-  <Pricing4 />
+  <FAQ1 />
+  <FAQ2 />
+  <FAQ3 />
+  <FAQ4 />
 </template>
 
 <style lang="scss"></style>
