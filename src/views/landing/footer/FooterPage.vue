@@ -17,13 +17,14 @@ const search = ref("");
   <!---Top Toolbar -->
   <!-- ---------------------------------------------- -->
   <v-toolbar height="100" color="white">
-    <v-toolbar-title class="text-h5 font-weight-bold">
-      <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
-      <span>Footer</span>
-      <v-chip class="ma-2" color="primary" text-color="white">
-        4 Components
-      </v-chip>
-    </v-toolbar-title>
+    <div class="ml-5">
+      <h3 class="text-h5 font-weight-bold">
+        Footer
+        <v-chip size="small" class="ma-2" color="primary" text-color="white">
+          4 Components
+        </v-chip>
+      </h3>
+    </div>
     <v-spacer></v-spacer>
     <v-btn icon>
       <v-icon>mdi-magnify</v-icon>
