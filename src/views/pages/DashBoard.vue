@@ -67,8 +67,6 @@ import TodoCard from "@/components/dashboard/TodoCard.vue";
 import TaskCard from "@/components/dashboard/TaskCard.vue";
 
 import router, { constantRoutes, dynamicRoutes } from "@/router";
-console.log(router);
-console.log(constantRoutes);
 
 const order = ref(1);
 </script>

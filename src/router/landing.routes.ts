@@ -136,7 +136,7 @@ export default [
     name: "landing-faq",
     component: () =>
       import(
-        /* webpackChunkName: "landing-faq" */ "@/views/landing/faq/FAQPage.vue"
+        /* webpackChunkName: "landing-faq" */ "@/views/landing/faq/FQAPage.vue"
       ),
     meta: {
       layout: "landing",
