@@ -9,7 +9,7 @@
   <v-toolbar color="#F9FAFB" height="60">
     <v-toolbar-title class="text-h6 font-weight-bold">
       <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
-      <span>Pricing1</span>
+      <span>Newsletter1</span>
     </v-toolbar-title>
   </v-toolbar>
 
@@ -19,36 +19,34 @@
     color="#F2F5F8"
     rounded
   >
-    <v-container class="text-center">
-      <v-sheet color="transparent" elevation="0">
-        <img class="mx-auto" width="200" src="@/assets/logo2.svg" alt="" />
-        <v-card
-          color="transparent"
-          elevation="0"
-          max-width="800"
-          class="mx-auto my-10 py-0py-md-12"
-        >
-          <h1
-            style="color: #4a4d6d"
-            class="font-weight-black text-h3 text-lg-h2 text-xl-h1"
-          >
-            We organize chaotic
-            <span class="text-primary">internet</span>
-          </h1>
-          <h2 class="text-h6 text-secondary mt-4 mx-auto">
-            Stack is a Spatial Browser for Mindful Online Living
-          </h2>
-        </v-card>
-        <div>
-          <v-btn width="200" height="60" class="text-white mr-5" color="primary"
-            >Get Stack</v-btn
-          >
-          <v-btn variant="outlined" width="200" height="60" class="text-primary"
-            >Watch Demo</v-btn
-          >
-        </div>
-      </v-sheet>
-    </v-container>
+    <v-sheet
+      color="transparent"
+      elevation="0"
+      max-width="1600"
+      class="mx-auto pa-5"
+    >
+      <v-container class="">
+        <v-row align="center" justify="center">
+          <v-col cols="12" lg="3">
+            <h1 class="text-h5 font-weight-bold text-center">
+              Receive updates in your inbox
+            </h1>
+          </v-col>
+          <v-col cols="12" sm="9" md="7">
+            <v-text-field
+              color="primary"
+              hide-details
+              variant="outlined"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" sm="3" md="2">
+            <v-btn size="x-large" block color="primary font-weight-bold"
+              >Subscribe</v-btn
+            >
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-sheet>
   </v-sheet>
 </template>
 
