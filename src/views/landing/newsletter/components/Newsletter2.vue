@@ -31,12 +31,15 @@
             <h1 class="text-h5 font-weight-bold text-center">
               Receive updates in your inbox
             </h1>
+            <p class="ml-2 text-center text-lg-left">Sign up today</p>
           </v-col>
           <v-col cols="12" sm="9" md="7">
             <v-text-field
+              class="bg-white"
               color="primary"
               hide-details
               variant="outlined"
+              placeholder="email"
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="3" md="2">

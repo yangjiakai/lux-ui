@@ -34,9 +34,11 @@
           </v-col>
           <v-col cols="12" sm="9" md="7">
             <v-text-field
+              class="bg-white"
               color="primary"
               hide-details
               variant="outlined"
+              placeholder="email"
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="3" md="2">

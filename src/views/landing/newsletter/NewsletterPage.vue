@@ -36,7 +36,7 @@ const search = ref("");
   <Newsletter1 />
   <Newsletter2 />
   <Newsletter3 />
-  <Newsletter4 />
+  <!-- <Newsletter4 /> -->
 </template>
 
 <style lang="scss"></style>
