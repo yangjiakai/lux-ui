@@ -1,54 +1,88 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts"></script>
 
 <template>
   <v-toolbar color="#F9FAFB" height="60">
     <v-toolbar-title class="text-h6 font-weight-bold">
-      <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
-      <span>Hero1</span>
+      <span>Feature3</span>
     </v-toolbar-title>
   </v-toolbar>
-
   <v-sheet
     elevation="0"
-    class="mx-auto landing-warpper"
+    class="mx-auto landing-warpper text-left"
     color="#F2F5F8"
     rounded
   >
-    <v-container class="text-center">
-      <v-sheet color="transparent" elevation="0">
-        <img class="mx-auto" width="200" src="@/assets/logo2.svg" alt="" />
-        <v-card
-          color="transparent"
-          elevation="0"
-          max-width="800"
-          class="mx-auto my-10 py-0py-md-12"
-        >
-          <h1
-            style="color: #4a4d6d"
-            class="font-weight-black text-h3 text-lg-h2 text-xl-h1"
-          >
-            We organize chaotic
-            <span class="text-primary">internet</span>
-          </h1>
-          <h2 class="text-h6 text-secondary mt-4 mx-auto">
-            Stack is a Spatial Browser for Mindful Online Living
-          </h2>
+    <v-row no-gutters align="stretch">
+      <v-col cols="12" md="6">
+        <v-card class="cover-bg-card1" height="100%">
+          <v-img
+            height="100%"
+            cover
+            src="https://images.pexels.com/photos/389819/pexels-photo-389819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          ></v-img>
         </v-card>
-        <div>
-          <v-btn width="200" height="60" class="text-white mr-5" color="primary"
-            >Get Stack</v-btn
-          >
-          <v-btn variant="outlined" width="200" height="60" class="text-primary"
-            >Watch Demo</v-btn
-          >
-        </div>
-      </v-sheet>
-    </v-container>
+      </v-col>
+      <v-col cols="12" md="6">
+        <v-card
+          color="white"
+          elevation="0"
+          height="100%"
+          class="mx-auto pa-5 pa-sm-10 pa-md-15"
+        >
+          <RouterLink to="/" class="text-primary">WORK WITH US</RouterLink>
+          <h1 class="font-weight-black text-h3 mt-5 mb-10">
+            <span class="text-primary">Vuetify</span>
+            your startup
+          </h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
+            impedit error labore doloremque fugit! Dolor fugit molestiae vero
+            quos quisquam nobis, eos debitis magni omnis ea incidunt amet
+            voluptate dignissimos!
+          </p>
+          <h2 class="text-h6 mt-4 mx-auto">Premium Design</h2>
+          <div class="my-5 ml-5">
+            <li>Lifetime Updates</li>
+            <li>Quality Support</li>
+            <li>Easy to build websites</li>
+          </div>
+
+          <h2 class="text-h6 mt-4 mx-auto my-5">Building your project</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis
+            cupiditate totam, quae deleniti voluptate alias, doloribus
+            doloremque qui corporis veritatis aspernatur harum. Expedita,
+            blanditiis, nostrum eveniet consequatur porro quae, delectus ratione
+            nam minus fugit odit quas dolore voluptatum! Molestiae, id
+            voluptate. Ullam ut ratione iste quibusdam blanditiis itaque
+            cupiditate totam dolor quisquam praesentium, ad necessitatibus
+            beatae, doloremque fugiat esse repellendus nulla error sequi illo
+            nihil sit eos asperiores expedita ducimus? Nisi quasi eius in, nobis
+            modi cum numquam quibusdam sint. Ad vitae expedita dolores
+            repudiandae ea laborum voluptatem, perferendis at corrupti fuga!
+            Placeat sunt molestias eos quo corrupti omnis laborum?
+          </p>
+
+          <v-row class="mt-5">
+            <v-col cols="12" sm="6">
+              <v-btn block height="60" class="text-white mr-5" color="primary"
+                >Get Stack</v-btn
+              >
+            </v-col>
+            <v-col cols="12" sm="6">
+              <v-btn variant="outlined" block height="60" class="text-primary"
+                >Watch Demo</v-btn
+              >
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-sheet>
 </template>
 
