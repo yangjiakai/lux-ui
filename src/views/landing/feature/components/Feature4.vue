@@ -19,7 +19,7 @@
   >
     <v-row no-gutters align="stretch">
       <v-col cols="12" md="6">
-        <v-card class="cover-bg-card1" height="100%">
+        <v-card height="100%">
           <v-img
             height="100%"
             cover

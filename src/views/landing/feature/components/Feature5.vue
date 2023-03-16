@@ -8,7 +8,7 @@
 <template>
   <v-toolbar color="#F9FAFB" height="60">
     <v-toolbar-title class="text-h6 font-weight-bold">
-      <span>Feature2</span>
+      <span>Feature1</span>
     </v-toolbar-title>
   </v-toolbar>
   <v-sheet elevation="0" class="mx-auto landing-warpper text-left" rounded>
@@ -19,7 +19,7 @@
       class="mx-auto my-10"
     >
       <v-row no-gutters align="stretch">
-        <v-col cols="12" md="6">
+        <v-col cols="12">
           <v-card
             elevation="0"
             height="100%"
@@ -39,20 +39,34 @@
                 vero quos quisquam nobis, eos debitis magni omnis ea incidunt
                 amet voluptate dignissimos!
               </p>
-              <v-btn variant="outlined" size="large" class="text-white mt-10"
-                >Get In Touch</v-btn
+              <v-btn color="primary" size="large" class="mt-10"
+                >Explore our solutions</v-btn
               >
             </div>
           </v-card>
         </v-col>
-        <v-col cols="12" md="6">
-          <v-card height="100%">
-            <v-img
-              height="100%"
-              cover
-              src="https://images.unsplash.com/photo-1561909700-7e3abc080cf9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-            ></v-img>
-          </v-card>
+        <v-col cols="12">
+          <v-sheet elevation="0" height="100%" class="px-10 px-md-15">
+            <v-card
+              v-for="i in 4"
+              color="#F2F5F8"
+              class="px-5 py-10 mb-10 d-flex align-center"
+            >
+              <v-card class="pa-5 mr-5">
+                <v-icon color="primary">mdi-home</v-icon>
+              </v-card>
+
+              <div class="flex-1">
+                <h6>Social Media Marketing</h6>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                  rerum blanditiis, veritatis, cumque eligendi aspernatur
+                  eveniet provident odit recusandae perspiciatis labore incidunt
+                  minus.
+                </p>
+              </div>
+            </v-card>
+          </v-sheet>
         </v-col>
       </v-row>
     </v-sheet>
