@@ -18,7 +18,7 @@
     color="#F2F5F8"
     rounded
   >
-    <v-row align="center">
+    <v-row align="stretch">
       <v-col cols="12" md="6">
         <v-sheet color="transparent" elevation="0" class="py-10">
           <v-card
@@ -56,6 +56,7 @@
       <v-col md="6">
         <v-card class="h-full" color="blue">
           <v-img
+            height="100%"
             cover
             src="https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80"
           ></v-img>
