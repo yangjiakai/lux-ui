@@ -8,8 +8,6 @@ import Pricing1 from "./components/Pricing1.vue";
 import Pricing2 from "./components/Pricing2.vue";
 import Pricing3 from "./components/Pricing3.vue";
 import Pricing4 from "./components/Pricing4.vue";
-const mode = ref("");
-const search = ref("");
 </script>
 
 <template>
@@ -19,7 +17,7 @@ const search = ref("");
   <v-toolbar height="100" color="white">
     <div class="ml-5">
       <h3 class="text-h5 font-weight-bold">
-        Footer
+        Pricing
         <v-chip size="small" class="ma-2" color="primary" text-color="white">
           4 Components
         </v-chip>
@@ -33,10 +31,12 @@ const search = ref("");
       <v-icon>mdi-dots-vertical</v-icon>
     </v-btn>
   </v-toolbar>
-  <Pricing1 />
-  <Pricing2 />
-  <Pricing3 />
-  <Pricing4 />
+  <div>
+    <Pricing1 />
+    <Pricing2 />
+    <Pricing3 />
+    <Pricing4 />
+  </div>
 </template>
 
 <style lang="scss"></style>

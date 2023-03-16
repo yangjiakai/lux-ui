@@ -1,55 +1,114 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const pricing_plans = [
+  {
+    plan_name: "基本版",
+    price: "免费",
+    storage: "15GB",
+    features: ["免费15GB云存储", "文档、表格和幻灯片编辑工具", "智能应用推荐"],
+  },
+  // {
+  //   plan_name: "高级版",
+  //   price: "每月29元",
+  //   storage: "100GB",
+  //   features: ["100GB云存储", "专属客户支持", "高级安全功能", "高速文件传输"],
+  // },
+  {
+    plan_name: "专业版",
+    price: "每月59元",
+    storage: "200GB",
+    features: [
+      "200GB云存储",
+      "实时客户支持",
+      "企业级安全功能",
+      "无限制文件传输速度",
+      "智能文件组织和搜索",
+    ],
+  },
+  {
+    plan_name: "企业版",
+    price: "每月99元",
+    storage: "2TB",
+    features: [
+      "2TB云存储",
+      "专属客户经理",
+      "企业级安全和合规性",
+      "高速文件传输和无限制速度",
+      "定制解决方案和集成",
+    ],
+  },
+];
+</script>
 
 <template>
   <v-toolbar color="#F9FAFB" height="60">
     <v-toolbar-title class="text-h6 font-weight-bold">
-      <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
       <span>Pricing1</span>
     </v-toolbar-title>
   </v-toolbar>
-
   <v-sheet
-    elevation="0"
-    class="mx-auto landing-warpper"
     color="#F2F5F8"
+    elevation="0"
+    class="mx-auto landing-warpper text-left"
     rounded
   >
-    <v-container class="text-center">
-      <v-sheet color="transparent" elevation="0">
-        <img class="mx-auto" width="200" src="@/assets/logo2.svg" alt="" />
-        <v-card
-          color="transparent"
-          elevation="0"
-          max-width="800"
-          class="mx-auto my-10 py-0py-md-12"
-        >
-          <h1
-            style="color: #4a4d6d"
-            class="font-weight-black text-h3 text-lg-h2 text-xl-h1"
-          >
-            We organize chaotic
-            <span class="text-primary">internet</span>
-          </h1>
-          <h2 class="text-h6 text-secondary mt-4 mx-auto">
-            Stack is a Spatial Browser for Mindful Online Living
-          </h2>
-        </v-card>
-        <div>
-          <v-btn width="200" height="60" class="text-white mr-5" color="primary"
-            >Get Stack</v-btn
-          >
-          <v-btn variant="outlined" width="200" height="60" class="text-primary"
-            >Watch Demo</v-btn
-          >
-        </div>
-      </v-sheet>
-    </v-container>
+    <v-sheet
+      elevation="0"
+      color="transparent"
+      max-width="1600 "
+      class="mx-auto my-10 pa-10"
+    >
+      <v-item-group mandatory selected-class="active-card">
+        <v-row align="stretch">
+          <v-col cols="12" md="4" v-for="plan in pricing_plans">
+            <v-item v-slot="{ isSelected, selectedClass, toggle }">
+              <v-card
+                :theme="isSelected ? 'dark' : 'light'"
+                elevation="0"
+                height="100%"
+                class="base-card text-center mx-auto pa-10 pa-md-15 d-flex flex-column justify-center"
+                :class="selectedClass"
+                @click="toggle"
+              >
+                <div>
+                  <h3 class="font-weight-bold text-h5 mt-5 mb-10">
+                    {{ plan.plan_name }}
+                  </h3>
+                  <h1 class="font-weight-black text-h3 mt-5 mb-10">
+                    <span class="text-primary">{{ plan.price }}</span>
+                  </h1>
+
+                  <div class="text-h6 font-weight-bold mb-10">
+                    {{ plan.storage }}
+                  </div>
+                  <div>
+                    <div v-for="feature in plan.features">{{ feature }}</div>
+                  </div>
+
+                  <v-btn color="primary" size="large" class="mt-10">订阅</v-btn>
+                </div>
+              </v-card>
+            </v-item>
+          </v-col>
+        </v-row>
+      </v-item-group>
+    </v-sheet>
   </v-sheet>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.base-card {
+  transition: 0.3s ease-out;
+}
+
+.active-card {
+  border: 1px solid #e5e5e5;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  transform: scale(1.05);
+  transition: 0.3s ease-out;
+}
+</style>
