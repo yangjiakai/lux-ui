@@ -98,7 +98,8 @@ watch(
   () => option.value,
   (newVal) => {
     setOption(newVal);
-  }
+  },
+  { deep: true }
 );
 
 const sort = () => {
@@ -106,10 +107,24 @@ const sort = () => {
     return a.value - b.value;
   });
 };
+
+const add = () => {
+  dataSet.value.push({
+    value: Math.round(Math.random() * 1000),
+    name: "new data",
+  });
+};
 </script>
 
 <template>
-  <div ref="chartEl" :style="{ width: `400px`, height: `500px` }"></div>
-  <v-btn color="success" @click="textTitle = 'new Title'">text</v-btn>
-  <v-btn color="success" @click="sort">sort</v-btn>
+  <v-card class="ma-5">
+    <div ref="chartEl" :style="{ width: `100%`, height: `800px` }"></div>
+  </v-card>
+  <v-card class="ma-5 pa-5 control panel" min-height="500">
+    <h1 class="text-h5 my-5">Control Panel</h1>
+    <v-btn class="mr-5" color="primary" @click="textTitle = 'new Title'"
+      >Change Title</v-btn
+    >
+    <v-btn class="mr-5" color="primary" @click="add">Add Data</v-btn>
+  </v-card>
 </template>
