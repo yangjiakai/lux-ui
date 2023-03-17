@@ -1,55 +1,101 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const comments = [
+  {
+    content:
+      "Extremely down-to-earth and relaxed atmosphere within the company, it's extremely easy to talk to anyone, including C-level executives.The company as a whole is inclusive of the cultural values everyone promotes and shares.",
+    name: "Derrick Mehaffy",
+    position: "Solutions Engineer",
+    avatar:
+      "https://d2zv2ciw0ln4h1.cloudfront.net/uploads/Derrick_4ec7a55385_1da25a0d9d.png",
+  },
+  {
+    content:
+      "That's so inspiring to see a company fighting so hard for its values! If you take care, for example, the emergency days are still blowing up my mind. Strapi considers employees as a whole, not just workers. ",
+    name: "Noémie Nana Gassa",
+    position: "Talent Acquisition Manager",
+    avatar:
+      "https://d2zv2ciw0ln4h1.cloudfront.net/uploads/1631195677739_050c18b591.jfif",
+  },
+  {
+    content:
+      "In the US, people tend to value the Hustle culture: 'work, work, work.' In this context, it's easy to forget to take care of yourself. At Strapi, they really put people first and encourage us to take care of ourselves.",
+    name: "Paul Bratslavsky",
+    position: "Developer Advocate",
+    avatar:
+      "https://d2zv2ciw0ln4h1.cloudfront.net/uploads/Derrick_4ec7a55385_1da25a0d9d.png",
+  },
+];
+</script>
 
 <template>
   <v-toolbar color="#F9FAFB" height="60">
     <v-toolbar-title class="text-h6 font-weight-bold">
-      <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
-      <span>Pricing1</span>
+      <span>Testimonial1</span>
     </v-toolbar-title>
   </v-toolbar>
+  <v-sheet elevation="0" class="mx-auto landing-warpper text-left" rounded>
+    <v-sheet
+      elevation="0"
+      color="transparent"
+      max-width="1200 "
+      class="mx-auto my-10 pa-10"
+    >
+      <v-item-group mandatory selected-class="active-card">
+        <v-row align="stretch">
+          <v-col cols="12" md="4" v-for="comment in comments">
+            <v-item v-slot="{ isSelected, selectedClass, toggle }">
+              <v-card
+                elevation="0"
+                class="base-card mx-auto pa-10 d-flex flex-column justify-center"
+                :class="selectedClass"
+                @click="toggle"
+              >
+                <div>
+                  <p>
+                    {{ comment.content }}
+                  </p>
 
-  <v-sheet
-    elevation="0"
-    class="mx-auto landing-warpper"
-    color="#F2F5F8"
-    rounded
-  >
-    <v-container class="text-center">
-      <v-sheet color="transparent" elevation="0">
-        <img class="mx-auto" width="200" src="@/assets/logo2.svg" alt="" />
-        <v-card
-          color="transparent"
-          elevation="0"
-          max-width="800"
-          class="mx-auto my-10 py-0py-md-12"
-        >
-          <h1
-            style="color: #4a4d6d"
-            class="font-weight-black text-h3 text-lg-h2 text-xl-h1"
-          >
-            We organize chaotic
-            <span class="text-primary">internet</span>
-          </h1>
-          <h2 class="text-h6 text-secondary mt-4 mx-auto">
-            Stack is a Spatial Browser for Mindful Online Living
-          </h2>
-        </v-card>
-        <div>
-          <v-btn width="200" height="60" class="text-white mr-5" color="primary"
-            >Get Stack</v-btn
-          >
-          <v-btn variant="outlined" width="200" height="60" class="text-primary"
-            >Watch Demo</v-btn
-          >
-        </div>
-      </v-sheet>
-    </v-container>
+                  <v-card
+                    elevation="0"
+                    color="transparent"
+                    class="user-card d-flex align-center my-5"
+                  >
+                    <div>
+                      <v-avatar size="50" class="mr-4">
+                        <img :src="comment.avatar" />
+                      </v-avatar>
+                    </div>
+                    <div class="user-info text-body-2">
+                      <div class="font-weight-bold text-purple">
+                        {{ comment.name }}
+                      </div>
+                      <div>{{ comment.position }}</div>
+                    </div>
+                  </v-card>
+                </div>
+              </v-card>
+            </v-item>
+          </v-col>
+        </v-row>
+      </v-item-group>
+    </v-sheet>
   </v-sheet>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.base-card {
+  transition: 0.3s ease-out;
+  border: 1px solid #eaf2fa;
+}
+
+.active-card {
+  border: 1px solid #275888;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease-out;
+}
+</style>

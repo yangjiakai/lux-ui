@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex text-center flex-grow-1 bg-background">
+  <v-card theme="dark">
     <v-container style="max-width: 1400px" grid-list-xs>
       <v-row>
         <v-col cols="12" md="4">
@@ -263,7 +263,7 @@
         </v-col>
       </v-row>
     </v-container>
-  </div>
+  </v-card>
 </template>
 
 <script setup lang="ts">

@@ -46,7 +46,6 @@ const searchKey = ref("");
               size="small"
               icon="mdi-close"
               variant="text"
-              color="error"
               @click="
                 todoStore.todoList = todoStore.todoList.filter(
                   (item) => item.id !== todo.id

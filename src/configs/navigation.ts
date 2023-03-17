@@ -18,6 +18,18 @@ export default {
       ],
     },
     {
+      text: "Landing",
+      items: [
+        ...menuLanding,
+        {
+          icon: "mdi-airplane-landing",
+          key: "menu.landingPage",
+          text: "Landing Page",
+          link: "/landing",
+        },
+      ],
+    },
+    {
       text: "Apps",
       items: menuApps,
     },
@@ -35,24 +47,6 @@ export default {
       text: "Charts",
       key: "menu.charts",
       items: menuCharts,
-    },
-    {
-      text: "Landing Pages",
-      items: [
-        ...menuLanding,
-        {
-          icon: "mdi-airplane-landing",
-          key: "menu.landingPage",
-          text: "Landing Page",
-          link: "/landing",
-        },
-        {
-          icon: "mdi-currency-usd",
-          key: "menu.pricingPage",
-          text: "Pricing Page",
-          link: "/landing/pricing",
-        },
-      ],
     },
   ],
 };
