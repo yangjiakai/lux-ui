@@ -20,12 +20,13 @@ import members from "@/data/members";
       max-width="1600 "
       class="mx-auto my-10"
     >
+      <h1 class="text-h3 font-weight-bold text-center my-10">Meet the Team</h1>
       <v-row align="center" justify="center">
         <v-col cols="12" sm="6" md="4" lg="3" v-for="member in members">
           <v-card
             max-width="300"
             elevation="0"
-            class="text-center mx-auto pa-10 pa-md-15 d-flex flex-column justify-center"
+            class="text-center mx-auto pa-5 pa-md-10 d-flex flex-column justify-center"
           >
             <v-avatar class="mx-auto" size="200">
               <v-img :src="member.avatar" alt="alt" />

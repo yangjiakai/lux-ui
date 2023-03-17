@@ -20,23 +20,41 @@ import members from "@/data/members";
       max-width="1600 "
       class="mx-auto my-10"
     >
-      <v-row align="center" justify="center">
-        <v-col cols="12" sm="6" md="4" lg="3" v-for="member in members">
-          <v-card
-            max-width="300"
-            class="text-center mx-auto pa-10 pa-md-15 d-flex flex-column justify-center"
-          >
-            <v-avatar class="mx-auto" size="200">
-              <v-img :src="member.avatar" alt="alt" />
-            </v-avatar>
-            <h6 class="text-h6">{{ member.name }}</h6>
-            <p class="text-body-1 text-blue-grey">{{ member.position }}</p>
-            <p class="text-body-2 text-grey">{{ member.description }}</p>
-          </v-card>
-        </v-col>
-      </v-row>
+      <v-item-group mandatory selected-class="active-card">
+        <v-row align="center" justify="center">
+          <v-col cols="12" sm="6" md="4" lg="3" v-for="member in members">
+            <v-item v-slot="{ isSelected, selectedClass, toggle }">
+              <v-card
+                :theme="isSelected ? 'dark' : 'light'"
+                max-width="300"
+                class="base-card text-center mx-auto pa-10 pa-md-15 d-flex flex-column justify-center"
+                :class="selectedClass"
+                @click="toggle"
+              >
+                <v-avatar class="mx-auto" size="200">
+                  <v-img :src="member.avatar" alt="alt" />
+                </v-avatar>
+                <h6 class="text-h6">{{ member.name }}</h6>
+                <p class="text-body-1 text-blue-grey">{{ member.position }}</p>
+                <p class="text-body-2 text-grey">{{ member.description }}</p>
+              </v-card>
+            </v-item>
+          </v-col>
+        </v-row>
+      </v-item-group>
     </v-sheet>
   </v-sheet>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.base-card {
+  transition: 0.3s ease-out;
+}
+
+.active-card {
+  border: 1px solid #e5e5e5;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+  transform: scale(1.05);
+  transition: 0.3s ease-out;
+}
+</style>
