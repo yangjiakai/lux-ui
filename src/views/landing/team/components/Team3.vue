@@ -3,70 +3,51 @@
 * @Maintainer: J.K. Yang
 * @Description:
 -->
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import members from "@/data/members";
+</script>
 
 <template>
   <v-toolbar color="#F9FAFB" height="60">
     <v-toolbar-title class="text-h6 font-weight-bold">
-      <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
-      <span>Pricing3</span>
+      <span>Team3</span>
     </v-toolbar-title>
   </v-toolbar>
-  <v-sheet
-    elevation="0"
-    class="mx-auto landing-warpper text-center"
-    color="#F2F5F8"
-    rounded
-  >
-    <v-row align="center">
-      <v-col cols="12" md="6">
-        <v-sheet color="transparent" elevation="0" class="py-10">
-          <img class="mx-auto" width="200" src="@/assets/logo2.svg" alt="" />
+  <v-sheet elevation="0" class="mx-auto landing-warpper text-left" rounded>
+    <v-sheet
+      elevation="0"
+      color="transparent"
+      max-width="1600 "
+      class="mx-auto my-10"
+    >
+      <h1 class="text-h3 font-weight-bold text-center text-blue-grey my-10">
+        Meet the Team
+      </h1>
+      <v-row align="center" justify="center">
+        <v-col cols="12" sm="6" md="4" lg="3" v-for="member in members">
           <v-card
-            color="transparent"
+            max-width="300"
             elevation="0"
-            max-width="800"
-            class="mx-auto my-10"
+            class="text-center mx-auto pa-5 pa-md-10 d-flex flex-column justify-center"
           >
-            <h1
-              style="color: #4a4d6d"
-              class="font-weight-black text-h3 text-lg-h2 text-xl-h1"
-            >
-              We organize chaotic
-              <span class="text-primary">internet</span>
-            </h1>
-            <h2 class="text-h6 text-secondary mt-4 mx-auto">
-              Stack is a Spatial Browser for Mindful Online Living
-            </h2>
+            <v-img
+              class="mb-3"
+              style="border-radius: 10px"
+              :src="member.avatar"
+              alt="alt"
+            />
+            <h6 class="text-h6">{{ member.name }}</h6>
+            <p class="text-body-1 text-blue-grey">{{ member.position }}</p>
+            <p class="text-body-2 text-grey">{{ member.description }}</p>
+            <div>
+              <v-btn icon v-for="item in member.social" :to="item.link"
+                ><v-icon>{{ item.icon }}</v-icon></v-btn
+              >
+            </div>
           </v-card>
-          <div>
-            <v-btn
-              width="200"
-              height="60"
-              class="text-white mr-5"
-              color="primary"
-              >Get Stack</v-btn
-            >
-            <v-btn
-              variant="outlined"
-              width="200"
-              height="60"
-              class="text-primary"
-              >Watch Demo</v-btn
-            >
-          </div>
-        </v-sheet>
-      </v-col>
-      <v-col cols="0" md="6">
-        <v-card class="h-full">
-          <v-img
-            cover
-            height="100%"
-            src="https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1746&q=80"
-          ></v-img>
-        </v-card>
-      </v-col>
-    </v-row>
+        </v-col>
+      </v-row>
+    </v-sheet>
   </v-sheet>
 </template>
 
