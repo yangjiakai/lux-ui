@@ -8,6 +8,7 @@ import Card1 from "./components/Card1.vue";
 import Card2 from "./components/Card2.vue";
 import Card3 from "./components/Card3.vue";
 import Card4 from "./components/Card4.vue";
+import Card5 from "./components/Card5.vue";
 </script>
 
 <template>
@@ -36,6 +37,7 @@ import Card4 from "./components/Card4.vue";
     <Card2 />
     <Card3 />
     <Card4 />
+    <Card5 />
   </div>
 </template>
 

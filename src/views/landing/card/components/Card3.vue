@@ -8,11 +8,11 @@
 <template>
   <v-toolbar color="#F9FAFB" height="60">
     <v-toolbar-title class="text-h6 font-weight-bold">
-      <span>Card3</span>
+      <span>Card5</span>
     </v-toolbar-title>
   </v-toolbar>
   <v-sheet
-    color="#F2F5F8"
+    color="#333"
     elevation="0"
     class="mx-auto landing-warpper text-left"
     rounded
