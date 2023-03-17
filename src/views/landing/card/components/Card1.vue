@@ -50,9 +50,9 @@ const articles = [
 
   <v-sheet elevation="0" class="mx-auto landing-warpper" rounded>
     <v-sheet max-width="1600" class="mx-auto pa-5" elevation="0">
-      <v-row>
+      <v-row align="center">
         <v-col cols="12" md="4" v-for="item in articles" :key="item.id">
-          <v-card>
+          <v-card max-width="400" class="mx-auto">
             <v-img cover :src="item.image" height="200px"></v-img>
             <v-card-title class="text-h6 font-weight-bold">
               {{ item.title }}

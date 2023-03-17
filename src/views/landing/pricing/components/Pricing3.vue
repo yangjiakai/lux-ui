@@ -98,7 +98,7 @@ const pricing_plans2 = [
                         class="text-white my-5"
                         block
                         :color="plan.color"
-                        >text</v-btn
+                        >Subscribe</v-btn
                       >
                     </p>
                   </v-card>

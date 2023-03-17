@@ -150,7 +150,7 @@
               <v-btn value="elevated">elevated</v-btn>
               <v-btn value="tonal">tonal</v-btn>
               <v-btn value="outlined">outlined</v-btn>
-              <v-btn value="text">text</v-btn>
+              <v-btn value="text">Subscribe</v-btn>
               <v-btn value="plain">plain</v-btn>
             </v-btn-toggle>
           </v-form>
