@@ -9,6 +9,9 @@ import Card2 from "./components/Card2.vue";
 import Card3 from "./components/Card3.vue";
 import Card4 from "./components/Card4.vue";
 import Card5 from "./components/Card5.vue";
+import Card6 from "./components/Card6.vue";
+import Card7 from "./components/Card7.vue";
+import Card8 from "./components/Card8.vue";
 </script>
 
 <template>
@@ -20,7 +23,7 @@ import Card5 from "./components/Card5.vue";
       <h3 class="text-h5 font-weight-bold">
         Card
         <v-chip size="small" class="ma-2" color="primary" text-color="white">
-          4 Components
+          8 Components
         </v-chip>
       </h3>
     </div>
@@ -38,6 +41,9 @@ import Card5 from "./components/Card5.vue";
     <Card3 />
     <Card4 />
     <Card5 />
+    <Card6 />
+    <Card7 />
+    <Card8 />
   </div>
 </template>
 

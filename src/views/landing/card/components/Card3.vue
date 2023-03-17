@@ -8,7 +8,7 @@
 <template>
   <v-toolbar color="#F9FAFB" height="60">
     <v-toolbar-title class="text-h6 font-weight-bold">
-      <span>Card5</span>
+      <span>Card3</span>
     </v-toolbar-title>
   </v-toolbar>
   <v-sheet

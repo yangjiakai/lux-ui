@@ -44,7 +44,7 @@
             <div class="card-4 mx-auto my-5">
               <v-card variant="flat" height="400" width="300">
                 <v-img
-                  :src="'https://picsum.photos/300/200?random=' + i"
+                  :src="'https://picsum.photos/400/400?random=' + i"
                 ></v-img>
               </v-card>
             </div>
