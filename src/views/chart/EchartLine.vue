@@ -157,7 +157,7 @@ const { setOption, showLoading } = useChart(
   true,
   true,
   RenderType.SVGRenderer,
-  ThemeType.Dark
+  ThemeType.Light
 );
 
 onMounted(() => {
@@ -193,14 +193,14 @@ const add = () => {
 </script>
 
 <template>
-  <v-card class="ma-5">
+  <v-card class="ma-5 pa-5">
     <div ref="chartEl" :style="{ width: `100%`, height: `800px` }"></div>
   </v-card>
   <v-card class="ma-5 pa-5 control panel" min-height="500">
     <h1 class="text-h5 my-5">Control Panel</h1>
-    <v-btn class="mr-5" color="primary" @click="textTitle = 'new Title'"
+    <!-- <v-btn class="mr-5" color="primary" @click="textTitle = 'new Title'"
       >Change Title</v-btn
     >
-    <v-btn class="mr-5" color="primary" @click="add">Add Data</v-btn>
+    <v-btn class="mr-5" color="primary" @click="add">Add Data</v-btn> -->
   </v-card>
 </template>
