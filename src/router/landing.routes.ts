@@ -37,7 +37,7 @@ export default [
     name: "landing-feature",
     component: () =>
       import(
-        /* webpackChunkName: "landing-feature" */ "@/views/landing/feature/FeaturePage.vue"
+        /* webpackChunkName: "landing-feature" */ "@/views/landing/feature/Feature.vue"
       ),
     meta: {
       layout: "landing",
