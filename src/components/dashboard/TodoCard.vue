@@ -32,7 +32,7 @@ const searchKey = ref("");
       <transition-group name="fade" class="">
         <div v-for="todo in todoStore.todoList" :key="todo.id">
           <div class="todo-item d-flex align-center pa-5">
-            <v-avatar size="40" color="red">
+            <v-avatar size="40">
               <v-img
                 src="https://avatars.githubusercontent.com/u/35951244?v=4"
                 alt="alt"

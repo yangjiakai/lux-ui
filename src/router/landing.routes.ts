@@ -88,11 +88,11 @@ export default [
     },
   },
   {
-    path: "/landing/stars",
-    name: "landing-stars",
+    path: "/landing/stats",
+    name: "landing-stats",
     component: () =>
       import(
-        /* webpackChunkName: "landing-stars" */ "@/views/landing/stars/StarsPage.vue"
+        /* webpackChunkName: "landing-stats" */ "@/views/landing/stats/Stats.vue"
       ),
     meta: {
       layout: "landing",

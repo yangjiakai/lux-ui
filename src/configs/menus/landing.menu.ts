@@ -37,9 +37,9 @@ export default [
   },
   {
     icon: "mdi-dots-hexagon",
-    key: "menu.starsPage",
-    text: "Stars Page",
-    link: "/landing/stars",
+    key: "menu.statsPage",
+    text: "Stats Page",
+    link: "/landing/stats",
   },
   {
     icon: "mdi-dots-hexagon",

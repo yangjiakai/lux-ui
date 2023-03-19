@@ -82,7 +82,7 @@ export default {
     cardPage: "卡片页面",
     teamPage: "团队页面",
     testimonialPage: "推荐页面",
-    starsPage: "数据统计页面",
+    statsPage: "数据统计页面",
     logosPage: "Logo页面",
     callToActionPage: "行动页面",
     newsletterPage: "通讯页面",

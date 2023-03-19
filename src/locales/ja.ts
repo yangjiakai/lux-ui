@@ -82,7 +82,7 @@ export default {
     cardPage: "カードページ",
     teamPage: "チームページ",
     testimonialPage: "テストモニアルページ",
-    starsPage: "スターズページ",
+    statsPage: "スターズページ",
     logosPage: "ロゴスページ",
     callToActionPage: "アクションページ",
     newsletterPage: "ニュースレターページ",

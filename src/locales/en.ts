@@ -83,7 +83,7 @@ export default {
     cardPage: "Card Page",
     teamPage: "Team Page",
     testimonialPage: "Testimonial Page",
-    starsPage: "Stars Page",
+    statsPage: "Stats Page",
     logosPage: "Logos Page",
     callToActionPage: "Call To Action Page",
     newsletterPage: "Newsletter Page",
