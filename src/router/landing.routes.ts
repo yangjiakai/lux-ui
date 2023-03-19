@@ -114,7 +114,7 @@ export default [
     name: "landing-calltoaction",
     component: () =>
       import(
-        /* webpackChunkName: "landing-calltoaction" */ "@/views/landing/calltoaction/CallToActionPage.vue"
+        /* webpackChunkName: "landing-calltoaction" */ "@/views/landing/calltoaction/CalltoactionPage.vue"
       ),
     meta: {
       layout: "landing",
