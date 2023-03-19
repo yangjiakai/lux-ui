@@ -7,7 +7,7 @@
             <Icon icon="logos:webix-icon" class="mr-3 my-2" />News
           </h1>
           <v-card
-            elevation="2"
+            elevation="0"
             class="my-5 pa-3"
             v-for="card in newsCards"
             :key="card.id"
@@ -38,7 +38,7 @@
             <Icon icon="logos:archlinux" class="mr-3 my-2" />TimeLine
           </h1>
           <!-- Info Card1 -->
-          <v-card elevation="2" color="secondary" class="info-card gradient">
+          <v-card elevation="0" color="secondary" class="info-card gradient">
             <v-card-text class="d-flex align-center text-content">
               <Icon class="mr-5 text-h4" icon="logos:browserslist" />
               <span>Write something...</span>
