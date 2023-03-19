@@ -8,14 +8,14 @@
 <template>
   <v-toolbar color="#F9FAFB" height="60">
     <v-toolbar-title class="text-h6 font-weight-bold">
-      <span>CallToAction1</span>
+      <span>CallToAction2</span>
     </v-toolbar-title>
   </v-toolbar>
   <v-sheet
     elevation="0"
     class="mx-auto landing-warpper text-left"
     rounded
-    theme="dark"
+    theme="light"
   >
     <v-sheet
       elevation="0"

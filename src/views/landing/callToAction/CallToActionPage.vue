@@ -34,8 +34,8 @@ import CallToAction4 from "./components/CallToAction4.vue";
   <div>
     <CallToAction1 />
     <CallToAction2 />
-    <CallToAction3 />
-    <CallToAction4 />
+    <!-- <CallToAction3 />
+    <CallToAction4 /> -->
   </div>
 </template>
 
