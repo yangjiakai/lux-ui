@@ -9,8 +9,6 @@ import Feature2 from "./components/Feature2.vue";
 import Feature3 from "./components/Feature3.vue";
 import Feature4 from "./components/Feature4.vue";
 import Feature5 from "./components/Feature5.vue";
-const mode = ref("");
-const search = ref("");
 </script>
 
 <template>
