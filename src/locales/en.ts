@@ -76,7 +76,7 @@ export default {
     docs: "Documentation",
     feedback: "Feedback",
     support: "Support",
-    landingPage: "Landing Page",
+    landingPage: "Landing Page Demo",
     heroPage: "Hero Page",
     featurePage: "Feature Page",
     pricingPage: "Pricing Page",

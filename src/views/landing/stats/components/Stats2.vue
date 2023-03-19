@@ -42,7 +42,12 @@ const items = [
       <span>Stats2</span>
     </v-toolbar-title>
   </v-toolbar>
-  <v-sheet elevation="0" class="mx-auto landing-warpper text-left" rounded>
+  <v-sheet
+    elevation="0"
+    class="mx-auto landing-warpper text-left"
+    rounded
+    theme="dark"
+  >
     <v-sheet
       elevation="0"
       color="transparent"
