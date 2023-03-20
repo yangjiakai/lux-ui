@@ -5,10 +5,33 @@
 -->
 <script setup lang="ts">
 import IkeaFooter from "./component/IkeaFooter.vue";
+
+import axios from "axios";
+const errorMsg = ref("");
+const message = ref("");
+
+const callHelloFunction = async () => {
+  try {
+    const response = await axios.get(
+      "https://shirabako.com/.netlify/functions/hello"
+    );
+    message.value = response.data.message;
+  } catch (error) {
+    console.error("调用 Hello 函数时出错:", error);
+    errorMsg.value = error.message;
+  }
+};
+
+onMounted(() => {
+  callHelloFunction();
+});
 </script>
 
 <template>
-  <div class="">IKEA</div>
+  <v-alert color="#C51162" theme="dark" icon="mdi-material-design" border>
+    {{ errorMsg }}
+  </v-alert>
+  <div class="">IKEA {{ message }}</div>
 
   <!-- ---------------------------------------------- -->
   <!-- Main Header -->
