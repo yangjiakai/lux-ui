@@ -36,7 +36,7 @@
           @keyup.enter="addCard(column)"
           @keyup.esc="column.isAddVisible = false"
         ></v-text-field>
-        <div class="my-3 d-flex flex-md-row flex-column">
+        <div class="mt-3 d-flex flex-md-row flex-column">
           <v-btn
             class="flex-1 ma-1"
             size="small"
@@ -137,7 +137,7 @@
 </template>
 <script setup lang="ts">
 import VueDraggable from "vuedraggable";
-import BoardCard from "@/components/BoardCard";
+import BoardCard from "@/components/BoardCard.vue";
 
 const list1 = ref([
   { title: "John", id: 1, description: "des" },
@@ -151,18 +151,6 @@ const list2 = ref([
   { title: "Edgard", id: 6, description: "des" },
   { title: "Johnson", id: 7, description: "des" },
 ]);
-
-const add = () => {
-  list1.value.push({ name: "Juan", id: list1.value.length + 1 });
-};
-
-const log = (e) => {
-  window.console.log(e);
-};
-
-const sort = (e) => {
-  list1.value = list1.value.sort((a, b) => a.id - b.id);
-};
 
 const dragOptions = computed(() => {
   return {
