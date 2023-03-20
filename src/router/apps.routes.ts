@@ -2,6 +2,19 @@ import unsplashRoutes from "@/views/app/unsplash/UnsplashRoutes";
 
 export default [
   {
+    path: "/apps/board",
+    name: "app-board",
+    component: () =>
+      import(
+        /* webpackChunkName: "utility-board" */ "@/views/utility/BoardPage.vue"
+      ),
+    meta: {
+      title: "Board",
+      layout: "ui",
+      category: "APP",
+    },
+  },
+  {
     path: "/apps/email",
     meta: {
       layout: "ui",

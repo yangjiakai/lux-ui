@@ -1,5 +1,11 @@
 export default [
   {
+    icon: "mdi-bulletin-board",
+    key: "menu.board",
+    text: "Board",
+    link: "/apps/board",
+  },
+  {
     icon: "mdi-email-outline",
     key: "menu.email",
     text: "Email",

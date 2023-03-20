@@ -64,7 +64,7 @@
                   <v-card-title
                     class="d-flex justify-space-between align-center"
                     >No.{{ item.index }}
-                    <span>{{ item.data.size }}</span>
+
                     <v-btn size="small" variant="text" icon="mdi-heart"></v-btn>
                   </v-card-title>
                 </v-img>

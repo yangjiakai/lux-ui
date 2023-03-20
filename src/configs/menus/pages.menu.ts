@@ -81,12 +81,6 @@ export default [
         text: "FAQs / Help",
         link: "/utility/help",
       },
-      {
-        icon: "mdi-comment-question-outline",
-        key: "menu.board",
-        text: "Board",
-        link: "/utility/board",
-      },
     ],
   },
 ];

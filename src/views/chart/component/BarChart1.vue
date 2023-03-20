@@ -1,0 +1,175 @@
+<!--
+* @Component: EchartPie
+* @Maintainer: J.K. Yang
+* @Description: Echart 饼图页
+-->
+\
+<script setup lang="ts">
+import { onMounted, Ref, ref, computed, nextTick } from "vue";
+import type { EChartsOption } from "echarts";
+import useChart, { RenderType, ThemeType } from "@/plugins/useChart";
+import axios from "axios";
+import echarts from "@/plugins/lib";
+
+const textTitle = ref("EchartPie");
+const dataSet = ref([
+  { value: 335, name: "Direct" },
+  { value: 310, name: "Email" },
+  { value: 274, name: "Union Ads" },
+  { value: 235, name: "Video Ads" },
+  { value: 400, name: "Search Engine" },
+]);
+
+// Generate data
+let category = [];
+let dottedBase = +new Date();
+let lineData = [];
+let barData = [];
+for (let i = 0; i < 20; i++) {
+  let date = new Date((dottedBase += 3600 * 24 * 1000));
+  category.push(
+    [date.getFullYear(), date.getMonth() + 1, date.getDate()].join("-")
+  );
+  let b = Math.random() * 200;
+  let d = Math.random() * 200;
+  barData.push(b);
+  lineData.push(d + b);
+}
+const option = computed<EChartsOption>(() => ({
+  title: {
+    text: "Rainfall vs Evaporation",
+    subtext: "Fake Data",
+  },
+
+  backgroundColor: "#0f375f",
+  tooltip: {
+    trigger: "axis",
+    axisPointer: {
+      type: "shadow",
+    },
+  },
+  legend: {
+    data: ["line", "bar", "line", "dotted"],
+    textStyle: {
+      color: "#ccc",
+    },
+  },
+  xAxis: {
+    data: category,
+    axisLine: {
+      lineStyle: {
+        color: "#ccc",
+      },
+    },
+  },
+  yAxis: {
+    splitLine: { show: false },
+    axisLine: {
+      lineStyle: {
+        color: "#ccc",
+      },
+    },
+  },
+  series: [
+    {
+      name: "line",
+      type: "line",
+      smooth: true,
+      showAllSymbol: true,
+      symbol: "emptyCircle",
+      symbolSize: 15,
+      data: lineData,
+    },
+    {
+      name: "bar",
+      type: "bar",
+      barWidth: 10,
+      itemStyle: {
+        borderRadius: 5,
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: "#14c8d4" },
+          { offset: 1, color: "#43eec6" },
+        ]),
+      },
+      data: barData,
+    },
+    {
+      name: "line",
+      type: "bar",
+      barGap: "-100%",
+      barWidth: 10,
+      itemStyle: {
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: "rgba(20,200,212,0.5)" },
+          { offset: 0.2, color: "rgba(20,200,212,0.2)" },
+          { offset: 1, color: "rgba(20,200,212,0)" },
+        ]),
+      },
+      z: -12,
+      data: lineData,
+    },
+    {
+      name: "dotted",
+      type: "pictorialBar",
+      symbol: "rect",
+      itemStyle: {
+        color: "#0f375f",
+      },
+      symbolRepeat: true,
+      symbolSize: [12, 4],
+      symbolMargin: 1,
+      z: -10,
+      data: lineData,
+    },
+  ],
+}));
+
+const chartEl = ref<HTMLDivElement | null>(null);
+
+const { setOption, showLoading } = useChart(
+  chartEl as Ref<HTMLDivElement>,
+  true,
+  true,
+  RenderType.SVGRenderer,
+  ThemeType.Light
+);
+
+onMounted(() => {
+  nextTick(() => {
+    // 显示loading
+    showLoading();
+    // 假装有网络请求 ...
+    // 渲染图表
+    setOption(option.value);
+  });
+});
+
+watch(
+  () => option.value,
+  (newVal) => {
+    setOption(newVal);
+  },
+  { deep: true }
+);
+
+const sort = () => {
+  dataSet.value.sort(function (a, b) {
+    return a.value - b.value;
+  });
+};
+
+const add = () => {
+  dataSet.value.push({
+    value: Math.round(Math.random() * 1000),
+    name: "new data",
+  });
+};
+</script>
+
+<template>
+  <v-card class="ma-5 pa-5">
+    <div ref="chartEl" :style="{ width: `100%`, height: `800px` }"></div>
+
+    <h1 class="text-h5 my-5">Control Panel</h1>
+  </v-card>
+</template>
