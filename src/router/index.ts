@@ -21,14 +21,14 @@ export const constantRoutes = [
     },
     component: () => import("@/views/pages/DashBoard.vue"),
   },
-  {
-    path: "/:pathMatch(.*)*",
-    name: "error",
-    component: () =>
-      import(
-        /* webpackChunkName: "error" */ "@/views/pages/error/NotFoundPage.vue"
-      ),
-  },
+  // {
+  //   path: "/:pathMatch(.*)*",
+  //   name: "error",
+  //   component: () =>
+  //     import(
+  //       /* webpackChunkName: "error" */ "@/views/pages/error/NotFoundPage.vue"
+  //     ),
+  // },
   ...LandingRoutes,
   ...AuthRoutes,
   ...PagesRoutes,
