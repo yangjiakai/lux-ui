@@ -7,19 +7,11 @@
 // Styles
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";
-
-import config from "@/configs";
-
 // Composables
 import { createVuetify } from "vuetify";
-
-const { locale, availableLocales, fallbackLocale } = config.locales;
-
-const messages = {};
-
-availableLocales.forEach((l) => {
-  messages[l.code] = l.messages;
-});
+import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n";
+import { useI18n } from "vue-i18n";
+import i18n from "@/plugins/i18n";
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
@@ -27,17 +19,6 @@ export default createVuetify({
     themes: {
       light: {
         colors: {
-          // primary: "#344767",
-          // secondary: "#fcfbff",
-          // "secondary-darken-1": "#b08be6",
-          // "secondary-lighten-1": "#fff",
-          // accent: "#6386e1",
-          // content: "#333333",
-          // background: "#F8F9FA",
-          // error: "#ef476f",
-          // info: "#2196F3",
-          // success: "#06d6a0",
-          // warning: "#ffd166",
           background: "#ffffff",
           surface: "#fff",
           primary: "#0096c7",
@@ -87,8 +68,6 @@ export default createVuetify({
     },
   },
   locale: {
-    locale: locale,
-    fallback: fallbackLocale,
-    messages: messages,
+    adapter: createVueI18nAdapter({ i18n, useI18n }),
   },
 });

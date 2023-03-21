@@ -18,6 +18,7 @@ import PerfectScrollbar from "vue3-perfect-scrollbar";
 import "@/styles/main.scss";
 import { registerPlugins } from "@/plugins";
 import router from "./router";
+import i18n from "./plugins/i18n";
 
 const pinia = createPinia();
 pinia.use(piniaPersist);
@@ -33,4 +34,5 @@ app.use(MasonryWall);
 app.use(VueVirtualScroller);
 app.use(VueApexCharts);
 app.use(pinia);
+app.use(i18n);
 app.mount("#app");

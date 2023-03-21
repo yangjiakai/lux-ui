@@ -16,7 +16,7 @@
           v-model="email"
           required
           :error="error"
-          :label="t('$vuetify.login.email')"
+          :label="$t('login.email')"
           :density="formStyle.density"
           :variant="formStyle.variant"
           :color="formStyle.borderColor"
@@ -35,7 +35,7 @@
           :type="showPassword ? 'text' : 'password'"
           :error="error"
           :error-messages="errorMessages"
-          :label="t('$vuetify.login.password')"
+          :label="$t('login.password')"
           :density="formStyle.density"
           :variant="formStyle.variant"
           :color="formStyle.borderColor"
@@ -56,13 +56,13 @@
           color="primary"
           @click="submit"
           class="mt-2"
-          >{{ t("$vuetify.login.button") }}</v-btn
+          >{{ $t("login.button") }}</v-btn
         >
 
         <div
           class="text-grey text-center text-caption font-weight-bold text-uppercase my-5"
         >
-          {{ t("$vuetify.login.orsign") }}
+          {{ $t("login.orsign") }}
         </div>
 
         <!-- external providers list -->
@@ -93,16 +93,16 @@
 
         <div class="mt-5 text-center">
           <router-link class="text-primary" to="/auth/forgot-password">
-            {{ t("$vuetify.login.forgot") }}
+            {{ $t("login.forgot") }}
           </router-link>
         </div>
       </v-form></v-card-text
     >
   </v-card>
   <div class="text-center mt-6">
-    {{ t("$vuetify.login.noaccount") }}
+    {{ $t("login.noaccount") }}
     <router-link to="/auth/signup" class="text-primary font-weight-bold">
-      {{ t("$vuetify.login.create") }}
+      {{ $t("login.create") }}
     </router-link>
   </div>
 </template>

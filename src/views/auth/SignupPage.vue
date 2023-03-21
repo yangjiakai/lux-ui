@@ -105,7 +105,7 @@ const resetErrors = () => {
 <template>
   <v-card class="pa-3" elevation="3">
     <v-card-title primary-title class="my-4 text-h4">
-      {{ t("$vuetify.register.title") }}
+      {{ $t("register.title") }}
     </v-card-title>
     <v-card-subtitle>Let's build amazing products</v-card-subtitle>
     <!-- sign in form -->
@@ -122,7 +122,7 @@ const resetErrors = () => {
           v-model="username"
           required
           :error="error"
-          :label="t('$vuetify.register.name')"
+          :label="$t('register.name')"
           :density="formStyle.density"
           :variant="formStyle.variant"
           :color="formStyle.borderColor"
@@ -139,7 +139,7 @@ const resetErrors = () => {
           v-model="email"
           required
           :error="error"
-          :label="t('$vuetify.register.email')"
+          :label="$t('register.email')"
           :density="formStyle.density"
           :variant="formStyle.variant"
           :color="formStyle.borderColor"
@@ -158,7 +158,7 @@ const resetErrors = () => {
           :type="showPassword ? 'text' : 'password'"
           :error="error"
           :error-messages="errorMessages"
-          :label="t('$vuetify.register.password')"
+          :label="$t('register.password')"
           :density="formStyle.density"
           :variant="formStyle.variant"
           :color="formStyle.borderColor"
@@ -179,13 +179,13 @@ const resetErrors = () => {
           color="primary"
           @click="submit"
           class="mt-2"
-          >{{ t("$vuetify.register.button") }}</v-btn
+          >{{ $t("register.button") }}</v-btn
         >
 
         <div
           class="text-grey text-center text-caption font-weight-bold text-uppercase my-5"
         >
-          {{ t("$vuetify.register.orsign") }}
+          {{ $t("register.orsign") }}
         </div>
 
         <!-- external providers list -->
@@ -215,23 +215,23 @@ const resetErrors = () => {
         </div>
 
         <div class="my-5 text-center">
-          {{ t("$vuetify.register.agree") }}
+          {{ $t("register.agree") }}
           <br />
           <router-link class="text-primary" to="">{{
-            t("$vuetify.common.tos")
+            $t("common.tos")
           }}</router-link>
           &
           <router-link class="text-primary" to="">{{
-            t("$vuetify.common.policy")
+            $t("common.policy")
           }}</router-link>
         </div>
       </v-form></v-card-text
     >
   </v-card>
   <div class="text-center mt-6">
-    {{ t("$vuetify.register.account") }}
+    {{ $t("register.account") }}
     <router-link to="/auth/signin" class="text-primary font-weight-bold">
-      {{ t("$vuetify.register.signin") }}
+      {{ $t("register.signin") }}
     </router-link>
   </div>
 </template>

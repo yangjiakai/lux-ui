@@ -1,6 +1,6 @@
-import en from "../locales/en";
-import zhHans from "../locales/zhHans";
-import ja from "../locales/ja";
+import enMessages from "../locales/en";
+import zhHansMessages from "../locales/zhHans";
+import jaMessages from "../locales/ja";
 
 const supported = ["en", "zhHans", "ja"];
 let locale = "en";
@@ -28,21 +28,26 @@ export default {
       flag: "us",
       name: "united-states",
       label: "English",
-      messages: en,
+      messages: enMessages,
     },
     {
       code: "zhHans",
       flag: "cn",
       name: "china",
       label: "中文",
-      messages: zhHans,
+      messages: zhHansMessages,
     },
     {
       code: "ja",
       flag: "jp",
       name: "japan",
       label: "日本語",
-      messages: ja,
+      messages: jaMessages,
     },
   ],
+  messages: {
+    en: enMessages,
+    zhHans: zhHansMessages,
+    ja: jaMessages,
+  },
 };

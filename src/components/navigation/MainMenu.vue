@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useLocale } from "vuetify";
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
-const { t } = useLocale();
 const customizeTheme = useCustomizeThemeStore();
 
 const props = defineProps({
@@ -21,7 +20,7 @@ onMounted(() => {});
         v-if="!customizeTheme.miniSidebar && (menuArea.key || menuArea.text)"
         class="pa-1 mt-2 text-overline"
       >
-        {{ menuArea.key ? t(`$vuetify.${menuArea.key}`) : menuArea.text }}
+        {{ menuArea.key ? $t(menuArea.key) : menuArea.text }}
       </div>
       <template v-if="menuArea.items">
         <template
@@ -37,9 +36,7 @@ onMounted(() => {});
             density="compact"
           >
             <v-list-item-title
-              v-text="
-                menuItem.key ? t(`$vuetify.${menuItem.key}`) : menuItem.text
-              "
+              v-text="menuItem.key ? $t(menuItem.key) : menuItem.text"
             ></v-list-item-title>
           </v-list-item>
           <v-list-group v-else :value="menuItem.items">
@@ -48,9 +45,7 @@ onMounted(() => {});
               <v-list-item
                 v-bind="props"
                 :prepend-icon="menuItem.icon || 'mdi-circle-medium'"
-                :title="
-                  menuItem.key ? t(`$vuetify.${menuItem.key}`) : menuItem.text
-                "
+                :title="menuItem.key ? $t(menuItem.key) : menuItem.text"
               >
               </v-list-item>
             </template>
@@ -59,11 +54,7 @@ onMounted(() => {});
               v-for="(subMenuItem, subMenuIndex) in menuItem.items"
               :key="subMenuIndex"
               :prepend-icon="subMenuItem.icon || 'mdi-circle-medium'"
-              :title="
-                subMenuItem.key
-                  ? t(`$vuetify.${subMenuItem.key}`)
-                  : subMenuItem.text
-              "
+              :title="subMenuItem.key ? $t(subMenuItem.key) : subMenuItem.text"
               :to="subMenuItem.link"
               density="compact"
             ></v-list-item>
