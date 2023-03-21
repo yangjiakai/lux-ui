@@ -5,6 +5,7 @@
 -->
 <script setup lang="ts">
 import TodoMenu from "@/views/app/todo/component/TodoMenu.vue";
+import TodoCard from "@/views/app/todo/component/TodoCard.vue";
 </script>
 
 <template>
@@ -20,15 +21,12 @@ import TodoMenu from "@/views/app/todo/component/TodoMenu.vue";
     <!--  List Todo-->
     <!-- ---------------------------------------------- -->
     <div class="main">
-      <!-- <router-view v-slot="{ Component }">
-        <transition name="fade">
-          <component :is="Component" />
-        </transition>
-      </router-view> -->
       <transition name="fade">
         <router-view></router-view>
       </transition>
     </div>
+
+    <TodoCard />
   </div>
 </template>
 
