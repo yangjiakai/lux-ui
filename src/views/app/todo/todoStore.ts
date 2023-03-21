@@ -122,7 +122,8 @@ export const useTodoStore = defineStore({
     // Specific Label todos
     getLabelTodos() {
       return this.todList.filter(
-        (todo: Todo) => todo.tags && todo.tags.includes(this.currentLabel)
+        (todo: Todo) =>
+          todo.tags && todo.tags.includes(this.currentLabel) && !todo.completed
       );
     },
   },
