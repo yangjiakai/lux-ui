@@ -30,18 +30,47 @@ const todoStore = useTodoStore();
         </template>
       </v-list-item>
       <v-list-item
-        prepend-icon="mdi-check"
-        to="/apps/todo/completed"
+        prepend-icon="mdi-send-outline"
+        to="/apps/email/send"
         active-class="text-primary"
         link
-        title="Completed"
+        title="Send"
       >
         <template v-slot:append>
-          <v-badge
-            color="primary"
-            :content="todoStore.getCompletedTodos.length"
-            inline
-          ></v-badge>
+          <v-badge color="primary" content="12" inline></v-badge>
+        </template>
+      </v-list-item>
+      <v-list-item
+        prepend-icon="mdi-pencil-outline"
+        to="/apps/email/drafts"
+        active-class="text-primary"
+        link
+        title="Drafts"
+      >
+        <template v-slot:append>
+          <v-badge color="primary" content="12" inline></v-badge>
+        </template>
+      </v-list-item>
+      <v-list-item
+        prepend-icon="mdi-star-outline"
+        to="/apps/email/starred"
+        active-class="text-primary"
+        link
+        title="Starred"
+      >
+        <template v-slot:append>
+          <v-badge color="primary" content="12" inline></v-badge>
+        </template>
+      </v-list-item>
+      <v-list-item
+        prepend-icon="mdi-delete-restore"
+        to="/apps/email/trash"
+        active-class="text-primary"
+        link
+        title="Trash"
+      >
+        <template v-slot:append>
+          <v-badge color="primary" content="12" inline></v-badge>
         </template>
       </v-list-item>
     </v-list>

@@ -1,4 +1,15 @@
-export const inbox = [
+export type Email = {
+  id: number;
+  read: boolean;
+  starred: boolean;
+  time: string;
+  subject: string;
+  title: string;
+  content: string;
+  labels: string[];
+};
+
+export const inboxList: Email[] = [
   {
     id: 1,
     read: false,
@@ -52,7 +63,7 @@ export const inbox = [
   },
 ];
 
-export const starred = [
+export const starredList: Email[] = [
   {
     id: 1,
     read: false,
@@ -63,15 +74,5 @@ export const starred = [
     content:
       "I'll be in your neighborhood doing errands this weekend. Do you want to hang out?",
     labels: ["work"],
-  },
-  {
-    id: 5,
-    read: true,
-    starred: true,
-    time: "18hr",
-    subject: "Recipe to try",
-    title: "Britta Holt",
-    content: "We should eat this: Grate, Squash, Corn, and tomatillo Tacos.",
-    labels: ["invoice"],
   },
 ];

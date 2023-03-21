@@ -1,7 +1,11 @@
 export default [
   {
     path: "",
-    redirect: "inbox",
+    // redirect: "inbox",
+    component: () =>
+      import(
+        /* webpackChunkName: "apps-email-inbox" */ "@/views/app/email/pages/InboxPage.vue"
+      ),
   },
   {
     path: "inbox",

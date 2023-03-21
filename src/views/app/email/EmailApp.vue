@@ -4,8 +4,8 @@
 * @Description: 
 -->
 <script setup lang="ts">
-import TodoMenu from "@/views/app/todo/component/TodoMenu.vue";
-import TodoCard from "@/views/app/todo/component/TodoCard.vue";
+import EmailMenu from "@/views/app/email/components/EmailMenu.vue";
+import EmailCompose from "@/views/app/email/components/EmailCompose.vue";
 </script>
 
 <template>
@@ -14,19 +14,21 @@ import TodoCard from "@/views/app/todo/component/TodoCard.vue";
     <!-- Side Bar -->
     <!-- ---------------------------------------------- -->
     <div class="d-none d-md-block sidebar">
-      <TodoMenu />
+      <EmailMenu />
     </div>
 
     <!-- ---------------------------------------------- -->
     <!--  Mail RouterView-->
     <!-- ---------------------------------------------- -->
     <div class="main">
-      <transition name="fade">
-        <router-view></router-view>
-      </transition>
+      <router-view v-slot="{ Component }">
+        <transition name="fade">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </div>
 
-    <TodoCard />
+    <EmailCompose />
   </div>
 </template>
 

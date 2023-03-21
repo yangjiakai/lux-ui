@@ -21,9 +21,11 @@ import TodoCard from "@/views/app/todo/component/TodoCard.vue";
     <!--  List Todo-->
     <!-- ---------------------------------------------- -->
     <div class="main">
-      <transition name="fade">
-        <router-view></router-view>
-      </transition>
+      <router-view v-slot="{ Component }">
+        <transition name="fade">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </div>
 
     <TodoCard />

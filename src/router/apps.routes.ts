@@ -1,5 +1,6 @@
 import unsplashRoutes from "@/views/app/unsplash/UnsplashRoutes";
 import todoRoutes from "@/views/app/todo/TodoRoutes";
+import emailRoutes from "@/views/app/email/emailRoutes";
 
 export default [
   {
@@ -26,7 +27,7 @@ export default [
       import(
         /* webpackChunkName: "app-email" */ "@/views/app/email/EmailApp.vue"
       ),
-    children: [],
+    children: [...emailRoutes],
   },
   {
     path: "/apps/chat",
