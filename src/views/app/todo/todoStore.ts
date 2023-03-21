@@ -1,12 +1,5 @@
 import { defineStore } from "pinia";
-
-interface Todo {
-  id: number;
-  title: string;
-  detail: string;
-  completed: boolean;
-  tags: string[];
-}
+import { Todo } from "./todoTypes";
 
 const todos = [
   {
@@ -41,21 +34,21 @@ const todos = [
     id: 5,
     title: "Meditate",
     detail: "Practice mindfulness for 15 minutes",
-    completed: false,
+    completed: true,
     tags: ["relaxation"],
   },
   {
     id: 6,
     title: "Watch a movie",
     detail: "Stream a comedy to lighten the mood",
-    completed: false,
+    completed: true,
     tags: ["relaxation"],
   },
   {
     id: 7,
     title: "Buy groceries",
     detail: "Stock up on fruits, vegetables, and snacks",
-    completed: false,
+    completed: true,
     tags: ["shopping"],
   },
   {
@@ -85,6 +78,7 @@ export const useTodoStore = defineStore({
   id: "todo",
   state: () => ({
     todList: todos,
+    currentLabel: "work",
     labels: [
       {
         id: "work",
@@ -126,9 +120,9 @@ export const useTodoStore = defineStore({
     },
 
     // Specific Label todos
-    getLabelTodos(labelId: any) {
+    getLabelTodos() {
       return this.todList.filter(
-        (todo: Todo) => todo.tags && todo.tags.includes(labelId)
+        (todo: Todo) => todo.tags && todo.tags.includes(this.currentLabel)
       );
     },
   },

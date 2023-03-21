@@ -1,4 +1,5 @@
 import unsplashRoutes from "@/views/app/unsplash/UnsplashRoutes";
+import todoRoutes from "@/views/app/todo/TodoRoutes";
 
 export default [
   {
@@ -47,7 +48,7 @@ export default [
     },
     component: () =>
       import(/* webpackChunkName: "app-todo" */ "@/views/app/todo/TodoApp.vue"),
-    children: [],
+    children: [...todoRoutes],
   },
   {
     path: "/apps/nitori",

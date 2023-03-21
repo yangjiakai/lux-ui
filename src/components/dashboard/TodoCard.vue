@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useTodoStore } from "@/stores/todoStore";
+import { useTodoStore } from "@/views/app/todo/todoStore";
 const todoStore = useTodoStore();
 
 const loading = ref(true);
@@ -45,7 +45,7 @@ const searchKey = ref("");
             </div>
             <v-btn
               size="small"
-              icon="mdi-delete-outline"
+              icon="mdi-delete-outline  "
               variant="text"
               @click="todoStore.deleteTodoById(todo.id)"
             ></v-btn>

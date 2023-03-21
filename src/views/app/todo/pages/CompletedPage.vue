@@ -10,7 +10,7 @@ const todoStore = useTodoStore();
 </script>
 
 <template>
-  <TodoList :tasks="todoStore.getTodoList" />
+  <TodoList :tasks="todoStore.getCompletedTodos" />
 </template>
 
 <style scoped lang="scss"></style>
