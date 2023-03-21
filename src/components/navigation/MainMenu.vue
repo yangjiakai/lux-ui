@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useLocale } from "vuetify";
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 const customizeTheme = useCustomizeThemeStore();
 

@@ -26,7 +26,7 @@
 import config from "@/configs";
 import { Icon } from "@iconify/vue";
 import { useLocale } from "vuetify";
-const { current, t } = useLocale();
+const { current } = useLocale();
 const { availableLocales } = config.locales;
 
 const availableLocaleList = computed(() => {

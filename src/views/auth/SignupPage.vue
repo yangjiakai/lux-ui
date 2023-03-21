@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { useLocale } from "vuetify";
 import { Icon } from "@iconify/vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
-const { t } = useLocale();
 
 //
 const refLoginForm = ref(null);
