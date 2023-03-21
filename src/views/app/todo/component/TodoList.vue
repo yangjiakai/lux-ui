@@ -48,10 +48,14 @@ const filterdTodoList = computed(() => {
     <!-- List -->
     <!-- ---------------------------------------------- -->
     <perfect-scrollbar class="todo-list">
-      <transition-group name="fade" class="">
+      <transition-group name="fade">
         <div v-for="todo in filterdTodoList" :key="todo.id">
           <div class="todo-item d-flex align-center pa-5">
-            <v-checkbox-btn color="primary" class="pe-2"></v-checkbox-btn>
+            <v-checkbox-btn
+              v-model="todo.completed"
+              color="primary"
+              class="pe-2"
+            ></v-checkbox-btn>
             <v-avatar size="40">
               <v-img
                 src="https://avatars.githubusercontent.com/u/35951244?v=4"
@@ -59,8 +63,17 @@ const filterdTodoList = computed(() => {
               />
             </v-avatar>
             <div class="flex-1 mx-5">
-              <div class="font-weight-bold">{{ todo.title }}</div>
-              <div>{{ todo.detail }}</div>
+              <div
+                class="font-weight-bold"
+                :class="todo.completed ? 'text-decoration-line-through' : ''"
+              >
+                {{ todo.title }}
+              </div>
+              <div
+                :class="todo.completed ? 'text-decoration-line-through' : ''"
+              >
+                {{ todo.detail }}
+              </div>
               <div>
                 <v-chip
                   size="x-small"

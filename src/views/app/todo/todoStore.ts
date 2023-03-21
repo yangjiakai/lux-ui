@@ -111,7 +111,7 @@ export const useTodoStore = defineStore({
   getters: {
     // Full list of todos
     getTodoList() {
-      return this.todList;
+      return this.todList.filter((todo: Todo) => !todo.completed);
     },
 
     // Completed todos

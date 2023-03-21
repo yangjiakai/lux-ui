@@ -20,11 +20,14 @@ import TodoMenu from "@/views/app/todo/component/TodoMenu.vue";
     <!--  List Todo-->
     <!-- ---------------------------------------------- -->
     <div class="main">
-      <router-view v-slot="{ Component }">
+      <!-- <router-view v-slot="{ Component }">
         <transition name="fade">
           <component :is="Component" />
         </transition>
-      </router-view>
+      </router-view> -->
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
     </div>
   </div>
 </template>
