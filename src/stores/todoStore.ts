@@ -70,14 +70,14 @@ const todos = [
     title: "Order supplies",
     detail: "Get some office essentials for the team",
     completed: false,
-    tags: ["shopping"],
+    tags: ["shopping", "relaxation"],
   },
   {
     id: 10,
     title: "Buy gifts",
     detail: "Get presents for friends and family",
     completed: false,
-    tags: ["shopping"],
+    tags: ["shopping", "relaxation"],
   },
 ];
 
