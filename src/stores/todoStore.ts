@@ -84,8 +84,8 @@ const todos = [
 export const useTodoStore = defineStore({
   id: "todo",
   state: () => ({
-    todoList: ref<Todo[]>(todos),
-    labels: ref([
+    todList: todos,
+    labels: [
       {
         id: "work",
         title: "Work",
@@ -101,7 +101,7 @@ export const useTodoStore = defineStore({
         title: "Shopping",
         color: "teal",
       },
-    ]),
+    ],
   }),
 
   // persist: {
@@ -114,6 +114,40 @@ export const useTodoStore = defineStore({
   //   ],
   // },
 
-  getters: {},
-  actions: {},
+  getters: {
+    // Full list of todos
+    getTodoList() {
+      return this.todList;
+    },
+
+    // Completed todos
+    getCompletedTodos() {
+      return this.todList.filter((todo: Todo) => todo.completed);
+    },
+
+    // Specific Label todos
+    getLabelTodos(labelId: any) {
+      return this.todList.filter(
+        (todo: Todo) => todo.tags && todo.tags.includes(labelId)
+      );
+    },
+  },
+  actions: {
+    // Add new todo
+    addNewTodo() {
+      const newTodo = {
+        id: this.todList.length + 1,
+        title: "",
+        detail: "",
+        completed: false,
+        tags: [],
+      };
+      this.todList.push(newTodo);
+    },
+    // Delete todo By Id
+    deleteTodoById(todoId: number) {
+      const index = this.todList.findIndex((todo: Todo) => todo.id === todoId);
+      this.todList.splice(index, 1);
+    },
+  },
 });

@@ -21,7 +21,8 @@ const searchKey = ref("");
   </div>
   <div v-else>
     <v-text-field
-      class="shadow-1"
+      class="elevation-1"
+      variant="solo"
       hide-details
       prepend-inner-icon="mdi-magnify"
       placeholder="Filter Tasks"
@@ -30,7 +31,7 @@ const searchKey = ref("");
 
     <perfect-scrollbar class="todo-list">
       <transition-group name="fade" class="">
-        <div v-for="todo in todoStore.todoList" :key="todo.id">
+        <div v-for="todo in todoStore.getTodoList" :key="todo.id">
           <div class="todo-item d-flex align-center pa-5">
             <v-avatar size="40">
               <v-img
@@ -44,13 +45,9 @@ const searchKey = ref("");
             </div>
             <v-btn
               size="small"
-              icon="mdi-close"
+              icon="mdi-delete-outline"
               variant="text"
-              @click="
-                todoStore.todoList = todoStore.todoList.filter(
-                  (item) => item.id !== todo.id
-                )
-              "
+              @click="todoStore.deleteTodoById(todo.id)"
             ></v-btn>
           </div>
         </div>

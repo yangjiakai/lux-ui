@@ -17,7 +17,7 @@ const getLabelColor = (id: string) => {
 
 // filterdTodoList is a computed value that will filter the todoList based on the searchKey value
 const filterdTodoList = computed(() => {
-  return todoStore.todoList.filter((todo) => {
+  return todoStore.getTodoList.filter((todo) => {
     return todo.title.toLowerCase().includes(searchKey.value.toLowerCase());
   });
 });
@@ -117,11 +117,7 @@ const filterdTodoList = computed(() => {
                   size="small"
                   icon="mdi-delete-outline"
                   variant="text"
-                  @click="
-                    todoStore.todoList = todoStore.todoList.filter(
-                      (item) => item.id !== todo.id
-                    )
-                  "
+                  @click="todoStore.deleteTodoById(todo.id)"
                 ></v-btn>
               </div>
             </div>
