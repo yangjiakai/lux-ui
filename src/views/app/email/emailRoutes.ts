@@ -16,11 +16,11 @@ export default [
       ),
   },
   {
-    path: "sent",
-    name: "apps-email-sent",
+    path: "send",
+    name: "apps-email-send",
     component: () =>
       import(
-        /* webpackChunkName: "apps-email-sent" */ "@/views/app/email/pages/SentPage.vue"
+        /* webpackChunkName: "apps-email-send" */ "@/views/app/email/pages/SendPage.vue"
       ),
   },
   {

@@ -40,7 +40,7 @@ const filterdEmailList = computed(() => {
       class="elevation-1 ma-3"
       hide-details
       prepend-inner-icon="mdi-magnify"
-      placeholder="Filter Tasks"
+      placeholder="Search Email"
       v-model="searchKey"
     ></v-text-field>
 
@@ -62,6 +62,12 @@ const filterdEmailList = computed(() => {
                 alt="alt"
               />
             </v-avatar>
+            <v-btn
+              class="ml-2"
+              :icon="email.starred ? 'mdi-star' : 'mdi-star-outline'"
+              :color="email.starred ? 'yellow' : 'grey'"
+              variant="text"
+            ></v-btn>
             <div class="flex-1 mx-5">
               <div class="font-weight-bold">
                 {{ email.title }}
