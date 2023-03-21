@@ -11,25 +11,22 @@ const todoStore = useTodoStore();
 <template>
   <v-card height="100%" class="pa-3">
     <!-- ---------------------------------------------- -->
-    <!-- Add Task Dialog -->
+    <!-- Write Email -->
     <!-- ---------------------------------------------- -->
-
-    <v-btn color="primary" block size="large" class="mb-3">Add Task</v-btn>
+    <v-btn color="primary" block size="large" class="mb-3"
+      >Write an email</v-btn
+    >
 
     <v-list nav class="mt-2 pa-0">
       <v-list-item
-        prepend-icon="mdi-calendar-check"
-        to="/apps/todo/tasks"
+        prepend-icon="mdi-inbox"
+        to="/apps/email/inbox"
         active-class="text-primary"
         link
-        title="Tasks"
+        title="Inbox"
       >
         <template v-slot:append>
-          <v-badge
-            color="primary"
-            :content="todoStore.getTodoList.length"
-            inline
-          ></v-badge>
+          <v-badge color="primary" content="12" inline></v-badge>
         </template>
       </v-list-item>
       <v-list-item
