@@ -30,7 +30,7 @@ const converToKebabCase = (str: string) => {
 // Color Object to Array
 const convertColorObject = (colorName: string, colorObj: any) => {
   const colorsArray = Object.entries(colorObj).map(([key, color]) => {
-    const colorClass = convertToClass(key);
+    const colorClass = converToKebabCase(colorName) + "-" + convertToClass(key);
     return { key, color, colorClass };
   });
 
@@ -53,20 +53,20 @@ const convertColorObject = (colorName: string, colorObj: any) => {
           lg="3"
           v-for="colorTheme in computedColors"
         >
-          <v-card elevation="10" class="my-10">
+          <v-card elevation="10" class="mb-10">
             <v-card :color="colorTheme.class" height="200">
               <h1 class="text-h6 font-weight-bold pa-5">
                 {{ colorTheme.key }}
               </h1>
             </v-card>
             <v-card
-              :color="colorTheme.class + '-' + color.colorClass"
+              :color="color.colorClass"
               height="100"
               class="mt-5 pa-5"
               v-for="color in colorTheme.colors"
             >
               <h3>
-                <copy-label :text="colorTheme.class + '-' + color.colorClass" />
+                <copy-label :text="color.colorClass" />
               </h3>
               <h3 class="mt-2"><copy-label :text="color.color" /></h3>
             </v-card>
