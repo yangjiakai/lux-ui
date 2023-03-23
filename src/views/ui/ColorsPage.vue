@@ -5,48 +5,72 @@
 -->
 <script setup lang="ts">
 import { materialColorThemes } from "@/data/colors";
+
 const computedColors = computed(() => {
-  const colorKeys = Object.keys(materialColorThemes);
-  const colors = colorKeys.map((key) => {
+  const colorList = [];
+  Object.keys(materialColorThemes).forEach((key) => {
     const color = materialColorThemes[key];
-    return {
-      key,
-      color,
-    };
+    const colorObj = convertColorObject(key, color);
+    colorList.push(colorObj);
   });
-  return colors;
+  return colorList;
 });
+
+// dark1 => dark-1
+const convertToClass = (str: string) => {
+  return str.replace(/^([a-z]+)(\d)$/, "$1-$2");
+};
+
+// blueGrey => blue-grey
+const converToKebabCase = (str: string) => {
+  return str.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+};
+
+// Color Object to Array
+const convertColorObject = (colorName: string, colorObj: any) => {
+  const colorsArray = Object.entries(colorObj).map(([key, color]) => {
+    const colorClass = convertToClass(key);
+    return { key, color, colorClass };
+  });
+
+  return {
+    key: colorName,
+    class: converToKebabCase(colorName),
+    colors: colorsArray,
+  };
+};
 </script>
 
 <template>
   <div class="">
-    {{ computedColors }}
-    <!-- <v-container>
+    <v-container>
       <v-row>
         <v-col
           cols="12"
           sm="6"
           md="4"
           lg="3"
-          v-for="colorTheme in materialColorThemes"
+          v-for="colorTheme in computedColors"
         >
-          <v-card>
-            <h1>{{ colorTheme.key }}</h1>
-
-            <v-card height="100" v-for="color in colorTheme.colors">
-              <div class="d-flex align-center">
-                <div class="flex-grow-1">
-                  <v-card :color="color.color" height="100" class="mt-5">
-                    <h3>{{ color.key }}</h3>
-                    <h3>{{ color.color }}</h3>
-                  </v-card>
-                </div>
-              </div>
+          <v-card elevation="10" class="my-10">
+            <v-card :color="colorTheme.class" height="200">
+              <h1 class="text-h6 font-weight-bold pa-5">
+                {{ colorTheme.key }}
+              </h1>
+            </v-card>
+            <v-card
+              :color="colorTheme.class + '-' + color.colorClass"
+              height="100"
+              class="mt-5 pa-5"
+              v-for="color in colorTheme.colors"
+            >
+              <h3>{{ colorTheme.class + "-" + color.colorClass }}</h3>
+              <h3>{{ color.color }}</h3>
             </v-card>
           </v-card>
         </v-col>
       </v-row>
-    </v-container> -->
+    </v-container>
   </div>
 </template>
 
