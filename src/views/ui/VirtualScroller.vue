@@ -1,10 +1,11 @@
 <template>
   <v-container>
-    <v-card height="1000" elevation="6">
+    <h1>{{ length }}</h1>
+    <v-card height="2000" elevation="6">
       <RecycleScroller
         class="scroller"
         :items="list"
-        :item-size="32"
+        :item-size="50"
         key-field="id"
         v-slot="{ item }"
       >
@@ -16,15 +17,19 @@
   </v-container>
 </template>
 <script setup lang="ts">
-const list = Array.from({ length: 1000 }, (value, index) => ({
-  id: index + "",
-  name: "yjk" + index,
-}));
+const list = ref(
+  Array.from({ length: 20000 }, (value, index) => ({
+    id: index + "",
+    name: "yjk" + index,
+  }))
+);
+
+const length = computed(() => list.value.length);
 </script>
 
 <style scoped>
 .scroller {
-  height: 500px;
+  height: 1000px;
 }
 
 .user {
