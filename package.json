@@ -16,6 +16,7 @@
     "echarts": "^5.4.1",
     "flag-icons": "^6.6.6",
     "focus-trap": "^7.2.0",
+    "openai": "^3.2.1",
     "pinia": "^2.0.28",
     "pinia-plugin-persist": "^1.0.0",
     "roboto-fontface": "*",

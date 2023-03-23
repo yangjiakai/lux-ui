@@ -1,0 +1,66 @@
+<!--
+* @Component: 
+* @Maintainer: J.K. Yang
+* @Description: 
+-->
+<script setup lang="ts">
+import InputArea from "./InputArea.vue";
+import MessageArea from "./MessageArea.vue";
+import { useChatStore } from "../chatStore";
+
+const chatStore = useChatStore();
+const target = ref();
+
+// scroll to bottom
+const scrollToBottom = () => {
+  const chatArea = document.getElementById("chat-area");
+  chatArea?.scrollTo({
+    top: chatArea?.scrollHeight,
+  });
+};
+</script>
+
+<template>
+  <!-- ---------------------------------------------- -->
+  <!---Header Area -->
+  <!-- ---------------------------------------------- -->
+  <v-toolbar elevation="1" color="primary">
+    <v-btn @click="chatStore.clearHistory">清空记录</v-btn>
+  </v-toolbar>
+  <!-- ---------------------------------------------- -->
+  <!---Chat Area -->
+  <!-- ---------------------------------------------- -->
+  <perfect-scrollbar ref="target" id="chat-area" class="chat-area">
+    <!-- ---------------------------------------------- -->
+    <!---Message Area -->
+    <!-- ---------------------------------------------- -->
+    <v-sheet color="transparent" class="messages-area pa-5">
+      <MessageArea />
+    </v-sheet>
+    <!-- ---------------------------------------------- -->
+    <!---Input Area -->
+    <!-- ---------------------------------------------- -->
+  </perfect-scrollbar>
+  <v-sheet class="input-area">
+    <InputArea @scroll="scrollToBottom" />
+  </v-sheet>
+</template>
+
+<style scoped lang="scss">
+.chat-area {
+  height: calc(100vh - 400px);
+  background-image: url("https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80");
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+
+  .input-area {
+    position: fixed;
+    width: 100%;
+    height: 300px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+  }
+}
+</style>
