@@ -5,6 +5,7 @@
 -->
 <script setup lang="ts">
 import { materialColorThemes } from "@/data/colors";
+import CopyLabel from "@/components/common/CopyLabel.vue";
 
 const computedColors = computed(() => {
   const colorList = [];
@@ -64,8 +65,10 @@ const convertColorObject = (colorName: string, colorObj: any) => {
               class="mt-5 pa-5"
               v-for="color in colorTheme.colors"
             >
-              <h3>{{ colorTheme.class + "-" + color.colorClass }}</h3>
-              <h3>{{ color.color }}</h3>
+              <h3>
+                <copy-label :text="colorTheme.class + '-' + color.colorClass" />
+              </h3>
+              <h3 class="mt-2"><copy-label :text="color.color" /></h3>
             </v-card>
           </v-card>
         </v-col>
