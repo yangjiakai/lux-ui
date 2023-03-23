@@ -7,14 +7,20 @@
 import { materialColorThemes } from "@/data/colors";
 import CopyLabel from "@/components/common/CopyLabel.vue";
 
+const searchKey = ref("");
+
 const computedColors = computed(() => {
+  const search = searchKey.value.toLowerCase();
   const colorList = [];
   Object.keys(materialColorThemes).forEach((key) => {
     const color = materialColorThemes[key];
     const colorObj = convertColorObject(key, color);
     colorList.push(colorObj);
   });
-  return colorList;
+
+  return colorList.filter((colorTheme) => {
+    return colorTheme.key.toLowerCase().includes(search);
+  });
 });
 
 // dark1 => dark-1
@@ -44,6 +50,20 @@ const convertColorObject = (colorName: string, colorObj: any) => {
 
 <template>
   <div class="">
+    <!-- ---------------------------------------------- -->
+    <!-- Filter Input -->
+    <!-- ---------------------------------------------- -->
+    <v-text-field
+      clearable
+      variant="solo"
+      class="elevation-1 ma-3"
+      hide-details
+      prepend-inner-icon="mdi-magnify"
+      append-inner-icon="mdi-palette-outline"
+      placeholder="Search Colors"
+      v-model="searchKey"
+    ></v-text-field>
+
     <v-container>
       <v-row>
         <v-col
@@ -60,7 +80,9 @@ const convertColorObject = (colorName: string, colorObj: any) => {
               </h1>
             </v-card>
             <v-card
-              :color="color.colorClass"
+              :color="
+                color.key === 'base' ? colorTheme.class : color.colorClass
+              "
               height="100"
               class="mt-5 pa-5"
               v-for="color in colorTheme.colors"
