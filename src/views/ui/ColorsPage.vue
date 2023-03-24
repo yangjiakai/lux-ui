@@ -88,7 +88,9 @@ const convertColorObject = (colorName: string, colorObj: any) => {
               v-for="color in colorTheme.colors"
             >
               <h3>
-                <copy-label :text="color.colorClass" />
+                <copy-label
+                  :text="'base' ? colorTheme.class : color.colorClass"
+                />
               </h3>
               <h3 class="mt-2"><copy-label :text="color.color" /></h3>
             </v-card>

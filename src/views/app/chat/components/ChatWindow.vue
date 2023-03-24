@@ -34,7 +34,7 @@ const scrollToBottom = () => {
     <!-- ---------------------------------------------- -->
     <!---Message Area -->
     <!-- ---------------------------------------------- -->
-    <v-sheet color="transparent" class="messages-area pa-5">
+    <v-sheet elevation="0" color="transparent" class="messages-area pa-5">
       <MessageArea />
     </v-sheet>
     <!-- ---------------------------------------------- -->
@@ -49,10 +49,8 @@ const scrollToBottom = () => {
 <style scoped lang="scss">
 .chat-area {
   height: calc(100vh - 400px);
-  background-image: url("https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80");
+  background-image: url("@/assets/images/chat-bg-2.png");
   background-repeat: repeat;
-  background-size: cover;
-  background-position: center;
 
   .input-area {
     position: fixed;

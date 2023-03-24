@@ -10,7 +10,7 @@
     <!-- ---------------------------------------------- -->
     <!-- Add Task Dialog -->
     <!-- ---------------------------------------------- -->
-
+    <v-btn color="blue-grey" block size="large" class="mb-3">API KEY</v-btn>
     <v-btn color="primary" block size="large" class="mb-3">New Chat</v-btn>
 
     <v-list nav class="mt-2 pa-0">
