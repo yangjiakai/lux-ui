@@ -1,7 +1,9 @@
 import { Configuration, OpenAIApi } from "openai";
+import { useChatStore } from "./chatStore";
+const chatStore = useChatStore();
 
 const configuration = new Configuration({
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+  apiKey: chatStore.apiKey,
 });
 const openai = new OpenAIApi(configuration);
 

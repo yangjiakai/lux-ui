@@ -42,6 +42,13 @@ const sendMessage = () => {
   // 判断是否为空
   if (!userMessage.value) return;
 
+  // 判断ApiKey是否为空
+  if (!chatStore.apiKey) {
+    errorMsg.value = "请先设置API密钥。";
+    isError.value = true;
+    return;
+  }
+
   // 发送User Message
   chatStore.addToHistory(createMessage(user.value, userMessage.value));
 
@@ -57,13 +64,40 @@ const sendMessage = () => {
 };
 
 const getCompletion = async () => {
-  const response = await createCompletion(userMessage.value);
-  aiMessage.value = response.data.choices[0].message.content;
-  // 清空临时Message
-  chatStore.removeLatestMessage();
-  // 发送Ai Message
-  chatStore.addToHistory(createMessage(bot.value, aiMessage.value));
-  // 错误处理
+  try {
+    const response = await createCompletion(userMessage.value);
+
+    if (response.data.error) {
+      const errorCode = response.data.error.code;
+      let errorMessage = "";
+
+      if (errorCode === 404) {
+        errorMessage = "请求的资源未找到，请检查API请求URL。";
+      } else if (errorCode === 500) {
+        errorMessage = "服务器内部错误，请稍后再试。";
+      } else {
+        errorMessage = response.data.error.message;
+      }
+
+      errorMsg.value = errorMessage;
+      isError.value = true;
+      // 清空临时Message
+      chatStore.removeLatestMessage();
+      return;
+    }
+
+    aiMessage.value = response.data.choices[0].message.content;
+
+    // 清空临时Message
+    chatStore.removeLatestMessage();
+    // 发送Ai Message
+    chatStore.addToHistory(createMessage(bot.value, aiMessage.value));
+  } catch (error) {
+    errorMsg.value = "发生错误，请检查网络连接和API密钥。";
+    isError.value = true;
+    // 清空临时Message
+    chatStore.removeLatestMessage();
+  }
 };
 
 watch(
@@ -75,6 +109,9 @@ watch(
   },
   { deep: true }
 );
+
+const isError = ref(false);
+const errorMsg = ref("");
 </script>
 
 <template>
@@ -92,10 +129,13 @@ watch(
     </template>
 
     <template #append-inner>
-      <v-icon class="mr-1">mdi-emoticon</v-icon>
+      <v-icon class="mr-1" @click="isError = true">mdi-emoticon</v-icon>
       <v-icon @click="sendMessage">mdi-send</v-icon>
     </template>
   </v-text-field>
+  <v-snackbar :timeout="2000" color="error" v-model="isError">
+    {{ errorMsg }}
+  </v-snackbar>
 </template>
 
 <style scoped lang="scss"></style>
