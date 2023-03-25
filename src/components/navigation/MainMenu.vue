@@ -31,7 +31,7 @@ onMounted(() => {});
             v-if="!menuItem.items"
             :to="menuItem.link"
             :prepend-icon="menuItem.icon || 'mdi-circle-medium'"
-            active-class="primary-text"
+            active-class="active-nav"
             density="compact"
           >
             <v-list-item-title
@@ -67,5 +67,11 @@ onMounted(() => {});
 <style scoped>
 .v-list-group .v-list-item {
   padding-left: 8px !important;
+}
+
+.active-nav {
+  border-left: 5px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to bottom, #3a456c, #a4abbb);
 }
 </style>

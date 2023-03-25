@@ -165,18 +165,18 @@ watch(currentColor, (newVal) => {
 <style lang="scss" scoped>
 .drawer-button {
   position: fixed;
-  background-color: #ee44aa;
+  background-color: #705cf6;
   top: 340px;
   right: 0px;
   z-index: 999;
   padding: 0.5rem 1rem;
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
-  box-shadow: 1px 1px 9px #ee44aa;
+  box-shadow: 1px 1px 9px #705cf6;
   transition: all 0.5s;
   cursor: pointer;
   &:hover {
-    box-shadow: 1px 1px 18px #c02b84;
+    box-shadow: 1px 1px 18px #705cf6;
     transition: all 0.5s;
   }
 
