@@ -2,14 +2,13 @@ import { Configuration, OpenAIApi } from "openai";
 import { useChatStore } from "./chatStore";
 const chatStore = useChatStore();
 
-const configuration = new Configuration({
-  apiKey: chatStore.apiKey,
-});
-const openai = new OpenAIApi(configuration);
-
-//
 export const createCompletion: any = (keyword: string) => {
-  console.log(keyword);
+  const configuration = new Configuration({
+    apiKey: chatStore.apiKey,
+  });
+
+  const openai = new OpenAIApi(configuration);
+
   return openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [{ role: "user", content: keyword }],
@@ -17,6 +16,12 @@ export const createCompletion: any = (keyword: string) => {
 };
 
 export const translationApi: any = (content: string, prompt: string) => {
+  const configuration = new Configuration({
+    apiKey: chatStore.apiKey,
+  });
+
+  const openai = new OpenAIApi(configuration);
+
   return openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [
@@ -44,12 +49,3 @@ function generatePrompt(animal: string) {
   Animal: ${capitalizedAnimal}
   Names:`;
 }
-
-export const createImageApi: any = () => {
-  return openai.createImage({
-    prompt:
-      "Football club logo. Flat design. Modern. Energetic. Blue and green. White/black stroke.",
-    n: 1,
-    size: "1024x1024",
-  });
-};

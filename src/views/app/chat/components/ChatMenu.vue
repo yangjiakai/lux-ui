@@ -44,7 +44,7 @@ const close = () => {
     <div class="pa-1 mt-2 text-overline text-grey">More Chats</div>
   </v-card>
   <v-dialog v-model="keyDialog" width="600">
-    <v-card height="400">
+    <v-card>
       <v-card-title> 请输入您的API KEY </v-card-title>
       <v-card-text>
         <v-text-field
