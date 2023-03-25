@@ -32,7 +32,7 @@ const close = () => {
       <v-list-item
         prepend-icon="mdi-chat-outline"
         to="/apps/chat/base-channel"
-        active-class="text-primary"
+        active-class="active-chat"
         link
         title="智慧之神"
       >
@@ -46,6 +46,7 @@ const close = () => {
   <v-dialog v-model="keyDialog" width="600">
     <v-card>
       <v-card-title> 请输入您的API KEY </v-card-title>
+      <hr />
       <v-card-text>
         <v-text-field
           color="primary"
@@ -59,6 +60,7 @@ const close = () => {
           hide-details
         ></v-text-field>
       </v-card-text>
+
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn block color="primary" text @click="keyDialog = false"
@@ -69,4 +71,9 @@ const close = () => {
   </v-dialog>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.active-chat {
+  color: #705cf6;
+  border-left: 5px solid #705cf6;
+}
+</style>
