@@ -19,10 +19,10 @@ const close = () => {
     <!-- Add Task Dialog -->
     <!-- ---------------------------------------------- -->
     <v-btn
-      color="blue-grey"
+      color="#705CF6"
       block
       size="large"
-      class="mb-3"
+      class="mb-3 text-white"
       @click="keyDialog = true"
       >API KEY</v-btn
     >
@@ -30,18 +30,18 @@ const close = () => {
 
     <v-list nav class="mt-2 pa-0">
       <v-list-item
-        prepend-icon="mdi-calendar-check"
+        prepend-icon="mdi-chat-outline"
         to="/apps/chat/base-channel"
         active-class="text-primary"
         link
-        title="AI"
+        title="智慧之神"
       >
-        <template v-slot:append>
+        <!-- <template v-slot:append>
           <v-badge color="primary" inline></v-badge>
-        </template>
+        </template> -->
       </v-list-item>
     </v-list>
-    <div class="pa-1 mt-2 text-overline text-grey">More Chats</div>
+    <!-- <div class="pa-1 mt-2 text-overline text-grey">More Chats</div> -->
   </v-card>
   <v-dialog v-model="keyDialog" width="600">
     <v-card>

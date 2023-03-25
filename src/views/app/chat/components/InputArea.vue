@@ -116,20 +116,19 @@ const errorMsg = ref("");
 
 <template>
   <v-text-field
-    variant="solo"
+    color="#705CF6"
+    variant="outlined"
     ref="input"
     v-model="userMessage"
     placeholder="SendMessage"
     hide-details
     @keyup.enter="sendMessage"
-    class="mx-2"
   >
     <template #prepend-inner>
       <v-icon>mdi-microphone</v-icon>
     </template>
 
     <template #append-inner>
-      <v-icon class="mr-1" @click="isError = true">mdi-emoticon</v-icon>
       <v-icon @click="sendMessage">mdi-send</v-icon>
     </template>
   </v-text-field>
