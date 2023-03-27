@@ -36,11 +36,6 @@ for (let i = 0; i < 20; i++) {
   lineData.push(d + b);
 }
 const option = computed<EChartsOption>(() => ({
-  title: {
-    text: "Rainfall vs Evaporation",
-    subtext: "Fake Data",
-  },
-
   backgroundColor: "#0f375f",
   tooltip: {
     trigger: "axis",
@@ -167,9 +162,7 @@ const add = () => {
 </script>
 
 <template>
-  <v-card class="ma-5 pa-5">
-    <div ref="chartEl" :style="{ width: `100%`, height: `800px` }"></div>
-
-    <h1 class="text-h5 my-5">Control Panel</h1>
+  <v-card height="400">
+    <div ref="chartEl" :style="{ width: `100%`, height: `100%` }"></div>
   </v-card>
 </template>

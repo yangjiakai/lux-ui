@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import ApexHeatMapCharts from "@/components/charts/apexchart/ApexHeatMapCharts.vue";
+import BarChart1 from "@/views/chart/component/BarChart1.vue";
 const loading = ref(true);
 
 onMounted(() => {
@@ -18,11 +19,11 @@ onMounted(() => {
     <v-progress-circular indeterminate color="primary"></v-progress-circular>
   </div>
   <div v-else>
-    <h6 class="text-h6 pa-5 d-flex align-center">
-      <span class="flex-1">Table</span>
+    <h6 class="text-h6 d-flex align-center">
+      <span class="pa-5">Chart</span>
     </h6>
-    <v-card class="pa-5" variant="flat">
-      <ApexHeatMapCharts />
+    <v-card class="" variant="flat">
+      <BarChart1 />
     </v-card>
   </div>
 </template>
