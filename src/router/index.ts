@@ -15,11 +15,7 @@ import AppsRoutes from "./apps.routes";
 export const constantRoutes = [
   {
     path: "/",
-    name: "dashboard",
-    meta: {
-      layout: "ui",
-    },
-    component: () => import("@/views/pages/DashBoard.vue"),
+    redirect: "/dashboard",
   },
   {
     path: "/:pathMatch(.*)*",
