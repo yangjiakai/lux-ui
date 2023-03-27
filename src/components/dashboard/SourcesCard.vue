@@ -1,6 +1,6 @@
 <template>
   <h6 class="text-h6 pa-5 d-flex align-center">
-    <span class="flex-1">Traffic Sources</span>
+    <span class="flex-1 font-weight-bold">Traffic Sources</span>
   </h6>
 
   <v-chart class="chart" :option="option" autoresize />
@@ -65,7 +65,7 @@ const option = ref({
         },
       },
       itemStyle: {
-        borderRadius: 10,
+        borderRadius: 2,
         borderColor: "#fff",
         borderWidth: 2,
       },
@@ -76,6 +76,6 @@ const option = ref({
 
 <style lang="scss" scoped>
 .chart {
-  height: 400px;
+  height: 360px;
 }
 </style>
