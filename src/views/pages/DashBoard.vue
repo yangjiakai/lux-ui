@@ -29,13 +29,13 @@
     <v-row class="card-shadow flex-grow-0" dense>
       <v-col cols="12" xl="6">
         <!-- Table Card-->
-        <v-card class="card-shadow" height="460">
+        <v-card class="card-shadow" height="420">
           <table-card></table-card>
         </v-card>
       </v-col>
       <v-col cols="12" xl="6">
         <!-- Task Card-->
-        <v-card class="card-shadow" height="460">
+        <v-card class="card-shadow" height="420">
           <task-card></task-card>
         </v-card>
       </v-col>

@@ -103,7 +103,7 @@ onMounted(() => {
       </thead>
       <tbody>
         <tr v-for="item in items" :key="item.id">
-          <td>#{{ item.id }}</td>
+          <td class="font-weight-bold">#{{ item.id }}</td>
           <td>
             <copy-label :text="item.user.email" />
           </td>

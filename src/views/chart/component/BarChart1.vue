@@ -163,7 +163,7 @@ const add = () => {
 </script>
 
 <template>
-  <v-card height="400">
+  <v-card height="360">
     <div ref="chartEl" :style="{ width: `100%`, height: `100%` }"></div>
   </v-card>
 </template>

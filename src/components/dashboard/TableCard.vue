@@ -1,70 +1,3 @@
-<template>
-  <!-- loading spinner -->
-  <div
-    v-if="loading"
-    class="h-full d-flex flex-grow-1 align-center justify-center"
-  >
-    <v-progress-circular indeterminate color="primary"></v-progress-circular>
-  </div>
-  <div v-else>
-    <h6 class="text-h6 px-5 pt-5 d-flex align-center">
-      <span class="flex-1">Table</span>
-    </h6>
-    <perfect-scrollbar style="height: 400px">
-      <v-table class="pa-3">
-        <thead>
-          <tr>
-            <th v-for="header in headers" :key="header.text">
-              {{ header.text }}
-            </th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr v-for="item in items" :key="item.id">
-            <td>#{{ item.id }}</td>
-            <td>
-              <div class="d-flex align-center py-2">
-                <v-avatar size="40" class="elevation-1 grey lighten-3">
-                  <img :src="item.user.avatar" />
-                </v-avatar>
-                <div class="ml-1">
-                  <div class="font-weight-bold">{{ item.user.name }}</div>
-                  <div class="text-caption">
-                    {{ item.user.email }}
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td>{{ item.date }}</td>
-            <td>{{ item.company }}</td>
-            <td>{{ item.amount }}</td>
-            <td class="font-weight-bold">
-              <div v-if="item.status === 'PENDING'">
-                <v-icon size="small" color="warning">mdi-circle-medium</v-icon>
-                <span>Pending</span>
-              </div>
-              <div v-if="item.status === 'PAID'">
-                <v-icon size="small" color="success">mdi-circle-medium</v-icon>
-                <span>Paid</span>
-              </div>
-            </td>
-            <td>
-              <v-btn
-                size="small"
-                variant="text"
-                icon="mdi-open-in-new"
-                @click="open(item)"
-              >
-              </v-btn>
-            </td>
-          </tr>
-        </tbody>
-      </v-table>
-    </perfect-scrollbar>
-  </div>
-</template>
-
 <script setup lang="ts">
 const loading = ref(true);
 
@@ -152,5 +85,71 @@ onMounted(() => {
   }, 1000);
 });
 </script>
+<template>
+  <!-- loading spinner -->
+  <div
+    v-if="loading"
+    class="h-full d-flex flex-grow-1 align-center justify-center"
+  >
+    <v-progress-circular indeterminate color="primary"></v-progress-circular>
+  </div>
+  <div v-else>
+    <h6 class="text-h6 px-5 pt-5 d-flex align-center font-weight-bold">
+      <span class="flex-1 font-weight-bold">Table</span>
+    </h6>
+    <perfect-scrollbar style="height: 400px">
+      <v-table class="pa-3">
+        <thead>
+          <tr>
+            <th v-for="header in headers" :key="header.text">
+              {{ header.text }}
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr v-for="item in items" :key="item.id">
+            <td class="font-weight-bold">#{{ item.id }}</td>
+            <td>
+              <div class="d-flex align-center py-2">
+                <v-avatar size="40" class="elevation-1 grey lighten-3">
+                  <img :src="item.user.avatar" />
+                </v-avatar>
+                <div class="ml-1">
+                  <div class="font-weight-bold">{{ item.user.name }}</div>
+                  <div class="text-caption">
+                    {{ item.user.email }}
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.company }}</td>
+            <td>{{ item.amount }}</td>
+            <td class="font-weight-bold">
+              <div v-if="item.status === 'PENDING'">
+                <v-icon size="small" color="warning">mdi-circle-medium</v-icon>
+                <span>Pending</span>
+              </div>
+              <div v-if="item.status === 'PAID'">
+                <v-icon size="small" color="success">mdi-circle-medium</v-icon>
+                <span>Paid</span>
+              </div>
+            </td>
+            <td>
+              <v-btn
+                size="small"
+                variant="text"
+                icon="mdi-open-in-new"
+                @click="open(item)"
+              >
+              </v-btn>
+            </td>
+          </tr>
+        </tbody>
+      </v-table>
+    </perfect-scrollbar>
+  </div>
+</template>
 
 <style lang="scss" scoped></style>

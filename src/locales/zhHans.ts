@@ -75,7 +75,7 @@ export default {
     docs: "文献资料",
     feedback: "反馈",
     support: "支持",
-    landingPage: "登陆页面",
+    landingPage: "暗夜界面",
     pricingPage: "定价页面",
     heroPage: "引导页面",
     featurePage: "功能页面",

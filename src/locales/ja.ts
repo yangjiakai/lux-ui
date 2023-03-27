@@ -75,7 +75,7 @@ export default {
     docs: "ドキュメンテーション",
     feedback: "フィードバック",
     support: "サポート",
-    landingPage: "ランディングページ",
+    landingPage: "ダークモード",
     pricingPage: "価格ページ",
     heroPage: "Hero",
     featurePage: "Feature",
