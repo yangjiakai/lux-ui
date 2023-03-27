@@ -118,7 +118,4 @@ onMounted(() => {
 .time-line {
   margin-left: 100px;
 }
-.where {
-  font-size: 1rem;
-}
 </style>

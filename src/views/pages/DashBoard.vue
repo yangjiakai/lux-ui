@@ -66,8 +66,6 @@ import TrackCard from "@/components/dashboard/TrackCard.vue";
 import TodoCard from "@/components/dashboard/TodoCard.vue";
 import TaskCard from "@/components/dashboard/TaskCard.vue";
 
-import router, { constantRoutes, dynamicRoutes } from "@/router";
-
 const order = ref(1);
 </script>
 

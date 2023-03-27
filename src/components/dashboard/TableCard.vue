@@ -30,7 +30,7 @@
                 </v-avatar>
                 <div class="ml-1">
                   <div class="font-weight-bold">{{ item.user.name }}</div>
-                  <div class="caption">
+                  <div class="text-caption">
                     {{ item.user.email }}
                   </div>
                 </div>

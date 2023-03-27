@@ -40,27 +40,4 @@ const currentLayout = computed(() => {
 });
 </script>
 
-<style scoped>
-#app {
-  font-family: "Quicksand", sans-serif;
-}
-
-a {
-  text-decoration: none;
-}
-
-/**
- * Transition animation between pages
- */
-.fade-enter-active,
-.fade-leave-active {
-  transition-duration: 0.2s;
-  transition-property: opacity;
-  transition-timing-function: ease;
-}
-
-.fade-enter,
-.fade-leave-active {
-  opacity: 0;
-}
-</style>
+<style scoped></style>
