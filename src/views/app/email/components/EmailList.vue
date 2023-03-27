@@ -32,6 +32,9 @@ const filterdEmailList = computed(() => {
 
 <template>
   <v-card height="100%">
+    <v-alert color="#C51162" theme="dark" icon="mdi-material-design" border>
+      正在施工中...
+    </v-alert>
     <!-- ---------------------------------------------- -->
     <!-- Filter Input -->
     <!-- ---------------------------------------------- -->

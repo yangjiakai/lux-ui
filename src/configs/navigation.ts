@@ -18,6 +18,10 @@ export default {
       ],
     },
     {
+      text: "Apps",
+      items: menuApps,
+    },
+    {
       text: "Landing",
       items: [
         ...menuLanding,
@@ -28,10 +32,6 @@ export default {
           link: "/landing",
         },
       ],
-    },
-    {
-      text: "Apps",
-      items: menuApps,
     },
 
     {

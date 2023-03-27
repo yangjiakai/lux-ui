@@ -5,12 +5,7 @@ export default [
     text: "Board",
     link: "/apps/board",
   },
-  {
-    icon: "mdi-email-outline",
-    key: "menu.email",
-    text: "Email",
-    link: "/apps/email",
-  },
+
   {
     icon: "mdi-forum-outline",
     key: "menu.chat",
@@ -46,5 +41,11 @@ export default [
     key: "menu.unsplash",
     text: "Unsplash",
     link: "/apps/unsplash",
+  },
+  {
+    icon: "mdi-email-outline",
+    key: "menu.email",
+    text: "Email",
+    link: "/apps/email",
   },
 ];

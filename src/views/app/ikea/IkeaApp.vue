@@ -29,9 +29,8 @@ onMounted(() => {
 
 <template>
   <v-alert color="#C51162" theme="dark" icon="mdi-material-design" border>
-    {{ errorMsg }}
+    正在施工中...
   </v-alert>
-  <div class="">IKEA {{ message }}</div>
 
   <!-- ---------------------------------------------- -->
   <!-- Main Header -->

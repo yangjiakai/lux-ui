@@ -30,15 +30,31 @@ const close = () => {
 
     <v-list nav class="mt-2 pa-0">
       <v-list-item
-        prepend-icon="mdi-chat-outline"
         to="/apps/chat/base-channel"
         active-class="active-chat"
         link
-        title="智慧之神"
+        title="摩诃善法大吉祥智慧主"
       >
-        <!-- <template v-slot:append>
-          <v-badge color="primary" inline></v-badge>
-        </template> -->
+        <template v-slot:prepend>
+          <v-avatar class="mx-5" size="40">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
+              alt="alt"
+            />
+          </v-avatar>
+        </template>
+      </v-list-item>
+    </v-list>
+    <v-list nav class="mt-2 pa-0">
+      <v-list-item to="" active-class="active-chat" link title="七叶寂照秘密主">
+        <template v-slot:prepend>
+          <v-avatar class="mx-5" size="40">
+            <img
+              src="https://i.pinimg.com/564x/85/42/c1/8542c171215f7b7499b905824cd5096f.jpg"
+              alt="alt"
+            />
+          </v-avatar>
+        </template>
       </v-list-item>
     </v-list>
     <!-- <div class="pa-1 mt-2 text-overline text-grey">More Chats</div> -->

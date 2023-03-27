@@ -1,10 +1,7 @@
 export default [
   {
     path: "",
-    component: () =>
-      import(
-        /* webpackChunkName: "apps-todo-tasks" */ "@/views/app/todo/pages/TasksPage.vue"
-      ),
+    redirect: "/apps/todo/tasks",
   },
   {
     path: "tasks",
