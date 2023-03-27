@@ -118,4 +118,69 @@ export default {
     tickets: "支持票",
     viewReport: "查看报告",
   },
+  // Vuetify 组件内部翻译
+  $vuetify: {
+    badge: "徽章",
+    close: "关",
+    dataIterator: {
+      noResultsText: "未找到匹配的记录",
+      loadingText: "正在载入项目...",
+    },
+    dataTable: {
+      itemsPerPageText: "每页行数：",
+      ariaLabel: {
+        sortDescending: "降序排列。",
+        sortAscending: "升序排列。",
+        sortNone: "未排序。",
+        activateNone: "激活以删除排序。",
+        activateDescending: "激活以降序排列。",
+        activateAscending: "激活以升序排序。",
+      },
+      sortBy: "排序方式",
+    },
+    dataFooter: {
+      itemsPerPageText: "每页项目：",
+      itemsPerPageAll: "所有",
+      nextPage: "下一页",
+      prevPage: "上一页",
+      firstPage: "第一页",
+      lastPage: "最后一页",
+      pageText: "{2}中的{0}-{1}",
+    },
+    datePicker: {
+      itemsSelected: "已选择{0}",
+      nextMonthAriaLabel: "下个月",
+      nextYearAriaLabel: "明年",
+      prevMonthAriaLabel: "前一个月",
+      prevYearAriaLabel: "前一年",
+    },
+    noDataText: "无可用数据",
+    carousel: {
+      prev: "以前的视觉",
+      next: "下一个视觉",
+      ariaLabel: {
+        delimiter: "{1}的轮播幻灯片{0}",
+      },
+    },
+    calendar: {
+      moreEvents: "还有{0}个",
+    },
+    fileInput: {
+      counter: "{0}个文件",
+      counterSize: "{0}个文件（共{1}个）",
+    },
+    timePicker: {
+      am: "AM",
+      pm: "PM",
+    },
+    pagination: {
+      ariaLabel: {
+        wrapper: "分页导航",
+        next: "下一页",
+        previous: "上一页",
+        page: "转到页面{0}",
+        currentPage: "当前页，第{0}页",
+      },
+    },
+  },
 };
