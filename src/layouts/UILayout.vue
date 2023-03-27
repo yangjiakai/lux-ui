@@ -18,7 +18,7 @@ import MainAppbar from "@/components/toolbar/MainAppbar.vue";
     <!-- ---------------------------------------------- -->
     <!---MainArea -->
     <!-- ---------------------------------------------- -->
-    <v-main>
+    <v-main class="main-bg">
       <v-layout>
         <v-container fluid>
           <PageTitle></PageTitle>
@@ -34,5 +34,9 @@ import MainAppbar from "@/components/toolbar/MainAppbar.vue";
 <style scoped>
 .scrollnav {
   height: calc(100vh - 326px);
+}
+
+.main-bg {
+  background-color: #eef1f4;
 }
 </style>

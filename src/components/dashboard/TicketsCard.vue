@@ -1,60 +1,5 @@
-<template>
-  <!-- loading spinner -->
-  <div
-    v-if="loading"
-    class="h-full d-flex flex-grow-1 align-center justify-center"
-  >
-    <v-progress-circular indeterminate color="primary"></v-progress-circular>
-  </div>
-  <div v-else>
-    <h6 class="text-h6 pa-5 d-flex align-center">
-      <span class="flex-1">Ticket</span>
-    </h6>
-    <v-table class="pa-3">
-      <thead>
-        <tr>
-          <th class="text-left" v-for="header in headers" :key="header.text">
-            {{ header.text }}
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="item in items" :key="item.id">
-          <td>#{{ item.id }}</td>
-          <td>
-            {{ item.user.email }}
-          </td>
-          <td>
-            <v-chip
-              size="small"
-              :color="item.priority === 'High' ? 'pink' : 'primary'"
-              label
-            >
-              {{ item.priority }}</v-chip
-            >
-          </td>
-
-          <td>
-            <div v-if="item.status === 'CLOSED'" class="text-secondary">
-              <v-icon size="small" color="secondary">mdi-circle-medium</v-icon>
-              <span>Closed</span>
-            </div>
-            <div v-if="item.status === 'OPEN'" class="text-success">
-              <v-icon size="small" color="success">mdi-circle-medium</v-icon>
-              <span>Open</span>
-            </div>
-          </td>
-          <td>{{ item.date }}</td>
-          <td>
-            <v-btn size="small" @click="open(item)"> Open Text </v-btn>
-          </td>
-        </tr>
-      </tbody>
-    </v-table>
-  </div>
-</template>
-
 <script setup lang="ts">
+import CopyLabel from "@/components/common/CopyLabel.vue";
 const loading = ref(true);
 
 const headers = [
@@ -135,6 +80,69 @@ onMounted(() => {
   }, 1000);
 });
 </script>
+
+<template>
+  <!-- loading spinner -->
+  <div
+    v-if="loading"
+    class="h-full d-flex flex-grow-1 align-center justify-center"
+  >
+    <v-progress-circular indeterminate color="primary"></v-progress-circular>
+  </div>
+  <div v-else>
+    <h6 class="text-h6 pa-5 d-flex align-center">
+      <span class="flex-1">Ticket</span>
+    </h6>
+    <v-table class="pa-3">
+      <thead>
+        <tr>
+          <th class="text-left" v-for="header in headers" :key="header.text">
+            {{ header.text }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in items" :key="item.id">
+          <td>#{{ item.id }}</td>
+          <td>
+            <copy-label :text="item.user.email" />
+          </td>
+          <td>
+            <v-chip
+              size="small"
+              :color="item.priority === 'High' ? 'pink' : 'primary'"
+              class="font-weight-bold"
+            >
+              {{ item.priority }}</v-chip
+            >
+          </td>
+
+          <td class="font-weight-bold">
+            <div v-if="item.status === 'CLOSED'" class="text-secondary">
+              <v-icon size="small" color="secondary">mdi-circle-medium</v-icon>
+              <span>Closed</span>
+            </div>
+            <div v-if="item.status === 'OPEN'" class="text-success">
+              <v-icon size="small" color="success">mdi-circle-medium</v-icon>
+              <span>Open</span>
+            </div>
+          </td>
+          <td>{{ item.date }}</td>
+          <td>
+            <v-btn
+              elevation="4"
+              variant="elevated"
+              size="small"
+              @click="open(item)"
+            >
+              Open Text
+            </v-btn>
+          </td>
+        </tr>
+      </tbody>
+    </v-table>
+  </div>
+</template>
 
 <style lang="scss" scoped>
 .v-table {

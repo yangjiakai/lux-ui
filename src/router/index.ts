@@ -17,8 +17,6 @@ export const routes = [
     path: "/dashboard",
     meta: {
       layout: "ui",
-      category: "UI",
-      title: "Dashboard",
     },
     component: () => import("@/views/pages/DashBoard.vue"),
   },

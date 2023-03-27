@@ -46,7 +46,7 @@ const copyText = (text: string) => {
       </v-btn>
     </template>
   </v-snackbar>
-  <v-tooltip location="bottom left">
+  <v-tooltip location="bottom">
     <template v-slot:activator="{ props }">
       <span
         :class="{
