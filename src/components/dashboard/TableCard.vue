@@ -14,7 +14,7 @@
       <v-table class="pa-3">
         <thead>
           <tr>
-            <th class="text-left" v-for="header in headers" :key="header.text">
+            <th v-for="header in headers" :key="header.text">
               {{ header.text }}
             </th>
           </tr>
@@ -39,12 +39,12 @@
             <td>{{ item.date }}</td>
             <td>{{ item.company }}</td>
             <td>{{ item.amount }}</td>
-            <td>
-              <div v-if="item.status === 'PENDING'" class="text-warning">
+            <td class="font-weight-bold">
+              <div v-if="item.status === 'PENDING'">
                 <v-icon size="small" color="warning">mdi-circle-medium</v-icon>
                 <span>Pending</span>
               </div>
-              <div v-if="item.status === 'PAID'" class="text-success">
+              <div v-if="item.status === 'PAID'">
                 <v-icon size="small" color="success">mdi-circle-medium</v-icon>
                 <span>Paid</span>
               </div>

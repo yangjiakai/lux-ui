@@ -64,7 +64,7 @@
       >
         <!-- <template v-slot:opposite> Opposite content </template> -->
         <div>
-          <div class="what text-grey">
+          <div class="what">
             <b>{{ activity.what }}</b>
           </div>
           <div>

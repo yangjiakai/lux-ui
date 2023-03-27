@@ -10,6 +10,11 @@ onMounted(() => {
 });
 
 const searchKey = ref("");
+const filterdTodoList = computed(() => {
+  return todoStore.getTodoList.filter((todo) => {
+    return todo.title.toLowerCase().includes(searchKey.value.toLowerCase());
+  });
+});
 </script>
 <template>
   <!-- loading spinner -->
@@ -31,7 +36,7 @@ const searchKey = ref("");
 
     <perfect-scrollbar class="todo-list">
       <transition-group name="fade" class="">
-        <div v-for="todo in todoStore.getTodoList" :key="todo.id">
+        <div v-for="todo in filterdTodoList" :key="todo.id">
           <div class="todo-item d-flex align-center pa-5">
             <v-avatar size="40">
               <v-img
@@ -40,7 +45,7 @@ const searchKey = ref("");
               />
             </v-avatar>
             <div class="flex-1 mx-5">
-              <div>{{ todo.title }}</div>
+              <div class="font-weight-bold">{{ todo.title }}</div>
               <div>{{ todo.detail }}</div>
             </div>
             <v-btn

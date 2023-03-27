@@ -48,6 +48,7 @@ const option = computed<EChartsOption>(() => ({
     textStyle: {
       color: "#ccc",
     },
+    padding: [30, 0, 0, 0],
   },
   xAxis: {
     data: category,

@@ -1,6 +1,6 @@
 html {
   font-family: $font-family;
-  font-size: 24px;
+
 
 
   .v-application {
@@ -8,7 +8,8 @@ html {
       font-family: $font-family, sans-serif !important;
     }
 
-    font-size: 14px;
+    font-size: 15px;
+    ;
     font-family: $font-family,
     sans-serif !important;
 
@@ -26,12 +27,13 @@ html {
   // tables beautify
   .v-table {
     table {
-      font-size: 14px;
+
       padding: 4px;
       padding-bottom: 8px;
 
       th {
-        text-transform: uppercase;
+        font-weight: bold !important;
+        text-transform: capitalize !important;
         white-space: nowrap;
       }
 
