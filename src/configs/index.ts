@@ -1,5 +1,6 @@
 import navigation from "./navigation";
 import locales from "./locales";
+import currency from "./currencies";
 export default {
   // product display information
   product: {
@@ -9,4 +10,5 @@ export default {
 
   navigation,
   locales,
+  currency,
 };
