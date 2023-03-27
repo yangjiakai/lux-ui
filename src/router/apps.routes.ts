@@ -1,5 +1,5 @@
-import unsplashRoutes from "@/views/app/unsplash/UnsplashRoutes";
-import todoRoutes from "@/views/app/todo/TodoRoutes";
+import unsplashRoutes from "@/views/app/unsplash/unsplashRoutes";
+import todoRoutes from "@/views/app/todo/todoRoutes";
 import emailRoutes from "@/views/app/email/emailRoutes";
 import chatRoutes from "@/views/app/chat/chatRoutes";
 
