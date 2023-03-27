@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import CopyLabel from "@/components/common/CopyLabel.vue";
 const loading = ref(true);
 
 const headers = [
@@ -109,7 +110,9 @@ onMounted(() => {
 
         <tbody>
           <tr v-for="item in items" :key="item.id">
-            <td class="font-weight-bold">#{{ item.id }}</td>
+            <td class="font-weight-bold">
+              <copy-label :text="`# ${item.id}`" />
+            </td>
             <td>
               <div class="d-flex align-center py-2">
                 <v-avatar size="40" class="elevation-1 grey lighten-3">
@@ -118,7 +121,7 @@ onMounted(() => {
                 <div class="ml-1">
                   <div class="font-weight-bold">{{ item.user.name }}</div>
                   <div class="text-caption">
-                    {{ item.user.email }}
+                    <copy-label :text="item.user.email" />
                   </div>
                 </div>
               </div>
