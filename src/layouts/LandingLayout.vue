@@ -67,7 +67,8 @@ import MainAppbar from "@/components/toolbar/MainAppbar.vue";
 }
 
 .main-area {
-  height: 100vh;
+  height: calc(100vh-64px);
+
   /* background-color: #ccc; */
 }
 </style>

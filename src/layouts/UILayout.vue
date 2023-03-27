@@ -38,5 +38,6 @@ import MainAppbar from "@/components/toolbar/MainAppbar.vue";
 
 .main-bg {
   background-color: #eef1f4;
+  min-height: calc(100vh - 64px);
 }
 </style>

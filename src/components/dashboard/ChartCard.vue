@@ -19,7 +19,7 @@ onMounted(() => {
     <v-progress-circular indeterminate color="primary"></v-progress-circular>
   </div>
   <div v-else>
-    <h6 class="text-h6 d-flex align-center">
+    <h6 class="text-h6 d-flex align-center font-weight-bold">
       <span class="pa-5">Chart</span>
     </h6>
     <v-card class="" variant="flat">

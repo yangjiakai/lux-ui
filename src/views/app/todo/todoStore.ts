@@ -83,7 +83,7 @@ export const useTodoStore = defineStore({
       {
         id: "work",
         title: "Work",
-        color: "primary",
+        color: "orange",
       },
       {
         id: "relaxation",
@@ -93,7 +93,7 @@ export const useTodoStore = defineStore({
       {
         id: "shopping",
         title: "Shopping",
-        color: "teal",
+        color: "blue",
       },
     ],
   }),

@@ -90,7 +90,7 @@ onMounted(() => {
     <v-progress-circular indeterminate color="primary"></v-progress-circular>
   </div>
   <div v-else>
-    <h6 class="text-h6 pa-5 d-flex align-center">
+    <h6 class="text-h6 font-weight-bold pa-5 d-flex align-center">
       <span class="flex-1">Ticket</span>
     </h6>
     <v-table class="pa-3">

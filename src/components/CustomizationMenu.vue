@@ -147,7 +147,6 @@ watch(currentColor, (newVal) => {
         <v-switch
           color="primary"
           class="ml-2"
-          v-model="customizeTheme.miniSidebar"
           hide-details
           :label="`Mini: ${customizeTheme.miniSidebar}`"
         ></v-switch>

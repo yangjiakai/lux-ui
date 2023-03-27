@@ -15,6 +15,13 @@ const filterdTodoList = computed(() => {
     return todo.title.toLowerCase().includes(searchKey.value.toLowerCase());
   });
 });
+
+const getLabelColor = (id: string) => {
+  // Find the label by id from the labels array
+  const label = todoStore.labels.find((l) => l.id === id);
+  // Return the color for that label, or an empty string
+  return label ? label.color : "";
+};
 </script>
 <template>
   <!-- loading spinner -->
@@ -26,8 +33,9 @@ const filterdTodoList = computed(() => {
   </div>
   <div v-else>
     <v-text-field
-      class="elevation-1"
+      clearable
       variant="solo"
+      class="elevation-1 ma-3"
       hide-details
       prepend-inner-icon="mdi-magnify"
       placeholder="Filter Tasks"
@@ -35,9 +43,14 @@ const filterdTodoList = computed(() => {
     ></v-text-field>
 
     <perfect-scrollbar class="todo-list">
-      <transition-group name="fade" class="">
+      <transition-group name="fade">
         <div v-for="todo in filterdTodoList" :key="todo.id">
           <div class="todo-item d-flex align-center pa-5">
+            <v-checkbox-btn
+              v-model="todo.completed"
+              color="primary"
+              class="pe-2"
+            ></v-checkbox-btn>
             <v-avatar size="40">
               <v-img
                 src="https://avatars.githubusercontent.com/u/35951244?v=4"
@@ -45,12 +58,31 @@ const filterdTodoList = computed(() => {
               />
             </v-avatar>
             <div class="flex-1 mx-5">
-              <div class="font-weight-bold">{{ todo.title }}</div>
-              <div>{{ todo.detail }}</div>
+              <div
+                class="font-weight-bold"
+                :class="todo.completed ? 'text-decoration-line-through' : ''"
+              >
+                {{ todo.title }}
+              </div>
+              <div
+                :class="todo.completed ? 'text-decoration-line-through' : ''"
+              >
+                {{ todo.detail }}
+              </div>
+              <div>
+                <v-chip
+                  size="x-small"
+                  variant="outlined"
+                  class="mr-1 mt-1"
+                  :color="getLabelColor(tag)"
+                  v-for="tag in todo.tags"
+                >
+                  {{ tag }}
+                </v-chip>
+              </div>
             </div>
             <v-btn
-              size="small"
-              icon="mdi-delete-outline  "
+              icon="mdi-delete-outline"
               variant="text"
               @click="todoStore.deleteTodoById(todo.id)"
             ></v-btn>
