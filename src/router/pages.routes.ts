@@ -1,14 +1,5 @@
 export default [
   {
-    path: "/dashboard",
-    meta: {
-      layout: "ui",
-      category: "UI",
-      title: "Dashboard",
-    },
-    component: () => import("@/views/pages/DashBoard.vue"),
-  },
-  {
     path: "/pages/page1",
     component: () => import("@/views/pages/Page1.vue"),
   },
