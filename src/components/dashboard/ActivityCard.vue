@@ -8,7 +8,7 @@
   </div>
   <div v-else>
     <h6 class="text-h6 pa-5 d-flex align-center">
-      <span class="flex-1">Activity</span>
+      <span class="flex-1 font-weight-bold">Activity</span>
       <v-menu location="bottom end" transition="slide-x-transition">
         <template v-slot:activator="{ props }">
           <v-btn
@@ -51,7 +51,7 @@
       </v-menu>
     </h6>
     <v-timeline
-      class="time-line"
+      class="time-line text-body-2"
       density="compact"
       side="end"
       truncate-line="start"
@@ -116,6 +116,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .time-line {
-  margin-left: 100px;
+  margin-left: 60px;
 }
 </style>
