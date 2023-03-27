@@ -19,6 +19,24 @@
 
 Vue2 の j 時代から、Vuetify は私の一番気に入った Vue の UI フレームワークです。2020 年末に Vue 3.0 がリリースされ、2022 年初に Vue 3.2 バージョン安定して、その後 2 年、2022 年 11 月にようやく Vue3.x 用の Vuetify3 が安定になりました、Vue の作者であるヴァン・ヨー (Evan You)も Vuetify3 への支持を表明しています。現段階では、Vuetify3 のドキュメントは Vuetify2 からほとんど更新されておらず、多言語版もまだ手が届いていません。この状態では、Vuetify を初めて使う開発者や、Vuetify3 を早く導入したい開発者は、最初に混乱するでしょう。一方で、フロントエンドや Vuetify フレームワークの知識を見直したいと思っています。その一方で、自分の経験を通じて他の開発者の方々の役に立てればと思っているので、2022 年 11 月の Vuetify3 の正式リリース開始と同時に、このプロジェクトを開始しました。フロントエンドの UI デザイン、適応、コンポーネント開発、一般的なプラグインとの連携、シンプルなロジックが中心になる予定です。対応する API やビジネスロジックの開発はまだ決まっていません（余裕があるかどうかはこれからです）。
 
+## 特徴
+
+- ⚡️ [Vue 3](https://github.com/vuejs/core)
+- ⚡️ [Vite](https://github.com/vitejs/vite)
+- ⚡️ UI Framework [Vuetify 3](https://next.vuetifyjs.com/en/)
+- ⚡️ TypeScript
+- 📦 Component Auto Importing
+- 🍍 [Pinia](https://pinia.vuejs.org/)
+- ⚡️ `<script setup>`
+- ⚡️ Use icons from any icon sets in [Iconify](https://icon-sets.iconify.design/)
+- ⚡️ Echarts, ApexChart
+- ⚡️ Openai, Unsplash Api
+- ⚡️ I18n
+- ⚡️ virtual-scroller , vuedraggable , perfect-scrollbar
+- ⚡️ Rich Text Editor
+- ☁️ Deploy on Netlify, zero-config
+- ☁️ Responsive multi-platform adaptive
+
 ## プレビュー
 
 <img  src='/src/assets/previews/DashBoard.png'  alt='DashBoard' />
@@ -31,19 +49,6 @@ Vue2 の j 時代から、Vuetify は私の一番気に入った Vue の UI フ�
 <img  src='/src/assets/previews/Login.png'  alt='ChatGPT' />
 <img  src='/src/assets/previews/Unsplash.png'  alt='ChatGPT' />
 <img  src='/src/assets/previews/Unsplash2.png'  alt='ChatGPT' />
-
-## 特徴
-
-- ⚡️ [Vue 3](https://github.com/vuejs/core)
-- ⚡️ [Vite](https://github.com/vitejs/vite)
-- ⚡️ UI Framework [Vuetify 3](https://next.vuetifyjs.com/en/)
-- ⚡️ TypeScript
-- 📦 Component Auto Importing
-- 🍍 [Pinia](https://pinia.vuejs.org/)
-- ⚡️ `<script setup>`
-- ⚡️ Use icons from any icon sets in [Iconify](https://icon-sets.iconify.design/)
-- ☁️ Deploy on Netlify, zero-config
-- ☁️ Responsive multi-platform adaptive
 
 <br>
 

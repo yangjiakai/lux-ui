@@ -19,6 +19,24 @@
 
 Since the era of Vue2, Vuetify has been one of my favorite UI frameworks for Vue. With the release of Vue 3.0 at the end of 2020 and the gradual stability of Vue 3.2 in early 2022, Vuetify has finally stabilized. Two years later, in November 2022, Vuetify3 for Vue3.x finally went live, and Vue creator Evan You also expressed support for Vuetify3. At this stage, the documentation for Vuetify3 is still largely unchanged from Vuetify2, and the multilingual version is still out of reach. In this situation, developers who are new to Vuetify or want to embrace Vuetify3 as soon as possible will be confused at first. On the one hand, I want to review my knowledge of the front-end and the Vuetify framework. On the other hand, I also hope to be able to help other developers through my own exploration, so I plan to start this project at the same time as the official launch of Vuetify3 in November 2022. The focus is expected to be on front-end UI design, responsive design, component development, integration with common plugins, and simple logic. It is still uncertain whether to develop corresponding APIs and
 
+## Features
+
+- ⚡️ [Vue 3](https://github.com/vuejs/core)
+- ⚡️ [Vite](https://github.com/vitejs/vite)
+- ⚡️ UI Framework [Vuetify 3](https://next.vuetifyjs.com/en/)
+- ⚡️ TypeScript
+- 📦 Component Auto Importing
+- 🍍 [Pinia](https://pinia.vuejs.org/)
+- ⚡️ `<script setup>`
+- ⚡️ Use icons from any icon sets in [Iconify](https://icon-sets.iconify.design/)
+- ⚡️ Echarts, ApexChart
+- ⚡️ Openai, Unsplash Api
+- ⚡️ I18n
+- ⚡️ virtual-scroller , vuedraggable , perfect-scrollbar
+- ⚡️ Rich Text Editor
+- ☁️ Deploy on Netlify, zero-config
+- ☁️ Responsive multi-platform adaptive
+
 ## Preview
 
 <img  src='/src/assets/previews/DashBoard.png'  alt='DashBoard' />
@@ -31,19 +49,6 @@ Since the era of Vue2, Vuetify has been one of my favorite UI frameworks for Vue
 <img  src='/src/assets/previews/Login.png'  alt='ChatGPT' />
 <img  src='/src/assets/previews/Unsplash.png'  alt='ChatGPT' />
 <img  src='/src/assets/previews/Unsplash2.png'  alt='ChatGPT' />
-
-## Features
-
-- ⚡️ [Vue 3](https://github.com/vuejs/core)
-- ⚡️ [Vite](https://github.com/vitejs/vite)
-- ⚡️ UI Framework [Vuetify 3](https://next.vuetifyjs.com/en/)
-- ⚡️ TypeScript
-- 📦 Component Auto Importing
-- 🍍 [Pinia](https://pinia.vuejs.org/)
-- ⚡️ `<script setup>`
-- ⚡️ Use icons from any icon sets in [Iconify](https://icon-sets.iconify.design/)
-- ☁️ Deploy on Netlify, zero-config
-- ☁️ Responsive multi-platform adaptive
 
 <br>
 ## Pre-packed
