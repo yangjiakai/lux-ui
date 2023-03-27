@@ -3,18 +3,7 @@
 * @Maintainer: J.K. Yang
 * @Description: 
 -->
-<script setup lang="ts">
-import { useEditor, EditorContent, BubbleMenu } from "@tiptap/vue-3";
-import StarterKit from "@tiptap/starter-kit";
-
-const editor = useEditor({
-  content: "<p>I’m running Tiptap with Vue.js. 🎉</p>",
-  extensions: [StarterKit.configure({})],
-});
-
-const formatting = ref([]);
-const alignment = ref([]);
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="">
