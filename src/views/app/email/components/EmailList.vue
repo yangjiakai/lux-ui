@@ -6,6 +6,7 @@
 <script setup lang="ts">
 import { useEmailStore } from "../emailStore";
 import { Email } from "../emailTypes";
+const router = useRouter();
 
 const props = defineProps<{
   emails: Email[];
@@ -50,7 +51,10 @@ const filterdEmailList = computed(() => {
     <perfect-scrollbar class="email-list">
       <transition-group name="fade">
         <div v-for="email in filterdEmailList" :key="email.id">
-          <div class="email-item d-flex align-center pa-5">
+          <div
+            class="email-item d-flex align-center pa-5"
+            @click="router.push(`/apps/email/inbox/${email.id}`)"
+          >
             <v-checkbox-btn
               v-model="email.read"
               color="primary"

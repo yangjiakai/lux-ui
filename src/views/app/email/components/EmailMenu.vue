@@ -5,6 +5,7 @@
 -->
 <script setup lang="ts">
 import { useTodoStore } from "@/views/app/todo/todoStore";
+import EmailCompose from "./EmailCompose.vue";
 const todoStore = useTodoStore();
 </script>
 
@@ -13,9 +14,8 @@ const todoStore = useTodoStore();
     <!-- ---------------------------------------------- -->
     <!-- Write Email -->
     <!-- ---------------------------------------------- -->
-    <v-btn color="primary" block size="large" class="mb-3"
-      >Write an email</v-btn
-    >
+
+    <EmailCompose />
 
     <v-list nav class="mt-2 pa-0">
       <v-list-item

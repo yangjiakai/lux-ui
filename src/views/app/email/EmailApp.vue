@@ -5,7 +5,6 @@
 -->
 <script setup lang="ts">
 import EmailMenu from "@/views/app/email/components/EmailMenu.vue";
-import EmailCompose from "@/views/app/email/components/EmailCompose.vue";
 </script>
 
 <template>
@@ -27,8 +26,6 @@ import EmailCompose from "@/views/app/email/components/EmailCompose.vue";
         </transition>
       </router-view>
     </div>
-
-    <EmailCompose />
   </div>
 </template>
 
