@@ -19,9 +19,9 @@
     color="#F2F5F8"
     rounded
   >
-    <v-toolbar color="blue-grey-darken-3">
+    <v-toolbar color="primary">
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
-      <v-toolbar-title>Vuetify</v-toolbar-title>
+      <v-toolbar-title></v-toolbar-title>
 
       <v-btn class="text-none" stacked>
         <v-badge dot color="success">

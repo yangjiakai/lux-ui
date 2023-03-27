@@ -19,7 +19,7 @@
     color="#F2F5F8"
     rounded
   >
-    <v-toolbar color="blue-grey-darken-3">
+    <v-toolbar color="primary">
       <v-spacer></v-spacer>
 
       <v-btn class="text-none" stacked>

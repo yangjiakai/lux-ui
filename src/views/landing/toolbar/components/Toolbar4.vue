@@ -19,7 +19,7 @@
     color="#F2F5F8"
     rounded
   >
-    <v-toolbar color="blue-grey-darken-3">
+    <v-toolbar color="primary">
       <div class="ml-5 mr-5">
         <h3 class="text-h5 font-weight-bold">Vuetify</h3>
       </div>
