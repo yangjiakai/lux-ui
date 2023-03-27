@@ -6,7 +6,7 @@
 <script setup lang="ts">
 import type { User, Message } from "../chatTypes";
 import { useChatStore } from "../chatStore";
-import { createCompletion } from "../openAiApi";
+import { createCompletion } from "../openAIApi";
 
 const chatStore = useChatStore();
 const userMessage = ref("");
