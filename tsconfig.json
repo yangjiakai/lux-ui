@@ -1,12 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
-    "baseUrl": "./",
-    "moduleResolution": "node",
+    "baseUrl": "./", // 指定根目录
+    "target": "ESNext", // 指定要针对哪个ECMAScript版本进行编译。 这里设置为ESNext以允许使用最新的功能。
+    "module": "ESNext", // 指定要使用的模块格式。 这里设置为ESNext，表示使用最新版本的ECMAScript模块语法。
+    "lib": ["ESNext", "dom", "dom.iterable", "scripthost"], // 指定要包含哪些内置库。 在这种情况下，两个库都被包括在内：DOM和ESNext
+
+    "esModuleInterop": true, // 启用ES模块互操作性，这样可以使用import foo from "foo"这样的语法。
+    "allowSyntheticDefaultImports": true, // 允许从没有默认导出的模块中默认导入。 这通常是与allowJs一起使用的。
+    "moduleResolution": "node", //指定应如何解析模块。 在这里，它被设置为node以使用Node.js风格的模块解析。
+    "resolveJsonModule": true, // 允许将JSON文件导入为模块。
+    "noUnusedLocals": true, // 报告未使用的本地变量。
+    "strictNullChecks": true, // 启用严格的空值检查。
+    "forceConsistentCasingInFileNames": true, // 确保文件名中的大小写一致，以避免与区分大小写的文件系统出现问题。
     "paths": {
-      "@/*": ["src/*"]
-    },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+      "~/*": ["./*"],
+      "@/*": ["./src/*"]
+    }
   }
 }

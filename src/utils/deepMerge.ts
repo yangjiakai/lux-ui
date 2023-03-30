@@ -19,7 +19,7 @@ function deepMerge(target: Object, obj: Object): Object {
       target[key] = deepMerge(oldVal, newVal);
     } else if (Array.isArray(oldVal) && Array.isArray(newVal)) {
       target[key] = mergeArrayWithDedupe(oldVal, newVal);
-    } else {
+    } else if (typeof oldVal === "undefined") {
       target[key] = newVal;
     }
   }

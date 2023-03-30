@@ -8,7 +8,7 @@ import { Todo } from "../todoTypes";
 import { useTodoStore } from "../todoStore";
 const todoStore = useTodoStore();
 const dialog = ref(false);
-const task = ref<Todo | null>(null);
+const task = ref<Todo>();
 const isEdit = computed(() => task.value && !!task.value.id);
 
 const close = () => {
@@ -94,7 +94,7 @@ const save = () => {
             </v-chip>
           </template>
 
-          <template v-slot:item="{ index, item }">
+          <template v-slot:item="{ item }">
             <v-chip :color="item.color" label variant="outlined" size="small">
               {{ item.title }}
             </v-chip>
