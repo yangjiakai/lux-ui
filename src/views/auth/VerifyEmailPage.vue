@@ -1,21 +1,3 @@
-<template>
-  <v-card class="pa-5">
-    <h1 class="text-h5 font-weight-bold">Please verify the email</h1>
-    <div class="mb-5 text-grey text-caption">
-      Please check your email for the link to verify the email.
-    </div>
-    <v-btn
-      class="text-capitalize"
-      block
-      color="primary"
-      size="x-large"
-      :loading="isLoading"
-      :disabled="disabled"
-      @click="resend"
-      >Re-send email{{ seconds }}
-    </v-btn>
-  </v-card>
-</template>
 <script setup lang="ts">
 /*
 |---------------------------------------------------------------------
@@ -32,7 +14,7 @@ const disabled = ref(true);
 const times = ref(0);
 const seconds = ref("");
 const secondsToEnable = ref(TIMEOUT);
-const resendInterval = ref(null);
+const resendInterval = ref();
 
 const setTimer = () => {
   disabled.value = true;
@@ -62,4 +44,23 @@ onUnmounted(() => {
   clearInterval(resendInterval.value);
 });
 </script>
+<template>
+  <v-card class="pa-5">
+    <h1 class="text-h5 font-weight-bold">Please verify the email</h1>
+    <div class="mb-5 text-grey text-caption">
+      Please check your email for the link to verify the email.
+    </div>
+    <v-btn
+      class="text-capitalize"
+      block
+      color="primary"
+      size="x-large"
+      :loading="isLoading"
+      :disabled="disabled"
+      @click="resend"
+      >Re-send email{{ seconds }}
+    </v-btn>
+  </v-card>
+</template>
+
 <style scoped></style>

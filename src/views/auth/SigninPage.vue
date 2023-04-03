@@ -1,3 +1,63 @@
+<script setup lang="ts">
+import { Icon } from "@iconify/vue";
+const router = useRouter();
+
+const isLoading = ref(false);
+const isSignInDisabled = ref(false);
+
+const refLoginForm = ref();
+const email = ref("");
+const password = ref("");
+const isFormValid = ref(true);
+
+// show password field
+const showPassword = ref(false);
+
+// Submit
+const submit = async () => {
+  const { valid } = await refLoginForm.value.validate();
+  if (valid) {
+    isLoading.value = true;
+    isSignInDisabled.value = true;
+    signIn(email.value, password.value);
+  } else {
+    console.log("no");
+  }
+};
+
+// Sign in
+const signIn = (email: string, password: string) => {
+  // TODO API CALL
+  setTimeout(() => {
+    router.push({
+      name: "home",
+    });
+  }, 1000);
+};
+
+// Error Check
+const emailRules = ref([
+  (v: string) => !!v || "E-mail is required",
+  (v: string) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+]);
+
+const passwordRules = ref([
+  (v: string) => !!v || "Password is required",
+  (v: string) =>
+    (v && v.length <= 10) || "Password must be less than 10 characters",
+]);
+
+// error provider
+const errorProvider = ref(false);
+const errorProviderMessages = ref("");
+
+const error = ref(false);
+const errorMessages = ref("");
+const resetErrors = () => {
+  error.value = false;
+  errorMessages.value = "";
+};
+</script>
 <template>
   <v-card class="pa-3" elevation="3">
     <v-card-title primary-title class="my-4 text-h4"> Welcome </v-card-title>
@@ -17,10 +77,10 @@
           required
           :error="error"
           :label="$t('login.email')"
-          :density="formStyle.density"
-          :variant="formStyle.variant"
-          :color="formStyle.borderColor"
-          :bg-color="formStyle.bgColor"
+          density="default"
+          variant="underlined"
+          color="#42a5f5"
+          bg-color="#fff"
           :rules="emailRules"
           name="email"
           outlined
@@ -36,10 +96,10 @@
           :error="error"
           :error-messages="errorMessages"
           :label="$t('login.password')"
-          :density="formStyle.density"
-          :variant="formStyle.variant"
-          :color="formStyle.borderColor"
-          :bg-color="formStyle.bgColor"
+          density="default"
+          variant="underlined"
+          color="#42a5f5"
+          bg-color="#fff"
           :rules="passwordRules"
           name="password"
           outlined
@@ -106,98 +166,3 @@
     </router-link>
   </div>
 </template>
-<script setup lang="ts">
-import { Icon } from "@iconify/vue";
-import { useRouter } from "vue-router";
-const router = useRouter();
-//
-const refLoginForm = ref(null);
-const refEmail = ref(null);
-const refPassword = ref(null);
-
-// sign in buttons
-const isLoading = ref(false);
-const isSignInDisabled = ref(false);
-
-const emailRules = ref([
-  (v) => !!v || "E-mail is required",
-  (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-]);
-
-const passwordRules = ref([
-  (v) => !!v || "Password is required",
-  (v) => (v && v.length <= 10) || "Password must be less than 10 characters",
-]);
-
-const isFormValid = ref(true);
-const email = ref("");
-const password = ref("");
-
-const error = ref(false);
-const errorMessages = ref("");
-
-const errorProvider = ref(false);
-const errorProviderMessages = ref("");
-
-// show password field
-const showPassword = ref(false);
-
-const providers = ref([
-  {
-    id: "google",
-    label: "Google",
-    isLoading: false,
-  },
-  {
-    id: "facebook",
-    label: "Facebook",
-    isLoading: false,
-  },
-]);
-
-const formStyle = reactive({
-  labelColor: "3B64A0",
-  mainColor: "#3F69F4",
-  borderColor: "#42a5f5",
-  bgColor: "#fff",
-  density: "default", //	'default' | 'comfortable' | 'compact'
-  variant: "underlined", // 'flat' | 'elevated' | 'tonal' | 'outlined' | 'text' | 'plain'
-});
-
-const rules = reactive({
-  required: (value) => (value && Boolean(value)) || "Required",
-});
-
-const validate = async () => {
-  const { valid } = await refLoginForm.value.validate();
-  console.log(valid);
-  return valid;
-};
-
-const submit = async () => {
-  const { valid } = await refLoginForm.value.validate();
-  if (valid) {
-    isLoading.value = true;
-    isSignInDisabled.value = true;
-    signIn(email.value, password.value);
-  } else {
-    console.log("no");
-  }
-};
-
-const signIn = (email, password) => {
-  // TODO API CALL
-  setTimeout(() => {
-    router.push({
-      name: "home",
-    });
-  }, 1000);
-};
-
-const signInProvider = (provider) => {};
-
-const resetErrors = () => {
-  error.value = false;
-  errorMessages.value = "";
-};
-</script>
