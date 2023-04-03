@@ -24,6 +24,8 @@ const props = defineProps({
   },
 });
 
+const { text } = toRefs(props);
+
 // Copy Text
 const copyText = (text: string) => {
   copy(text);

@@ -3,7 +3,7 @@ const themeColors2 = ["#4782FB", "#47C4F4", "#fec90f", "#05b187", "#fc4b6c"];
 
 function generateDataHeatMap(count: any, yrange: any) {
   var i = 0;
-  var series = [];
+  var series: any[] = [];
   while (i < count) {
     var x = "w" + (i + 1).toString();
     var y =

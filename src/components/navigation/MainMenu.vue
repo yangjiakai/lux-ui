@@ -3,7 +3,7 @@ import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 const customizeTheme = useCustomizeThemeStore();
 
 const props = defineProps({
-  // 数据
+  // Data
   menu: {
     type: Array<any>,
     default: () => [],
@@ -14,7 +14,7 @@ onMounted(() => {});
 </script>
 <template>
   <v-list nav dense color="primary">
-    <template v-for="(menuArea, index) in menu" :key="index">
+    <template v-for="menuArea in props.menu" :key="index">
       <div
         v-if="!customizeTheme.miniSidebar && (menuArea.key || menuArea.text)"
         class="pa-1 mt-2 text-overline"
@@ -22,10 +22,7 @@ onMounted(() => {});
         {{ menuArea.key ? $t(menuArea.key) : menuArea.text }}
       </div>
       <template v-if="menuArea.items">
-        <template
-          v-for="(menuItem, menuIndex) in menuArea.items"
-          :key="menuIndex"
-        >
+        <template v-for="menuItem in menuArea.items" :key="menuIndex">
           <!-- menu level 1 -->
           <v-list-item
             v-if="!menuItem.items"

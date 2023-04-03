@@ -43,7 +43,7 @@
         </v-list>
       </v-menu>
     </div>
-    <div class="text-content">{{ card.description }}</div>
+    <div class="text-content">{{ props.card.description }}</div>
   </v-card>
 </template>
 <script setup lang="ts">
@@ -56,7 +56,6 @@ const props = defineProps({
     default: () => ({}),
   },
 });
-const edit = () => {};
 </script>
 
 <style lang="scss" scoped>

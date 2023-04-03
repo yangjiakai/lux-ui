@@ -13,7 +13,7 @@
 <script setup lang="ts">
 const route = useRoute();
 
-const breadcrumbs = ref([]);
+const breadcrumbs = ref<any>([]);
 
 watchEffect(() => {
   // if you go to the redirect page, do not update the breadcrumbs

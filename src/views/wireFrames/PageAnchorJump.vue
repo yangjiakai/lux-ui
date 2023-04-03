@@ -14,10 +14,10 @@
             <v-list-subheader>锚点菜单</v-list-subheader>
 
             <v-list-item
-              v-for="(item, id) in anchorList"
-              :key="id"
+              v-for="item in anchorList"
+              :key="item.id"
               :value="item"
-              :active="id === currentId"
+              :active="item.id === currentId"
               active-color="primary"
               rounded="xl"
               @click="jumpToAnchor(item.id)"
