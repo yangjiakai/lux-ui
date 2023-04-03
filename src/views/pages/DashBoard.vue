@@ -1,4 +1,13 @@
-]
+<script setup lang="ts">
+import SalesCard from "@/components/dashboard/SalesCard.vue";
+import SourcesCard from "@/components/dashboard/SourcesCard.vue";
+import ActivityCard from "@/components/dashboard/ActivityCard.vue";
+import TableCard from "@/components/dashboard/TableCard.vue";
+import TicketsCard from "@/components/dashboard/TicketsCard.vue";
+// import TrackCard from "@/components/dashboard/TrackCard.vue";
+import TodoCard from "@/components/dashboard/TodoCard.vue";
+import TaskCard from "@/components/dashboard/ChartCard.vue";
+</script>
 <template>
   <div class="pa-5" style="background-color: #eef1f4">
     <!-- ---------------------------------------------- -->
@@ -67,19 +76,4 @@
     </v-row>
   </div>
 </template>
-
-<script setup lang="ts">
-import { ref } from "@vue/reactivity";
-import SalesCard from "@/components/dashboard/SalesCard.vue";
-import SourcesCard from "@/components/dashboard/SourcesCard.vue";
-import ActivityCard from "@/components/dashboard/ActivityCard.vue";
-import TableCard from "@/components/dashboard/TableCard.vue";
-import TicketsCard from "@/components/dashboard/TicketsCard.vue";
-import TrackCard from "@/components/dashboard/TrackCard.vue";
-import TodoCard from "@/components/dashboard/TodoCard.vue";
-import TaskCard from "@/components/dashboard/ChartCard.vue";
-
-const order = ref(1);
-</script>
-
 <style lang="scss" scoped></style>

@@ -13,7 +13,6 @@ const isEdit = computed(() => task.value && !!task.value.id);
 
 const close = () => {
   dialog.value = false;
-  task.value = null;
 };
 
 const save = () => {

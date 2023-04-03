@@ -70,6 +70,7 @@
                           <span class="mr-2">
                             <v-img
                               :src="site.icon"
+                              :lazy-src="site.icon"
                               width="20"
                               aspect-ratio="1"
                             ></v-img
