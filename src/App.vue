@@ -4,6 +4,7 @@
       <router-view> </router-view>
     </component>
     <CustomizationMenu />
+    <BackToTop />
   </v-app>
 </template>
 
@@ -14,6 +15,7 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
 import AuthLayout from "@/layouts/AuthLayout.vue";
 import CustomizationMenu from "@/components/CustomizationMenu.vue";
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
+import BackToTop from "@/components/common/BackToTop.vue";
 const customizeTheme = useCustomizeThemeStore();
 const route = useRoute();
 

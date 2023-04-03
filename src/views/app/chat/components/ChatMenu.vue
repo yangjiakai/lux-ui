@@ -7,7 +7,6 @@
 import { useChatStore } from "../chatStore";
 const chatStore = useChatStore();
 const keyDialog = ref(false);
-
 const close = () => {
   keyDialog.value = false;
 };
@@ -79,9 +78,7 @@ const close = () => {
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn block color="primary" text @click="keyDialog = false"
-          >关闭</v-btn
-        >
+        <v-btn block color="primary" text @click="close">关闭</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

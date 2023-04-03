@@ -72,7 +72,6 @@ const save = () => {
         <v-select
           v-model="task.tags"
           class="px-2 my-3"
-          :menu-props="{ location: "bottom"}"
           :items="todoStore.labels"
           placeholder="Labels"
           item-value="id"

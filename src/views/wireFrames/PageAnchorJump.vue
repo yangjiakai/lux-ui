@@ -85,7 +85,7 @@ const width = computed(() => {
 
 const jumpToAnchor = (id) => {
   let element = document.getElementById(id);
-  element.scrollIntoView({ behavior: "smooth" });
+  element?.scrollIntoView({ behavior: "smooth" });
 };
 
 const backToTop = () => {

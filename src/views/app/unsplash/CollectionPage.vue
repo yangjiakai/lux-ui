@@ -63,30 +63,6 @@ const getCollectionSimilar = async () => {
     });
 };
 
-// get somthing from jsonplaceholder
-const getSomething = async () => {
-  await axios
-    .get("https://jsonplaceholder.typicode.com/todos/1")
-    .then((response: AxiosResponse) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
-// get photos from unsplash
-const getPhotos = async () => {
-  await axios
-    .get("https://api.unsplash.com/photos", config)
-    .then((response: AxiosResponse) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
-
 initData();
 </script>
 

@@ -13,7 +13,7 @@ const dialog = ref(false);
       <v-btn
         color="#705CF6"
         block
-        props="props"
+        :props="props"
         size="large"
         class="mb-3 text-white"
         @click="dialog = true"
