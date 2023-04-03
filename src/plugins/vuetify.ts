@@ -66,6 +66,12 @@ export default createVuetify({
     VNavigationDrawer: {
       elevation: 1,
     },
+    VList: {
+      elevation: 1,
+    },
+    VTable: {
+      elevation: 1,
+    },
   },
   locale: {
     adapter: createVueI18nAdapter({ i18n, useI18n }),

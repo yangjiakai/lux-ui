@@ -6,6 +6,7 @@
 <script setup lang="ts">
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 import ToolbarLanguage from "@/components/toolbar/ToolbarLanguage.vue";
+import ToolbarNotifications from "./ToolbarNotifications.vue";
 const customizeTheme = useCustomizeThemeStore();
 const showMobileSearch = ref(false);
 </script>
@@ -64,12 +65,7 @@ const showMobileSearch = ref(false);
         </v-badge>
       </v-btn>
 
-      <v-btn class="text-none" stacked>
-        <v-badge content="2" color="error">
-          <v-icon>mdi-bell-outline</v-icon>
-        </v-badge>
-      </v-btn>
-
+      <ToolbarNotifications />
       <v-avatar class="mx-5">
         <v-img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
