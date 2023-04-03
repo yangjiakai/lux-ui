@@ -8,7 +8,13 @@ import { Todo } from "../todoTypes";
 import { useTodoStore } from "../todoStore";
 const todoStore = useTodoStore();
 const dialog = ref(false);
-const task = ref<Todo>();
+const task = ref<Todo>({
+  id: "",
+  title: "",
+  detail: "",
+  tags: [],
+  completed: false,
+});
 const isEdit = computed(() => task.value && !!task.value.id);
 
 const close = () => {
@@ -66,7 +72,7 @@ const save = () => {
         <v-select
           v-model="task.tags"
           class="px-2 my-3"
-          :menu-props="{ bottom: true, offsetY: true }"
+          :menu-props="{ location: "bottom"}"
           :items="todoStore.labels"
           placeholder="Labels"
           item-value="id"

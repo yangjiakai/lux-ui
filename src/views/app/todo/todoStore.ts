@@ -130,11 +130,8 @@ export const useTodoStore = defineStore({
   actions: {
     // Add new todo
     addNewTodo(todo: Todo) {
-      const newTodo = {
-        id: "_" + Math.random().toString(36).substring(2, 11),
-        ...todo,
-      };
-      this.todList.push(newTodo);
+      todo.id = "_" + Math.random().toString(36).substring(2, 11);
+      this.todList.push(todo);
     },
     // update todo
     updateTodo(todo: Todo) {
@@ -143,7 +140,7 @@ export const useTodoStore = defineStore({
     },
 
     // Delete todo By Id
-    deleteTodoById(todoId: number) {
+    deleteTodoById(todoId: string) {
       const index = this.todList.findIndex((todo: Todo) => todo.id === todoId);
       this.todList.splice(index, 1);
     },

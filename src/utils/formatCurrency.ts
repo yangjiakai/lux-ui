@@ -77,18 +77,19 @@ export const numberFormat = (
   const negative = number < 0;
 
   if (negative) number = number * -1;
-
-  const str = number
+  let strArr: string[] = [];
+  strArr = number
     .toFixed(decimals ? decimals : 0)
     .toString()
     .split(".");
-  const parts = [];
 
-  for (let i = str[0].length; i > 0; i -= 3) {
-    parts.unshift(str[0].substring(Math.max(0, i - 3), i));
+  const parts: string[] = [];
+
+  for (let i = strArr[0].length; i > 0; i -= 3) {
+    parts.unshift(strArr[0].substring(Math.max(0, i - 3), i));
   }
 
-  str[0] = parts.join(thousands_sep ? thousands_sep : ",");
+  strArr[0] = parts.join(thousands_sep ? thousands_sep : ",");
 
-  return (negative ? "-" : "") + str.join(dec_point ? dec_point : ".");
+  return (negative ? "-" : "") + strArr.join(dec_point ? dec_point : ".");
 };
