@@ -5,20 +5,9 @@
 -->
 \
 <script setup lang="ts">
-import { onMounted, Ref, ref, computed, nextTick } from "vue";
+import { Ref } from "vue";
 import type { EChartsOption } from "echarts";
-import useChart, { RenderType, ThemeType } from "@/plugins/useChart";
-import axios from "axios";
-import echarts from "@/plugins/lib";
-
-const textTitle = ref("EchartPie");
-const dataSet = ref([
-  { value: 335, name: "Direct" },
-  { value: 310, name: "Email" },
-  { value: 274, name: "Union Ads" },
-  { value: 235, name: "Video Ads" },
-  { value: 400, name: "Search Engine" },
-]);
+import echarts, { useChart, RenderType, ThemeType } from "@/plugins/echarts";
 
 const data = [
   [
@@ -202,19 +191,6 @@ watch(
   },
   { deep: true }
 );
-
-const sort = () => {
-  dataSet.value.sort(function (a, b) {
-    return a.value - b.value;
-  });
-};
-
-const add = () => {
-  dataSet.value.push({
-    value: Math.round(Math.random() * 1000),
-    name: "new data",
-  });
-};
 </script>
 
 <template>
@@ -223,9 +199,5 @@ const add = () => {
   </v-card>
   <v-card class="ma-5 pa-5 control panel" min-height="500">
     <h1 class="text-h5 my-5">Control Panel</h1>
-    <!-- <v-btn class="mr-5" color="primary" @click="textTitle = 'new Title'"
-      >Change Title</v-btn
-    >
-    <v-btn class="mr-5" color="primary" @click="add">Add Data</v-btn> -->
   </v-card>
 </template>

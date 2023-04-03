@@ -1,7 +1,59 @@
-import { nextTick, onMounted, onUnmounted, Ref, unref } from "vue";
+import { Ref } from "vue";
 import type { EChartsOption } from "echarts";
-import echarts from "./lib";
 import { SVGRenderer, CanvasRenderer } from "echarts/renderers";
+import * as echarts from "echarts/core";
+import {
+  BarChart,
+  LineChart,
+  PieChart,
+  MapChart,
+  PictorialBarChart,
+  RadarChart,
+  ScatterChart,
+} from "echarts/charts";
+
+import {
+  TitleComponent,
+  TooltipComponent,
+  GridComponent,
+  PolarComponent,
+  AriaComponent,
+  ParallelComponent,
+  LegendComponent,
+  RadarComponent,
+  ToolboxComponent,
+  DataZoomComponent,
+  VisualMapComponent,
+  TimelineComponent,
+  CalendarComponent,
+  GraphicComponent,
+} from "echarts/components";
+
+echarts.use([
+  LegendComponent,
+  TitleComponent,
+  TooltipComponent,
+  GridComponent,
+  PolarComponent,
+  AriaComponent,
+  ParallelComponent,
+  BarChart,
+  LineChart,
+  PieChart,
+  MapChart,
+  RadarChart,
+  PictorialBarChart,
+  RadarComponent,
+  ToolboxComponent,
+  DataZoomComponent,
+  VisualMapComponent,
+  TimelineComponent,
+  CalendarComponent,
+  GraphicComponent,
+  ScatterChart,
+]);
+
+export default echarts;
 
 export enum RenderType {
   SVGRenderer = "SVGRenderer",
@@ -14,7 +66,7 @@ export enum ThemeType {
   Default = "default",
 }
 
-export default function useChart(
+export function useChart(
   elRef: Ref<HTMLDivElement>,
   autoChartSize = false,
   animation: boolean = false,
@@ -71,14 +123,14 @@ export default function useChart(
     resizeObserver.observe(elRef.value);
   }
 
-  // 显示加载状
+  // 显示加载状态
   function showLoading() {
     if (!chartInstance) {
       initCharts();
     }
     chartInstance?.showLoading();
   }
-  // 显示加载状
+  // 显示加载状态
   function hideLoading() {
     if (!chartInstance) {
       initCharts();

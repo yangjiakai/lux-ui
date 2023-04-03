@@ -5,19 +5,9 @@
 -->
 \
 <script setup lang="ts">
-import { onMounted, Ref, ref, computed, nextTick } from "vue";
+import { Ref } from "vue";
 import type { EChartsOption } from "echarts";
-import useChart, { RenderType, ThemeType } from "@/plugins/useChart";
-import axios from "axios";
-
-const textTitle = ref("EchartPie");
-const dataSet = ref([
-  { value: 335, name: "Direct" },
-  { value: 310, name: "Email" },
-  { value: 274, name: "Union Ads" },
-  { value: 235, name: "Video Ads" },
-  { value: 400, name: "Search Engine" },
-]);
+import { useChart, RenderType, ThemeType } from "@/plugins/echarts";
 
 const data = [
   ["2000-06-05", 116],
@@ -177,19 +167,6 @@ watch(
   },
   { deep: true }
 );
-
-const sort = () => {
-  dataSet.value.sort(function (a, b) {
-    return a.value - b.value;
-  });
-};
-
-const add = () => {
-  dataSet.value.push({
-    value: Math.round(Math.random() * 1000),
-    name: "new data",
-  });
-};
 </script>
 
 <template>

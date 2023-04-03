@@ -5,10 +5,9 @@
 -->
 \
 <script setup lang="ts">
-import { onMounted, Ref, ref, computed, nextTick } from "vue";
+import { Ref } from "vue";
 import type { EChartsOption } from "echarts";
-import useChart, { RenderType, ThemeType } from "@/plugins/useChart";
-import axios from "axios";
+import { useChart, RenderType, ThemeType } from "@/plugins/echarts";
 
 const textTitle = ref("EchartPie");
 const dataSet = ref([
@@ -101,12 +100,6 @@ watch(
   },
   { deep: true }
 );
-
-const sort = () => {
-  dataSet.value.sort(function (a, b) {
-    return a.value - b.value;
-  });
-};
 
 const add = () => {
   dataSet.value.push({

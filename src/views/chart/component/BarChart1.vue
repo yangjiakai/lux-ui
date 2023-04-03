@@ -5,31 +5,23 @@
 -->
 \
 <script setup lang="ts">
-import { onMounted, Ref, ref, computed, nextTick } from "vue";
+import { Ref } from "vue";
 import type { EChartsOption } from "echarts";
-import useChart, { RenderType, ThemeType } from "@/plugins/useChart";
-import axios from "axios";
-import echarts from "@/plugins/lib";
-
-const textTitle = ref("EchartPie");
-const dataSet = ref([
-  { value: 335, name: "Direct" },
-  { value: 310, name: "Email" },
-  { value: 274, name: "Union Ads" },
-  { value: 235, name: "Video Ads" },
-  { value: 400, name: "Search Engine" },
-]);
+import echarts, { useChart, RenderType, ThemeType } from "@/plugins/echarts";
 
 // Generate data
-let category = [];
+let category: string[] = [];
 let dottedBase = +new Date();
-let lineData = [];
-let barData = [];
+let lineData: any[] = [];
+let barData: any[] = [];
 for (let i = 0; i < 20; i++) {
   let date = new Date((dottedBase += 3600 * 24 * 1000));
-  category.push(
-    [date.getFullYear(), date.getMonth() + 1, date.getDate()].join("-")
-  );
+  const dateStr = [
+    date.getFullYear(),
+    date.getMonth() + 1,
+    date.getDate(),
+  ].join("-");
+  category.push(dateStr);
   let b = Math.random() * 200;
   let d = Math.random() * 200;
   barData.push(b);
@@ -147,19 +139,6 @@ watch(
   },
   { deep: true }
 );
-
-const sort = () => {
-  dataSet.value.sort(function (a, b) {
-    return a.value - b.value;
-  });
-};
-
-const add = () => {
-  dataSet.value.push({
-    value: Math.round(Math.random() * 1000),
-    name: "new data",
-  });
-};
 </script>
 
 <template>
