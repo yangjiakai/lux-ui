@@ -69,7 +69,7 @@ const pricing_plans2 = [
       <v-item-group mandatory selected-class="active-card">
         <v-row align="stretch">
           <v-col cols="12" md="4" v-for="plan in pricing_plans2">
-            <v-item v-slot="{ isSelected, selectedClass, toggle }">
+            <v-item v-slot="{ selectedClass, toggle }">
               <v-card
                 elevation="0"
                 height="100%"

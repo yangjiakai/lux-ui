@@ -7,9 +7,6 @@
 import Newsletter1 from "./components/Newsletter1.vue";
 import Newsletter2 from "./components/Newsletter2.vue";
 import Newsletter3 from "./components/Newsletter3.vue";
-import Newsletter4 from "./components/Newsletter4.vue";
-const mode = ref("");
-const search = ref("");
 </script>
 
 <template>
@@ -21,7 +18,7 @@ const search = ref("");
       <h3 class="text-h5 font-weight-bold">
         Newsletter
         <v-chip size="small" class="ma-2" color="primary" text-color="white">
-          4 Components
+          3 Components
         </v-chip>
       </h3>
     </div>
@@ -36,7 +33,6 @@ const search = ref("");
   <Newsletter1 />
   <Newsletter2 />
   <Newsletter3 />
-  <!-- <Newsletter4 /> -->
 </template>
 
 <style lang="scss"></style>

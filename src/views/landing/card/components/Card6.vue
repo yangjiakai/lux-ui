@@ -4,7 +4,7 @@
 * @Description:
 -->
 <script setup lang="ts">
-import { Icon, listIcons } from "@iconify/vue";
+import { Icon } from "@iconify/vue";
 </script>
 
 <template>
@@ -28,7 +28,7 @@ import { Icon, listIcons } from "@iconify/vue";
 
               <!-- <Icon class="animate-icon" icon="logos:bamboo" /> -->
             </div>
-            <div class="button">GET INVETED</div>
+            <div class="button">GET INVETED{{ i }}</div>
           </div>
         </v-col>
       </v-row>

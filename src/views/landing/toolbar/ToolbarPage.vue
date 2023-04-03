@@ -9,8 +9,6 @@ import Toolbar2 from "./components/Toolbar2.vue";
 import Toolbar3 from "./components/Toolbar3.vue";
 import Toolbar4 from "./components/Toolbar4.vue";
 import Toolbar5 from "./components/Toolbar5.vue";
-const mode = ref("");
-const search = ref("");
 </script>
 
 <template>
@@ -22,7 +20,7 @@ const search = ref("");
       <h3 class="text-h5 font-weight-bold">
         Toolbar
         <v-chip size="small" class="ma-2" color="primary" text-color="white">
-          4 Components
+          5 Components
         </v-chip>
       </h3>
     </div>

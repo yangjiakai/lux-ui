@@ -4,8 +4,6 @@
 * @Description: 
 -->
 <script setup lang="ts">
-import { useRouter } from "vue-router";
-const router = useRouter();
 const searchKey = ref("");
 const loaded = ref(false);
 const loading = ref(false);
@@ -77,7 +75,7 @@ const faqs = ref([
 ]);
 
 const computedFaqs = computed(() => {
-  let filteredFaqs = [];
+  let filteredFaqs: any[] = [];
   faqs.value.forEach((faq) => {
     let filteredItem = faq.items.filter((item) =>
       item.title?.toLowerCase().includes(searchKey.value)
@@ -101,8 +99,8 @@ const search = () => {
   }, 2000);
 };
 
-const goTo = (id) => {
-  document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+const goTo = (id: string) => {
+  // document.getElementById(id).scrollIntoView({ behavior: "smooth" });
 };
 </script>
 

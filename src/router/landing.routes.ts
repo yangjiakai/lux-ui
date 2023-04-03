@@ -11,17 +11,6 @@ export default [
     },
   },
   {
-    path: "/landing/pricing",
-    name: "landing-pricing",
-    component: () =>
-      import(
-        /* webpackChunkName: "landing-pricing" */ "@/views/landing/PricingPage.vue"
-      ),
-    meta: {
-      layout: "landing",
-    },
-  },
-  {
     path: "/landing/hero",
     name: "landing-hero",
     component: () =>

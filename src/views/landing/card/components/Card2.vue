@@ -41,7 +41,7 @@
                   >
                   <h1 class="font-weight-black text-h3 mt-5 mb-10">
                     Get your startup ready for
-                    <span class="text-primary">Business</span>
+                    <span class="text-primary">Business{{ i }}</span>
                   </h1>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.

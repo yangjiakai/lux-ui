@@ -5,11 +5,6 @@
 -->
 <script setup lang="ts">
 import FAQ1 from "./components/FAQ1.vue";
-import FAQ2 from "./components/FAQ2.vue";
-import FAQ3 from "./components/FAQ3.vue";
-import FAQ4 from "./components/FAQ4.vue";
-const mode = ref("");
-const search = ref("");
 </script>
 
 <template>
@@ -34,9 +29,6 @@ const search = ref("");
     </v-btn>
   </v-toolbar>
   <FAQ1 />
-  <!-- <FAQ2 />
-  <FAQ3 />
-  <FAQ4 /> -->
 </template>
 
 <style lang="scss"></style>

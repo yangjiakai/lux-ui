@@ -20,7 +20,7 @@ import Feature5 from "./components/Feature5.vue";
       <h3 class="text-h5 font-weight-bold">
         Feature
         <v-chip size="small" class="ma-2" color="primary" text-color="white">
-          4 Components
+          5 Components
         </v-chip>
       </h3>
     </div>

@@ -48,7 +48,7 @@ const comments = [
       <v-item-group mandatory selected-class="active-card">
         <v-row align="stretch">
           <v-col cols="12" md="4" v-for="comment in comments">
-            <v-item v-slot="{ isSelected, selectedClass, toggle }">
+            <v-item v-slot="{ selectedClass, toggle }">
               <v-card
                 elevation="0"
                 class="base-card mx-auto pa-10 d-flex flex-column justify-center"

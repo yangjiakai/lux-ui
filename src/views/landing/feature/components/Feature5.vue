@@ -57,7 +57,7 @@
               </v-card>
 
               <div class="flex-1">
-                <h6>Social Media Marketing</h6>
+                <h6>Social Media Marketing{{ i }}</h6>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
                   rerum blanditiis, veritatis, cumque eligendi aspernatur

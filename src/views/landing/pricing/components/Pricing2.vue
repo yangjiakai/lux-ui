@@ -6,45 +6,6 @@
 <script setup lang="ts">
 const pricing_plans = [
   {
-    plan_name: "基本版",
-    price: "免费",
-    storage: "15GB",
-    features: ["免费15GB云存储", "文档、表格和幻灯片编辑工具", "智能应用推荐"],
-  },
-  // {
-  //   plan_name: "高级版",
-  //   price: "每月29元",
-  //   storage: "100GB",
-  //   features: ["100GB云存储", "专属客户支持", "高级安全功能", "高速文件传输"],
-  // },
-  {
-    plan_name: "专业版",
-    price: "每月59元",
-    storage: "200GB",
-    features: [
-      "200GB云存储",
-      "实时客户支持",
-      "企业级安全功能",
-      "无限制文件传输速度",
-      "智能文件组织和搜索",
-    ],
-  },
-  {
-    plan_name: "企业版",
-    price: "每月99元",
-    storage: "2TB",
-    features: [
-      "2TB云存储",
-      "专属客户经理",
-      "企业级安全和合规性",
-      "高速文件传输和无限制速度",
-      "定制解决方案和集成",
-    ],
-  },
-];
-
-const pricing_plans2 = [
-  {
     type: "COMMUNITY",
     price: "Free, forever",
     features: [
@@ -107,8 +68,8 @@ const pricing_plans2 = [
     >
       <v-item-group mandatory selected-class="active-card">
         <v-row align="stretch">
-          <v-col cols="12" md="4" v-for="plan in pricing_plans2">
-            <v-item v-slot="{ isSelected, selectedClass, toggle }">
+          <v-col cols="12" md="4" v-for="plan in pricing_plans">
+            <v-item v-slot="{ selectedClass, toggle }">
               <v-card
                 elevation="0"
                 height="100%"

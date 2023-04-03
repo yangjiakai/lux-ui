@@ -37,7 +37,7 @@
               >
                 <div>
                   <RouterLink to="/" class="text-primary font-weight-bold"
-                    >WORK WITH US</RouterLink
+                    >WORK WITH US{{ i }}</RouterLink
                   >
                   <h1 class="font-weight-black text-h3 mt-5 mb-10">
                     Get your startup ready for

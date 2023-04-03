@@ -3,9 +3,7 @@
 * @Maintainer: J.K. Yang
 * @Description:
 -->
-<script setup lang="ts">
-import { Icon, listIcons } from "@iconify/vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <v-toolbar color="#F9FAFB" height="60">
@@ -41,7 +39,7 @@ import { Icon, listIcons } from "@iconify/vue";
             width="300"
             variant="flat"
           >
-            <v-card height="100%" elevation="0"> </v-card>
+            <v-card height="100%" elevation="0"> {{ i }}</v-card>
           </v-card>
         </v-col>
       </v-row>

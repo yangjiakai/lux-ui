@@ -6,8 +6,6 @@
 <script setup lang="ts">
 import Stats1 from "./components/Stats1.vue";
 import Stats2 from "./components/Stats2.vue";
-import Stats3 from "./components/Stats3.vue";
-import Stats4 from "./components/Stats4.vue";
 </script>
 
 <template>
@@ -19,7 +17,7 @@ import Stats4 from "./components/Stats4.vue";
       <h3 class="text-h5 font-weight-bold">
         Stats
         <v-chip size="small" class="ma-2" color="primary" text-color="white">
-          4 Components
+          2 Components
         </v-chip>
       </h3>
     </div>
@@ -34,8 +32,6 @@ import Stats4 from "./components/Stats4.vue";
   <div>
     <Stats1 />
     <Stats2 />
-    <!-- <Stats3 />
-    <Stats4 /> -->
   </div>
 </template>
 

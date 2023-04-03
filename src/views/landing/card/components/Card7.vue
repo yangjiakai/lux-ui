@@ -3,9 +3,7 @@
 * @Maintainer: J.K. Yang
 * @Description:
 -->
-<script setup lang="ts">
-import { Icon, listIcons } from "@iconify/vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <v-toolbar color="#F9FAFB" height="60">
@@ -23,7 +21,7 @@ import { Icon, listIcons } from "@iconify/vue";
       <v-row align="center" justify="center">
         <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 3">
           <div class="card mx-auto my-5">
-            <v-card height="400" width="300"> </v-card>
+            <v-card height="400" width="300"> {{ i }}</v-card>
           </div>
         </v-col>
       </v-row>

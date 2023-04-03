@@ -8,8 +8,6 @@ import Testimonial1 from "./components/Testimonial1.vue";
 import Testimonial2 from "./components/Testimonial2.vue";
 import Testimonial3 from "./components/Testimonial3.vue";
 import Testimonial4 from "./components/Testimonial4.vue";
-const mode = ref("");
-const search = ref("");
 </script>
 
 <template>
@@ -21,7 +19,7 @@ const search = ref("");
       <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
       <span>Testimonial</span>
       <v-chip class="ma-2" color="primary" text-color="white">
-        9 Components
+        4 Components
       </v-chip>
     </v-toolbar-title>
     <v-spacer></v-spacer>

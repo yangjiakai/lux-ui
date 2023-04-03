@@ -6,8 +6,6 @@
 <script setup lang="ts">
 import CallToAction1 from "./components/CallToAction1.vue";
 import CallToAction2 from "./components/CallToAction2.vue";
-import CallToAction3 from "./components/CallToAction3.vue";
-import CallToAction4 from "./components/CallToAction4.vue";
 </script>
 
 <template>
@@ -19,7 +17,7 @@ import CallToAction4 from "./components/CallToAction4.vue";
       <h3 class="text-h5 font-weight-bold">
         CallToAction
         <v-chip size="small" class="ma-2" color="primary" text-color="white">
-          4 Components
+          2 Components
         </v-chip>
       </h3>
     </div>
@@ -34,9 +32,6 @@ import CallToAction4 from "./components/CallToAction4.vue";
   <div>
     <CallToAction1 />
     <CallToAction2 />
-    TODO
-    <!-- <CallToAction3 />
-    <CallToAction4 /> -->
   </div>
 </template>
 
