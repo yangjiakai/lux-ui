@@ -7,6 +7,7 @@
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 import ToolbarLanguage from "@/components/toolbar/ToolbarLanguage.vue";
 import ToolbarNotifications from "./ToolbarNotifications.vue";
+import ToolbarUser from "./ToolbarUser.vue";
 const customizeTheme = useCustomizeThemeStore();
 const showMobileSearch = ref(false);
 </script>
@@ -64,14 +65,9 @@ const showMobileSearch = ref(false);
           <v-icon>mdi-store-outline</v-icon>
         </v-badge>
       </v-btn>
-
+      <ToolbarLanguage />
       <ToolbarNotifications />
-      <v-avatar class="mx-5">
-        <v-img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
-        ></v-img>
-      </v-avatar>
-      <toolbar-language />
+      <ToolbarUser />
     </div>
   </v-app-bar>
 </template>

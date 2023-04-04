@@ -100,7 +100,7 @@ import Loading from "@/components/loading/Loading01.vue";
 // const { data, isLoading, isFinished, execute } = useAxios(
 //   "https://jsonplaceholder.typicode.com/todos"
 // );
-const { data, isLoading, isFinished, execute } = useAxios(
+const { data, isLoading } = useAxios(
   "https://picsum.photos/v2/list?page=2&limit=20"
 );
 
@@ -112,12 +112,12 @@ const filteredItems: any = computed(() => {
   return data;
 });
 
-const generateRandomColor = () => {
-  return "#" + Math.floor(Math.random() * 16777215).toString(16);
-};
+// const generateRandomColor = () => {
+//   return "#" + Math.floor(Math.random() * 16777215).toString(16);
+// };
 
-const items = Array.from({ length: 20 }, () => ({
-  color: generateRandomColor(),
-}));
+// const items = Array.from({ length: 20 }, () => ({
+//   color: generateRandomColor(),
+// }));
 </script>
 <style scoped></style>

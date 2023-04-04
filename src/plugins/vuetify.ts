@@ -19,7 +19,6 @@ export default createVuetify({
     themes: {
       light: {
         colors: {
-          background: "#ffffff",
           surface: "#fff",
           primary: "#344767",
           secondary: "#a0b9c8",
@@ -28,6 +27,16 @@ export default createVuetify({
           info: "#2196F3",
           success: "#06d6a0",
           warning: "#ffd166",
+
+          // primary: "#344767",
+          // secondary: "#fcfbff",
+          // accent: "#6386e1",
+          // content: "#333333",
+          // background: "#F8F9FA",
+          // error: "#ef476f",
+          // info: "#2196F3",
+          // success: "#06d6a0",
+          // warning: "#ffd166",
         },
       },
       dark: {
@@ -66,9 +75,7 @@ export default createVuetify({
     VNavigationDrawer: {
       elevation: 1,
     },
-    VList: {
-      elevation: 1,
-    },
+
     VTable: {
       elevation: 1,
     },

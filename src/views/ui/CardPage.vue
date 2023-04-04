@@ -55,7 +55,7 @@
   </v-container>
 </template>
 <script setup lang="ts">
-import { Icon, listIcons } from "@iconify/vue";
+import { Icon } from "@iconify/vue";
 </script>
 <style scoped lang="scss">
 $white: #ffffff;

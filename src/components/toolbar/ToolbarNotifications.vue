@@ -49,38 +49,39 @@ const messages = [
 </script>
 
 <template>
-  <v-btn class="text-none" stacked>
-    <v-badge content="2" color="error">
-      <v-icon>mdi-bell-outline</v-icon>
-    </v-badge>
-  </v-btn>
   <v-menu location="bottom right" transition="slide-y-transition">
+    <!-- ---------------------------------------------- -->
+    <!-- Activator Btn -->
+    <!-- ---------------------------------------------- -->
     <template v-slot:activator="{ props }">
-      <v-btn v-bind="props" class="text-none" stacked>
+      <v-btn icon v-bind="props" class="text-none">
         <v-badge content="2" color="error">
           <v-icon>mdi-bell-outline</v-icon>
         </v-badge>
       </v-btn>
     </template>
-    <v-list lines="three" density="compact" max-width="400">
-      <!-- <v-subheader class="pa-2 font-weight-bold">Notifications</v-subheader> -->
+    <v-list elevation="1" lines="three" density="compact" max-width="400">
       <v-list-subheader>Notifications</v-list-subheader>
-      <v-list-item
-        v-for="(message, i) in messages"
-        :key="i"
-        active-class="bg-primary"
-        @click=""
-      >
+      <v-list-item v-for="(message, i) in messages" :key="i" @click="">
+        <!-- ---------------------------------------------- -->
+        <!-- Prepend-->
+        <!-- ---------------------------------------------- -->
         <template v-slot:prepend>
           <v-avatar size="40" :color="message.color">
             <v-icon color="white">{{ message.icon }}</v-icon>
           </v-avatar>
         </template>
+        <!-- ---------------------------------------------- -->
+        <!-- Append-->
+        <!-- ---------------------------------------------- -->
         <template v-slot:append>
           <div class="full-h d-flex align-center">
             <span class="text-body-2 text-grey"> {{ message.time }}</span>
           </div>
         </template>
+        <!-- ---------------------------------------------- -->
+        <!-- Main Content-->
+        <!-- ---------------------------------------------- -->
         <div>
           <v-list-item-title class="font-weight-bold text-primary">{{
             message.title
@@ -88,6 +89,9 @@ const messages = [
           <v-list-item-subtitle>{{ message.subtitle }}</v-list-item-subtitle>
         </div>
       </v-list-item>
+      <!-- ---------------------------------------------- -->
+      <!-- See all Btn-->
+      <!-- ---------------------------------------------- -->
       <div class="text-center py-5">
         <v-btn size="small" variant="elevated" elevation="1"> See all </v-btn>
       </div>
