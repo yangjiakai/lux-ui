@@ -6,7 +6,7 @@
         <span class="text-body-2">{{ currentLocale.label }}</span>
       </v-btn>
     </template>
-    <v-list nav>
+    <v-list elevation="1" nav>
       <v-list-item
         v-for="locale in availableLocaleList"
         :key="locale.code"

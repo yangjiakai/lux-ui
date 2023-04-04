@@ -4,6 +4,7 @@
 * @Description: 
 -->
 <script setup lang="ts">
+import StatusMenu from "./StatusMenu.vue";
 const navs = [
   {
     title: "Profile Details",
@@ -95,7 +96,7 @@ const navs2 = [
 
           <v-list-item-title class="font-weight-bold text-primary">
             YANG J.K.
-            <span class="text-body-2 text-success"> Online</span>
+            <StatusMenu />
           </v-list-item-title>
           <v-list-item-subtitle>
             <!-- {{ $store.state.user.email  }} -->
