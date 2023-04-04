@@ -4,8 +4,8 @@ import type { Message, User } from "./chatTypes";
 export const useChatStore = defineStore({
   id: "chat",
   state: () => ({
-    apiKey: ref<string>(""),
-    chatHistory: ref<Message[]>([]),
+    apiKey: "",
+    chatHistory: [],
   }),
 
   persist: {
@@ -13,7 +13,14 @@ export const useChatStore = defineStore({
     strategies: [{ storage: localStorage, paths: ["chatHistory", "apiKey"] }],
   },
 
-  getters: {},
+  getters: {
+    getChatHistory() {
+      return this.chatHistory;
+    },
+    getApiKey() {
+      return this.apiKey;
+    },
+  },
   actions: {
     saveApiKey(key: string) {
       this.apiKey = key;

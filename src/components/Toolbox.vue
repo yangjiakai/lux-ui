@@ -26,14 +26,7 @@ import TranslationAssistant from "@/components/ai/TranslationAssistant.vue";
         ></v-tooltip>
       </v-btn>
       <hr />
-      <v-btn size="50">
-        <v-icon size="30">mdi-google-translate</v-icon>
-        <v-tooltip
-          activator="parent"
-          location="left"
-          text="Translation Assistant"
-        ></v-tooltip>
-      </v-btn>
+      <TranslationAssistant />
       <hr />
       <v-btn size="50">
         <v-icon size="30" text="Translation Assistant">mdi-code-tags</v-icon>

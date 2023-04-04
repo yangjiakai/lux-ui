@@ -4,7 +4,7 @@ const chatStore = useChatStore();
 
 export const createCompletion: any = (keyword: string) => {
   const configuration = new Configuration({
-    apiKey: chatStore.apiKey,
+    apiKey: chatStore.getApiKey,
   });
 
   const openai = new OpenAIApi(configuration);
@@ -17,7 +17,7 @@ export const createCompletion: any = (keyword: string) => {
 
 export const translationApi: any = (content: string, prompt: string) => {
   const configuration = new Configuration({
-    apiKey: chatStore.apiKey,
+    apiKey: chatStore.getApiKey,
   });
 
   const openai = new OpenAIApi(configuration);
