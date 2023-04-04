@@ -65,7 +65,7 @@ const setStatus = (status: string) => {
         {{ currentStatus.label }}
       </v-btn>
     </template>
-    <v-list>
+    <v-list elevation="1">
       <v-list-item
         v-for="status in userStatusList"
         :key="status.code"

@@ -5,6 +5,7 @@
     </component>
     <CustomizationMenu />
     <BackToTop />
+    <ToolBox />
   </v-app>
 </template>
 
@@ -16,6 +17,7 @@ import AuthLayout from "@/layouts/AuthLayout.vue";
 import CustomizationMenu from "@/components/CustomizationMenu.vue";
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 import BackToTop from "@/components/common/BackToTop.vue";
+import ToolBox from "@/components/Toolbox.vue";
 const customizeTheme = useCustomizeThemeStore();
 const route = useRoute();
 
