@@ -2,8 +2,8 @@
   "name": "vuetify3-design",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --mode dev",
+    "build": "vite build --mode pro",
     "preview": "vite preview"
   },
   "dependencies": {
