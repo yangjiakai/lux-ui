@@ -29,6 +29,8 @@ const langs = [
   },
 ];
 
+const errorMsg = ref("");
+
 const currentLang = ref("en");
 const currentLangName = computed(() => {
   return langs.find((lang) => lang.code === currentLang.value)?.name;
@@ -45,6 +47,13 @@ const prompt = computed(() => {
 const isLoading = ref(false);
 const translate = async () => {
   if (baseContent.value === "") {
+    errorMsg.value = "请输入要翻译的内容";
+    isBaseContentEmpty.value = true;
+    return;
+  }
+
+  if (!chatStore.apiKey) {
+    errorMsg.value = "请先输入API KEY";
     isBaseContentEmpty.value = true;
     return;
   }
@@ -267,7 +276,7 @@ const record = () => {
         icon="mdi-alert"
         border
       >
-        翻译内容不能为空
+        {{ errorMsg }}
       </v-alert>
     </v-sheet>
   </v-menu>
