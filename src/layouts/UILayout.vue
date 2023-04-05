@@ -3,6 +3,7 @@ import Breadcrumb from "@/components/Breadcrumb.vue";
 import PageTitle from "@/components/PageTitle.vue";
 import MainSidevar from "@/components/navigation/MainSiderbar.vue";
 import MainAppbar from "@/components/toolbar/MainAppbar.vue";
+// import GlobalLoading from "@/components/GlobalLoading.vue";
 </script>
 
 <template>
@@ -19,6 +20,7 @@ import MainAppbar from "@/components/toolbar/MainAppbar.vue";
     <!---MainArea -->
     <!-- ---------------------------------------------- -->
     <v-main class="main-bg">
+      <!-- <GlobalLoading /> -->
       <v-layout>
         <v-container fluid>
           <PageTitle></PageTitle>

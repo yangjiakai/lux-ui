@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-
+import { useAppStore } from "@/stores/appStore";
 import AuthRoutes from "./auth.routes";
 import UIRoutes from "./ui.routes";
 import LandingRoutes from "./landing.routes";
@@ -51,6 +51,17 @@ const router = createRouter({
       return { top: 0 };
     }
   },
+});
+
+router.beforeEach(async (to, from, next) => {
+  const appStore = useAppStore();
+  appStore.globalLoading = true;
+  next();
+});
+
+router.afterEach(() => {
+  const appStore = useAppStore();
+  appStore.globalLoading = false;
 });
 
 export default router;

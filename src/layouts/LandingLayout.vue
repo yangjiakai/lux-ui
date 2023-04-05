@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import MainSidevar from "@/components/navigation/MainSiderbar.vue";
 import MainAppbar from "@/components/toolbar/MainAppbar.vue";
+// import GlobalLoading from "@/components/GlobalLoading.vue";
 </script>
 
 <template>
@@ -18,6 +19,7 @@ import MainAppbar from "@/components/toolbar/MainAppbar.vue";
     <!-- ---------------------------------------------- -->
     <perfect-scrollbar>
       <v-main class="main-area">
+        <!-- <GlobalLoading /> -->
         <slot></slot>
       </v-main>
     </perfect-scrollbar>

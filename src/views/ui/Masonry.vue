@@ -14,8 +14,8 @@
           <v-card class="ma-3">
             <v-img
               class="align-end text-white"
-              :src="item.url"
-              :lazy-src="item.url"
+              :src="item.download_url"
+              :lazy-src="item.download_url"
               cover
             >
               <template v-slot:placeholder>
@@ -36,7 +36,7 @@
             <v-card-text>
               <div>height:{{ item.height }} width:{{ item.width }}</div>
 
-              <div>{{ item.url }}</div> </v-card-text
+              <div>{{ item.download_url }}</div> </v-card-text
             >download_url
 
             <v-card-actions>
@@ -101,7 +101,7 @@ import Loading from "@/components/loading/Loading01.vue";
 //   "https://jsonplaceholder.typicode.com/todos"
 // );
 const { data, isLoading } = useAxios(
-  "https://api.unsplash.com/photos?page=2&limit=20"
+  "https://picsum.photos/v2/list?page=2&limit=20"
 );
 
 // const { data, isLoading, isFinished, execute } = useAxios(
