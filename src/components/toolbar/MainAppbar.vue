@@ -50,14 +50,11 @@ const showMobileSearch = ref(false);
         hide-details
         placeholder="Search"
       ></v-text-field>
-      <v-btn class="text-none" stacked>
-        <v-badge dot color="success">
-          <v-icon>mdi-home-outline</v-icon>
-        </v-badge>
-      </v-btn>
 
       <v-btn class="text-none" stacked>
-        <v-icon>mdi-account-multiple-outline</v-icon>
+        <v-badge dot color="success">
+          <v-icon>mdi-account-multiple-outline</v-icon>
+        </v-badge>
       </v-btn>
 
       <v-btn class="text-none" stacked>
