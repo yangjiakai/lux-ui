@@ -26,7 +26,7 @@ const chatStore = useChatStore();
     <ApiKeyDialog />
     <v-btn color="primary" block size="large" class="mb-3">New Chat</v-btn>
 
-    <v-list nav class="mt-2 pa-0">
+    <v-list nav class="mt-2 pa-0" color="primary">
       <v-list-item
         to="/apps/chat/base-channel"
         active-class="active-chat"
@@ -61,7 +61,8 @@ const chatStore = useChatStore();
 
 <style scoped lang="scss">
 .active-chat {
-  color: #705cf6;
-  border-left: 5px solid #705cf6;
+  border-left: 5px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to bottom, #3a456c, #a4abbb);
 }
 </style>

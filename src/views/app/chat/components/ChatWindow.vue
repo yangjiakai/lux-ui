@@ -24,8 +24,12 @@ const scrollToBottom = () => {
   <!-- ---------------------------------------------- -->
   <!---Header Area -->
   <!-- ---------------------------------------------- -->
-  <v-toolbar color="#705CF6" elevation="10" class="mx-2" rounded="lg">
-    <v-btn color="white" @click="chatStore.clearHistory">清空记录</v-btn>
+  <v-toolbar color="white" rounded="lg">
+    <div class="mx-2 pa-1 bg-primary flex-grow-1 rounded-sm rounded-lg">
+      <v-btn size="large" color="white" @click="chatStore.clearHistory"
+        >清空记录</v-btn
+      >
+    </div>
   </v-toolbar>
   <!-- ---------------------------------------------- -->
   <!---Chat Area -->

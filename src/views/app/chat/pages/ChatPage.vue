@@ -8,7 +8,7 @@ import ChatWindow from "../components/ChatWindow.vue";
 </script>
 
 <template>
-  <div class="">
+  <div>
     <ChatWindow />
   </div>
 </template>
