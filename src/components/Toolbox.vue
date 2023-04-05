@@ -15,7 +15,7 @@ const toolboxShow = ref(false);
 
 <template>
   <v-btn
-    class="back-to-top elevation-10"
+    class="toolbox-activator elevation-10"
     @click="toolboxShow = !toolboxShow"
     size="50"
   >
@@ -90,12 +90,13 @@ const toolboxShow = ref(false);
 
 <style scoped lang="scss">
 .toolbox {
+  z-index: 999;
   position: fixed;
   bottom: 150px;
   right: 20px;
 }
 
-.back-to-top {
+.toolbox-activator {
   position: fixed;
   transition: all 0.3s ease;
   background-color: #fff;
@@ -106,15 +107,5 @@ const toolboxShow = ref(false);
   border-radius: 0.5rem;
   transition: all 0.3s;
   cursor: pointer;
-  //   &:active {
-  //     background-color: #344767;
-  //     color: #fff;
-  //     transition: all 0.3s;
-  //   }
-}
-
-.back-to-top.visible {
-  opacity: 1;
-  visibility: visible;
 }
 </style>
