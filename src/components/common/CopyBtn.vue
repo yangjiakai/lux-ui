@@ -41,13 +41,10 @@ const copyText = () => {
       </template>
     </v-snackbar>
 
-    <v-tooltip location="bottom" text="Copy">
-      <template #activator="{ props }">
-        <v-btn color="primary" v-bind="props" icon @click="copyText()"
-          ><v-icon>mdi-content-copy</v-icon>
-        </v-btn>
-      </template>
-    </v-tooltip>
+    <v-btn v-bind="$attrs" icon @click="copyText()"
+      ><v-icon>mdi-content-copy</v-icon>
+      <v-tooltip activator="parent" location="bottom" text="Copy"></v-tooltip>
+    </v-btn>
   </div>
 </template>
 

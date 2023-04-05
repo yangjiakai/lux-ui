@@ -8,7 +8,7 @@ import { createTranscriptionApi } from "@/api/aiApi";
 import { useChatStore } from "@/views/app/chat/chatStore";
 import CopyBtn from "@/components/common/CopyBtn.vue";
 import ApiKeyDialog from "@/views/app/chat/components/ApiKeyDialog.vue";
-
+import { useDisplay } from "vuetify";
 import { read } from "@/utils/aiUtils";
 const chatStore = useChatStore();
 const langs = [
@@ -23,24 +23,53 @@ const langs = [
     label: "中文(简体)",
   },
   {
+    code: "zh-TW",
+    name: "Chinese Traditional",
+    label: "中文(繁體)",
+  },
+  {
     code: "ja",
     name: "Japanese",
     label: "日本語",
   },
+  {
+    code: "ko",
+    name: "Korean",
+    label: "한국어",
+  },
+  {
+    code: "fr",
+    name: "French",
+    label: "Français",
+  },
+  {
+    code: "de",
+    name: "German",
+    label: "Deutsch",
+  },
+  {
+    code: "es",
+    name: "Spanish",
+    label: "Español",
+  },
 ];
 
-const errorMsg = ref("");
-
-const currentLang = ref("en");
-const currentLangName = computed(() => {
-  return langs.find((lang) => lang.code === currentLang.value)?.name;
+const currentLang = ref({
+  code: "en",
+  name: "English",
+  label: "English",
 });
+const setLang = (lang: any) => {
+  currentLang.value = lang;
+};
+
+const errorMsg = ref("");
 
 const baseContent = ref("");
 const targetContent = ref("");
 
 const prompt = computed(() => {
-  return `Translate into ${currentLangName.value}`;
+  return `Translate into ${currentLang.value.name}`;
   //   return `I want you to act as an ${currentLangName.value} translator, spelling corrector and improver. I will speak to you in any language and you will detect the language, translate it and answer in the corrected and improved version of my text, in ${currentLang.value.name}. I want you to replace my simplified A0-level words and sentences with more beautiful and elegant, upper level ${currentLang.value.name} words and sentences. Keep the meaning same, but make them more literary. I want you to only reply the correction, the improvements and nothing else, do not write explanations.”`;
 });
 
@@ -144,142 +173,163 @@ const record = () => {
     startRecording();
   }
 };
+
+const dialog = ref(false);
+const { xs } = useDisplay();
 </script>
 
 <template>
-  <v-menu location="left bottom" :close-on-content-click="false">
-    <template v-slot:activator="{ props }">
-      <v-btn size="50" v-bind="props">
-        <v-icon size="30">mdi-google-translate</v-icon>
-        <v-tooltip
-          activator="parent"
-          location="left"
-          text="Translation Assistant"
-        ></v-tooltip>
-      </v-btn>
-    </template>
+  <v-btn size="50" @click="dialog = !dialog">
+    <v-icon size="30">mdi-google-translate</v-icon>
+    <v-tooltip
+      activator="parent"
+      location="left"
+      text="Translation Assistant"
+    ></v-tooltip>
+  </v-btn>
 
-    <v-sheet elevation="10" height="592" width="800" class="mx-auto">
-      <v-row no-gutters justify="center" dense>
-        <v-col cols="6">
-          <v-card elevation="0">
-            <v-card-title style="height: 60px" class="d-flex align-center">
-              <span class="text-body-2">检测语言</span>
-
-              <v-spacer></v-spacer>
-              <ApiKeyDialog />
-              <v-btn
-                class="ml-2"
-                :loading="isLoading"
-                :disabled="isLoading"
-                color="primary"
-                @click="translate"
-                >翻译</v-btn
-              >
-            </v-card-title>
-            <div class="pa-2">
-              <v-textarea
-                v-model="baseContent"
-                hide-details
-                variant="outlined"
-                rows="15"
-                auto-grow
-                color="primary"
-                clearable
-                @focus="isBaseContentEmpty = false"
-              ></v-textarea>
-            </div>
-            <v-card-actions>
-              <v-tooltip location="bottom" text="语音输入">
-                <template #activator="{ props }">
-                  <v-btn @click="record" color="primary" v-bind="props" icon>
-                    <v-icon v-if="isRecording">mdi-microphone</v-icon>
-                    <v-icon v-else>mdi-microphone-outline</v-icon>
-                  </v-btn>
-                </template>
-              </v-tooltip>
-              <v-tooltip location="bottom" text="朗读">
-                <template #activator="{ props }">
-                  <v-btn color="primary" v-bind="props" icon
-                    ><v-icon>mdi-volume-high</v-icon>
-                  </v-btn>
-                </template>
-              </v-tooltip>
-              <v-spacer></v-spacer>
-              <CopyBtn :text="baseContent" />
-            </v-card-actions>
-          </v-card>
-        </v-col>
-
-        <v-col cols="6">
-          <v-card elevation="0">
-            <v-card-title style="height: 60px" class="d-flex align-center">
-              <span class="text-body-2">目标语言：</span>
-              <v-btn-toggle
-                v-model="currentLang"
-                density="compact"
-                variant="outlined"
-                color="primary"
-                mandatory
-              >
-                <v-btn
-                  density="compact"
-                  size="small"
-                  v-for="lang in langs"
-                  :value="lang.code"
-                >
-                  {{ lang.label }}
-                </v-btn>
-              </v-btn-toggle>
-              <!-- <v-menu location="bottom end" scroll-y>
-                <template v-slot:activator="{ props }">
-                  <v-btn append-icon="mdi-menu-down" v-bind="props">
-                    <span class="text-body-2">{{ currentLang.label }}</span>
-                  </v-btn>
-                </template>
-                <v-card>
-                  <div v-for="lang in langs">
-                    <v-btn block @click="setLang(lang)">{{ lang.label }}</v-btn>
-                  </div>
-                </v-card>
-              </v-menu> -->
-              <v-spacer></v-spacer>
-            </v-card-title>
-            <div class="pa-2">
-              <v-textarea
-                v-model="targetContent"
-                hide-details
-                variant="outlined"
-                rows="15"
-                auto-grow
-                color="primary"
-                clearable
-              ></v-textarea>
-            </div>
-            <v-card-actions>
-              <v-tooltip location="bottom" text="朗读">
-                <template #activator="{ props }">
-                  <v-btn @click="" color="primary" v-bind="props" icon
-                    ><v-icon>mdi-volume-high</v-icon>
-                  </v-btn>
-                </template>
-              </v-tooltip>
-              <v-spacer></v-spacer>
-              <CopyBtn :text="targetContent" />
-            </v-card-actions> </v-card
-        ></v-col>
-      </v-row>
-      <v-alert
-        v-model="isBaseContentEmpty"
-        color="red"
-        theme="dark"
-        icon="mdi-alert"
-        border
+  <teleport to="body">
+    <transition name="slide-y">
+      <v-card
+        v-if="dialog"
+        class="dialog-bottom d-flex flex-column"
+        :width="xs ? '100%' : '600px'"
       >
-        {{ errorMsg }}
-      </v-alert>
-    </v-sheet>
-  </v-menu>
+        <v-card-title class="overflow-scroll">
+          <span class="flex-1">
+            <v-avatar size="40">
+              <img src="https://img.icons8.com/color/96/null/translation.png" />
+            </v-avatar>
+
+            OpenAi Translation
+          </span>
+
+          <v-spacer></v-spacer>
+          <v-btn icon @click.stop="dialog = false">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-card-title>
+        <hr />
+        <v-card-actions class="px-5">
+          <span class="text-body-2">目标语言：</span>
+          <!-- <v-btn-toggle
+            v-model="currentLang"
+            density="compact"
+            variant="outlined"
+            color="primary"
+            mandatory
+          >
+            <v-btn
+              density="compact"
+              size="small"
+              v-for="lang in langs"
+              :value="lang.code"
+            >
+              {{ lang.label }}
+            </v-btn>
+          </v-btn-toggle> -->
+          <v-menu location="bottom end" scroll-y>
+            <template v-slot:activator="{ props }">
+              <v-btn width="108" append-icon="mdi-menu-down" v-bind="props">
+                <span class="text-body-2">{{ currentLang.label }}</span>
+              </v-btn>
+            </template>
+            <v-card>
+              <div v-for="lang in langs">
+                <v-btn block @click="setLang(lang)">{{ lang.label }}</v-btn>
+              </div>
+            </v-card>
+          </v-menu>
+
+          <v-spacer></v-spacer>
+          <ApiKeyDialog />
+          <v-btn
+            class="ml-2 text-white"
+            :loading="isLoading"
+            :disabled="isLoading"
+            variant="elevated"
+            color="primary"
+            @click="translate"
+            >翻译</v-btn
+          >
+        </v-card-actions>
+        <hr />
+        <v-card-text>
+          <v-row no-gutters justify="center" dense>
+            <v-col cols="12">
+              <v-card elevation="0">
+                <div class="pa-2">
+                  <v-textarea
+                    v-model="baseContent"
+                    placeholder="Enter the text to be translated"
+                    hide-details
+                    variant="solo"
+                    class="elevation-1"
+                    color="white"
+                    clearable
+                    @focus="isBaseContentEmpty = false"
+                  ></v-textarea>
+                </div>
+                <v-card-actions class="bg-grey-lighten-4 text-primary">
+                  <v-tooltip location="bottom" text="语音输入">
+                    <template #activator="{ props }">
+                      <v-btn @click="record" v-bind="props" icon>
+                        <v-icon v-if="isRecording">mdi-microphone</v-icon>
+                        <v-icon v-else>mdi-microphone-outline</v-icon>
+                      </v-btn>
+                    </template>
+                  </v-tooltip>
+                  <v-tooltip location="bottom" text="朗读">
+                    <template #activator="{ props }">
+                      <v-btn v-bind="props" icon
+                        ><v-icon>mdi-volume-high</v-icon>
+                      </v-btn>
+                    </template>
+                  </v-tooltip>
+                  <v-spacer></v-spacer>
+                  <CopyBtn :text="baseContent" />
+                </v-card-actions>
+              </v-card>
+            </v-col>
+
+            <v-col cols="12">
+              <v-card elevation="0">
+                <div class="pa-2">
+                  <v-textarea
+                    v-model="targetContent"
+                    hide-details
+                    variant="solo"
+                    class="elevation-1"
+                    color="primary"
+                    clearable
+                  ></v-textarea>
+                </div>
+                <v-card-actions
+                  class="bg-grey-lighten-4 bg-grey-lighten-4 text-primary"
+                >
+                  <v-tooltip location="bottom" text="朗读">
+                    <template #activator="{ props }">
+                      <v-btn @click="" v-bind="props" icon
+                        ><v-icon>mdi-volume-high</v-icon>
+                      </v-btn>
+                    </template>
+                  </v-tooltip>
+                  <v-spacer></v-spacer>
+                  <CopyBtn :text="targetContent" />
+                </v-card-actions> </v-card
+            ></v-col> </v-row
+        ></v-card-text>
+        <hr />
+      </v-card>
+    </transition>
+  </teleport>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.dialog-bottom {
+  z-index: 999;
+  position: fixed;
+  bottom: 10px;
+  right: 0px;
+}
+</style>

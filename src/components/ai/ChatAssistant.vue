@@ -27,7 +27,7 @@ const { xs } = useDisplay();
         v-if="dialog"
         class="dialog-bottom d-flex flex-column"
         :width="xs ? '100%' : '600px'"
-        :height="xs ? '100%' : '500px'"
+        height="500px"
       >
         <v-card-title>
           <span class="flex-1">
