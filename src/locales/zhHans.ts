@@ -89,6 +89,7 @@ export default {
     faqPage: "FAQ 页面",
     toolbarPage: "工具栏页面",
     footerPage: "页脚页面",
+    dataTable: "复杂数据表",
     colors: "色彩",
     gradient: "渐变色",
     card: "卡片",

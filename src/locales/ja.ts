@@ -89,6 +89,7 @@ export default {
     faqPage: "FAQページ",
     toolbarPage: "ツールバーページ",
     footerPage: "フッターページ",
+    dataTablePage: "データテーブルページ",
     colors: "カラー",
     gradient: "Gradient",
     card: "カード",

@@ -1,4 +1,18 @@
 export default [
+  // data table
+  {
+    path: "/ui/data-table",
+    name: "ui-data-table",
+    component: () =>
+      import(
+        /* webpackChunkName: "ui-data-table" */ "@/views/ui/DataTablePage.vue"
+      ),
+    meta: {
+      layout: "ui",
+      category: "UI",
+      title: "DataTable",
+    },
+  },
   {
     path: "/ui/colors",
     name: "ui-colors",

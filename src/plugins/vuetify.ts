@@ -12,9 +12,13 @@ import { createVuetify } from "vuetify";
 import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n";
 import { useI18n } from "vue-i18n";
 import i18n from "@/plugins/i18n";
+import * as labs from "vuetify/labs/components";
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
+  components: {
+    ...labs,
+  },
   theme: {
     themes: {
       light: {
@@ -75,9 +79,12 @@ export default createVuetify({
     VNavigationDrawer: {
       elevation: 1,
     },
-
     VTable: {
       elevation: 1,
+    },
+    VDataTable: {
+      fixedHeader: true,
+      noDataText: "Results not found",
     },
   },
   locale: {

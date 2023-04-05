@@ -11,6 +11,12 @@ export default [
   // },
   {
     icon: "mdi-format-color-fill",
+    text: "Data Table",
+    link: "/ui/data-table",
+    key: "menu.dataTable",
+  },
+  {
+    icon: "mdi-format-color-fill",
     text: "Colors",
     link: "/ui/colors",
     key: "menu.colors",

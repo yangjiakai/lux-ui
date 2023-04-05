@@ -9,9 +9,9 @@ import CopyLabel from "@/components/common/CopyLabel.vue";
 
 const searchKey = ref("");
 
-const computedColors = computed(() => {
+const computedColors: any = computed(() => {
   const search = searchKey.value.toLowerCase();
-  const colorList = [];
+  const colorList: any = [];
   Object.keys(materialColorThemes).forEach((key) => {
     const color = materialColorThemes[key];
     const colorObj = convertColorObject(key, color);

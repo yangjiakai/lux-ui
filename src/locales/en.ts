@@ -91,6 +91,7 @@ export default {
     toolbarPage: "Toolbar Page",
     footerPage: "Footer Page",
     childBinding: "Child Binding",
+    dataTable: "Data Table",
     colors: "Colors",
     gradient: "Gradient",
     card: "Card",
