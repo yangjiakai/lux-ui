@@ -1,10 +1,8 @@
 import { Configuration, OpenAIApi } from "openai";
-import { useChatStore } from "./chatStore";
-const chatStore = useChatStore();
 
-export const createCompletion: any = (keyword: string) => {
+export const createCompletion: any = (keyword: string, apiKey: string) => {
   const configuration = new Configuration({
-    apiKey: chatStore.apiKey,
+    apiKey: apiKey,
   });
 
   const openai = new OpenAIApi(configuration);
@@ -15,9 +13,13 @@ export const createCompletion: any = (keyword: string) => {
   });
 };
 
-export const translationApi: any = (content: string, prompt: string) => {
+export const translationApi: any = (
+  content: string,
+  prompt: string,
+  apiKey: string
+) => {
   const configuration = new Configuration({
-    apiKey: chatStore.apiKey,
+    apiKey: apiKey,
   });
 
   const openai = new OpenAIApi(configuration);

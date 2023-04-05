@@ -65,7 +65,10 @@ const sendMessage = () => {
 
 const getCompletion = async () => {
   try {
-    const response = await createCompletion(userMessage.value);
+    const response = await createCompletion(
+      userMessage.value,
+      chatStore.apiKey
+    );
 
     if (response.data.error) {
       const errorCode = response.data.error.code;

@@ -59,8 +59,53 @@
 .fade-leave-active {
   transition: all 0.5s ease;
 }
+
 .fade-enter-from,
 .fade-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+
+// Base
+.v-enter-active,
+.v-leave-active {
+  position: absolute;
+  transition: opacity 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+// Side Y 
+.slide-y-enter-active,
+.slide-y-leave-active {
+  position: absolute;
+  transition: all 0.25s ease-out;
+}
+
+.slide-y-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-y-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+
+// Side X
+.slide-x-enter-active,
+.slide-x-leave-active {
+  position: absolute;
+  transition: all 0.5s ease;
+}
+
+.slide-x-enter-from,
+.slide-x-leave-to {
   opacity: 0;
   transform: translateX(30px);
 }
