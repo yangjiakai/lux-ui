@@ -43,7 +43,7 @@ const sendMessage = () => {
   if (!userMessage.value) return;
 
   // 判断ApiKey是否为空
-  if (!chatStore.getApiKey) {
+  if (!chatStore.apiKey) {
     errorMsg.value = "请先设置API密钥。";
     isError.value = true;
     return;

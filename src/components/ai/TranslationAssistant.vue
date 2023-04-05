@@ -55,7 +55,7 @@ const translate = async () => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${chatStore.getApiKey}`,
+          Authorization: `Bearer ${chatStore.apiKey}`,
         },
         method: "POST",
         body: JSON.stringify({
@@ -111,7 +111,7 @@ const startRecording = async () => {
         const formData = new FormData();
         formData.append("file", file);
         formData.append("model", "whisper-1");
-        const res = await createTranscriptionApi(formData, chatStore.getApiKey);
+        const res = await createTranscriptionApi(formData, chatStore.apiKey);
         baseContent.value = res.data.text;
       };
     })

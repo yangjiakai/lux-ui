@@ -17,9 +17,6 @@ export const useChatStore = defineStore({
     getChatHistory() {
       return this.chatHistory;
     },
-    getApiKey() {
-      return this.apiKey;
-    },
   },
   actions: {
     saveApiKey(key: string) {

@@ -11,16 +11,12 @@ const close = () => {
   keyDialog.value = false;
 };
 
-const key = ref(chatStore.getApiKey);
-
-watch(
-  () => key,
-  (val) => {
-    if (val) {
-      chatStore.saveApiKey(val);
-    }
-  }
-);
+const key = computed({
+  get: () => chatStore.apiKey,
+  set: (value) => {
+    chatStore.saveApiKey(value); // 假设您有一个名为setApiKey的Pinia store mutation
+  },
+});
 </script>
 
 <template>
