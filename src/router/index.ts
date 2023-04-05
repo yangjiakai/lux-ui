@@ -7,6 +7,7 @@ import UtilityRoutes from "./utility.routes";
 import PagesRoutes from "./pages.routes";
 import ChartsRoutes from "./charts.routes";
 import AppsRoutes from "./apps.routes";
+import DataRoutes from "./data.routes";
 
 export const routes = [
   {
@@ -33,6 +34,7 @@ export const routes = [
   ...UIRoutes,
   ...ChartsRoutes,
   ...AppsRoutes,
+  ...DataRoutes,
 ];
 
 // 动态路由，基于用户权限动态去加载

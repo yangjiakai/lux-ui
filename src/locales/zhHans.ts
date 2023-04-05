@@ -106,6 +106,13 @@ export default {
     echartScatter: "Echart Scatter ",
     echartOthers: "Echart Others ",
     apexChart: "ApexChart ",
+    data: {
+      usersDataPage: "用户数据",
+      photosDataPage: "照片数据",
+      collectionsDataPage: "集合数据",
+      topicsDataPage: "主题数据",
+      topicPhotosDataPage: "主题照片数据",
+    },
   },
   dashboard: {
     activity: "活动",

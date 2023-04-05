@@ -108,6 +108,13 @@ export default {
     echartScatter: "Echart Scatter ",
     echartOthers: "Echart Others ",
     apexChart: "ApexChart ",
+    data: {
+      usersDataPage: "Users Data",
+      photosDataPage: "Photos Data",
+      collectionsDataPage: "Collections Data",
+      topicsDataPage: "Topics Data",
+      topicPhotosDataPage: "Topic Photos Data",
+    },
   },
 
   dashboard: {

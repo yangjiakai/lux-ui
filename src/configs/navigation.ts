@@ -3,6 +3,7 @@ import menuApps from "./menus/apps.menu";
 import menuPages from "./menus/pages.menu";
 import menuCharts from "./menus/charts.menu";
 import menuLanding from "./menus/landing.menu";
+import menuData from "./menus/data.menu";
 export default {
   menu: [
     {
@@ -20,6 +21,10 @@ export default {
     {
       text: "Apps",
       items: menuApps,
+    },
+    {
+      text: "Data Tables",
+      items: menuData,
     },
     {
       text: "Landing",
