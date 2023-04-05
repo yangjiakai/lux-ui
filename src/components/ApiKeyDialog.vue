@@ -4,11 +4,12 @@
 * @Description: 
 -->
 <script setup lang="ts">
-import { useChatStore } from "../chatStore";
+import { useChatStore } from "@/views/app/chat/chatStore";
+
 const chatStore = useChatStore();
-const keyDialog = ref(false);
+
 const close = () => {
-  keyDialog.value = false;
+  chatStore.apiKeyDialog = false;
 };
 
 const key = computed({
@@ -20,14 +21,7 @@ const key = computed({
 </script>
 
 <template>
-  <v-btn
-    variant="elevated"
-    color="primary"
-    class="text-white"
-    @click="keyDialog = true"
-    >API KEY</v-btn
-  >
-  <v-dialog v-model="keyDialog" width="600">
+  <v-dialog v-model="chatStore.apiKeyDialog" width="600">
     <v-card>
       <v-card-title> 请输入您的API KEY </v-card-title>
       <hr />

@@ -4,7 +4,9 @@
 * @Description: 
 -->
 <script setup lang="ts">
-import ApiKeyDialog from "./ApiKeyDialog.vue";
+import ApiKeyDialog from "@/components/ApiKeyDialog.vue";
+import { useChatStore } from "../chatStore";
+const chatStore = useChatStore();
 </script>
 
 <template>
@@ -12,6 +14,15 @@ import ApiKeyDialog from "./ApiKeyDialog.vue";
     <!-- ---------------------------------------------- -->
     <!-- Add Task Dialog -->
     <!-- ---------------------------------------------- -->
+    <v-btn
+      variant="elevated"
+      color="primary"
+      block
+      size="large"
+      class="text-white mb-2"
+      @click="chatStore.apiKeyDialog = true"
+      >API KEY</v-btn
+    >
     <ApiKeyDialog />
     <v-btn color="primary" block size="large" class="mb-3">New Chat</v-btn>
 

@@ -7,7 +7,7 @@
 import { createTranscriptionApi } from "@/api/aiApi";
 import { useChatStore } from "@/views/app/chat/chatStore";
 import CopyBtn from "@/components/common/CopyBtn.vue";
-import ApiKeyDialog from "@/views/app/chat/components/ApiKeyDialog.vue";
+
 import { useDisplay } from "vuetify";
 import { read } from "@/utils/aiUtils";
 const chatStore = useChatStore();
@@ -107,6 +107,7 @@ const translate = async () => {
       }
     );
 
+    targetContent.value = "";
     const reader = completion.body?.getReader();
     if (completion.status !== 200 || !reader) {
       return "error";
@@ -242,7 +243,7 @@ const { xs } = useDisplay();
           </v-menu>
 
           <v-spacer></v-spacer>
-          <ApiKeyDialog />
+
           <v-btn
             class="ml-2 text-white"
             :loading="isLoading"

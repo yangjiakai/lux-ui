@@ -7,7 +7,9 @@
 import { Icon } from "@iconify/vue";
 import ChatAssistant from "@/components/ai/ChatAssistant.vue";
 import TranslationAssistant from "@/components/ai/TranslationAssistant.vue";
-
+import { useChatStore } from "@/views/app/chat/chatStore";
+import ApiKeyDialog from "@/components/ApiKeyDialog.vue";
+const chatStore = useChatStore();
 const toolboxShow = ref(false);
 </script>
 
@@ -26,13 +28,16 @@ const toolboxShow = ref(false);
       elevation="10"
       class="d-flex flex-column mb-1 toolbox"
     >
+      <!-- ---------------------------------------------- -->
+      <!-- Close Btn -->
+      <!-- ---------------------------------------------- -->
       <v-btn
         @click="toolboxShow = false"
         variant="text"
         size="50"
         color="error"
       >
-        <v-icon size="30" text="Translation Assistant">mdi-close</v-icon>
+        <v-icon size="30">mdi-close</v-icon>
         <v-tooltip
           activator="parent"
           location="left"
@@ -40,13 +45,39 @@ const toolboxShow = ref(false);
         ></v-tooltip>
       </v-btn>
       <hr />
+      <!-- ---------------------------------------------- -->
+      <!-- ApiKey -->
+      <!-- ---------------------------------------------- -->
+      <v-btn
+        @click="chatStore.apiKeyDialog = true"
+        variant="text"
+        size="50"
+        color="blue"
+      >
+        <v-icon size="30">mdi-key-outline</v-icon>
+        <v-tooltip
+          activator="parent"
+          location="left"
+          text="OpenAI ApiKey"
+        ></v-tooltip>
+      </v-btn>
+      <ApiKeyDialog />
+      <hr />
+      <!-- ---------------------------------------------- -->
+      <!-- Chat Assistant -->
+      <!-- ---------------------------------------------- -->
       <ChatAssistant />
       <hr />
+      <!-- ---------------------------------------------- -->
+      <!-- Translation Assistant -->
+      <!-- ---------------------------------------------- -->
       <TranslationAssistant />
       <hr />
-
+      <!-- ---------------------------------------------- -->
+      <!-- Code Assistant -->
+      <!-- ---------------------------------------------- -->
       <v-btn size="50">
-        <v-icon size="30" text="Translation Assistant">mdi-code-tags</v-icon>
+        <v-icon size="30">mdi-code-tags</v-icon>
         <v-tooltip
           activator="parent"
           location="left"

@@ -6,6 +6,7 @@ export const useChatStore = defineStore({
   state: () => ({
     apiKey: "",
     chatHistory: [],
+    apiKeyDialog: false,
   }),
 
   persist: {
