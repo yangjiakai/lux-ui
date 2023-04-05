@@ -14,8 +14,8 @@
           <v-card class="ma-3">
             <v-img
               class="align-end text-white"
-              :src="item.download_url"
-              :lazy-src="item.download_url"
+              :src="item.url"
+              :lazy-src="item.url"
               cover
             >
               <template v-slot:placeholder>
@@ -36,8 +36,8 @@
             <v-card-text>
               <div>height:{{ item.height }} width:{{ item.width }}</div>
 
-              <div>{{ item.download_url }}</div>
-            </v-card-text>
+              <div>{{ item.url }}</div> </v-card-text
+            >download_url
 
             <v-card-actions>
               <v-btn color="primary"> Share </v-btn>
@@ -49,7 +49,7 @@
       </masonry-wall>
     </v-card>
     <v-divider class="my-5"></v-divider>
-    <h2>Mock</h2>
+
     <!-- <masonry-wall
       :items="items"
       :ssr-columns="1"
@@ -101,7 +101,7 @@ import Loading from "@/components/loading/Loading01.vue";
 //   "https://jsonplaceholder.typicode.com/todos"
 // );
 const { data, isLoading } = useAxios(
-  "https://picsum.photos/v2/list?page=2&limit=20"
+  "https://api.unsplash.com/photos?page=2&limit=20"
 );
 
 // const { data, isLoading, isFinished, execute } = useAxios(

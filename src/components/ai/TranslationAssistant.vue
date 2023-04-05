@@ -196,7 +196,7 @@ const { xs } = useDisplay();
         class="dialog-bottom d-flex flex-column"
         :width="xs ? '100%' : '600px'"
       >
-        <v-card-title class="overflow-scroll">
+        <v-card-title>
           <span class="flex-1">
             <v-avatar size="40">
               <img src="https://img.icons8.com/color/96/null/translation.png" />
