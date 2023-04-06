@@ -11,13 +11,11 @@ import FAQ1 from "./components/FAQ1.vue";
   <!-- ---------------------------------------------- -->
   <!---Top Toolbar -->
   <!-- ---------------------------------------------- -->
-  <v-toolbar height="100" color="white">
+  <v-toolbar height="100" color="primary">
     <div class="ml-5">
       <h3 class="text-h5 font-weight-bold">
         FAQ
-        <v-chip size="small" class="ma-2" color="primary" text-color="white">
-          1 Components
-        </v-chip>
+        <v-chip size="small" class="ma-2"> 1 Components </v-chip>
       </h3>
     </div>
     <v-spacer></v-spacer>

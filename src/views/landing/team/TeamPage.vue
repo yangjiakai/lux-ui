@@ -14,13 +14,11 @@ import Team4 from "./components/Team4.vue";
   <!-- ---------------------------------------------- -->
   <!---Top Toolbar -->
   <!-- ---------------------------------------------- -->
-  <v-toolbar height="100" color="white">
+  <v-toolbar height="100" color="primary">
     <div class="ml-5">
       <h3 class="text-h5 font-weight-bold">
         Team
-        <v-chip size="small" class="ma-2" color="primary" text-color="white">
-          4 Components
-        </v-chip>
+        <v-chip size="small" class="ma-2"> 4 Components </v-chip>
       </h3>
     </div>
     <v-spacer></v-spacer>
