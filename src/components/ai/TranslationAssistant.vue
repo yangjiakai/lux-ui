@@ -104,17 +104,28 @@ const translate = async () => {
       }
     );
 
-    targetContent.value = "";
-    const reader = completion.body?.getReader();
-    if (completion.status !== 200 || !reader) {
-      return "error";
+    // Handle errors
+    if (!completion.ok) {
+      const errorData = await completion.json();
+      snackbarStore.showErrorMessage(errorData.error.message);
+      isLoading.value = false;
+      return;
     }
+
+    // Create a reader
+    const reader = completion.body?.getReader();
+    if (!reader) {
+      snackbarStore.showErrorMessage("Cannot read the stream.");
+      isLoading.value = false;
+    }
+
+    // Clear the target content
+    targetContent.value = "";
 
     // Read the stream
     read(reader, targetContent);
   } catch (error) {
-    // TODO: 处理错误
-    console.error("Error:", error);
+    snackbarStore.showErrorMessage(error.message);
   }
   isLoading.value = false;
 };
@@ -151,9 +162,8 @@ const startRecording = async () => {
         baseContent.value = res.data.text;
       };
     })
-    .catch((err) => {
-      // TODO: 处理错误
-      console.log(err);
+    .catch((error) => {
+      snackbarStore.showErrorMessage(error.message);
     });
 };
 

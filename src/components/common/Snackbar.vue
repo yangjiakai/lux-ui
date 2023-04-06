@@ -21,9 +21,12 @@ const getIcon = (type) => {
       :color="snackbarStore.type"
       class="elevation-10"
       location="top"
+      multi-line
     >
-      <v-icon class="mr-2">{{ getIcon(snackbarStore.type) }}</v-icon>
-      {{ snackbarStore.message }}
+      <div class="d-flex align-center">
+        <v-icon class="mr-2">{{ getIcon(snackbarStore.type) }}</v-icon>
+        <span> {{ snackbarStore.message }}</span>
+      </div>
 
       <template v-slot:actions>
         <v-btn icon variant="text" @click="snackbarStore.isShow = false">

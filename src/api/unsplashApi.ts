@@ -10,25 +10,18 @@ const instance = axios.create({
   headers: { Authorization: "Client-ID" + " " + ACCESS_KEY },
 });
 
-// 添加响应拦截器
 instance.interceptors.response.use(
   (response) => {
-    // 对响应数据进行处理，直接返回 response
     return response;
   },
   (error) => {
-    // 对响应错误进行统一处理
     if (error.response) {
-      // 服务器返回了错误状态码，可以根据不同的状态码进行相应的处理
       const status = error.response.status;
       const data = error.response.data;
       snackbarStore.showErrorMessage(data.errors[0]);
     } else {
-      // 请求超时或网络错误等
       snackbarStore.showErrorMessage("Network Error");
     }
-
-    // 返回 Promise.reject，以便在调用时可以通过 .catch 捕获错误
     return Promise.reject(error);
   }
 );

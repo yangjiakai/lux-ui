@@ -1,16 +1,23 @@
 import axios from "axios";
-
+import { useSnackbarStore } from "@/stores/snackbarStore";
 const gptInstance = axios.create({
   baseURL: "https://api.openai.com",
   timeout: 100000,
 });
 
-gptInstance.interceptors.request.use(
-  (config) => {
-    return config;
+gptInstance.interceptors.response.use(
+  (response) => {
+    return response;
   },
   (error) => {
-    console.log("请求异常：" + JSON.stringify(error));
+    const snackbarStore = useSnackbarStore();
+    if (error.response) {
+      const status = error.response.status;
+      const data = error.response.data;
+      snackbarStore.showErrorMessage(data.error);
+    } else {
+      snackbarStore.showErrorMessage("Network Error");
+    }
     return Promise.reject(error);
   }
 );
