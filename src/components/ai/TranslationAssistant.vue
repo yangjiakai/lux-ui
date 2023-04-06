@@ -7,9 +7,10 @@
 import { createTranscriptionApi } from "@/api/aiApi";
 import { useChatStore } from "@/views/app/chat/chatStore";
 import CopyBtn from "@/components/common/CopyBtn.vue";
-
 import { useDisplay } from "vuetify";
 import { read } from "@/utils/aiUtils";
+import { useSnackbarStore } from "@/stores/snackbarStore";
+const snackbarStore = useSnackbarStore();
 const chatStore = useChatStore();
 const langs = [
   {
@@ -63,8 +64,6 @@ const setLang = (lang: any) => {
   currentLang.value = lang;
 };
 
-const errorMsg = ref("");
-
 const baseContent = ref("");
 const targetContent = ref("");
 
@@ -76,14 +75,12 @@ const prompt = computed(() => {
 const isLoading = ref(false);
 const translate = async () => {
   if (baseContent.value === "") {
-    errorMsg.value = "请输入要翻译的内容";
-    isBaseContentEmpty.value = true;
+    snackbarStore.showErrorMessage("请输入要翻译的内容");
     return;
   }
 
   if (!chatStore.apiKey) {
-    errorMsg.value = "请先输入API KEY";
-    isBaseContentEmpty.value = true;
+    snackbarStore.showErrorMessage("请先输入API KEY");
     return;
   }
   isLoading.value = true;
