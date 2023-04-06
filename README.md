@@ -5,9 +5,9 @@
 </p>
 <br><br>
 
-<h6 align='center'>
+<h4 align='center'>
 <a href="https://shirabako.com/">Live Demo</a>
-</h6>
+</h4>
 
 <br>
 
@@ -16,6 +16,8 @@
 </p>
 
 ## Introduction
+
+> Goal: Creating the best Vuetify 3 Admin open-source template.
 
 Since the era of Vue2, Vuetify has been one of my favorite UI frameworks for Vue. With the release of Vue 3.0 at the end of 2020 and the gradual stability of Vue 3.2 in early 2022, Vuetify has finally stabilized. Two years later, in November 2022, Vuetify3 for Vue3.x finally went live, and Vue creator Evan You also expressed support for Vuetify3. At this stage, the documentation for Vuetify3 is still largely unchanged from Vuetify2, and the multilingual version is still out of reach. In this situation, developers who are new to Vuetify or want to embrace Vuetify3 as soon as possible will be confused at first. On the one hand, I want to review my knowledge of the front-end and the Vuetify framework. On the other hand, I also hope to be able to help other developers through my own exploration, so I plan to start this project at the same time as the official launch of Vuetify3 in November 2022. The focus is expected to be on front-end UI design, responsive design, component development, integration with common plugins, and simple logic. It is still uncertain whether to develop corresponding APIs and
 
@@ -41,6 +43,7 @@ Since the era of Vue2, Vuetify has been one of my favorite UI frameworks for Vue
 
 <img  src='/src/assets/previews/DashBoard.png'  alt='DashBoard' />
 <img  src='/src/assets/previews/TaskBoard.png'  alt='ChatGPT' />
+<img  src='/src/assets/previews/DataTable.png'  alt='DataTable' />
 <img  src='/src/assets/previews/Todo.png'  alt='ChatGPT' />
 <img  src='/src/assets/previews/ChatGPT.png'  alt='ChatGPT' />
 <img  src='/src/assets/previews/Card.png'  alt='Card' />

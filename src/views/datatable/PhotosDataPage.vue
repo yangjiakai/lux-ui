@@ -27,18 +27,6 @@ const headers = [
   { title: "喜欢", key: "likes" },
   { title: "标签", key: "tags" },
   { title: "创建时间", key: "created_at" },
-
-  // { title: "用户名", key: "username" },
-  // { title: "头像", key: "avatar" },
-  // { title: "用户id", key: "id" },
-  // { title: "全名", key: "name" },
-  // { title: "位置", key: "location", width: "200px" },
-  // { title: "是否可用", key: "for_hire", align: "center" },
-  // { title: "收藏数", key: "total_collections" },
-  // { title: "喜欢数", key: "total_likes" },
-  // { title: "照片数", key: "total_photos" },
-  // { title: "接受条款", key: "accepted_tos", align: "center" },
-  // { title: "作品集", key: "portfolio_url" },
 ];
 
 const photosList = ref([]);
@@ -47,8 +35,6 @@ const getPhotos = async () => {
   loading.value = true;
   const params = queryOptions;
   const photosResponse = await searchPhotosApi(params);
-
-  console.log(photosResponse.data.results);
 
   photosList.value = photosResponse.data.results.map((photo) => {
     return {
