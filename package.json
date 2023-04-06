@@ -8,6 +8,9 @@
   },
   "dependencies": {
     "@mdi/font": "7.0.96",
+    "@tiptap/pm": "^2.0.2",
+    "@tiptap/starter-kit": "^2.0.2",
+    "@tiptap/vue-3": "^2.0.2",
     "@vueup/vue-quill": "^1.1.1",
     "@vueuse/core": "^9.6.0",
     "@vueuse/integrations": "^9.12.0",

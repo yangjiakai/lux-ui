@@ -35,6 +35,7 @@ const usersList = ref([]);
 const getUsers = async () => {
   loading.value = true;
   const params = queryPptions;
+
   const usersResponse = await searchUsersApi(params);
 
   usersList.value = usersResponse.data.results.map((user) => {
@@ -54,6 +55,7 @@ const getUsers = async () => {
   });
 
   totalRows.value = usersResponse.data.total;
+
   loading.value = false;
 };
 
