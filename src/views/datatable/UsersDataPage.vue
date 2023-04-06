@@ -10,7 +10,7 @@ import CopyLabel from "@/components/common/CopyLabel.vue";
 const loading = ref(true);
 const totalRows = ref(0);
 
-const queryPptions = reactive({
+const queryOptions = reactive({
   query: "cat",
   page: 1,
   per_page: 25,
@@ -34,7 +34,7 @@ const usersList = ref([]);
 
 const getUsers = async () => {
   loading.value = true;
-  const params = queryPptions;
+  const params = queryOptions;
 
   const usersResponse = await searchUsersApi(params);
 
@@ -60,8 +60,8 @@ const getUsers = async () => {
 };
 
 const onUpdateOptions = async (options) => {
-  queryPptions.per_page = options.itemsPerPage;
-  queryPptions.page = options.page;
+  queryOptions.per_page = options.itemsPerPage;
+  queryOptions.page = options.page;
   await getUsers();
 };
 
@@ -79,7 +79,7 @@ const getLikesColor = (likes) => {
         <span> Unsplash Users</span>
         <v-spacer></v-spacer>
         <v-text-field
-          v-model="queryPptions.query"
+          v-model="queryOptions.query"
           variant="solo"
           class="elevation-1"
           append-icon="mdi-magnify"
@@ -95,9 +95,9 @@ const getLikesColor = (likes) => {
         <v-data-table-server
           :headers="headers"
           :items="usersList"
-          :search="queryPptions.query"
+          :search="queryOptions.query"
           :loading="loading"
-          :items-per-page="queryPptions.per_page"
+          :items-per-page="queryOptions.per_page"
           :items-length="totalRows"
           item-value="id"
           @update:options="onUpdateOptions"
