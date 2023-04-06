@@ -4,7 +4,7 @@
 * @Description: 
 -->
 <script setup lang="ts">
-import { searchUsersApi } from "@/api/unsplashApi";
+import { searchPhotosApi } from "@/api/unsplashApi";
 import CopyLabel from "@/components/common/CopyLabel.vue";
 
 const loading = ref(true);
@@ -17,50 +17,63 @@ const queryOptions = reactive({
 });
 
 const headers = [
-  { title: "用户名", key: "username" },
-  { title: "头像", key: "avatar" },
-  { title: "用户id", key: "id" },
-  { title: "全名", key: "name" },
-  { title: "位置", key: "location", width: "200px" },
-  { title: "是否可用", key: "for_hire", align: "center" },
-  { title: "收藏数", key: "total_collections" },
-  { title: "喜欢数", key: "total_likes" },
-  { title: "照片数", key: "total_photos" },
-  { title: "接受条款", key: "accepted_tos", align: "center" },
-  { title: "作品集", key: "portfolio_url" },
+  { title: "ID", key: "id" },
+  { title: "拥有者", key: "user" },
+  { title: "颜色", key: "color", align: "center" },
+  { title: "尺寸", key: "size", align: "center" },
+  { title: "描述", key: "alt_description" },
+  { title: "缩略图", key: "thumb" },
+  { title: "下载", key: "download" },
+  { title: "喜欢", key: "likes" },
+  { title: "标签", key: "tags" },
+  { title: "创建时间", key: "created_at" },
+
+  // { title: "用户名", key: "username" },
+  // { title: "头像", key: "avatar" },
+  // { title: "用户id", key: "id" },
+  // { title: "全名", key: "name" },
+  // { title: "位置", key: "location", width: "200px" },
+  // { title: "是否可用", key: "for_hire", align: "center" },
+  // { title: "收藏数", key: "total_collections" },
+  // { title: "喜欢数", key: "total_likes" },
+  // { title: "照片数", key: "total_photos" },
+  // { title: "接受条款", key: "accepted_tos", align: "center" },
+  // { title: "作品集", key: "portfolio_url" },
 ];
 
-const usersList = ref([]);
+const photosList = ref([]);
 
-const getUsers = async () => {
+const getPhotos = async () => {
   loading.value = true;
   const params = queryOptions;
-  const usersResponse = await searchUsersApi(params);
+  const photosResponse = await searchPhotosApi(params);
 
-  usersList.value = usersResponse.data.results.map((user) => {
+  console.log(photosResponse.data.results);
+
+  photosList.value = photosResponse.data.results.map((photo) => {
     return {
-      id: user.id,
-      avatar: user.profile_image.small,
-      username: user.username,
-      name: user.name,
-      location: user.location,
-      for_hire: user.for_hire,
-      total_collections: user.total_collections,
-      total_likes: user.total_likes,
-      total_photos: user.total_photos,
-      accepted_tos: user.accepted_tos,
-      portfolio_url: user.portfolio_url,
+      id: photo.id,
+      // avatar: photo.user.profile_image.small,
+      user: photo.user,
+      color: photo.color,
+      size: photo.width + " x " + photo.height,
+      alt_description: photo.alt_description,
+      thumb: photo.urls.thumb,
+      download: photo.links.download,
+      likes: photo.likes,
+      tags: photo.tags,
+      created_at: photo.created_at,
     };
   });
 
-  totalRows.value = usersResponse.data.total;
+  totalRows.value = photosResponse.data.total;
   loading.value = false;
 };
 
 const onUpdateOptions = async (options) => {
   queryOptions.per_page = options.itemsPerPage;
   queryOptions.page = options.page;
-  await getUsers();
+  await getPhotos();
 };
 
 const getLikesColor = (likes) => {
@@ -74,14 +87,14 @@ const getLikesColor = (likes) => {
   <div class="">
     <v-card>
       <v-card-title class="font-weight-bold">
-        <span> Unsplash Users</span>
+        <span> Unsplash Photos</span>
         <v-spacer></v-spacer>
         <v-text-field
           v-model="queryOptions.query"
           variant="solo"
           class="elevation-1"
           append-icon="mdi-magnify"
-          @click:append="getUsers"
+          @click:append="getPhotos"
           label="Search"
           single-line
           hide-details
@@ -92,7 +105,7 @@ const getLikesColor = (likes) => {
       <v-card-text>
         <v-data-table-server
           :headers="headers"
-          :items="usersList"
+          :items="photosList"
           :search="queryOptions.query"
           :loading="loading"
           :items-per-page="queryOptions.per_page"
@@ -102,66 +115,52 @@ const getLikesColor = (likes) => {
         >
           <template v-slot:item="{ item }">
             <tr>
-              <td class="font-weight-bold">
-                <CopyLabel :text="item.columns.username" />
-              </td>
-              <td>
-                <v-avatar size="30">
-                  <img :src="item.columns.avatar" alt="alt" />
-                </v-avatar>
-              </td>
               <td>{{ item.columns.id }}</td>
-
-              <td>{{ item.columns.name }}</td>
-              <td>{{ item.columns.location }}</td>
+              <td class="font-weight-bold">
+                <v-avatar size="30" class="mr-2">
+                  <img :src="item.columns.user.profile_image.small" alt="alt" />
+                </v-avatar>
+                <CopyLabel :text="item.columns.user.username" />
+              </td>
 
               <td class="text-center">
-                <v-chip
-                  size="small"
-                  :color="item.columns.for_hire ? 'blue' : 'grey'"
-                  class="font-weight-bold"
-                >
-                  {{ item.columns.for_hire ? "Hire" : "No Hire" }}</v-chip
-                >
+                <v-chip size="small" :color="item.columns.color">
+                  <CopyLabel :text="item.columns.color" />
+                </v-chip>
+              </td>
+              <td class="text-center">{{ item.columns.size }}</td>
+
+              <td>{{ item.columns.alt_description }}</td>
+              <td class="pa-2">
+                <v-img :src="item.columns.thumb" max-width="100px" />
               </td>
               <td>
-                {{ item.columns.total_collections }}
-              </td>
-              <td>
-                <v-chip
-                  size="small"
-                  :color="getLikesColor(item.columns.total_likes)"
-                  class="font-weight-bold"
-                >
-                  {{ item.columns.total_likes }}</v-chip
-                >
-              </td>
-              <td>
-                {{ item.columns.total_photos }}
-              </td>
-              <td class="text-center">
-                <v-chip
-                  size="small"
-                  :color="item.columns.accepted_tos ? 'green' : 'pink'"
-                  class="font-weight-bold"
-                >
-                  <v-icon
-                    start
-                    :icon="
-                      item.columns.accepted_tos
-                        ? 'mdi-security '
-                        : 'mdi-close-octagon'
-                    "
-                  ></v-icon>
-                  {{
-                    item.columns.accepted_tos ? "Accepted" : "Not Accepted"
-                  }}</v-chip
-                >
-              </td>
-              <td>
-                <a :href="item.columns.portfolio_url" target="_blank">
-                  {{ item.columns.portfolio_url }}
+                <a :href="item.columns.download" target="_blank">
+                  <v-icon>mdi-download</v-icon>
                 </a>
+              </td>
+              <td>
+                <v-chip
+                  size="small"
+                  :color="getLikesColor(item.columns.likes)"
+                  class="font-weight-bold"
+                >
+                  {{ item.columns.likes }}</v-chip
+                >
+              </td>
+              <td>
+                <v-chip
+                  v-for="tag in item.columns.tags"
+                  variant="outlined"
+                  color="primary"
+                  size="small"
+                  class="font-weight-bold mr-1"
+                >
+                  {{ tag.title }}
+                </v-chip>
+              </td>
+              <td>
+                {{ item.columns.created_at }}
               </td>
             </tr>
           </template>
