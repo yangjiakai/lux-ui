@@ -6,7 +6,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <v-toolbar color="#F9FAFB" height="60">
+  <v-toolbar height="60">
     <v-toolbar-title class="text-h6 font-weight-bold">
       <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
       <span>Newsletter3</span>

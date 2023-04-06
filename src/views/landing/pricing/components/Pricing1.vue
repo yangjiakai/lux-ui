@@ -45,7 +45,7 @@ const pricing_plans = [
 </script>
 
 <template>
-  <v-toolbar color="#F9FAFB" height="60">
+  <v-toolbar height="60">
     <v-toolbar-title class="text-h6 font-weight-bold">
       <span>Pricing1</span>
     </v-toolbar-title>

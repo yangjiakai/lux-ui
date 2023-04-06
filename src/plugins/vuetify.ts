@@ -44,7 +44,7 @@ const Darktheme: ThemeDefinition = {
   colors: {
     background: "#111b27",
     surface: "#1E293B",
-    primary: "#2563eb",
+    primary: "#705CF6",
     secondary: "#598EF3",
     accent: "#D3E6FE",
     error: "#FF5252",
