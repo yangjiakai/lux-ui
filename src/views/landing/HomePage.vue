@@ -50,7 +50,7 @@
               ></v-btn>
               <v-btn variant="text" icon="mdi-pin"></v-btn>
             </v-card-text>
-            <v-card-actions class="bg-secondary-lighten-1 py-5 text-title">
+            <v-card-actions class="r py-5 text-title">
               <div></div>
               <v-select
                 variant="outlined"
@@ -89,7 +89,7 @@
 
           <!-- Info Card 2 -->
           <v-card color="secondary" class="info-card">
-            <div class="card-top bg-secondary-lighten-1 text-content">
+            <div class="card-top r text-content">
               <Icon class="mr-5 text-h4" icon="logos:capacitorjs-icon" />
               <div class="flex-1">
                 Who has the advantage now? Who do you think will win the
@@ -147,7 +147,7 @@
                 </div>
               </div>
             </v-card-text>
-            <v-card-actions class="bg-secondary-lighten-1 text-content">
+            <v-card-actions class="r text-content">
               <v-btn prepend-icon="mdi-heart"> Like(2.7k)</v-btn>
               <v-btn prepend-icon="mdi-comment">CommentLike(35)</v-btn>
               <v-btn prepend-icon="mdi-share">ShareLike(99)</v-btn>
@@ -155,7 +155,7 @@
           </v-card>
           <!-- Info Card3 -->
           <v-card color="secondary" class="info-card">
-            <div class="card-top bg-secondary-lighten-1 text-content">
+            <div class="card-top r text-content">
               <Icon class="text-h4" icon="logos:engine-yard-icon" />
               <div class="flex-1 mx-4">
                 <p>
@@ -171,7 +171,7 @@
               <span>9:31 am</span>
             </div>
             <v-card-text class="">
-              <v-card color="secondary-lighten-1">
+              <v-card>
                 <v-img
                   class="align-end text-white"
                   height="200"
@@ -189,7 +189,7 @@
                 </v-card-text>
               </v-card>
 
-              <v-card class="d-flex mt-5" color="secondary-lighten-1">
+              <v-card class="d-flex mt-5">
                 <v-img
                   max-width="200"
                   aspect-ratio="1"
@@ -212,7 +212,7 @@
                 </div>
               </v-card>
             </v-card-text>
-            <v-card-actions class="bg-secondary-lighten-1 text-content">
+            <v-card-actions class="r text-content">
               <v-btn color="#D84B82" prepend-icon="mdi-heart">
                 Like(2.7k)</v-btn
               >

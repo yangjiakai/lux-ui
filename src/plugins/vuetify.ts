@@ -9,55 +9,61 @@ import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";
 // Composables
 import { createVuetify } from "vuetify";
+import type { ThemeDefinition } from "vuetify";
+import * as components from "vuetify/components";
+import * as directives from "vuetify/directives";
 import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n";
 import { useI18n } from "vue-i18n";
 import i18n from "@/plugins/i18n";
 import * as labs from "vuetify/labs/components";
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
+
+const Lighttheme: ThemeDefinition = {
+  dark: false,
+  variables: {
+    "high-emphasis-opacity": 1,
+    "border-opacity": 0.05,
+  },
+  colors: {
+    background: "#f2f5f8",
+    surface: "#ffffff",
+    primary: "#344767",
+    secondary: "#334155",
+    accent: "#048ba8",
+    error: "#ef476f",
+    info: "#2196F3",
+    success: "#06d6a0",
+    "on-success": "#ffffff",
+    warning: "#ffd166",
+  },
+};
+
+const Darktheme: ThemeDefinition = {
+  dark: true,
+  colors: {
+    background: "#111b27",
+    surface: "#1E293B",
+    primary: "#2563eb",
+    secondary: "#598EF3",
+    accent: "#D3E6FE",
+    error: "#FF5252",
+    info: "#2196F3",
+    success: "#4CAF50",
+    warning: "#FFC107",
+  },
+};
+
 export default createVuetify({
   components: {
+    ...components,
     ...labs,
   },
+  directives,
   theme: {
     themes: {
-      light: {
-        colors: {
-          surface: "#fff",
-          primary: "#344767",
-          secondary: "#a0b9c8",
-          accent: "#048ba8",
-          error: "#ef476f",
-          info: "#2196F3",
-          success: "#06d6a0",
-          warning: "#ffd166",
-
-          // primary: "#344767",
-          // secondary: "#fcfbff",
-          // accent: "#6386e1",
-          // content: "#333333",
-          // background: "#F8F9FA",
-          // error: "#ef476f",
-          // info: "#2196F3",
-          // success: "#06d6a0",
-          // warning: "#ffd166",
-        },
-      },
-      dark: {
-        colors: {
-          primary: "#0096c7",
-          secondary: "#2B2B49",
-          "secondary-darken-1": "#1d1f33",
-          "secondary-lighten-1": "#303052",
-          surface: "#282843",
-          title: "#C3C1D5",
-          content: "#8381a7",
-          accent: "#6386e1",
-          error: "#e47171",
-          info: "#24a6c5",
-          background: "#1d1f33",
-        },
-      },
+      light: Lighttheme,
+      dark: Darktheme,
     },
   },
   defaults: {

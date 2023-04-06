@@ -30,12 +30,12 @@ export default {
       text: "Landing",
       items: [
         ...menuLanding,
-        {
-          icon: "mdi-airplane-landing",
-          key: "menu.landingPage",
-          text: "Landing Page",
-          link: "/landing",
-        },
+        // {
+        //   icon: "mdi-airplane-landing",
+        //   key: "menu.landingPage",
+        //   text: "Landing Page",
+        //   link: "/landing",
+        // },
       ],
     },
 

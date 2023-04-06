@@ -9,7 +9,7 @@ import TodoCard from "@/components/dashboard/TodoCard.vue";
 import TaskCard from "@/components/dashboard/ChartCard.vue";
 </script>
 <template>
-  <div class="pa-5" style="background-color: #eef1f4">
+  <div class="pa-5">
     <!-- ---------------------------------------------- -->
     <!---First Row -->
     <!-- ---------------------------------------------- -->

@@ -99,7 +99,7 @@ const toolboxShow = ref(false);
 .toolbox-activator {
   position: fixed;
   transition: all 0.3s ease;
-  background-color: #fff;
+
   bottom: 100px;
   right: 20px;
   z-index: 999;

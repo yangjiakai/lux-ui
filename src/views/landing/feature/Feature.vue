@@ -15,13 +15,11 @@ import Feature5 from "./components/Feature5.vue";
   <!-- ---------------------------------------------- -->
   <!---Top Toolbar -->
   <!-- ---------------------------------------------- -->
-  <v-toolbar height="100" color="white">
+  <v-toolbar height="100" color="primary">
     <div class="ml-5">
       <h3 class="text-h5 font-weight-bold">
         Feature
-        <v-chip size="small" class="ma-2" color="primary" text-color="white">
-          5 Components
-        </v-chip>
+        <v-chip size="small" class="ma-2"> 5 Components </v-chip>
       </h3>
     </div>
     <v-spacer></v-spacer>

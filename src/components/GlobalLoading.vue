@@ -22,7 +22,6 @@ const appStore = useAppStore();
 
 <style scoped lang="scss">
 .main-bg {
-  background-color: #eef1f4;
   min-height: calc(100vh - 64px);
 }
 </style>

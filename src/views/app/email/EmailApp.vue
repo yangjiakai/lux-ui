@@ -34,7 +34,7 @@ import EmailMenu from "@/views/app/email/components/EmailMenu.vue";
   display: flex;
   height: calc(100vh - 240px);
   width: 100%;
-  background-color: #eef1f4;
+
   font-size: 13px;
   padding: 20px;
 
