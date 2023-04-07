@@ -108,7 +108,12 @@ const navs = [
       >
         <v-row>
           <v-col cols="12" md="4">
-            <img class="my-2" width="150" src="@/assets/logo3.svg" alt="" />
+            <img
+              class="my-2"
+              width="150"
+              src="@/assets/logo_light.svg"
+              alt=""
+            />
             <p class="my-4">2000+ Our clients are subscribe Around the World</p>
           </v-col>
           <v-col cols="12" md="8">

@@ -1,7 +1,7 @@
 <br><br>
 
 <p align='center' >
-  <img  src='/src/assets/logo3.svg' alt='Vuetify3' width='300'/>
+  <img  src='/src/assets/logo_light.svg' alt='Vuetify3' width='300'/>
 </p>
 <br><br>
 
@@ -43,6 +43,7 @@ Vue2 时代开始,Vuetify 就一直是我最喜欢的一款 Vue 的 UI 框架。
 
 <img  src='/src/assets/previews/DashBoard.png'  alt='DashBoard' />
 <img  src='/src/assets/previews/TaskBoard.png'  alt='ChatGPT' />
+<img  src='/src/assets/previews/DataTable.png'  alt='DataTable' />
 <img  src='/src/assets/previews/Todo.png'  alt='ChatGPT' />
 <img  src='/src/assets/previews/ChatGPT.png'  alt='ChatGPT' />
 <img  src='/src/assets/previews/Card.png'  alt='Card' />

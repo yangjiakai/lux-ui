@@ -67,7 +67,7 @@ const navs = [
             <img
               class="mt-2 mb-11"
               width="150"
-              src="@/assets/logo3.svg"
+              src="@/assets/logo_light.svg"
               alt=""
             />
             <p class="my-4">2000+ Our clients are subscribe Around the World</p>

@@ -31,7 +31,18 @@ const openGithubSite = () => {
         height="100"
         class="d-flex align-center justify-center"
       >
-        <img width="200" src="@/assets/logo3.svg" alt="" />
+        <img
+          v-if="customizeTheme.darkTheme"
+          width="200"
+          src="@/assets/logo_dark.svg"
+          alt=""
+        />
+        <img
+          v-else="customizeTheme.darkTheme"
+          width="200"
+          src="@/assets/logo_light.svg"
+          alt=""
+        />
       </v-card>
     </template>
 

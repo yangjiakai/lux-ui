@@ -1,7 +1,7 @@
 <br><br>
 
 <p align='center' >
-  <img  src='/src/assets/logo3.svg' alt='Vuetify3' width='300'/>
+  <img  src='/src/assets/logo_light.svg' alt='Vuetify3' width='300'/>
 </p>
 <br><br>
 
