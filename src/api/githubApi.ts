@@ -32,3 +32,8 @@ instance.interceptors.response.use(
 export const getPublicEventsApi = (username: string) => {
   return instance.get("/users/" + username + "/events/public");
 };
+
+// Get public events for a network of repositories
+export const getPublicEventsForNetworkApi = (username: string) => {
+  return instance.get("/networks/" + username + "/events");
+};
