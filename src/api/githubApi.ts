@@ -18,7 +18,7 @@ instance.interceptors.response.use(
     if (error.response) {
       const status = error.response.status;
       const data = error.response.data;
-      snackbarStore.showErrorMessage(data.errors[0]);
+      snackbarStore.showErrorMessage(data.message);
     } else {
       snackbarStore.showErrorMessage("Network Error");
     }
