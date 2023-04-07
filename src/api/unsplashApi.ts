@@ -6,7 +6,7 @@ const ACCESS_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
 
 const instance = axios.create({
   baseURL: "https://api.unsplash.com",
-  timeout: 1000,
+  timeout: 20000,
   headers: { Authorization: "Client-ID" + " " + ACCESS_KEY },
 });
 
