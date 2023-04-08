@@ -14,7 +14,7 @@ const totalRows = ref(0);
 const queryOptions = reactive({
   query: "cat",
   page: 1,
-  per_page: 30,
+  per_page: 19,
 });
 
 const headers = [
@@ -49,7 +49,7 @@ const getTopics = async () => {
     };
   });
 
-  // totalRows.value = topicsResponse.data.total;
+  totalRows.value = topicsResponse.data.length;
   loading.value = false;
 };
 
