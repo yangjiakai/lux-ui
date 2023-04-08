@@ -6,6 +6,7 @@
 <script setup lang="ts">
 import { searchPhotosApi } from "@/api/unsplashApi";
 import CopyLabel from "@/components/common/CopyLabel.vue";
+import moment from "moment";
 
 const loading = ref(true);
 const totalRows = ref(0);
@@ -48,7 +49,7 @@ const getPhotos = async () => {
       download: photo.links.download,
       likes: photo.likes,
       tags: photo.tags,
-      created_at: photo.created_at,
+      created_at: moment(photo.created_at).format("YYYY/MM/DD"),
     };
   });
 

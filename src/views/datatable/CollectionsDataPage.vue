@@ -4,69 +4,64 @@
 * @Description: 
 -->
 <script setup lang="ts">
-import { searchUsersApi } from "@/api/unsplashApi";
+import { searchCollectionsApi } from "@/api/unsplashApi";
 import CopyLabel from "@/components/common/CopyLabel.vue";
+import moment from "moment";
 
 const loading = ref(true);
 const totalRows = ref(0);
+const expanded = ref([]);
 
 const queryOptions = reactive({
   query: "cat",
   page: 1,
-  per_page: 25,
+  per_page: 10,
 });
 
 const headers = [
-  { title: "用户名", key: "username" },
-  { title: "头像", key: "avatar" },
-  { title: "用户id", key: "id" },
-  { title: "全名", key: "name" },
-  { title: "位置", key: "location", width: "200px" },
-  { title: "是否可用", key: "for_hire", align: "center" },
-  { title: "收藏数", key: "total_collections" },
-  { title: "喜欢数", key: "total_likes" },
-  { title: "照片数", key: "total_photos" },
-  { title: "接受条款", key: "accepted_tos", align: "center" },
-  { title: "作品集", key: "portfolio_url" },
+  { title: "ID", key: "id" },
+  { title: "标题", key: "title" },
+  { title: "拥有者", key: "user" },
+  { title: "照片数量", key: "total_photos", align: "center" },
+
+  { title: "封面图", key: "cover_photo" },
+  { title: "预览图", key: "preview_photos" },
+  { title: "链接", key: "links" },
+  { title: "标签", key: "tags" },
+  { title: "发布时间", key: "published_at" },
+  { title: "", key: "data-table-expand" },
 ];
 
-const usersList = ref([]);
+const collectionList = ref([]);
 
-const getUsers = async () => {
+const getCollections = async () => {
   loading.value = true;
   const params = queryOptions;
-  const usersResponse = await searchUsersApi(params);
+  const collectionsResponse = await searchCollectionsApi(params);
 
-  usersList.value = usersResponse.data.results.map((user) => {
+  collectionList.value = collectionsResponse.data.results.map((collection) => {
     return {
-      id: user.id,
-      avatar: user.profile_image.small,
-      username: user.username,
-      name: user.name,
-      location: user.location,
-      for_hire: user.for_hire,
-      total_collections: user.total_collections,
-      total_likes: user.total_likes,
-      total_photos: user.total_photos,
-      accepted_tos: user.accepted_tos,
-      portfolio_url: user.portfolio_url,
+      id: collection.id,
+      title: collection.title,
+      user: collection.user,
+      total_photos: collection.total_photos,
+
+      cover_photo: collection.cover_photo,
+      preview_photos: collection.preview_photos,
+      links: collection.links,
+      tags: collection.tags,
+      published_at: moment(collection.published_at).format("YYYY/MM/DD"),
     };
   });
 
-  totalRows.value = usersResponse.data.total;
+  totalRows.value = collectionsResponse.data.total;
   loading.value = false;
 };
 
 const onUpdateOptions = async (options) => {
   queryOptions.per_page = options.itemsPerPage;
   queryOptions.page = options.page;
-  await getUsers();
-};
-
-const getLikesColor = (likes) => {
-  if (likes > 400) return "red";
-  else if (likes > 200) return "orange";
-  else return "grey";
+  await getCollections();
 };
 </script>
 
@@ -74,14 +69,14 @@ const getLikesColor = (likes) => {
   <div class="">
     <v-card>
       <v-card-title class="font-weight-bold">
-        <span> Unsplash Users</span>
+        <span> Unsplash Collections</span>
         <v-spacer></v-spacer>
         <v-text-field
           v-model="queryOptions.query"
           variant="solo"
           class="elevation-1"
           append-icon="mdi-magnify"
-          @click:append="getUsers"
+          @click:append="getCollections"
           label="Search"
           single-line
           hide-details
@@ -91,78 +86,73 @@ const getLikesColor = (likes) => {
       <hr />
       <v-card-text>
         <v-data-table-server
+          v-model:expanded="expanded"
           :headers="headers"
-          :items="usersList"
+          :items="collectionList"
           :search="queryOptions.query"
           :loading="loading"
           :items-per-page="queryOptions.per_page"
           :items-length="totalRows"
           item-value="id"
           @update:options="onUpdateOptions"
+          show-expand
         >
           <template v-slot:item="{ item }">
             <tr>
-              <td class="font-weight-bold">
-                <CopyLabel :text="item.columns.username" />
-              </td>
-              <td>
-                <v-avatar size="30">
-                  <img :src="item.columns.avatar" alt="alt" />
-                </v-avatar>
-              </td>
               <td>{{ item.columns.id }}</td>
-
-              <td>{{ item.columns.name }}</td>
-              <td>{{ item.columns.location }}</td>
+              <td>{{ item.columns.title }}</td>
+              <td class="font-weight-bold">
+                <v-avatar size="30" class="mr-2">
+                  <img :src="item.columns.user.profile_image.small" alt="alt" />
+                </v-avatar>
+                <CopyLabel :text="item.columns.user.username" />
+              </td>
 
               <td class="text-center">
+                <v-chip size="small">
+                  {{ item.columns.total_photos }}
+                </v-chip>
+              </td>
+
+              <td class="pa-2">
+                <v-img
+                  :src="item.columns.cover_photo.urls.thumb"
+                  max-width="100px"
+                />
+              </td>
+              <td>
+                <!-- <v-img
+                  v-for="photo in item.columns.preview_photos"
+                  :key="photo.id"
+                  :src="photo.urls.thumb"
+                  max-width="100px"
+                  class="mr-2"
+                /> -->
+              </td>
+              <td>
+                <CopyLabel :text="item.columns.links.html" />
+              </td>
+
+              <td>
                 <v-chip
+                  v-for="tag in item.columns.tags"
+                  variant="outlined"
+                  color="primary"
                   size="small"
-                  :color="item.columns.for_hire ? 'blue' : 'grey'"
-                  class="font-weight-bold"
+                  class="font-weight-bold mr-1"
                 >
-                  {{ item.columns.for_hire ? "Hire" : "No Hire" }}</v-chip
-                >
+                  {{ tag.title }}
+                </v-chip>
               </td>
               <td>
-                {{ item.columns.total_collections }}
+                {{ item.columns.published_at }}
               </td>
-              <td>
-                <v-chip
-                  size="small"
-                  :color="getLikesColor(item.columns.total_likes)"
-                  class="font-weight-bold"
-                >
-                  {{ item.columns.total_likes }}</v-chip
-                >
-              </td>
-              <td>
-                {{ item.columns.total_photos }}
-              </td>
-              <td class="text-center">
-                <v-chip
-                  size="small"
-                  :color="item.columns.accepted_tos ? 'green' : 'pink'"
-                  class="font-weight-bold"
-                >
-                  <v-icon
-                    start
-                    :icon="
-                      item.columns.accepted_tos
-                        ? 'mdi-security '
-                        : 'mdi-close-octagon'
-                    "
-                  ></v-icon>
-                  {{
-                    item.columns.accepted_tos ? "Accepted" : "Not Accepted"
-                  }}</v-chip
-                >
-              </td>
-              <td>
-                <a :href="item.columns.portfolio_url" target="_blank">
-                  {{ item.columns.portfolio_url }}
-                </a>
-              </td>
+            </tr>
+          </template>
+
+          <template v-slot:expanded-row="{ columns }">
+            <tr>
+              <td :colspan="columns.length">More info about</td>
             </tr>
           </template>
         </v-data-table-server>

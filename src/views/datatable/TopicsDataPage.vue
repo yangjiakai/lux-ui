@@ -4,171 +4,129 @@
 * @Description: 
 -->
 <script setup lang="ts">
-import { searchUsersApi } from "@/api/unsplashApi";
-import CopyLabel from "@/components/common/CopyLabel.vue";
-
-const loading = ref(true);
-const totalRows = ref(0);
-
-const queryOptions = reactive({
-  query: "cat",
-  page: 1,
-  per_page: 25,
-});
-
-const headers = [
-  { title: "用户名", key: "username" },
-  { title: "头像", key: "avatar" },
-  { title: "用户id", key: "id" },
-  { title: "全名", key: "name" },
-  { title: "位置", key: "location", width: "200px" },
-  { title: "是否可用", key: "for_hire", align: "center" },
-  { title: "收藏数", key: "total_collections" },
-  { title: "喜欢数", key: "total_likes" },
-  { title: "照片数", key: "total_photos" },
-  { title: "接受条款", key: "accepted_tos", align: "center" },
-  { title: "作品集", key: "portfolio_url" },
+const expanded = ref([]);
+const dessertHeaders = ref([
+  {
+    title: "Dessert (100g serving)",
+    align: "start",
+    sortable: false,
+    key: "name",
+  },
+  { title: "Calories", key: "calories" },
+  { title: "Fat (g)", key: "fat" },
+  { title: "Carbs (g)", key: "carbs" },
+  { title: "Protein (g)", key: "protein" },
+  { title: "Iron (%)", key: "iron" },
+  { title: "", key: "data-table-expand" },
+]);
+const desserts = [
+  {
+    name: "Frozen Yogurt",
+    calories: 159,
+    fat: 6.0,
+    carbs: 24,
+    protein: 4.0,
+    iron: 1,
+  },
+  {
+    name: "Ice cream sandwich",
+    calories: 237,
+    fat: 9.0,
+    carbs: 37,
+    protein: 4.3,
+    iron: 1,
+  },
+  {
+    name: "Eclair",
+    calories: 262,
+    fat: 16.0,
+    carbs: 23,
+    protein: 6.0,
+    iron: 7,
+  },
+  {
+    name: "Cupcake",
+    calories: 305,
+    fat: 3.7,
+    carbs: 67,
+    protein: 4.3,
+    iron: 8,
+  },
+  {
+    name: "Gingerbread",
+    calories: 356,
+    fat: 16.0,
+    carbs: 49,
+    protein: 3.9,
+    iron: 16,
+  },
+  {
+    name: "Jelly bean",
+    calories: 375,
+    fat: 0.0,
+    carbs: 94,
+    protein: 0.0,
+    iron: 0,
+  },
+  {
+    name: "Lollipop",
+    calories: 392,
+    fat: 0.2,
+    carbs: 98,
+    protein: 0,
+    iron: 2,
+  },
+  {
+    name: "Honeycomb",
+    calories: 408,
+    fat: 3.2,
+    carbs: 87,
+    protein: 6.5,
+    iron: 45,
+  },
+  {
+    name: "Donut",
+    calories: 452,
+    fat: 25.0,
+    carbs: 51,
+    protein: 4.9,
+    iron: 22,
+  },
+  {
+    name: "KitKat",
+    calories: 518,
+    fat: 26.0,
+    carbs: 65,
+    protein: 7,
+    iron: 6,
+  },
 ];
-
-const usersList = ref([]);
-
-const getUsers = async () => {
-  loading.value = true;
-  const params = queryOptions;
-  const usersResponse = await searchUsersApi(params);
-
-  usersList.value = usersResponse.data.results.map((user) => {
-    return {
-      id: user.id,
-      avatar: user.profile_image.small,
-      username: user.username,
-      name: user.name,
-      location: user.location,
-      for_hire: user.for_hire,
-      total_collections: user.total_collections,
-      total_likes: user.total_likes,
-      total_photos: user.total_photos,
-      accepted_tos: user.accepted_tos,
-      portfolio_url: user.portfolio_url,
-    };
-  });
-
-  totalRows.value = usersResponse.data.total;
-  loading.value = false;
-};
-
-const onUpdateOptions = async (options) => {
-  queryOptions.per_page = options.itemsPerPage;
-  queryOptions.page = options.page;
-  await getUsers();
-};
-
-const getLikesColor = (likes) => {
-  if (likes > 400) return "red";
-  else if (likes > 200) return "orange";
-  else return "grey";
-};
 </script>
 
 <template>
-  <div class="">
-    <v-card>
-      <v-card-title class="font-weight-bold">
-        <span> Unsplash Users</span>
-        <v-spacer></v-spacer>
-        <v-text-field
-          v-model="queryOptions.query"
-          variant="solo"
-          class="elevation-1"
-          append-icon="mdi-magnify"
-          @click:append="getUsers"
-          label="Search"
-          single-line
-          hide-details
-          clearable
-        ></v-text-field>
-      </v-card-title>
-      <hr />
-      <v-card-text>
-        <v-data-table-server
-          :headers="headers"
-          :items="usersList"
-          :search="queryOptions.query"
-          :loading="loading"
-          :items-per-page="queryOptions.per_page"
-          :items-length="totalRows"
-          item-value="id"
-          @update:options="onUpdateOptions"
-        >
-          <template v-slot:item="{ item }">
-            <tr>
-              <td class="font-weight-bold">
-                <CopyLabel :text="item.columns.username" />
-              </td>
-              <td>
-                <v-avatar size="30">
-                  <img :src="item.columns.avatar" alt="alt" />
-                </v-avatar>
-              </td>
-              <td>{{ item.columns.id }}</td>
-
-              <td>{{ item.columns.name }}</td>
-              <td>{{ item.columns.location }}</td>
-
-              <td class="text-center">
-                <v-chip
-                  size="small"
-                  :color="item.columns.for_hire ? 'blue' : 'grey'"
-                  class="font-weight-bold"
-                >
-                  {{ item.columns.for_hire ? "Hire" : "No Hire" }}</v-chip
-                >
-              </td>
-              <td>
-                {{ item.columns.total_collections }}
-              </td>
-              <td>
-                <v-chip
-                  size="small"
-                  :color="getLikesColor(item.columns.total_likes)"
-                  class="font-weight-bold"
-                >
-                  {{ item.columns.total_likes }}</v-chip
-                >
-              </td>
-              <td>
-                {{ item.columns.total_photos }}
-              </td>
-              <td class="text-center">
-                <v-chip
-                  size="small"
-                  :color="item.columns.accepted_tos ? 'green' : 'pink'"
-                  class="font-weight-bold"
-                >
-                  <v-icon
-                    start
-                    :icon="
-                      item.columns.accepted_tos
-                        ? 'mdi-security '
-                        : 'mdi-close-octagon'
-                    "
-                  ></v-icon>
-                  {{
-                    item.columns.accepted_tos ? "Accepted" : "Not Accepted"
-                  }}</v-chip
-                >
-              </td>
-              <td>
-                <a :href="item.columns.portfolio_url" target="_blank">
-                  {{ item.columns.portfolio_url }}
-                </a>
-              </td>
-            </tr>
-          </template>
-        </v-data-table-server>
-      </v-card-text>
-    </v-card>
-  </div>
+  <v-data-table
+    v-model:expanded="expanded"
+    :headers="dessertHeaders"
+    :items="desserts"
+    item-value="name"
+    show-expand
+    class="elevation-1"
+  >
+    <template v-slot:top>
+      <v-toolbar flat>
+        <v-toolbar-title>Expandable Table</v-toolbar-title>
+      </v-toolbar>
+    </template>
+    <template v-slot:expanded-row="{ columns, item }">
+      <tr>
+        <td :colspan="columns.length">
+          <v-card class="ma-3" height="300">
+            More info about {{ item.raw.name }}
+          </v-card>
+        </td>
+      </tr>
+    </template>
+  </v-data-table>
 </template>
 
 <style scoped lang="scss"></style>
