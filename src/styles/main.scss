@@ -1,7 +1,9 @@
 // enforce font globally
-@use "vuetify/styles";
 // @use "vuetify/variables";
 @import "./variables";
+
+@import 'vuetify/styles';
+
 @import "./override";
 @import "./common/gradients.scss";
 @import "./common/animation.scss";
