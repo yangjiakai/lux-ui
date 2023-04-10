@@ -61,7 +61,16 @@ html {
       display: flex;
       align-items: center;
     }
+
+
   }
+
+  // Outline Card
+  .v-card--variant-outlined {
+    border-color: #e5eaef;
+  }
+
+
 
   .v-list-item {
 
@@ -117,9 +126,17 @@ html {
     text-transform: capitalize;
   }
 
-
-  // v-text-field solo
-  .v-field--variant-solo {
-    box-shadow: rgba(200, 200, 200, 0.1) 0px 2px 8px 0px !important;
+  .border,
+  .v-divider {
+    border-color: rgba(var(--v-border-color), 1) !important;
   }
+
+  .avtar-border {
+    border: 2px solid rgb(var(--v-theme-surface)) !important;
+  }
+
+
+
+
+
 }

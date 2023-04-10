@@ -23,7 +23,6 @@ const Lighttheme: ThemeDefinition = {
   dark: false,
   variables: {
     "high-emphasis-opacity": 1,
-    "border-opacity": 0.05,
   },
   colors: {
     background: "#f2f5f8",
@@ -73,16 +72,8 @@ export default createVuetify({
       fontWeight: "400",
       letterSpacing: "0",
     },
-    VCard: {
-      elevation: 1,
-    },
+    VCard: {},
     VSheet: {
-      elevation: 1,
-    },
-    VAppBar: {
-      elevation: 1,
-    },
-    VNavigationDrawer: {
       elevation: 1,
     },
     VTable: {
@@ -91,6 +82,12 @@ export default createVuetify({
     VDataTable: {
       fixedHeader: true,
       noDataText: "Results not found",
+    },
+    VTextField: {
+      variant: "solo",
+    },
+    VSelect: {
+      variant: "solo",
     },
   },
   locale: {

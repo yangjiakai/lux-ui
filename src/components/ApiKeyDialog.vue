@@ -41,7 +41,7 @@ const key = computed({
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn block color="primary" text @click="close">关闭</v-btn>
+        <v-btn block color="primary" text @click="close">确定</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
