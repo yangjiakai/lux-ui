@@ -47,7 +47,9 @@ const { xs } = useDisplay();
           </v-btn>
         </v-card-title>
         <hr />
-        <v-card-text> <MessageArea /> </v-card-text>
+        <v-card-text class="overflow-scroll">
+          <MessageArea />
+        </v-card-text>
         <hr />
         <v-card-actions>
           <InputArea />
@@ -59,7 +61,7 @@ const { xs } = useDisplay();
 
 <style scoped lang="scss">
 .dialog-bottom {
-  z-index: 9999;
+  z-index: 999;
   position: fixed;
   bottom: 10px;
   right: 0px;

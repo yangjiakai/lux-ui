@@ -27,7 +27,6 @@ const isUserMessage = computed(() => {
       <v-img v-if="message.user.avatar" :src="message.user.avatar" />
     </v-avatar>
     <v-card
-      color="dar"
       class="px-3 py-2 mx-2 w-auto"
       :class="isUserMessage ? 'gradient gray' : ''"
       :theme="isUserMessage ? 'dark' : 'light'"
