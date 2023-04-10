@@ -77,7 +77,26 @@ const user = reactive({
       v-model="currentColor"
       :color="currentColor"
       label="color"
-      variant="solo"
+      hide-details
+    ></v-select>
+
+    <v-select
+      density="compact"
+      class="ma-5"
+      :items="colors"
+      v-model="currentColor"
+      :color="currentColor"
+      variant="outlined"
+      hide-details
+    ></v-select>
+
+    <v-select
+      density="compact"
+      class="ma-5"
+      :items="colors"
+      v-model="currentColor"
+      :color="currentColor"
+      variant="underlined"
       hide-details
     ></v-select>
 

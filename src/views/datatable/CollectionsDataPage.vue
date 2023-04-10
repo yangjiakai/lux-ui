@@ -10,7 +10,6 @@ import moment from "moment";
 
 const loading = ref(true);
 const totalRows = ref(0);
-const expanded = ref([]);
 
 const queryOptions = reactive({
   query: "cat",
@@ -29,7 +28,6 @@ const headers = [
   { title: "链接", key: "links" },
   { title: "标签", key: "tags" },
   { title: "发布时间", key: "published_at" },
-  { title: "", key: "data-table-expand" },
 ];
 
 const collectionList = ref([]);
@@ -86,7 +84,6 @@ const onUpdateOptions = async (options) => {
       <hr />
       <v-card-text>
         <v-data-table-server
-          v-model:expanded="expanded"
           :headers="headers"
           :items="collectionList"
           :search="queryOptions.query"
@@ -95,7 +92,8 @@ const onUpdateOptions = async (options) => {
           :items-length="totalRows"
           item-value="id"
           @update:options="onUpdateOptions"
-          show-expand
+          fixed-header
+          height="900"
         >
           <template v-slot:item="{ item }">
             <tr>

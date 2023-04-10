@@ -12,7 +12,7 @@ import { Icon } from "@iconify/vue";
   <div class="">
     <v-card>
       <perfect-scrollbar class="user-card">
-        <v-table>
+        <v-table fixed-header fixed-footer height="900">
           <thead>
             <tr>
               <th class="text-left">Id</th>
@@ -65,6 +65,11 @@ import { Icon } from "@iconify/vue";
               <td>{{ user.disabled }}</td>
             </tr>
           </tbody>
+          <template v-slot:bottom>
+            <div class="text-center pt-2">
+              <v-pagination length="10"></v-pagination>
+            </div>
+          </template>
         </v-table>
       </perfect-scrollbar>
     </v-card>

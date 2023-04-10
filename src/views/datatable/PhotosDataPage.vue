@@ -99,6 +99,8 @@ const getLikesColor = (likes) => {
           :items-length="totalRows"
           item-value="id"
           @update:options="onUpdateOptions"
+          fixed-header
+          height="900"
         >
           <template v-slot:item="{ item }">
             <tr>

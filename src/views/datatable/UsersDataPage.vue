@@ -91,7 +91,7 @@ const getLikesColor = (likes) => {
         ></v-text-field>
       </v-card-title>
       <hr />
-      <v-card-text>
+      <v-card-text class="table-container">
         <v-data-table-server
           :headers="headers"
           :items="usersList"
@@ -101,6 +101,8 @@ const getLikesColor = (likes) => {
           :items-length="totalRows"
           item-value="id"
           @update:options="onUpdateOptions"
+          fixed-header
+          height="900"
         >
           <template v-slot:item="{ item }">
             <tr>
@@ -172,5 +174,3 @@ const getLikesColor = (likes) => {
     </v-card>
   </div>
 </template>
-
-<style scoped lang="scss"></style>
