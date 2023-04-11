@@ -137,7 +137,7 @@ Basic with Icons
               <v-col cols="12" sm="6">
                 <v-label class="font-weight-medium mb-2">Email</v-label>
                 <v-text-field
-                  class="bg-blue-lighten-5"
+                  class="bg-blue-grey-lighten-5"
                   readonly
                   v-model="basic.email"
                   color="primary"
@@ -149,6 +149,18 @@ Basic with Icons
               /></v-col>
             </v-row>
           </v-card-text>
+          <v-divider></v-divider>
+          <v-card-actions class="pa-5">
+            <v-spacer></v-spacer>
+            <v-btn
+              class="px-5"
+              color="primary"
+              elevation="1"
+              variant="elevated"
+            >
+              Unpdate Basic Info</v-btn
+            >
+          </v-card-actions>
         </v-card>
 
         <!-- ---------------------------------------------- -->
@@ -219,7 +231,7 @@ Basic with Icons
                 <v-text-field
                   readonly
                   v-model="passwords.currentPassword"
-                  class="bg-blue-lighten-5"
+                  class="bg-blue-grey-lighten-5"
                   density="compact"
                   color="primary"
                   variant="outlined"
@@ -276,6 +288,18 @@ Basic with Icons
               ></v-col>
             </v-row>
           </v-card-text>
+          <v-divider></v-divider>
+          <v-card-actions class="pa-5">
+            <v-spacer></v-spacer>
+            <v-btn
+              class="px-5"
+              color="primary"
+              elevation="1"
+              variant="elevated"
+            >
+              Unpdate Password</v-btn
+            >
+          </v-card-actions>
         </v-card>
 
         <!-- ---------------------------------------------- -->
@@ -306,6 +330,18 @@ Basic with Icons
               ></v-switch>
             </div>
           </v-card-text>
+          <v-divider></v-divider>
+          <v-card-actions class="pa-5">
+            <v-spacer></v-spacer>
+            <v-btn
+              class="px-5"
+              color="primary"
+              elevation="1"
+              variant="elevated"
+            >
+              Unpdate Notifications</v-btn
+            >
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
