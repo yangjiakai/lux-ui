@@ -9,7 +9,7 @@ const navs = [
   {
     title: "Profile Details",
     key: "menu.profileDetails",
-    link: "/profile-details",
+    link: "/profile",
     icon: "mdi-account-box-outline",
   },
   {
