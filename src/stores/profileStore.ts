@@ -8,8 +8,8 @@ export const useProfileStore = defineStore({
       realname: "yang jia kai",
       email: "yjkabko@gmail.com",
       avatar:
-        "https://lh3.googleusercontent.com/-Ea4OzXAN02c/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdwv4mCQ5zJ1B-B9Wp1Cr6pmp1Y9w/s96-c/photo.jpg",
-      location: "Tokyo,Japab",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s",
+      location: "Tokyo,Japan",
       role: "Admin",
       disabled: false,
       about: "Full Stack Developer",

@@ -160,6 +160,8 @@ const user = reactive({
 
       <v-card-text> Asdas </v-card-text>
     </v-card>
+
+    <v-card> </v-card>
   </v-card>
 </template>
 
