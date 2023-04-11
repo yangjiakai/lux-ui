@@ -45,8 +45,9 @@ const getPublicEvent = async () => {
       created_at: activity.created_at,
     };
   });
-
-  loading.value = false;
+  setTimeout(() => {
+    loading.value = false;
+  }, 1000);
 };
 
 onMounted(() => {

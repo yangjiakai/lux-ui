@@ -4,9 +4,9 @@
     :items="breadcrumbs"
     class="ml-n3"
   >
-    <template v-slot:prepend>
+    <!-- <template v-slot:prepend>
       <v-icon size="small" icon="mdi-vuetify" color="blue"></v-icon>
-    </template>
+    </template> -->
   </v-breadcrumbs>
 </template>
 

@@ -68,8 +68,9 @@ Basic with Icons
         <v-card>
           <div class="d-flex flex-column pa-10">
             <v-avatar size="120" class="mx-auto elevation-12" color="white">
-              <v-img :src="basic.avatar"></v-img>
+              <v-img :src="basic.avatar"> </v-img>
             </v-avatar>
+
             <div class="text-center mt-5">
               <h3 class="text-h6 font-weight-bold">
                 {{ basic.username }}
