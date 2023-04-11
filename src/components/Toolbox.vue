@@ -18,6 +18,7 @@ const toolboxShow = ref(false);
     class="toolbox-activator elevation-10"
     @click="toolboxShow = !toolboxShow"
     size="50"
+    color="white"
   >
     <Icon width="30" icon="ri:openai-fill" />
   </v-btn>
