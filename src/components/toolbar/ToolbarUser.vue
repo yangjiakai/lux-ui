@@ -85,7 +85,7 @@ const navs2 = [
         <!-- ---------------------------------------------- -->
         <!-- Profile Area -->
         <!-- ---------------------------------------------- -->
-        <v-list-item>
+        <v-list-item to="/profile">
           <template v-slot:prepend>
             <v-avatar size="40">
               <v-img

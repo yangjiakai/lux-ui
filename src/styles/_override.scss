@@ -137,6 +137,25 @@ html {
 
 
 
+  // input
+  // comfortable
+  .v-input--density-comfortable {
+    --v-input-control-height: 44px;
+  }
 
+  // compact
+  .v-input--density-compact {
+    --v-input-padding-top: 10px;
+  }
+
+  .v-label {
+    font-size: 0.875rem;
+    opacity: 1;
+  }
+
+  .v-text-field__suffix {
+    opacity: 1;
+    padding-left: 20px;
+  }
 
 }

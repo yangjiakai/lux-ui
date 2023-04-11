@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import { useAppStore } from "@/stores/appStore";
+import UserRoutes from "./user.routes";
 import AuthRoutes from "./auth.routes";
 import UIRoutes from "./ui.routes";
 import LandingRoutes from "./landing.routes";
@@ -27,6 +28,7 @@ export const routes = [
     component: () =>
       import(/* webpackChunkName: "error" */ "@/views/errors/NotFoundPage.vue"),
   },
+  ...UserRoutes,
   ...LandingRoutes,
   ...AuthRoutes,
   ...PagesRoutes,
