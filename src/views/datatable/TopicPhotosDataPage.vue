@@ -4,6 +4,12 @@
 * @Description: 
 -->
 <script setup lang="ts">
+import { useRouter } from "vue-router";
+const router = useRouter();
+const fn = () => {
+  console.log(router);
+};
+
 const colors = ref([
   "primary",
   "secondary",
@@ -161,7 +167,9 @@ const user = reactive({
       <v-card-text> Asdas </v-card-text>
     </v-card>
 
-    <v-card> </v-card>
+    <v-card>
+      <v-btn color="success" @click="fn">text</v-btn>
+    </v-card>
   </v-card>
 </template>
 

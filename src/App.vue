@@ -20,6 +20,10 @@ import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 import BackToTop from "@/components/common/BackToTop.vue";
 import ToolBox from "@/components/Toolbox.vue";
 import Snackbar from "@/components/common/Snackbar.vue";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/firebase";
+import { useAuthStore } from "@/stores/authStore";
+const authStore = useAuthStore();
 
 const customizeTheme = useCustomizeThemeStore();
 const route = useRoute();
@@ -44,6 +48,16 @@ const currentLayout = computed(() => {
     return DefaultLayout;
   }
   return layouts[layoutName];
+});
+
+onMounted(() => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      authStore.setLoggedIn(true);
+    } else {
+      authStore.setLoggedIn(false);
+    }
+  });
 });
 </script>
 

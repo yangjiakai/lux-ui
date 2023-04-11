@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { useAppStore } from "@/stores/appStore";
 import { useAuthStore } from "@/stores/authStore";
 import UserRoutes from "./user.routes";
 import AuthRoutes from "./auth.routes";
@@ -20,6 +19,7 @@ export const routes = [
   {
     path: "/dashboard",
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
     component: () => import("@/views/pages/DashBoard.vue"),
@@ -75,9 +75,9 @@ router.beforeEach(async (to, from, next) => {
   }
 });
 
-router.afterEach(() => {
-  const appStore = useAppStore();
-  appStore.globalLoading = false;
-});
+// router.afterEach(() => {
+//   const appStore = useAppStore();
+//   appStore.globalLoading = false;
+// });
 
 export default router;

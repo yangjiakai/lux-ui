@@ -11,6 +11,7 @@ import {
 import { db, auth } from "@/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { addUserToUsersCollection } from "@/api/userApi";
+import router from "@/router";
 
 // interface User {
 //   uid: string;
@@ -32,6 +33,12 @@ export const useAuthStore = defineStore("auth", {
     user: null as User | null,
     profile: null as Profile | null,
   }),
+
+  persist: {
+    enabled: true,
+    strategies: [{ storage: localStorage, paths: ["isLoggedIn"] }],
+  },
+
   getters: {
     userId: (state) => state.user?.uid,
     userEmail: (state) => state.user?.email,
@@ -68,6 +75,9 @@ export const useAuthStore = defineStore("auth", {
         password
       );
       const { user } = userCredential;
+      if (user) {
+        router.push("/");
+      }
     },
 
     async loginWithGoogle() {
@@ -82,10 +92,14 @@ export const useAuthStore = defineStore("auth", {
           return;
         }
       }
+      if (user) {
+        router.push("/");
+      }
     },
 
     async logout() {
       await auth.signOut();
+      router.push({ name: "auth-signin" });
     },
   },
 });

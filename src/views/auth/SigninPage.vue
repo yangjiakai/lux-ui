@@ -51,6 +51,10 @@ const resetErrors = () => {
   error.value = false;
   errorMessages.value = "";
 };
+
+const signInWithFacebook = () => {
+  alert(authStore.isLoggedIn);
+};
 </script>
 <template>
   <v-card class="pa-3" elevation="3">
@@ -137,6 +141,7 @@ const resetErrors = () => {
           block
           size="x-large"
           :disabled="isSignInDisabled"
+          @click="signInWithFacebook"
         >
           <Icon icon="logos:facebook" class="mr-3" />
           Facebook

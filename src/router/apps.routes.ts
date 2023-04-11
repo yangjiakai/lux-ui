@@ -12,6 +12,7 @@ export default [
         /* webpackChunkName: "utility-board" */ "@/views/utility/BoardPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       title: "Board",
       layout: "ui",
       category: "APP",
@@ -20,6 +21,7 @@ export default [
   {
     path: "/apps/email",
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "APP",
       title: "Email",
@@ -33,6 +35,7 @@ export default [
   {
     path: "/apps/chat",
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "APP",
       title: "Chat",
@@ -44,6 +47,7 @@ export default [
   {
     path: "/apps/todo",
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "APP",
       title: "Todo",
@@ -55,6 +59,7 @@ export default [
   {
     path: "/apps/nitori",
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "APP",
       title: "Nitori",
@@ -68,6 +73,7 @@ export default [
   {
     path: "/apps/booking",
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "APP",
       title: "Booking",
@@ -81,6 +87,7 @@ export default [
   {
     path: "/apps/ikea",
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "APP",
       title: "Ikea",
@@ -92,6 +99,7 @@ export default [
   {
     path: "/apps/unsplash",
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "APP",
       title: "Unsplash",

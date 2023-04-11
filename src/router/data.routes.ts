@@ -4,6 +4,7 @@ export default [
     path: "/data/users-data",
     component: () => import("@/views/datatable/UsersDataPage.vue"),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "Data",
       title: "UsersDataTable",
@@ -14,6 +15,7 @@ export default [
     path: "/data/photos-data",
     component: () => import("@/views/datatable/PhotosDataPage.vue"),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "Data",
       title: "PhotosDataTable",
@@ -24,6 +26,7 @@ export default [
     path: "/data/collections-data",
     component: () => import("@/views/datatable/CollectionsDataPage.vue"),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "Data",
       title: "CollectionsDataTable",
@@ -34,6 +37,7 @@ export default [
     path: "/data/topics-data",
     component: () => import("@/views/datatable/TopicsDataPage.vue"),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "Data",
       title: "TopicsDataTable",
@@ -44,6 +48,7 @@ export default [
     path: "/data/topic-photos-data",
     component: () => import("@/views/datatable/TopicPhotosDataPage.vue"),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "Data",
       title: "TopicPhotosDataTable",

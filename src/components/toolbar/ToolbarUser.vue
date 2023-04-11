@@ -6,14 +6,14 @@
 <script setup lang="ts">
 import StatusMenu from "./StatusMenu.vue";
 import { useAuthStore } from "@/stores/authStore";
-import { useSnackbarStore } from "@/stores/snackbarStore";
+import { useRouter } from "vue-router";
+const router = useRouter();
+
 const authStore = useAuthStore();
-const handleLogout = async () => {
-  try {
-    await authStore.logout();
-  } catch (error) {
-    useSnackbarStore().showErrorMessage("Logout failed");
-  }
+const handleLogout = () => {
+  authStore.logout();
+  console.log("---");
+  console.log(router);
 };
 
 const navs = [
