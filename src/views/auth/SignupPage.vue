@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
-const router = useRouter();
+import { useAuthStore } from "@/stores/authStore";
+
+const authStore = useAuthStore();
 const username = ref("");
 
 // sign in buttons
@@ -16,25 +18,15 @@ const password = ref("");
 const showPassword = ref(false);
 
 // Submit
-const submit = async () => {
+const handleRegister = async () => {
   const { valid } = await refLoginForm.value.validate();
   if (valid) {
     isLoading.value = true;
     isSignInDisabled.value = true;
-    signIn(email.value, password.value);
+    authStore.registerWithEmailAndPassword(email.value, password.value);
   } else {
     console.log("no");
   }
-};
-
-// Sign in
-const signIn = (email: string, password: string) => {
-  // TODO API CALL
-  setTimeout(() => {
-    router.push({
-      name: "home",
-    });
-  }, 2000);
 };
 
 // Error Check
@@ -95,7 +87,7 @@ const resetErrors = () => {
           name="username"
           outlined
           validateOn="blur"
-          @keyup.enter="submit"
+          @keyup.enter="handleRegister"
           @change="resetErrors"
         ></v-text-field>
         <v-text-field
@@ -112,7 +104,7 @@ const resetErrors = () => {
           name="email"
           outlined
           validateOn="blur"
-          @keyup.enter="submit"
+          @keyup.enter="handleRegister"
           @change="resetErrors"
         ></v-text-field>
         <v-text-field
@@ -132,7 +124,7 @@ const resetErrors = () => {
           outlined
           validateOn="blur"
           @change="resetErrors"
-          @keyup.enter="submit"
+          @keyup.enter="handleRegister"
           @click:append-inner="showPassword = !showPassword"
         ></v-text-field>
         <v-btn
@@ -141,7 +133,7 @@ const resetErrors = () => {
           block
           size="x-large"
           color="primary"
-          @click="submit"
+          @click="handleRegister"
           class="mt-2"
           >{{ $t("register.button") }}</v-btn
         >
@@ -157,7 +149,7 @@ const resetErrors = () => {
           class="mb-2 lighten-2 text-capitalize"
           block
           size="x-large"
-          to="/"
+          @click="authStore.loginWithGoogle()"
           :disabled="isSignInDisabled"
         >
           <Icon icon="logos:google-icon" class="mr-3 my-2" />
@@ -167,7 +159,6 @@ const resetErrors = () => {
           class="mb-2 lighten-2 text-capitalize"
           block
           size="x-large"
-          to="/"
           :disabled="isSignInDisabled"
         >
           <Icon icon="logos:facebook" class="mr-3" />
