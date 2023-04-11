@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import { useAppStore } from "@/stores/appStore";
+import { useAuthStore } from "@/stores/authStore";
 import UserRoutes from "./user.routes";
 import AuthRoutes from "./auth.routes";
 import UIRoutes from "./ui.routes";
@@ -14,10 +14,12 @@ export const routes = [
   {
     path: "/",
     redirect: "/dashboard",
+    meta: {},
   } as any,
   {
     path: "/dashboard",
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
     component: () => import("@/views/pages/DashBoard.vue"),
@@ -58,14 +60,24 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  const appStore = useAppStore();
-  appStore.globalLoading = true;
-  next();
+  const authStore = useAuthStore();
+  // 如果路由元数据需要登录
+  if (to.meta.requiresAuth) {
+    // 如果用户已登录
+    if (authStore.isLoggedIn) {
+      next();
+    } else {
+      // 否则，重定向到登录页面
+      next({ name: "auth-signin" });
+    }
+  } else {
+    next();
+  }
 });
 
-router.afterEach(() => {
-  const appStore = useAppStore();
-  appStore.globalLoading = false;
-});
+// router.afterEach(() => {
+//   const appStore = useAppStore();
+//   appStore.globalLoading = false;
+// });
 
 export default router;

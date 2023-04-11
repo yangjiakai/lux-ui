@@ -7,6 +7,7 @@ export default [
         /* webpackChunkName: "landing-home" */ "@/views/landing/HomePage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },
@@ -18,6 +19,7 @@ export default [
         /* webpackChunkName: "landing-hero" */ "@/views/landing/hero/HeroPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },
@@ -29,6 +31,7 @@ export default [
         /* webpackChunkName: "landing-feature" */ "@/views/landing/feature/Feature.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },
@@ -40,6 +43,7 @@ export default [
         /* webpackChunkName: "landing-pricing" */ "@/views/landing/pricing/PricingPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },
@@ -51,6 +55,7 @@ export default [
         /* webpackChunkName: "landing-card" */ "@/views/landing/card/CardPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },
@@ -62,6 +67,7 @@ export default [
         /* webpackChunkName: "landing-team" */ "@/views/landing/team/TeamPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },
@@ -73,6 +79,7 @@ export default [
         /* webpackChunkName: "landing-testimonial" */ "@/views/landing/testimonial/TestimonialPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },
@@ -84,6 +91,7 @@ export default [
         /* webpackChunkName: "landing-stats" */ "@/views/landing/stats/Stats.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },
@@ -95,6 +103,7 @@ export default [
         /* webpackChunkName: "landing-logos" */ "@/views/landing/logos/LogosPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },
@@ -106,6 +115,7 @@ export default [
         /* webpackChunkName: "landing-calltoaction" */ "@/views/landing/action/ActionPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },
@@ -117,6 +127,7 @@ export default [
         /* webpackChunkName: "landing-newsletter" */ "@/views/landing/newsletter/NewsletterPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },
@@ -128,6 +139,7 @@ export default [
         /* webpackChunkName: "landing-faq" */ "@/views/landing/faq/FQAPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },
@@ -139,6 +151,7 @@ export default [
         /* webpackChunkName: "landing-toolbar" */ "@/views/landing/toolbar/ToolbarPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },
@@ -150,6 +163,7 @@ export default [
         /* webpackChunkName: "landing-footer" */ "@/views/landing/footer/FooterPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "landing",
     },
   },

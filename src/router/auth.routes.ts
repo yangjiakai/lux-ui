@@ -31,6 +31,7 @@ export default [
         /* webpackChunkName: "verify-email" */ "@/views/auth/VerifyEmailPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "auth",
       title: "VerifyEmail",
     },
@@ -43,6 +44,7 @@ export default [
         /* webpackChunkName: "auth-forgot" */ "@/views/auth/ForgotPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "auth",
       title: "ForgotPage",
     },
@@ -53,6 +55,7 @@ export default [
     component: () =>
       import(/* webpackChunkName: "auth-reset" */ "@/views/auth/ResetPage.vue"),
     meta: {
+      requiresAuth: true,
       layout: "auth",
       title: "ResetPage",
     },

@@ -68,7 +68,6 @@ export default createVuetify({
   defaults: {
     VBtn: {
       rounded: "md",
-      flat: true,
       fontWeight: "400",
       letterSpacing: "0",
     },
@@ -79,6 +78,7 @@ export default createVuetify({
     VTable: {
       elevation: 1,
     },
+
     VDataTable: {
       fixedHeader: true,
       noDataText: "Results not found",

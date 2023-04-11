@@ -11,6 +11,7 @@ export default [
         /* webpackChunkName: "users-list" */ "@/views/users/UsersPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       title: "User List",
     },
@@ -23,6 +24,7 @@ export default [
         /* webpackChunkName: "users-edit" */ "@/views/users/EditUserPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       title: "Edit User",
     },
@@ -33,6 +35,7 @@ export default [
     component: () =>
       import(/* webpackChunkName: "profile" */ "@/views/users/ProfilePage.vue"),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       title: "Profile",
       category: "Config",

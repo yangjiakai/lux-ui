@@ -7,6 +7,7 @@ export default [
         /* webpackChunkName: "utility-maintenance" */ "@/views/utility/MaintenancePage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "auth",
       title: "MaintenancePage",
     },
@@ -19,6 +20,7 @@ export default [
         /* webpackChunkName: "utility-soon" */ "@/views/utility/SoonPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "auth",
       title: "Coming Soon",
     },
@@ -31,6 +33,7 @@ export default [
         /* webpackChunkName: "utility-help" */ "@/views/utility/HelpPage.vue"
       ),
     meta: {
+      requiresAuth: true,
       title: "Help",
       layout: "ui",
       category: "Utility",

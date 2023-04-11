@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
-const router = useRouter();
+import { useAuthStore } from "@/stores/authStore";
 
+const authStore = useAuthStore();
 const isLoading = ref(false);
 const isSignInDisabled = ref(false);
 
@@ -13,26 +14,19 @@ const isFormValid = ref(true);
 // show password field
 const showPassword = ref(false);
 
-// Submit
-const submit = async () => {
+const handleLogin = async () => {
   const { valid } = await refLoginForm.value.validate();
   if (valid) {
     isLoading.value = true;
     isSignInDisabled.value = true;
-    signIn(email.value, password.value);
+    authStore.loginWithEmailAndPassword(email.value, password.value);
   } else {
     console.log("no");
   }
 };
 
-// Sign in
-const signIn = (email: string, password: string) => {
-  // TODO API CALL
-  setTimeout(() => {
-    router.push({
-      name: "home",
-    });
-  }, 1000);
+const signInWithGoolgle = () => {
+  authStore.loginWithGoogle();
 };
 
 // Error Check
@@ -56,6 +50,10 @@ const errorMessages = ref("");
 const resetErrors = () => {
   error.value = false;
   errorMessages.value = "";
+};
+
+const signInWithFacebook = () => {
+  alert(authStore.isLoggedIn);
 };
 </script>
 <template>
@@ -85,7 +83,7 @@ const resetErrors = () => {
           name="email"
           outlined
           validateOn="blur"
-          @keyup.enter="submit"
+          @keyup.enter="handleLogin"
           @change="resetErrors"
         ></v-text-field>
         <v-text-field
@@ -105,7 +103,7 @@ const resetErrors = () => {
           outlined
           validateOn="blur"
           @change="resetErrors"
-          @keyup.enter="submit"
+          @keyup.enter="handleLogin"
           @click:append-inner="showPassword = !showPassword"
         ></v-text-field>
         <v-btn
@@ -114,7 +112,7 @@ const resetErrors = () => {
           block
           size="x-large"
           color="primary"
-          @click="submit"
+          @click="handleLogin"
           class="mt-2"
           >{{ $t("login.button") }}</v-btn
         >
@@ -128,9 +126,10 @@ const resetErrors = () => {
         <!-- external providers list -->
         <v-btn
           class="mb-2 lighten-2 text-capitalize"
+          elevation="1"
           block
           size="x-large"
-          to="/"
+          @click="signInWithGoolgle"
           :disabled="isSignInDisabled"
         >
           <Icon icon="logos:google-icon" class="mr-3 my-2" />
@@ -138,10 +137,11 @@ const resetErrors = () => {
         </v-btn>
         <v-btn
           class="mb-2 lighten-2 text-capitalize"
+          elevation="1"
           block
           size="x-large"
-          to="/"
           :disabled="isSignInDisabled"
+          @click="signInWithFacebook"
         >
           <Icon icon="logos:facebook" class="mr-3" />
           Facebook

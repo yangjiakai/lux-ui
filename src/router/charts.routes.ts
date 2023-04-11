@@ -7,6 +7,7 @@ export default [
         /* webpackChunkName: "chart-echart-line" */ "@/views/chart/EchartLine.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "Chart",
       title: "Echart Line",
@@ -20,6 +21,7 @@ export default [
         /* webpackChunkName: "chart-echart-bar" */ "@/views/chart/EchartBar.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "Chart",
       title: "Echart Bar",
@@ -33,6 +35,7 @@ export default [
         /* webpackChunkName: "chart-echart-pie" */ "@/views/chart/EchartPie.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "Chart",
       title: "Echart Pie",
@@ -46,6 +49,7 @@ export default [
         /* webpackChunkName: "chart-echart-scatter" */ "@/views/chart/EchartScatter.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "Chart",
       title: "Echart Scatter",
@@ -59,6 +63,7 @@ export default [
         /* webpackChunkName: "chart-echart-others" */ "@/views/chart/EchartOthers.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "Chart",
       title: "Echart Others",
@@ -72,6 +77,7 @@ export default [
         /* webpackChunkName: "chart-apexchart" */ "@/views/chart/ApexCharts.vue"
       ),
     meta: {
+      requiresAuth: true,
       layout: "ui",
       category: "Chart",
       title: "ApexChart",

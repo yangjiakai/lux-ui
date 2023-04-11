@@ -5,6 +5,17 @@
 -->
 <script setup lang="ts">
 import StatusMenu from "./StatusMenu.vue";
+import { useAuthStore } from "@/stores/authStore";
+import { useRouter } from "vue-router";
+const router = useRouter();
+
+const authStore = useAuthStore();
+const handleLogout = () => {
+  authStore.logout();
+  console.log("---");
+  console.log(router);
+};
+
 const navs = [
   {
     title: "Profile Details",
@@ -41,21 +52,6 @@ const navs = [
     key: "menu.askCommunity",
     link: "/ask-the-community",
     icon: "mdi-help-circle-outline",
-  },
-];
-
-const navs2 = [
-  {
-    title: "Help Center",
-    key: "menu.helpCenter",
-    link: "/help-center",
-    icon: "mdi-lifebuoy",
-  },
-  {
-    title: "Logout",
-    key: "menu.logout",
-    link: "/logout",
-    icon: "mdi-logout",
   },
 ];
 </script>
@@ -136,24 +132,35 @@ const navs2 = [
       <!-- Logout Area -->
       <!-- ---------------------------------------------- -->
       <v-list variant="flat" elevation="0" :lines="false" density="compact">
-        <v-list-item
-          color="primary"
-          v-for="(nav, i) in navs2"
-          :key="i"
-          :to="nav.link"
-          link
-          density="compact"
-        >
+        <v-list-item color="primary" to="nav.link" link density="compact">
           <template v-slot:prepend>
             <v-avatar size="30">
-              <v-icon>{{ nav.icon }}</v-icon>
+              <v-icon>mdi-lifebuoy</v-icon>
             </v-avatar>
           </template>
 
           <div>
-            <v-list-item-subtitle class="text-body-2">{{
-              nav.title
-            }}</v-list-item-subtitle>
+            <v-list-item-subtitle class="text-body-2">
+              Help Center
+            </v-list-item-subtitle>
+          </div>
+        </v-list-item>
+        <v-list-item
+          color="primary"
+          link
+          @click="handleLogout"
+          density="compact"
+        >
+          <template v-slot:prepend>
+            <v-avatar size="30">
+              <v-icon>mdi-logout</v-icon>
+            </v-avatar>
+          </template>
+
+          <div>
+            <v-list-item-subtitle class="text-body-2">
+              Logout
+            </v-list-item-subtitle>
           </div>
         </v-list-item>
       </v-list>
