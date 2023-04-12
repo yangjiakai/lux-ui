@@ -13,7 +13,7 @@ import IkeaFooter from "./component/IkeaFooter.vue";
 const callHelloFunction = async () => {
   // try {
   //   const response = await axios.get(
-  //     "https://shirabako.com/.netlify/functions/hello"
+  //     "https://lux.vuetify3.com/.netlify/functions/hello"
   //   );
   //   message.value = response.data.message;
   // } catch (error) {

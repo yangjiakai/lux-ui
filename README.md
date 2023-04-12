@@ -6,7 +6,7 @@
 <br><br>
 
 <h4 align='center'>
-<a href="https://shirabako.com/">Live Demo</a>
+<a href="https://lux.vuetify3.com/">Live Demo</a>
 </h4>
 
 <br>
