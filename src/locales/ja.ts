@@ -24,7 +24,7 @@ export default {
   },
   register: {
     title: "アカウントを作成する",
-    name: "フルネーム",
+    username: "フルネーム",
     email: "Eメール",
     password: "パスワード",
     button: "アカウントを作成する",

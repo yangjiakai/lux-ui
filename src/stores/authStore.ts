@@ -66,6 +66,9 @@ export const useAuthStore = defineStore("auth", {
           return;
         }
       }
+      if (user) {
+        router.push("/");
+      }
     },
 
     async loginWithEmailAndPassword(email: string, password: string) {

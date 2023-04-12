@@ -24,7 +24,7 @@ export default {
   },
   register: {
     title: "创建帐号",
-    name: "全名",
+    username: "全名",
     email: "电子邮件",
     password: "密码",
     button: "创建帐号",

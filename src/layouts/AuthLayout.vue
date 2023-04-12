@@ -10,7 +10,6 @@
         <div class="title my-2">
           Welcome! Let's build amazing things together.
         </div>
-        <v-btn to="/" class="my-5">Take me back</v-btn>
       </div>
     </v-sheet>
     <v-sheet
@@ -20,7 +19,7 @@
       <div class="layout-content ma-auto w-full">
         <slot></slot>
       </div>
-      <div class="mt-4">Vue3.2 & Vuetify - 3.0.5</div>
+      <div class="mt-4">Vue 3.2 & Vuetify 3.1.13 & Vite 4.2</div>
     </v-sheet>
   </div>
 </template>

@@ -7,8 +7,8 @@ const isLoading = ref(false);
 const isSignInDisabled = ref(false);
 
 const refLoginForm = ref();
-const email = ref("");
-const password = ref("");
+const email = ref("vuetify3-vistor@gmail.com");
+const password = ref("sfm12345");
 const isFormValid = ref(true);
 
 // show password field
@@ -58,7 +58,9 @@ const signInWithFacebook = () => {
 </script>
 <template>
   <v-card class="pa-3" elevation="3">
-    <v-card-title primary-title class="my-4 text-h4"> Welcome </v-card-title>
+    <v-card-title class="my-4 text-h4">
+      <span class="flex-1"> Welcome </span>
+    </v-card-title>
     <v-card-subtitle>Sign in to your account</v-card-subtitle>
     <!-- sign in form -->
 
@@ -77,12 +79,13 @@ const signInWithFacebook = () => {
           :label="$t('login.email')"
           density="default"
           variant="underlined"
-          color="#42a5f5"
+          color="primary"
           bg-color="#fff"
           :rules="emailRules"
           name="email"
           outlined
           validateOn="blur"
+          placeholder="403474473@qq.com"
           @keyup.enter="handleLogin"
           @change="resetErrors"
         ></v-text-field>
@@ -94,9 +97,10 @@ const signInWithFacebook = () => {
           :error="error"
           :error-messages="errorMessages"
           :label="$t('login.password')"
+          placeholder="sfm12345"
           density="default"
           variant="underlined"
-          color="#42a5f5"
+          color="primary"
           bg-color="#fff"
           :rules="passwordRules"
           name="password"

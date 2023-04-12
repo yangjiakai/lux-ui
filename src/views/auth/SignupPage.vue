@@ -35,11 +35,7 @@ const emailRules = ref([
   (v: string) => /.+@.+\..+/.test(v) || "E-mail must be valid",
 ]);
 
-const usernameRules = ref([
-  (v: string) => !!v || "Password is required",
-  (v: string) =>
-    (v && v.length <= 10) || "Password must be less than 10 characters",
-]);
+const usernameRules = ref([(v: string) => !!v || "UserNmae is required"]);
 
 const passwordRules = ref([
   (v: string) => !!v || "Password is required",
@@ -62,7 +58,7 @@ const resetErrors = () => {
 <template>
   <v-card class="pa-3" elevation="3">
     <v-card-title primary-title class="my-4 text-h4">
-      {{ $t("register.title") }}
+      <span class="flex-1"> {{ $t("register.title") }} </span>
     </v-card-title>
     <v-card-subtitle>Let's build amazing products</v-card-subtitle>
     <!-- sign in form -->
@@ -78,10 +74,10 @@ const resetErrors = () => {
           v-model="username"
           required
           :error="error"
-          :label="$t('register.name')"
+          :label="$t('register.username')"
           density="default"
           variant="underlined"
-          color="#42a5f5"
+          color="primary"
           bg-color="#fff"
           :rules="usernameRules"
           name="username"
@@ -98,7 +94,7 @@ const resetErrors = () => {
           :label="$t('register.email')"
           density="default"
           variant="underlined"
-          color="#42a5f5"
+          color="primary"
           bg-color="#fff"
           :rules="emailRules"
           name="email"
@@ -117,7 +113,7 @@ const resetErrors = () => {
           :label="$t('register.password')"
           density="default"
           variant="underlined"
-          color="#42a5f5"
+          color="primary"
           bg-color="#fff"
           :rules="passwordRules"
           name="password"

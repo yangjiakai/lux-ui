@@ -24,7 +24,7 @@ export default {
   },
   register: {
     title: "Create Account",
-    name: "Full name",
+    username: "Username",
     email: "Email",
     password: "Password",
     button: "Create Account",
