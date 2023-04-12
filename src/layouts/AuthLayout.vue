@@ -12,14 +12,11 @@
         </div>
       </div>
     </v-sheet>
-    <v-sheet
-      color="#F2F5F8"
-      class="flex-grow-1 d-flex align-center justify-center flex-column"
-    >
+    <v-sheet class="flex-grow-1 d-flex align-center justify-center flex-column">
       <div class="layout-content ma-auto w-full">
         <slot></slot>
       </div>
-      <div class="mt-4">Vue 3.2 & Vuetify 3.1.13 & Vite 4.2</div>
+      <div class="pa-5">Vue 3.2 & Vuetify 3.1.13 & Vite 4.2</div>
     </v-sheet>
   </div>
 </template>

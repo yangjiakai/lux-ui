@@ -5,7 +5,6 @@
     </component>
     <CustomizationMenu />
     <BackToTop />
-    <ToolBox />
     <Snackbar />
   </v-app>
 </template>
@@ -18,7 +17,6 @@ import AuthLayout from "@/layouts/AuthLayout.vue";
 import CustomizationMenu from "@/components/CustomizationMenu.vue";
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 import BackToTop from "@/components/common/BackToTop.vue";
-import ToolBox from "@/components/Toolbox.vue";
 import Snackbar from "@/components/common/Snackbar.vue";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "@/firebase";

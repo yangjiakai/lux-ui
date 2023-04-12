@@ -2,6 +2,7 @@
 import MainSidevar from "@/components/navigation/MainSiderbar.vue";
 import MainAppbar from "@/components/toolbar/MainAppbar.vue";
 // import GlobalLoading from "@/components/GlobalLoading.vue";
+import ToolBox from "@/components/Toolbox.vue";
 </script>
 
 <template>
@@ -20,6 +21,7 @@ import MainAppbar from "@/components/toolbar/MainAppbar.vue";
     <perfect-scrollbar>
       <v-main class="main-area">
         <!-- <GlobalLoading /> -->
+        <ToolBox />
         <slot></slot>
       </v-main>
     </perfect-scrollbar>

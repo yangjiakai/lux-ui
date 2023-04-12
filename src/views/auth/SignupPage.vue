@@ -56,7 +56,7 @@ const resetErrors = () => {
 };
 </script>
 <template>
-  <v-card class="pa-3" elevation="3">
+  <v-card color="white" class="pa-3" elevation="3">
     <v-card-title primary-title class="my-4 text-h4">
       <span class="flex-1"> {{ $t("register.title") }} </span>
     </v-card-title>
@@ -145,6 +145,7 @@ const resetErrors = () => {
           class="mb-2 lighten-2 text-capitalize"
           block
           size="x-large"
+          color="white"
           @click="authStore.loginWithGoogle()"
           :disabled="isSignInDisabled"
         >
@@ -154,6 +155,7 @@ const resetErrors = () => {
         <v-btn
           class="mb-2 lighten-2 text-capitalize"
           block
+          color="white"
           size="x-large"
           :disabled="isSignInDisabled"
         >

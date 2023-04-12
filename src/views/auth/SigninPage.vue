@@ -7,7 +7,7 @@ const isLoading = ref(false);
 const isSignInDisabled = ref(false);
 
 const refLoginForm = ref();
-const email = ref("vuetify3-vistor@gmail.com");
+const email = ref("vuetify3-visitor@gmail.com");
 const password = ref("sfm12345");
 const isFormValid = ref(true);
 
@@ -57,7 +57,7 @@ const signInWithFacebook = () => {
 };
 </script>
 <template>
-  <v-card class="pa-3" elevation="3">
+  <v-card color="white" class="pa-3" elevation="3">
     <v-card-title class="my-4 text-h4">
       <span class="flex-1"> Welcome </span>
     </v-card-title>
@@ -129,7 +129,8 @@ const signInWithFacebook = () => {
 
         <!-- external providers list -->
         <v-btn
-          class="mb-2 lighten-2 text-capitalize"
+          class="mb-2 text-capitalize"
+          color="white"
           elevation="1"
           block
           size="x-large"
@@ -142,6 +143,7 @@ const signInWithFacebook = () => {
         <v-btn
           class="mb-2 lighten-2 text-capitalize"
           elevation="1"
+          color="white"
           block
           size="x-large"
           :disabled="isSignInDisabled"

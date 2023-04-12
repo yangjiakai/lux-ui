@@ -3,6 +3,7 @@ import Breadcrumb from "@/components/Breadcrumb.vue";
 import PageTitle from "@/components/PageTitle.vue";
 import MainSidevar from "@/components/navigation/MainSiderbar.vue";
 import MainAppbar from "@/components/toolbar/MainAppbar.vue";
+import ToolBox from "@/components/Toolbox.vue";
 // import GlobalLoading from "@/components/GlobalLoading.vue";
 </script>
 
@@ -25,6 +26,7 @@ import MainAppbar from "@/components/toolbar/MainAppbar.vue";
         <v-container fluid>
           <PageTitle></PageTitle>
           <Breadcrumb></Breadcrumb>
+          <ToolBox />
           <slot></slot>
         </v-container>
       </v-layout>
