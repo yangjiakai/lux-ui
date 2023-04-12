@@ -203,12 +203,12 @@ Basic with Icons
                   <Icon
                     icon="logos:github-icon"
                     class="mr-3 my-2"
-                  />Twitter</v-btn
+                  />Github</v-btn
                 >
               </v-col>
               <v-col cols="12" md="6">
                 <v-btn size="large" block variant="outlined" disabled>
-                  <Icon icon="logos:twitter" class="mr-3 my-2" />Github</v-btn
+                  <Icon icon="logos:twitter" class="mr-3 my-2" />Twitter</v-btn
                 >
               </v-col>
             </v-row>

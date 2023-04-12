@@ -38,4 +38,5 @@ export default defineConfig({
       css: { charset: false },
     },
   },
+  cacheDir: ".vite_cache", // 将缓存目录设置为项目根目录下的 .vite_cache 文件夹
 });
