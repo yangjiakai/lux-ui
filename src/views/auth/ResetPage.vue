@@ -1,3 +1,3 @@
 <template>
-  <div>Reset</div>
+  <div>Reset Page</div>
 </template>
