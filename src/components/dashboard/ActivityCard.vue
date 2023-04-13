@@ -35,11 +35,8 @@ const getPublicEvent = async () => {
       type: activity.type,
       user: activity.actor.display_login,
       avatar: activity.actor.avatar_url,
-      repo: activity.repo.name,
-      content:
-        activity.type === "PushEvent"
-          ? activity.payload.commits[0].message
-          : activity.payload.issue.title,
+      repo: activity.repo?.name,
+      content: getContent(activity.type),
       action:
         activity.type === "IssuesEvent" ? activity.payload.action : "Commit",
       created_at: activity.created_at,
@@ -48,6 +45,26 @@ const getPublicEvent = async () => {
   setTimeout(() => {
     loading.value = false;
   }, 1000);
+};
+
+const getContent = (activity: any) => {
+  if (activity.type === "PushEvent") {
+    return activity.content;
+  } else if (activity.type === "IssuesEvent") {
+    return activity.content;
+  } else {
+    return "No Content";
+  }
+};
+
+const getTagColor = (activity: any) => {
+  if (activity.type === "PushEvent") {
+    return "green";
+  } else if (activity.type === "IssuesEvent") {
+    return "red";
+  } else {
+    return "blue";
+  }
 };
 
 onMounted(() => {
@@ -138,7 +155,7 @@ onMounted(() => {
           <v-card width="500">
             <v-card-subtitle class="pt-4">
               <v-chip
-                :color="activity.type === 'PushEvent' ? 'cyan' : 'green'"
+                :color="getTagColor(activity)"
                 size="small"
                 label
                 class="mr-2 font-weight-bold"
