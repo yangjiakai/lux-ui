@@ -1,6 +1,8 @@
+/// <reference types="vitest" />
 // Plugins
 import vue from "@vitejs/plugin-vue";
 import vuetify from "vite-plugin-vuetify";
+
 import AutoImport from "unplugin-auto-import/vite";
 
 // Utilities
@@ -21,6 +23,10 @@ export default defineConfig({
     }),
   ],
   define: { "process.env": {} },
+  test: {
+    globals: true,
+    environment: "happy-dom",
+  },
   resolve: {
     alias: {
       "~": fileURLToPath(new URL("./", import.meta.url)),
