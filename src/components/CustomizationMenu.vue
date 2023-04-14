@@ -157,6 +157,14 @@ watch(currentColor, (newVal) => {
           >Contact Me</v-btn
         >
       </div>
+      <div class="ml-5 mt-5 d-flex align-center">
+        <v-icon color="primary" class="mr-6">mdi-email-outline</v-icon>
+        <a href="mailto:yjkbako@gmail.com">yjkbako@gmail.com</a>
+      </div>
+      <div class="ml-5 d-flex align-center">
+        <v-icon color="primary">mdi-wechat</v-icon>
+        <img src="@/assets/wechat.jpg" alt="" />
+      </div>
     </v-navigation-drawer>
   </div>
 </template>
