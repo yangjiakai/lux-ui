@@ -5,6 +5,22 @@
 </p>
 <br><br>
 
+<p align="center">
+  <a href="https://vuejs.org/">
+    <img src="https://img.shields.io/badge/vue-v3.2.47-brightgreen.svg" alt="vue">
+  </a>
+  <a href="https://vuetifyjs.com/">
+    <img src="https://img.shields.io/badge/vuetify-v3.1.13-blue.svg" alt="element-ui">
+  </a>
+    <a href="https://vitejs.dev/">
+    <img src="https://img.shields.io/badge/vite-v4.2.1-blueviolet.svg" alt="element-ui">
+  </a>
+  
+  <a href="https://github.com/yangjiakai/lux-admin-vuetify3/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
+  </a>
+</p>
+
 <h4 align='center'>
 <a href="https://lux.vuetify3.com/">在线 Demo</a>
 </h4>
@@ -23,21 +39,22 @@ Vue2 时代开始,Vuetify 就一直是我最喜欢的一款 Vue 的 UI 框架。
 
 ## 特性
 
-- ⚡️ [Vue 3](https://github.com/vuejs/core)
-- ⚡️ [Vite](https://github.com/vitejs/vite)
-- ⚡️ UI Framework [Vuetify 3](https://next.vuetifyjs.com/en/)
-- ⚡️ TypeScript
+- 📖 [Vue 3.2](https://github.com/vuejs/core)
+- 📖 [Vite 4.x](https://github.com/vitejs/vite)
+- 📖 UI Framework [Vuetify 3](https://next.vuetifyjs.com/en/)
+- 📖 TypeScript
 - 📦 组件自动导入
 - 🍍 通过 [Pinia](https://pinia.vuejs.org/)进行状态管理
-- ⚡️ 使用新的 `<script setup>` 语法
-- ⚡️ 使用任意的图标集 [Iconify](https://icon-sets.iconify.design/)
-- ⚡️ 零配置部署在 Netlify
-- ⚡️ Echarts, ApexChart
-- ⚡️ Openai, Unsplash Api
-- ⚡️ i18n 多语言支持
-- ⚡️ virtual-scroller , vuedraggable , perfect-scrollbar
-- ⚡️ 富文本编辑器
-- ☁️ 响应式多平台自适应
+- 📔 使用新的 `<script setup>` 语法
+- 📚 使用任意的图标集 [Iconify](https://icon-sets.iconify.design/)
+- ☁️ 零配置部署在 Netlify
+- 🔑 Firebase 授权
+- 📈 Echarts, ApexChart
+- 🧭 Openai, Chatgpt 支持
+- 🌍 vue-i18n 多语言支持
+- 📚 virtual-scroller , vuedraggable , perfect-scrollbar
+- 📝 富文本编辑器
+- 📇 响应式多平台自适应
 
 ## 预览
 

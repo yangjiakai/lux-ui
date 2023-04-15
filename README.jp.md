@@ -5,6 +5,22 @@
 </p>
 <br><br>
 
+<p align="center">
+  <a href="https://vuejs.org/">
+    <img src="https://img.shields.io/badge/vue-v3.2.47-brightgreen.svg" alt="vue">
+  </a>
+  <a href="https://vuetifyjs.com/">
+    <img src="https://img.shields.io/badge/vuetify-v3.1.13-blue.svg" alt="element-ui">
+  </a>
+    <a href="https://vitejs.dev/">
+    <img src="https://img.shields.io/badge/vite-v4.2.1-blueviolet.svg" alt="element-ui">
+  </a>
+  
+  <a href="https://github.com/yangjiakai/lux-admin-vuetify3/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
+  </a>
+</p>
+
 <h4 align='center'>
 <a href="https://lux.vuetify3.com/">ライブ・デモ</a>
 </h4>
@@ -23,21 +39,22 @@ Vue2 の 時代から、Vuetify は私の一番気に入った Vue の UI フレ
 
 ## 特徴
 
-- ⚡️ [Vue 3](https://github.com/vuejs/core)
-- ⚡️ [Vite](https://github.com/vitejs/vite)
-- ⚡️ UI Framework [Vuetify 3](https://next.vuetifyjs.com/en/)
-- ⚡️ TypeScript
+- 📖 [Vue 3.2](https://github.com/vuejs/core)
+- 📖 [Vite 4.x](https://github.com/vitejs/vite)
+- 📖 UI Framework [Vuetify 3](https://next.vuetifyjs.com/en/)
+- 📖 TypeScript
 - 📦 Component Auto Importing
 - 🍍 [Pinia](https://pinia.vuejs.org/)
-- ⚡️ `<script setup>`
-- ⚡️ Use icons from any icon sets in [Iconify](https://icon-sets.iconify.design/)
-- ⚡️ Echarts, ApexChart
-- ⚡️ Openai, Unsplash Api
-- ⚡️ I18n
-- ⚡️ virtual-scroller , vuedraggable , perfect-scrollbar
-- ⚡️ Rich Text Editor
+- 📔 `<script setup>`
+- 📚 Use icons from any icon sets in [Iconify](https://icon-sets.iconify.design/)
 - ☁️ Deploy on Netlify, zero-config
-- ☁️ Responsive multi-platform adaptive
+- 🔑 Firebase auth
+- 📈 Echarts, ApexChart
+- 🧭 Openai, Chatgpt
+- 🌍 vue-i18n
+- 📚 virtual-scroller , vuedraggable , perfect-scrollbar
+- 📝 Rich Text Editor
+- 📇 Responsive multi-platform adaptive
 
 ## プレビュー
 
