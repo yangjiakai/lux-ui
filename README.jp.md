@@ -35,7 +35,7 @@
 
 > 目標は、最も優れた Vuetify 3 の Admin オープンソーステンプレートを作成することです。
 
-Vue2 の 時代から、Vuetify は私の一番気に入った Vue の UI フレームワークです。2020 年末に Vue 3.0 がリリースされ、2022 年初に Vue 3.2 バージョン安定して、その後 2 年、2022 年 11 月にようやく Vue3.x 用の Vuetify3 が安定になりました、Vue の作者であるヴァン・ヨー (Evan You)も Vuetify3 への支持を表明しています。現段階では、Vuetify3 のドキュメントは Vuetify2 からほとんど更新されておらず、多言語版もまだ手が届いていません。この状態では、Vuetify を初めて使う開発者や、Vuetify3 を早く導入したい開発者は、最初に混乱するでしょう。一方で、フロントエンドや Vuetify フレームワークの知識を見直したいと思っています。その一方で、自分の経験を通じて他の開発者の方々の役に立てればと思っているので、2022 年 11 月の Vuetify3 の正式リリース開始と同時に、このプロジェクトを開始しました。フロントエンドの UI デザイン、適応、コンポーネント開発、一般的なプラグインとの連携、シンプルなロジックが中心になる予定です。対応する API やビジネスロジックの開発も追加します
+Vuetify の洗練されたテーマを基盤に、明確で効率的なプロジェクト構造を構築し、最新の技術フレームワークを統合しています。このプロジェクトは、さまざまな一般的な技術要件や機能に対応することを目指し、AI アシスタントを組み込むことで、よりインテリジェントな体験を提供します。さらに、すべてのページが複数のデバイスで適応的に表示されるようにし、シームレスなクロスプラットフォーム互換性を実現しています。
 
 ## 特徴
 
@@ -55,6 +55,12 @@ Vue2 の 時代から、Vuetify は私の一番気に入った Vue の UI フレ
 - 📚 virtual-scroller , vuedraggable , perfect-scrollbar
 - 📝 Rich Text Editor
 - 📇 Responsive multi-platform adaptive
+
+## Contact Me
+
+- Email <a href="mailto:yjkbako@gmail.com">yjkbako@gmail.com</a>
+- Twitter https://twitter.com/baibaixiang
+- Wechat <img  src='/src/assets/wechat-qrcode.png'  alt='DashBoard' width='300' />
 
 ## プレビュー
 
