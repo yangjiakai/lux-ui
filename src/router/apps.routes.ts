@@ -102,7 +102,7 @@ export default [
       requiresAuth: true,
       layout: "ui",
       category: "APP",
-      title: "Unsplash",
+      title: "Photos",
     },
     component: () =>
       import(

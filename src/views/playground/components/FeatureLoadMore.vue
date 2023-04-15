@@ -11,7 +11,7 @@ import CopyLabel from "@/components/common/CopyLabel.vue";
 const snackbarStore = useSnackbarStore();
 
 const queryOptions = reactive({
-  query: "yokohama",
+  query: "vue",
   page: 1,
   per_page: 25,
 });

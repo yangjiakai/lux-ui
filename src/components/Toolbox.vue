@@ -88,7 +88,7 @@ const toolboxShow = ref(false);
       <!-- ---------------------------------------------- -->
       <!-- Code Assistant -->
       <!-- ---------------------------------------------- -->
-      <v-btn size="50" to="playground">
+      <v-btn size="50" to="/playground">
         <v-icon size="30">mdi-seesaw</v-icon>
         <v-tooltip
           activator="parent"
