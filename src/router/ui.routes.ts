@@ -132,4 +132,18 @@ export default [
       title: "VirtualScroller",
     },
   },
+  {
+    path: "/playground",
+    name: "ui-playground",
+    component: () =>
+      import(
+        /* webpackChunkName: "ui-playground" */ "@/views/playground/PlaygroundPage.vue"
+      ),
+    meta: {
+      requiresAuth: true,
+      layout: "ui",
+      category: "UI",
+      title: "Playground",
+    },
+  },
 ];

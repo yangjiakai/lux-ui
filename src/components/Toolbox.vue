@@ -85,6 +85,17 @@ const toolboxShow = ref(false);
           text="Code Assistant"
         ></v-tooltip>
       </v-btn>
+      <!-- ---------------------------------------------- -->
+      <!-- Code Assistant -->
+      <!-- ---------------------------------------------- -->
+      <v-btn size="50" to="playground">
+        <v-icon size="30">mdi-seesaw</v-icon>
+        <v-tooltip
+          activator="parent"
+          location="left"
+          text="Playground"
+        ></v-tooltip>
+      </v-btn>
     </v-card>
   </transition>
 </template>
