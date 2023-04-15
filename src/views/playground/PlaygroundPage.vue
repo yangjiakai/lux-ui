@@ -12,9 +12,6 @@ import FeatureLoadMore from "./components/FeatureLoadMore.vue";
   <FeatureCard title="LoadMore">
     <FeatureLoadMore />
   </FeatureCard>
-  <FeatureCard title="LoadMore2">
-    <FeatureLoadMore />
-  </FeatureCard>
 </template>
 
 <style scoped lang="scss"></style>
