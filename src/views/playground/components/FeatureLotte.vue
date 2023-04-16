@@ -5,7 +5,6 @@
 -->
 <script setup lang="ts">
 import { Vue3Lottie } from "vue3-lottie";
-import "vue3-lottie/dist/style.css";
 </script>
 
 <template>
@@ -40,8 +39,6 @@ import "vue3-lottie/dist/style.css";
       />
     </v-col>
   </v-row>
-
-  th="200" />
 </template>
 
 <style scoped lang="scss"></style>
