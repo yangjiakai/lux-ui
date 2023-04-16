@@ -8,6 +8,9 @@ import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 import ToolbarLanguage from "@/components/toolbar/ToolbarLanguage.vue";
 import ToolbarNotifications from "./ToolbarNotifications.vue";
 import ToolbarUser from "./ToolbarUser.vue";
+import { useTodoStore } from "@/views/app/todo/todoStore";
+
+const todoStore = useTodoStore();
 const customizeTheme = useCustomizeThemeStore();
 const showMobileSearch = ref(false);
 </script>
@@ -57,9 +60,9 @@ const showMobileSearch = ref(false);
         </v-badge>
       </v-btn>
 
-      <v-btn class="text-none" stacked>
-        <v-badge content="9+" color="error">
-          <v-icon>mdi-store-outline</v-icon>
+      <v-btn to="/apps/todo" class="text-none" stacked>
+        <v-badge :content="`${todoStore.getTodoList.length} +`" color="error">
+          <v-icon>mdi-calendar-check</v-icon>
         </v-badge>
       </v-btn>
       <ToolbarLanguage />

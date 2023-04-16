@@ -130,6 +130,29 @@ export default {
     viewReport: "View Report",
   },
 
+  // toolbox
+  toolbox: {
+    apikey: {
+      title: "API Key",
+    },
+    chatAssistant: {
+      title: "Chat Assistant",
+    },
+    translationAssistant: {
+      title: "Translation Assistant",
+      targetLanguage: "Target Language",
+      translate: "Translate",
+      speech: "Speech",
+      read: "Read",
+    },
+    codeAssistant: {
+      title: "Code Assistant",
+    },
+    playGround: {
+      title: "Playground",
+    },
+  },
+
   // Vuetify components translations
   $vuetify: {
     badge: "Badge",

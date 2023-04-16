@@ -192,7 +192,7 @@ const { xs } = useDisplay();
     <v-tooltip
       activator="parent"
       location="left"
-      text="Translation Assistant"
+      :text="$t('toolbox.translationAssistant.title')"
     ></v-tooltip>
   </v-btn>
 
@@ -209,7 +209,7 @@ const { xs } = useDisplay();
               <img src="https://img.icons8.com/color/96/null/translation.png" />
             </v-avatar>
 
-            OpenAi Translation
+            OpenAi {{ $t("toolbox.translationAssistant.title") }}
           </span>
 
           <v-spacer></v-spacer>
@@ -219,7 +219,9 @@ const { xs } = useDisplay();
         </v-card-title>
         <hr />
         <v-card-actions class="px-5">
-          <span class="text-body-2">目标语言：</span>
+          <span class="text-body-2"
+            >{{ $t("toolbox.translationAssistant.targetLanguage") }}:</span
+          >
           <!-- <v-btn-toggle
             v-model="currentLang"
             density="compact"
@@ -258,7 +260,7 @@ const { xs } = useDisplay();
             variant="elevated"
             color="primary"
             @click="translate"
-            >翻译</v-btn
+            >{{ $t("toolbox.translationAssistant.translate") }}</v-btn
           >
         </v-card-actions>
         <hr />
@@ -279,7 +281,10 @@ const { xs } = useDisplay();
                   ></v-textarea>
                 </div>
                 <v-card-actions class="bg-grey-lighten-4 text-primary">
-                  <v-tooltip location="bottom" text="语音输入">
+                  <v-tooltip
+                    location="bottom"
+                    :text="$t('toolbox.translationAssistant.speech')"
+                  >
                     <template #activator="{ props }">
                       <v-btn @click="record" v-bind="props" icon>
                         <v-icon v-if="isRecording">mdi-microphone</v-icon>
@@ -287,7 +292,10 @@ const { xs } = useDisplay();
                       </v-btn>
                     </template>
                   </v-tooltip>
-                  <v-tooltip location="bottom" text="朗读">
+                  <v-tooltip
+                    location="bottom"
+                    :text="$t('toolbox.translationAssistant.read')"
+                  >
                     <template #activator="{ props }">
                       <v-btn v-bind="props" icon
                         ><v-icon>mdi-volume-high</v-icon>
@@ -315,7 +323,10 @@ const { xs } = useDisplay();
                 <v-card-actions
                   class="bg-grey-lighten-4 bg-grey-lighten-4 text-primary"
                 >
-                  <v-tooltip location="bottom" text="朗读">
+                  <v-tooltip
+                    location="bottom"
+                    :text="$t('toolbox.translationAssistant.read')"
+                  >
                     <template #activator="{ props }">
                       <v-btn @click="" v-bind="props" icon
                         ><v-icon>mdi-volume-high</v-icon>

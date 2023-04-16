@@ -48,8 +48,6 @@ const getPublicEvent = async () => {
 };
 
 const getContent = (activity: any) => {
-  console.log(activity);
-
   if (activity.type === "PushEvent") {
     return convertToHtml(activity.payload.commits[0].message);
   } else if (activity.type === "CreateEvent") {

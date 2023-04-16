@@ -126,6 +126,28 @@ export default {
     tickets: "支持票",
     viewReport: "查看报告",
   },
+  // toolbox
+  toolbox: {
+    apikey: {
+      title: "API Key",
+    },
+    chatAssistant: {
+      title: "聊天助手",
+    },
+    translationAssistant: {
+      title: "翻译助手",
+      targetLanguage: "目标语言",
+      translate: "翻译",
+      speech: "语音",
+      read: "朗读",
+    },
+    codeAssistant: {
+      title: "代码助手",
+    },
+    playGround: {
+      title: "PlayGround",
+    },
+  },
   // Vuetify 组件内部翻译
   $vuetify: {
     badge: "徽章",

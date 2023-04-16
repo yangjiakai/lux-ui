@@ -126,6 +126,29 @@ export default {
     tickets: "サポートチケット",
     viewReport: "レポートを見る",
   },
+  // toolbox
+  toolbox: {
+    apikey: {
+      title: "API Key",
+    },
+    chatAssistant: {
+      title: "チャットアシスタント",
+    },
+    translationAssistant: {
+      title: "翻訳アシスタント",
+      targetLanguage: "翻訳先の言語",
+      translate: "翻訳",
+      speech: "音声",
+      read: "読む",
+    },
+    codeAssistant: {
+      title: "コードアシスタント",
+    },
+    playGround: {
+      title: "プレイグラウンド",
+    },
+  },
+
   // コンポーネント
   $vuetify: {
     badge: "バッジ",

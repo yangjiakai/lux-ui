@@ -59,7 +59,7 @@ const toolboxShow = ref(false);
         <v-tooltip
           activator="parent"
           location="left"
-          text="OpenAI ApiKey"
+          :text="$t('toolbox.apikey.title')"
         ></v-tooltip>
       </v-btn>
       <ApiKeyDialog />
@@ -82,7 +82,7 @@ const toolboxShow = ref(false);
         <v-tooltip
           activator="parent"
           location="left"
-          text="Code Assistant"
+          :text="$t('toolbox.codeAssistant.title')"
         ></v-tooltip>
       </v-btn>
       <!-- ---------------------------------------------- -->
@@ -93,7 +93,7 @@ const toolboxShow = ref(false);
         <v-tooltip
           activator="parent"
           location="left"
-          text="Playground"
+          :text="$t('toolbox.playGround.title')"
         ></v-tooltip>
       </v-btn>
     </v-card>

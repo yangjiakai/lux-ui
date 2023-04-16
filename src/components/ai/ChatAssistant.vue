@@ -17,7 +17,7 @@ const { xs } = useDisplay();
     <v-tooltip
       activator="parent"
       location="left"
-      text="Chat Assistant"
+      :text="$t('toolbox.chatAssistant.title')"
     ></v-tooltip>
   </v-btn>
 
