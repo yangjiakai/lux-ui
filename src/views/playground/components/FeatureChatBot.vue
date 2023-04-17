@@ -6,23 +6,20 @@
 <script setup lang="ts">
 import { useSnackbarStore } from "@/stores/snackbarStore";
 import { useChatStore } from "@/views/app/chat/chatStore";
+import AnimationAi from "@/components/animations/AnimationAi.vue";
 import { read } from "@/utils/aiUtils";
 import MdEditor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
 const snackbarStore = useSnackbarStore();
 const chatStore = useChatStore();
 
+interface Message {
+  text: string;
+  type: "user" | "bot";
+}
+
 // Message List
-const messages = ref([
-  {
-    text: "你好",
-    type: "user",
-  },
-  {
-    text: "你好",
-    type: "bot",
-  },
-]);
+const messages = ref<Message[]>([]);
 
 // User Input Message
 const userMessage = ref("");
@@ -30,48 +27,28 @@ const userMessage = ref("");
 // Send Messsage
 const sendMessage = async () => {
   if (userMessage.value) {
+    // Add the message to the list
     messages.value.push({
       text: userMessage.value,
       type: "user",
     });
-    await translate();
 
+    // Create a completion
+    await createCompletion();
+    // Clear the input
     userMessage.value = "";
   }
 };
 
-watch(
-  () => messages.value,
-  (val) => {
-    if (val) {
-      scrollToBottom();
-    }
-  },
-  {
-    deep: true,
-  }
-);
-
-const scrollToBottom = () => {
-  const container = document.querySelector(".message-container");
-  setTimeout(() => {
-    container?.scrollTo({
-      top: container?.scrollHeight,
-    });
-  }, 100);
-};
-
-const isLoading = ref(false);
-
-// const newMessage = ref("AAAA");
-
-const translate = async () => {
+const createCompletion = async () => {
+  // Check if the API key is set
   if (!chatStore.apiKey) {
     snackbarStore.showErrorMessage("请先输入API KEY");
     return;
   }
-  isLoading.value = true;
+
   try {
+    // Create a completion (axios is not used here because it does not support streaming)
     const completion = await fetch(
       "https://api.openai.com/v1/chat/completions",
       {
@@ -92,7 +69,7 @@ const translate = async () => {
     if (!completion.ok) {
       const errorData = await completion.json();
       snackbarStore.showErrorMessage(errorData.error.message);
-      isLoading.value = false;
+
       return;
     }
 
@@ -100,9 +77,9 @@ const translate = async () => {
     const reader = completion.body?.getReader();
     if (!reader) {
       snackbarStore.showErrorMessage("Cannot read the stream.");
-      isLoading.value = false;
     }
 
+    // Add the bot message
     messages.value.push({
       text: "",
       type: "bot",
@@ -113,24 +90,45 @@ const translate = async () => {
   } catch (error) {
     snackbarStore.showErrorMessage(error.message);
   }
-  isLoading.value = false;
 };
+
+// Scroll to the bottom of the message container
+const scrollToBottom = () => {
+  const container = document.querySelector(".message-container");
+  setTimeout(() => {
+    container?.scrollTo({
+      top: container?.scrollHeight,
+    });
+  }, 100);
+};
+
+watch(
+  () => messages.value,
+  (val) => {
+    if (val) {
+      scrollToBottom();
+    }
+  },
+  {
+    deep: true,
+  }
+);
 </script>
 
 <template>
   <div>
-    <perfect-scrollbar class="message-container">
+    <perfect-scrollbar v-if="messages.length > 0" class="message-container">
       <template v-for="message in messages">
         <div v-if="message.type === 'user'">
           <div class="pa-6 user-message">
             <div class="message align-center">
-              <v-avatar class="mr-4">
+              <v-avatar class="mr-9">
                 <img
                   src="https://lh3.googleusercontent.com/a/AGNmyxZcE23yf7BAdb2S3fAGHBfQaUOkfjYtgsKHrDXLbx0=s96-c"
                   alt="alt"
                 />
               </v-avatar>
-              {{ message.text }}
+              <b> {{ message.text }}</b>
             </div>
           </div>
         </div>
@@ -139,7 +137,7 @@ const translate = async () => {
             <div class="message">
               <v-avatar class="mr-4">
                 <img
-                  src="https://app.writesonic.com/_next/static/media/chatsonic.295d6981.png"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
                   alt="alt"
                 />
               </v-avatar>
@@ -149,8 +147,23 @@ const translate = async () => {
         </div>
       </template>
     </perfect-scrollbar>
+    <div class="no-message-container" v-else>
+      <h1 class="text-h2 text-blue-lighten-1 font-weight-bold">
+        Ask Me Any Thing
+      </h1>
+      <AnimationAi />
+    </div>
 
-    <v-card class="ma-5">
+    <v-sheet elevation="0" class="my-5 mx-auto" max-width="1200">
+      <!-- <div class="mb-2">
+        <v-select
+          class="w-50"
+          label="Model"
+          hide-details
+          :items="['GPT-4', 'GPT-3.5']"
+          variant="solo"
+        ></v-select>
+      </div> -->
       <v-text-field
         color="primary"
         ref="input"
@@ -167,7 +180,7 @@ const translate = async () => {
           <v-icon @click="sendMessage">mdi-send</v-icon>
         </template>
       </v-text-field>
-    </v-card>
+    </v-sheet>
   </div>
 </template>
 
@@ -186,5 +199,17 @@ const translate = async () => {
 
 .message-container {
   height: 800px;
+}
+
+.no-message-container {
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
 }
 </style>
