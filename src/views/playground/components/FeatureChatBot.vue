@@ -14,8 +14,8 @@ const snackbarStore = useSnackbarStore();
 const chatStore = useChatStore();
 
 interface Message {
-  text: string;
-  type: "user" | "bot";
+  content: string;
+  role: "user" | "assistant";
 }
 
 // Message List
@@ -29,8 +29,8 @@ const sendMessage = async () => {
   if (userMessage.value) {
     // Add the message to the list
     messages.value.push({
-      text: userMessage.value,
-      type: "user",
+      content: userMessage.value,
+      role: "user",
     });
 
     // Create a completion
@@ -58,7 +58,7 @@ const createCompletion = async () => {
         },
         method: "POST",
         body: JSON.stringify({
-          messages: [{ role: "user", content: userMessage.value }],
+          messages: messages.value,
           model: "gpt-3.5-turbo",
           stream: true,
         }),
@@ -81,8 +81,8 @@ const createCompletion = async () => {
 
     // Add the bot message
     messages.value.push({
-      text: "",
-      type: "bot",
+      content: "",
+      role: "assistant",
     });
 
     // Read the stream
@@ -119,7 +119,7 @@ watch(
   <div>
     <perfect-scrollbar v-if="messages.length > 0" class="message-container">
       <template v-for="message in messages">
-        <div v-if="message.type === 'user'">
+        <div v-if="message.role === 'user'">
           <div class="pa-6 user-message">
             <div class="message align-center">
               <v-avatar class="mr-9">
@@ -128,7 +128,7 @@ watch(
                   alt="alt"
                 />
               </v-avatar>
-              <b> {{ message.text }}</b>
+              <b> {{ message.content }}</b>
             </div>
           </div>
         </div>
@@ -141,7 +141,7 @@ watch(
                   alt="alt"
                 />
               </v-avatar>
-              <md-editor v-model="message.text" previewOnly />
+              <md-editor v-model="message.content" previewOnly />
             </div>
           </div>
         </div>
@@ -155,6 +155,8 @@ watch(
     </div>
 
     <v-sheet elevation="0" class="my-5 mx-auto" max-width="1200">
+      <!-- Todo Select Model  -->
+
       <!-- <div class="mb-2">
         <v-select
           class="w-50"

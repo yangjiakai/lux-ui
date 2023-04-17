@@ -35,7 +35,7 @@ export const read = async (
   // Update the ref to the target element with the new string
   const response = streamMessage;
   if (target.value instanceof Array) {
-    target.value[target.value.length - 1].text += response;
+    target.value[target.value.length - 1].content += response;
   } else {
     target.value = target.value += response;
   }
