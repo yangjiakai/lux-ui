@@ -1,7 +1,10 @@
 import { Ref } from "vue";
 
 // Read the stream from the server
-export const read = async (reader: any, target: Ref<string>): Promise<any> => {
+export const read = async (
+  reader: any,
+  target: Ref<string> | Ref<any[]>
+): Promise<any> => {
   // TextDecoder is a built-in object that allows you to convert a stream of bytes into a string
   const decoder = new TextDecoder("utf-8");
   // Destructure the value returned by reader.read()
@@ -31,7 +34,11 @@ export const read = async (reader: any, target: Ref<string>): Promise<any> => {
     .join("");
   // Update the ref to the target element with the new string
   const response = streamMessage;
-  target.value = target.value + response;
+  if (target.value instanceof Array) {
+    target.value[target.value.length - 1].text += response;
+  } else {
+    target.value = target.value += response;
+  }
   // Repeat the process
   return read(reader, target);
 };

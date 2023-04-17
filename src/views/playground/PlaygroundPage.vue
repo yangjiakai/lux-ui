@@ -7,6 +7,7 @@
 import FeatureCard from "./components/FeatureCard.vue";
 import FeatureLoadMore from "./components/FeatureLoadMore.vue";
 import FeatureLotte from "./components/FeatureLotte.vue";
+import FeatureChatBot from "./components/FeatureChatBot.vue";
 </script>
 
 <template>
@@ -16,7 +17,9 @@ import FeatureLotte from "./components/FeatureLotte.vue";
   <FeatureCard title="LotteAnimation">
     <FeatureLotte />
   </FeatureCard>
-  <FeatureCard title="新功能3"> </FeatureCard>
+  <FeatureCard title="ChatBot">
+    <FeatureChatBot />
+  </FeatureCard>
 </template>
 
 <style scoped lang="scss"></style>

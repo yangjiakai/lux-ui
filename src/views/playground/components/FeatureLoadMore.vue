@@ -66,13 +66,7 @@ const onScroll = (e) => {
       <tbody>
         <tr v-for="photo in photosList" :key="photo.id">
           <td>{{ photo.id }}</td>
-          <td>
-            <v-img
-              :lazy-src="photo.urls.thumb"
-              :src="photo.urls.thumb"
-              max-width="100px"
-            />
-          </td>
+
           <td>
             <v-chip size="small" :color="photo.color">
               <CopyLabel :text="photo.color" />

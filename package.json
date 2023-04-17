@@ -25,6 +25,7 @@
     "flag-icons": "^6.6.6",
     "focus-trap": "^7.4.0",
     "happy-dom": "^9.6.1",
+    "md-editor-v3": "^2.11.2",
     "moment": "^2.29.4",
     "openai": "^3.2.1",
     "pinia": "^2.0.34",
