@@ -115,6 +115,8 @@ export default {
       topicsDataPage: "Topics Data",
       topicPhotosDataPage: "Topic Photos Data",
     },
+    chatbot_v1: "Chatbot v1",
+    chatbot_v2: "Chatbot v2",
   },
 
   dashboard: {

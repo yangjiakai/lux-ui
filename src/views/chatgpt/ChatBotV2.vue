@@ -121,17 +121,14 @@ watch(
 </script>
 
 <template>
-  <div>
+  <v-card>
     <perfect-scrollbar v-if="messages.length > 0" class="message-container">
       <template v-for="message in messages">
         <div v-if="message.role === 'user'">
           <div class="pa-6 user-message">
             <div class="message align-center">
               <v-avatar class="mr-9">
-                <img
-                  src="https://lh3.googleusercontent.com/a/AGNmyxZcE23yf7BAdb2S3fAGHBfQaUOkfjYtgsKHrDXLbx0=s96-c"
-                  alt="alt"
-                />
+                <img src="@/assets/images/avatars/avatar_user.jpg" alt="alt" />
               </v-avatar>
               <b> {{ message.content }}</b>
             </div>
@@ -188,7 +185,7 @@ watch(
         </template>
       </v-text-field>
     </v-sheet>
-  </div>
+  </v-card>
 </template>
 
 <style scoped lang="scss">
@@ -205,11 +202,11 @@ watch(
 }
 
 .message-container {
-  height: 800px;
+  height: calc(100vh - 330px);
 }
 
 .no-message-container {
-  height: 800px;
+  height: calc(100vh - 330px);
   display: flex;
   justify-content: center;
   align-items: center;

@@ -113,6 +113,8 @@ export default {
       topicsDataPage: "主题数据",
       topicPhotosDataPage: "主题照片数据",
     },
+    chatbot_v1: "Chatbot v1",
+    chatbot_v2: "Chatbot v2",
   },
   dashboard: {
     activity: "活动",

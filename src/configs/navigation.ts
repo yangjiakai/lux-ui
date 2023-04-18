@@ -4,6 +4,8 @@ import menuPages from "./menus/pages.menu";
 import menuCharts from "./menus/charts.menu";
 import menuLanding from "./menus/landing.menu";
 import menuData from "./menus/data.menu";
+import menuAi from "./menus/ai.menu";
+
 export default {
   menu: [
     {
@@ -17,6 +19,10 @@ export default {
           icon: "mdi-view-dashboard-outline",
         },
       ],
+    },
+    {
+      text: "chatgpt",
+      items: menuAi,
     },
     {
       text: "Apps",

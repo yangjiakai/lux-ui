@@ -113,6 +113,8 @@ export default {
       topicsDataPage: "トピックデータ",
       topicPhotosDataPage: "トピック写真データ",
     },
+    chatbot_v1: "Chatbot v1",
+    chatbot_v2: "Chatbot v2",
   },
   dashboard: {
     activity: "アクティビティ",

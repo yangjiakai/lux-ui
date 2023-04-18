@@ -30,12 +30,12 @@ export default [
   //   text: "Booking",
   //   link: "/apps/booking",
   // },
-  {
-    icon: "mdi-bookmark-plus",
-    key: "menu.ikea",
-    text: "Ikea",
-    link: "/apps/ikea",
-  },
+  // {
+  //   icon: "mdi-bookmark-plus",
+  //   key: "menu.ikea",
+  //   text: "Ikea",
+  //   link: "/apps/ikea",
+  // },
   {
     icon: "mdi-bookmark-plus",
     key: "menu.unsplash",
