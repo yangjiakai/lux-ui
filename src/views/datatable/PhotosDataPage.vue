@@ -7,6 +7,8 @@
 import { searchPhotosApi } from "@/api/unsplashApi";
 import CopyLabel from "@/components/common/CopyLabel.vue";
 import moment from "moment";
+import { useSnackbarStore } from "@/stores/snackbarStore";
+const snackbarStore = useSnackbarStore();
 
 const loading = ref(true);
 const totalRows = ref(0);
@@ -68,6 +70,14 @@ const getLikesColor = (likes) => {
   else if (likes > 200) return "orange";
   else return "grey";
 };
+
+const downloadPhoto = (photo) => {
+  const a = document.createElement("a");
+  a.href = photo.download + "&force=true";
+  a.download = photo.id + ".jpg";
+  a.click();
+  snackbarStore.showMessage("");
+};
 </script>
 
 <template>
@@ -123,10 +133,11 @@ const getLikesColor = (likes) => {
               <td class="pa-2">
                 <v-img :src="item.columns.thumb" max-width="100px" />
               </td>
+
               <td>
-                <a :href="item.columns.download" target="_blank">
+                <v-btn icon @click="downloadPhoto(item.columns)">
                   <v-icon>mdi-download</v-icon>
-                </a>
+                </v-btn>
               </td>
               <td>
                 <v-chip
