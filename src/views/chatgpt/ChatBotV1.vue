@@ -45,14 +45,9 @@ const sendMessage = async () => {
   }
 };
 
-// If you have set up an API key, please use your own key. If not, please use the one I provided.
-const myApikey = computed(() => {
-  return chatStore.apiKey || import.meta.env.VITE_OPENAI_API_KEY;
-});
-
 const createCompletion = async () => {
   // Check if the API key is set
-  if (!myApikey.value) {
+  if (!chatStore.getApiKey) {
     snackbarStore.showErrorMessage("请先输入API KEY");
     isLoading.value = false;
     return;
@@ -64,7 +59,7 @@ const createCompletion = async () => {
         messages: messages.value,
         model: "gpt-3.5-turbo",
       },
-      myApikey.value
+      chatStore.getApiKey
     );
 
     isLoading.value = false;

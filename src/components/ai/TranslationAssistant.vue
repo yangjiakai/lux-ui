@@ -79,7 +79,7 @@ const translate = async () => {
     return;
   }
 
-  if (!chatStore.apiKey) {
+  if (!chatStore.getApiKey) {
     snackbarStore.showErrorMessage("请先输入API KEY");
     return;
   }
@@ -90,7 +90,7 @@ const translate = async () => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${chatStore.apiKey}`,
+          Authorization: `Bearer ${chatStore.getApiKey}`,
         },
         method: "POST",
         body: JSON.stringify({
