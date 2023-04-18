@@ -21,19 +21,6 @@
       <v-row align="center" justify="center">
         <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 3">
           <v-card
-            class="card mx-auto my-5"
-            variant="flat"
-            height="400"
-            width="300"
-          >
-            <v-img cover :src="'https://picsum.photos/400?random=' + i"></v-img>
-          </v-card>
-        </v-col>
-      </v-row>
-
-      <v-row align="center" justify="center">
-        <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 3">
-          <v-card
             class="card-2 mx-auto my-5 pa-2"
             height="400"
             width="300"
@@ -49,7 +36,12 @@
 
 <style scoped lang="scss">
 .landing-warpper {
-  background-image: linear-gradient(135deg, #ce9ffc, #7367f0);
+  background-image: linear-gradient(
+    318deg,
+    rgba(62, 67, 83, 1) 0%,
+    rgba(75, 80, 108, 1) 50%,
+    rgba(80, 87, 125, 1) 100%
+  );
 }
 
 .card {
@@ -62,6 +54,11 @@
 }
 
 .card-2 {
-  background-image: linear-gradient(135deg, #988ea3, #b71f4a);
+  background-image: linear-gradient(
+    318deg,
+    rgba(148, 76, 206, 1) 0%,
+    rgba(191, 60, 179, 1) 50%,
+    rgba(236, 39, 145, 1) 100%
+  );
 }
 </style>

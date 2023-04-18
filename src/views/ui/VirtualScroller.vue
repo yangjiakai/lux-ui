@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1>{{ length }}</h1>
-    <v-card height="2000" elevation="6">
+    <v-card height="900" elevation="6">
       <RecycleScroller
         class="scroller"
         :items="list"
@@ -29,7 +29,7 @@ const length = computed(() => list.value.length);
 
 <style scoped>
 .scroller {
-  height: 1000px;
+  height: 900px;
 }
 
 .user {
