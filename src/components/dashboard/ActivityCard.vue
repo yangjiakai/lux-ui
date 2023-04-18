@@ -100,7 +100,7 @@ onMounted(() => {
   </div>
   <div v-else>
     <h6 class="text-h6 pa-5 d-flex align-center">
-      <span class="flex-1 font-weight-bold">Activity</span>
+      <span class="flex-1 font-weight-bold">Github Activity</span>
       <v-menu location="bottom end" transition="slide-x-transition">
         <template v-slot:activator="{ props }">
           <v-btn

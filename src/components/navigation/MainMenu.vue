@@ -28,7 +28,7 @@ onMounted(() => {});
             v-if="!menuItem.items"
             :to="menuItem.link"
             :prepend-icon="menuItem.icon || 'mdi-circle-medium'"
-            active-class="active-nav"
+            :active-class="`active-nav-${customizeTheme.primaryColor.colorName}`"
             density="compact"
           >
             <v-list-item-title
@@ -66,9 +66,39 @@ onMounted(() => {});
   padding-left: 8px !important;
 }
 
-.active-nav {
+.active-nav-grey {
   border-left: 5px solid;
   border-image-slice: 1;
   border-image-source: linear-gradient(to bottom, #3a456c, #a4abbb);
+}
+
+.active-nav-purple {
+  border-left: 5px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to bottom, #e82893, #954bcb);
+}
+
+.active-nav-info {
+  border-left: 5px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to bottom, #487afa, #3fc7f3);
+}
+
+.active-nav-success {
+  border-left: 5px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to bottom, #45b95b, #96dd4c);
+}
+
+.active-nav-warning {
+  border-left: 5px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to bottom, #f0635d, #edc252);
+}
+
+.active-nav-error {
+  border-left: 5px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to bottom, #ea373a, #f07285);
 }
 </style>

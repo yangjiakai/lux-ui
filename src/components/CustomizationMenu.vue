@@ -162,7 +162,6 @@ watch(currentColor, (newVal) => {
         <a href="mailto:yjkbako@gmail.com">yjkbako@gmail.com</a>
       </div>
       <div class="ml-5 d-flex align-center">
-        <v-icon color="primary">mdi-wechat</v-icon>
         <img src="@/assets/wechat.jpg" alt="" />
       </div>
     </v-navigation-drawer>
