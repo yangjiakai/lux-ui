@@ -76,7 +76,6 @@ const downloadPhoto = (photo) => {
   a.href = photo.download + "&force=true";
   a.download = photo.id + ".jpg";
   a.click();
-  snackbarStore.showMessage("");
 };
 </script>
 
