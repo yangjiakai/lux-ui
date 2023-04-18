@@ -158,7 +158,7 @@ const startRecording = async () => {
         const formData = new FormData();
         formData.append("file", file);
         formData.append("model", "whisper-1");
-        const res = await createTranscriptionApi(formData, chatStore.apiKey);
+        const res = await createTranscriptionApi(formData, chatStore.getApiKey);
         baseContent.value = res.data.text;
       };
     })
