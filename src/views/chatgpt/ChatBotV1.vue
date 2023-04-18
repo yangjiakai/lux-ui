@@ -7,9 +7,10 @@
 import { useSnackbarStore } from "@/stores/snackbarStore";
 import { useChatStore } from "@/views/app/chat/chatStore";
 import AnimationAi from "@/components/animations/AnimationBot1.vue";
-import { read } from "@/utils/aiUtils";
+
 import MdEditor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
+import { createCompletionApi } from "@/api/aiApi";
 const snackbarStore = useSnackbarStore();
 const chatStore = useChatStore();
 
@@ -24,6 +25,8 @@ const messages = ref<Message[]>([]);
 // User Input Message
 const userMessage = ref("");
 
+const isLoading = ref(false);
+
 // Send Messsage
 const sendMessage = async () => {
   if (userMessage.value) {
@@ -33,8 +36,10 @@ const sendMessage = async () => {
       role: "user",
     });
 
+    isLoading.value = true;
     // Create a completion
     await createCompletion();
+
     // Clear the input
     userMessage.value = "";
   }
@@ -49,50 +54,28 @@ const createCompletion = async () => {
   // Check if the API key is set
   if (!myApikey.value) {
     snackbarStore.showErrorMessage("请先输入API KEY");
+    isLoading.value = false;
     return;
   }
 
   try {
-    // Create a completion (axios is not used here because it does not support streaming)
-    const completion = await fetch(
-      "https://api.openai.com/v1/chat/completions",
+    const completion = await createCompletionApi(
       {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${myApikey.value}`,
-        },
-        method: "POST",
-        body: JSON.stringify({
-          messages: messages.value,
-          model: "gpt-3.5-turbo",
-          stream: true,
-        }),
-      }
+        messages: messages.value,
+        model: "gpt-3.5-turbo",
+      },
+      myApikey.value
     );
 
-    // Handle errors
-    if (!completion.ok) {
-      const errorData = await completion.json();
-      snackbarStore.showErrorMessage(errorData.error.message);
-
-      return;
-    }
-
-    // Create a reader
-    const reader = completion.body?.getReader();
-    if (!reader) {
-      snackbarStore.showErrorMessage("Cannot read the stream.");
-    }
+    isLoading.value = false;
 
     // Add the bot message
     messages.value.push({
-      content: "",
+      content: completion.data.choices[0].message.content,
       role: "assistant",
     });
-
-    // Read the stream
-    read(reader, messages);
   } catch (error) {
+    isLoading.value = false;
     snackbarStore.showErrorMessage(error.message);
   }
 };
@@ -121,51 +104,53 @@ watch(
 </script>
 
 <template>
-  <v-card>
+  <v-card class="bg">
     <perfect-scrollbar v-if="messages.length > 0" class="message-container">
       <template v-for="message in messages">
         <div v-if="message.role === 'user'">
           <div class="pa-6 user-message">
-            <div class="message align-center">
-              <v-avatar class="mr-9">
-                <img src="@/assets/images/avatars/avatar_user.jpg" alt="alt" />
-              </v-avatar>
-              <b> {{ message.content }}</b>
-            </div>
+            <v-avatar class="ml-4" rounded="sm" variant="elevated">
+              <img src="@/assets/images/avatars/avatar_user.jpg" alt="alt" />
+            </v-avatar>
+            <v-card class="gradient gray" theme="dark">
+              <v-card-text>
+                <b> {{ message.content }}</b></v-card-text
+              >
+            </v-card>
           </div>
         </div>
         <div v-else>
-          <div class="bg-white pa-6">
-            <div class="message">
-              <v-avatar class="mr-4">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
-                  alt="alt"
-                />
-              </v-avatar>
-              <md-editor v-model="message.content" previewOnly />
-            </div>
+          <div class="pa-6 assistant-message">
+            <v-avatar class="mr-4" rounded="sm" variant="elevated">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
+                alt="alt"
+              />
+            </v-avatar>
+            <v-card>
+              <v-card-text>
+                <md-editor v-model="message.content" previewOnly />
+              </v-card-text>
+            </v-card>
           </div>
         </div>
       </template>
+      <div v-if="isLoading">
+        <div class="pa-6">
+          <div class="message">
+            <AnimationAi :size="100" />
+          </div>
+        </div>
+      </div>
     </perfect-scrollbar>
+
     <div class="no-message-container" v-else>
       <h1 class="text-h2 text-blue-lighten-1 font-weight-bold">Chat With Me</h1>
       <AnimationAi />
     </div>
-
     <v-sheet elevation="0" class="my-5 mx-auto" max-width="1200">
       <!-- Todo Select Model  -->
 
-      <!-- <div class="mb-2">
-        <v-select
-          class="w-50"
-          label="Model"
-          hide-details
-          :items="['GPT-4', 'GPT-3.5']"
-          variant="solo"
-        ></v-select>
-      </div> -->
       <v-text-field
         color="primary"
         ref="input"
@@ -188,9 +173,17 @@ watch(
 
 <style scoped lang="scss">
 .user-message {
-  background-color: #f6f6f6;
-  border-top: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-content: center;
+  justify-content: end;
+  flex-direction: row-reverse;
+}
+
+.assistant-message {
+  display: flex;
+  align-content: center;
+  justify-content: start;
+  flex-direction: row;
 }
 
 .message {
@@ -201,6 +194,8 @@ watch(
 
 .message-container {
   height: calc(100vh - 330px);
+  background-image: url("@/assets/images/chat-bg-2.png");
+  background-repeat: repeat;
 }
 
 .no-message-container {
@@ -213,5 +208,10 @@ watch(
     font-size: 2rem;
     font-weight: 500;
   }
+}
+
+.bg {
+  background-image: url("@/assets/images/chat-bg-2.png");
+  background-repeat: repeat;
 }
 </style>

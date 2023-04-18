@@ -10,8 +10,8 @@ import { Vue3Lottie } from "vue3-lottie";
 <template>
   <Vue3Lottie
     animationLink="https://assets4.lottiefiles.com/packages/lf20_zrqthn6o.json"
-    :height="500"
-    :width="500"
+    :height="400"
+    :width="400"
   />
 </template>
 

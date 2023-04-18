@@ -120,7 +120,6 @@ const errorMsg = ref("");
 <template>
   <v-text-field
     color="primary"
-    variant="outlined"
     ref="input"
     v-model="userMessage"
     placeholder="SendMessage"

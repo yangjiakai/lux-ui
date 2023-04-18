@@ -43,7 +43,7 @@ const chatStore = useChatStore();
         </template>
       </v-list-item>
     </v-list>
-    <v-list nav class="mt-2 pa-0">
+    <!-- <v-list nav class="mt-2 pa-0">
       <v-list-item to="" active-class="active-chat" link title="七叶寂照秘密主">
         <template v-slot:prepend>
           <v-avatar class="mx-5" size="40">
@@ -54,7 +54,7 @@ const chatStore = useChatStore();
           </v-avatar>
         </template>
       </v-list-item>
-    </v-list>
+    </v-list> -->
     <!-- <div class="pa-1 mt-2 text-overline text-grey">More Chats</div> -->
   </v-card>
 </template>
