@@ -47,6 +47,7 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@fortawesome/fontawesome-free": "^6.4.0",
     "@iconify/vue": "^4.1.1",
     "@types/node": "^18.15.11",
