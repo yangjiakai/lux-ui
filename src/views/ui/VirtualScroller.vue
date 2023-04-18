@@ -12,7 +12,7 @@ const generateMessage = () => {
 };
 
 const list = ref(
-  Array.from({ length: 20000 }, (value, index) => ({
+  Array.from({ length: 5000 }, (value, index) => ({
     id: index + "",
     ...generateMessage(),
   }))
@@ -69,12 +69,5 @@ const length = computed(() => list.value.length);
 <style scoped>
 .scroller {
   height: 1000px;
-}
-
-.user {
-  height: 32%;
-  padding: 0 12px;
-  display: flex;
-  align-items: center;
 }
 </style>
