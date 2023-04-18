@@ -40,9 +40,15 @@ const sendMessage = async () => {
   }
 };
 
+// If you have set up an API key, please use your own key. If not, please use the one I provided.
+const myApikey = computed(() => {
+  return chatStore.apiKey || import.meta.env.VITE_OPENAI_API_KEY;
+});
+
 const createCompletion = async () => {
   // Check if the API key is set
-  if (!chatStore.apiKey) {
+  debugger;
+  if (!myApikey.value) {
     snackbarStore.showErrorMessage("请先输入API KEY");
     return;
   }
@@ -54,7 +60,7 @@ const createCompletion = async () => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${chatStore.apiKey}`,
+          Authorization: `Bearer ${myApikey.value}`,
         },
         method: "POST",
         body: JSON.stringify({

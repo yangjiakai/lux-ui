@@ -30,18 +30,17 @@ const apiKeyShow = ref(false);
       >
       <hr />
       <v-card-text>
+        <v-label class="font-weight-medium mb-2 ml-2">YOUR API KEY</v-label>
         <v-text-field
           color="primary"
           variant="outlined"
-          label="API KEY"
           v-model="key"
           class="px-2 py-1"
-          placeholder="API KEY"
+          placeholder="If not input , the ApiKey in the .env will be used."
           prepend-inner-icon="mdi-key"
           autofocus
           clearable
           hide-details
-          :type="apiKeyShow ? 'text' : 'password'"
           @click:prepend-inner="apiKeyShow = !apiKeyShow"
         ></v-text-field>
       </v-card-text>
