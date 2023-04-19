@@ -99,11 +99,21 @@ Built upon the elegant themes of Vuetify, we have established a clear and effici
 ## Try it now!
 
 ```
-git clone https://github.com/yangjiakai/jk-vuetify3-lux-admin.git
+git clone https://github.com/yangjiakai/lux-admin-vuetify3.git
 
-cd jk-vuetify3-lux-admin
+cd lux-admin-vuetify3
 
 npm install
 
 npm run dev
 ```
+
+### Set ApiKey
+
+Find the `.env.template` file in the root directory, remove the `.template` suffix, and replace` VITE_OPENAI_API_KEY`, `VITE_UNSPLASH_ACCESS_KEY`, and `VITE_GITHUB_CLIENT_ID` with your own keys.
+
+> openai apikey： https://platform.openai.com/account/api-keys
+
+> unsplash apikey： https://unsplash.com/oauth/applications
+
+> github apikey： https://github.com/settings/tokens
