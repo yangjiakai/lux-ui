@@ -114,6 +114,7 @@ export default {
       collectionsDataPage: "Collections Data",
       topicsDataPage: "Topics Data",
       topicPhotosDataPage: "Topic Photos Data",
+      fileUploadPreview: "File Upload Preview",
     },
     chatbot_v1: "Chatbot v1",
     chatbot_v2: "Chatbot v2",

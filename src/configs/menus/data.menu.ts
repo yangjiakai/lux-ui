@@ -34,4 +34,10 @@ export default [
   //   link: "/data/topic-photos-data",
   //   key: "menu.data.topicPhotosDataPage",
   // },
+  {
+    icon: "mdi-image-multiple-outline",
+    text: "File Upload Preview",
+    link: "/data/file-upload-preview",
+    key: "menu.data.fileUploadPreview",
+  },
 ];
