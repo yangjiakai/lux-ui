@@ -90,7 +90,7 @@ const removeImage = (index: number) => {
               <h6 class="text-grey">{{ fileInfo.type }}</h6>
             </div>
             <div>
-              <v-chip variant="elevated"> IMAGE </v-chip>
+              <v-chip color="primary" variant="elevated"> IMAGE </v-chip>
             </div>
           </div>
         </v-card>
