@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import MainSidevar from "@/components/navigation/MainSiderbar.vue";
+import MainSidebar from "@/components/navigation/MainSiderbar.vue";
 import MainAppbar from "@/components/toolbar/MainAppbar.vue";
 // import GlobalLoading from "@/components/GlobalLoading.vue";
 import ToolBox from "@/components/Toolbox.vue";
@@ -10,7 +10,7 @@ import ToolBox from "@/components/Toolbox.vue";
     <!-- ---------------------------------------------- -->
     <!---Main Sidebar -->
     <!-- ---------------------------------------------- -->
-    <MainSidevar />
+    <MainSidebar />
     <!-- ---------------------------------------------- -->
     <!---Top AppBar -->
     <!-- ---------------------------------------------- -->
