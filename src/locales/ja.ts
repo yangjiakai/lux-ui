@@ -91,6 +91,7 @@ export default {
     footerPage: "フッターページ",
     dataTablePage: "データテーブルページ",
     colors: "カラー",
+    lottieAnimation: "Lottie Animation",
     gradient: "Gradient",
     card: "カード",
     grids: "グリッドレイアウト",

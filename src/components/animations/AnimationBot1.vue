@@ -11,20 +11,13 @@ const props = defineProps({
     default: 400,
   },
 });
-
-watch(
-  () => props.size,
-  (newSize) => {
-    console.log(newSize);
-  }
-);
 </script>
 
 <template>
   <Vue3Lottie
     animationLink="https://assets6.lottiefiles.com/packages/lf20_ofa3xwo7.json"
-    :height="size"
-    :width="size"
+    :height="props.size"
+    :width="props.size"
   />
 </template>
 

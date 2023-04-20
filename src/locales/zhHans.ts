@@ -91,6 +91,7 @@ export default {
     footerPage: "页脚页面",
     dataTable: "复杂数据表",
     colors: "色彩",
+    lottieAnimation: "Lottie 动画",
     gradient: "渐变色",
     card: "卡片",
     grids: "网格",

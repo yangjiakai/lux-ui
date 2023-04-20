@@ -9,12 +9,12 @@ export default [
   //     { text: "Sizing", link: "/ui/styles/sizing" },
   //   ],
   // },
-  {
-    icon: "mdi-format-color-fill",
-    text: "Data Table",
-    link: "/ui/data-table",
-    key: "menu.dataTable",
-  },
+  // {
+  //   icon: "mdi-format-color-fill",
+  //   text: "Data Table",
+  //   link: "/ui/data-table",
+  //   key: "menu.dataTable",
+  // },
   {
     icon: "mdi-format-color-fill",
     text: "Colors",
@@ -22,11 +22,19 @@ export default [
     key: "menu.colors",
   },
   {
-    icon: "mdi-format-color-fill",
+    icon: "mdi-gradient-vertical",
     text: "Gradient",
     link: "/ui/gradient",
     key: "menu.gradient",
   },
+  // lottie Animation
+  {
+    icon: "mdi-animation-outline",
+    text: "Lottie Animation",
+    link: "/ui/lottie-animation",
+    key: "menu.lottieAnimation",
+  },
+  //
   // {
   //   icon: "mdi-card",
   //   text: "Card",

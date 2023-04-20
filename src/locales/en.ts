@@ -94,6 +94,7 @@ export default {
     dataTable: "Data Table",
     colors: "Colors",
     gradient: "Gradient",
+    lottieAnimation: "Lottie Animation",
     card: "Card",
     grids: "Grid",
     scrollbar: "Perfect Scrollbar",

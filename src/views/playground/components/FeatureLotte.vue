@@ -5,6 +5,8 @@
 -->
 <script setup lang="ts">
 import { Vue3Lottie } from "vue3-lottie";
+import AnimationSearch1 from "@/components/animations/AnimationSearch1.vue";
+import AnimationSearch2 from "@/components/animations/AnimationSearch2.vue";
 </script>
 
 <template>
@@ -25,18 +27,10 @@ import { Vue3Lottie } from "vue3-lottie";
     </v-col>
 
     <v-col cols="12" md="3">
-      <Vue3Lottie
-        animationLink="https://assets2.lottiefiles.com/private_files/lf30_fup2uejx.json"
-        :height="200"
-        :width="200"
-      />
+      <AnimationSearch1 :size="200" />
     </v-col>
     <v-col cols="12" md="3">
-      <Vue3Lottie
-        animationLink=" https://assets2.lottiefiles.com/packages/lf20_8QH3Blu2Xh.json"
-        :height="200"
-        :width="200"
-      />
+      <AnimationSearch2 :size="200" />
     </v-col>
   </v-row>
 </template>

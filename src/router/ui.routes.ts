@@ -40,6 +40,22 @@ export default [
       title: "Gradients",
     },
   },
+  // lottie Animation
+  {
+    path: "/ui/lottie-animation",
+    name: "ui-lottie-animation",
+    component: () =>
+      import(
+        /* webpackChunkName: "ui-lottie-animation" */ "@/views/ui/LottieAnimationPage.vue"
+      ),
+    meta: {
+      requiresAuth: true,
+      layout: "ui",
+      category: "UI",
+      title: "LottieAnimation",
+    },
+  },
+
   {
     path: "/ui/card",
     name: "ui-card",

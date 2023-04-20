@@ -187,11 +187,11 @@ const filterdFileInfos = computed(() => {
       </div>
     </v-sheet>
     <v-sheet v-else>
-      <perfect-scrollbar class="view pa-5">
+      <perfect-scrollbar v-if="viewMode === 'grid'" class="view pa-5">
         <!-- ---------------------------------------------- -->
         <!-- Grid View -->
         <!-- ---------------------------------------------- -->
-        <v-row v-if="viewMode === 'grid'">
+        <v-row>
           <v-col
             class="6"
             md="4"
@@ -233,11 +233,12 @@ const filterdFileInfos = computed(() => {
             </v-card>
           </v-col>
         </v-row>
-        <!-- ---------------------------------------------- -->
-        <!-- List View -->
-        <!-- ---------------------------------------------- -->
+      </perfect-scrollbar>
+      <!-- ---------------------------------------------- -->
+      <!-- List View -->
+      <!-- ---------------------------------------------- -->
+      <div v-else class="view">
         <v-data-table
-          v-else
           v-model="selectedFileInfos"
           :headers="headers"
           :items="filterdFileInfos"
@@ -275,7 +276,7 @@ const filterdFileInfos = computed(() => {
             >
           </template>
         </v-data-table>
-      </perfect-scrollbar>
+      </div>
     </v-sheet>
   </v-sheet>
 </template>
