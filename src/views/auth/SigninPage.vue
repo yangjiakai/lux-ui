@@ -57,7 +57,7 @@ const signInWithFacebook = () => {
 };
 </script>
 <template>
-  <v-card color="white" class="pa-3" elevation="3">
+  <v-card color="white" class="pa-3 ma-3" elevation="3">
     <v-card-title class="my-4 text-h4">
       <span class="flex-1"> Welcome </span>
     </v-card-title>

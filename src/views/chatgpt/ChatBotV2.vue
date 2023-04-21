@@ -148,10 +148,10 @@ watch(
       <h1 class="text-h4 text-md-h2 text-blue-lighten-1 font-weight-bold">
         Ask Me Any Thing
       </h1>
-      <AnimationAi />
+      <AnimationAi :size="300" />
     </div>
 
-    <v-sheet elevation="0" class="my-5 mx-auto" max-width="1200">
+    <v-sheet elevation="0" class="my-4 px-4 mx-auto" max-width="1200">
       <!-- Todo Select Model  -->
 
       <!-- <div class="mb-2">
@@ -197,11 +197,11 @@ watch(
 }
 
 .message-container {
-  height: calc(100vh - 330px);
+  height: calc(100vh - 270px);
 }
 
 .no-message-container {
-  height: calc(100vh - 330px);
+  height: calc(100vh - 270px);
   display: flex;
   justify-content: center;
   align-items: center;

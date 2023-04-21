@@ -180,10 +180,10 @@ const filterdFileInfos = computed(() => {
       v-if="fileInfos.length === 0"
     >
       <div class="text-center">
-        <h3 class="text-h3 font-weight-bold text-primary">
+        <h3 class="text-h5 text-md-h3 font-weight-bold text-primary">
           Upload Some Images
         </h3>
-        <AnimationUpload />
+        <AnimationUpload :size="300" />
       </div>
     </v-sheet>
     <v-sheet v-else>
@@ -281,8 +281,4 @@ const filterdFileInfos = computed(() => {
   </v-sheet>
 </template>
 
-<style scoped lang="scss">
-.view {
-  height: 800px;
-}
-</style>
+<style scoped lang="scss"></style>

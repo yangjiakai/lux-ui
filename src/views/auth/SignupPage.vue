@@ -56,7 +56,7 @@ const resetErrors = () => {
 };
 </script>
 <template>
-  <v-card color="white" class="pa-3" elevation="3">
+  <v-card color="white" class="pa-3 ma-3" elevation="3">
     <v-card-title primary-title class="my-4 text-h4">
       <span class="flex-1"> {{ $t("register.title") }} </span>
     </v-card-title>

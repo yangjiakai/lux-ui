@@ -143,9 +143,9 @@ watch(
       <h1 class="text-h4 text-md-h2 text-blue-lighten-1 font-weight-bold">
         Chat With Me
       </h1>
-      <AnimationAi />
+      <AnimationAi :size="300" />
     </div>
-    <v-sheet elevation="0" class="my-5 mx-auto" max-width="1200">
+    <v-sheet elevation="0" class="my-4 px-4 mx-auto" max-width="1200">
       <!-- Todo Select Model  -->
 
       <v-text-field
@@ -190,13 +190,13 @@ watch(
 }
 
 .message-container {
-  height: calc(100vh - 330px);
+  height: calc(100vh - 270px);
   background-image: url("@/assets/images/chat-bg-2.png");
   background-repeat: repeat;
 }
 
 .no-message-container {
-  height: calc(100vh - 330px);
+  height: calc(100vh - 270px);
   display: flex;
   justify-content: center;
   align-items: center;

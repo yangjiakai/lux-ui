@@ -32,11 +32,9 @@ import EmailMenu from "@/views/app/email/components/EmailMenu.vue";
 <style scoped lang="scss">
 .app-container {
   display: flex;
-  height: calc(100vh - 240px);
+  height: calc(100vh - 180px);
   width: 100%;
-
   font-size: 13px;
-  padding: 20px;
 
   .sidebar {
     display: flex;

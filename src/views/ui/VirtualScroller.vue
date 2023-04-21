@@ -22,7 +22,7 @@ const length = computed(() => list.value.length);
 </script>
 <template>
   <v-container>
-    <v-card height="1000" elevation="6">
+    <v-card>
       <v-list elevation="1" density="compact">
         <v-list-subheader>Total {{ length }} users</v-list-subheader>
         <RecycleScroller
@@ -68,6 +68,6 @@ const length = computed(() => list.value.length);
 
 <style scoped>
 .scroller {
-  height: 1000px;
+  height: calc(100vh - 260px);
 }
 </style>

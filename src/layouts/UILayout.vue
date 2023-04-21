@@ -4,6 +4,7 @@ import PageTitle from "@/components/PageTitle.vue";
 import MainSidevar from "@/components/navigation/MainSidebar.vue";
 import MainAppbar from "@/components/toolbar/MainAppbar.vue";
 import ToolBox from "@/components/Toolbox.vue";
+
 // import GlobalLoading from "@/components/GlobalLoading.vue";
 </script>
 
@@ -22,15 +23,16 @@ import ToolBox from "@/components/Toolbox.vue";
     <!-- ---------------------------------------------- -->
     <v-main class="main-bg">
       <!-- <GlobalLoading /> -->
-      <v-layout>
-        <v-container fluid>
+
+      <v-container class="pa-0 pa-sm-4" fluid>
+        <div class="pa-4 pa-sm-0">
           <PageTitle></PageTitle>
           <Breadcrumb></Breadcrumb>
-          <ToolBox />
-          <slot></slot>
-        </v-container>
-      </v-layout>
-      <v-footer app></v-footer>
+        </div>
+
+        <ToolBox />
+        <slot></slot>
+      </v-container>
     </v-main>
   </div>
 </template>
