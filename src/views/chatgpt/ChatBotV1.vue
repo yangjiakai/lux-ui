@@ -140,7 +140,9 @@ watch(
     </perfect-scrollbar>
 
     <div class="no-message-container" v-else>
-      <h1 class="text-h2 text-blue-lighten-1 font-weight-bold">Chat With Me</h1>
+      <h1 class="text-h4 text-md-h2 text-blue-lighten-1 font-weight-bold">
+        Chat With Me
+      </h1>
       <AnimationAi />
     </div>
     <v-sheet elevation="0" class="my-5 mx-auto" max-width="1200">

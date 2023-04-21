@@ -145,7 +145,7 @@ watch(
       </template>
     </perfect-scrollbar>
     <div class="no-message-container" v-else>
-      <h1 class="text-h2 text-blue-lighten-1 font-weight-bold">
+      <h1 class="text-h4 text-md-h2 text-blue-lighten-1 font-weight-bold">
         Ask Me Any Thing
       </h1>
       <AnimationAi />

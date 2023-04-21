@@ -8,7 +8,7 @@ const props = defineProps<{
   title: string;
 }>();
 
-const show = ref(true);
+const show = ref(false);
 </script>
 
 <template>

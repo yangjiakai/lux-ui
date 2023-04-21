@@ -116,7 +116,7 @@ export default {
       fileUploadPreview: "文件上传预览",
     },
     chatbot_v1: "Chatbot v1",
-    chatbot_v2: "Chatbot v2",
+    chatbot_v2: "Chatbot v2(Stream)",
   },
   dashboard: {
     activity: "活动",

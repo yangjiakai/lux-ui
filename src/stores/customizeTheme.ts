@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { isMobile } from "@/utils/common";
 
 interface Color {
   colorId: number;
@@ -10,7 +11,7 @@ interface State {
   miniSidebar: boolean;
   darkTheme: boolean;
   primaryColor: Color;
-  mainSidebar: any;
+  mainSidebar: boolean;
 }
 
 export const useCustomizeThemeStore = defineStore({
@@ -23,7 +24,7 @@ export const useCustomizeThemeStore = defineStore({
       colorName: "grey",
       colorValue: "#344767",
     },
-    mainSidebar: ref(true),
+    mainSidebar: isMobile() ? false : true,
   }),
 
   persist: {

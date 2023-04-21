@@ -47,6 +47,53 @@ const selected = ref([]);
         </v-list-item>
       </v-list>
     </v-menu>
+    <v-divider></v-divider>
+    <div class="pa-5 w-25">
+      <v-text-field label="label"></v-text-field>
+      <v-text-field variant="solo" label="label"></v-text-field>
+      <v-text-field variant="outlined" label="label"></v-text-field>
+      <v-text-field variant="underlined" label="label"></v-text-field>
+      <v-text-field variant="plain" label="label"></v-text-field>
+      <v-text-field variant="filled" label="filled"></v-text-field>
+
+      <v-divider></v-divider>
+
+      <v-text-field
+        density="compact"
+        prepend-inner-icon="mdi-magnify"
+        label="label"
+      ></v-text-field>
+      <v-text-field
+        density="compact"
+        prepend-inner-icon="mdi-magnify"
+        variant="solo"
+        label="label"
+      ></v-text-field>
+      <v-text-field
+        density="compact"
+        prepend-inner-icon="mdi-magnify"
+        variant="outlined"
+        label="label"
+      ></v-text-field>
+      <v-text-field
+        density="compact"
+        prepend-inner-icon="mdi-magnify"
+        variant="underlined"
+        label="label"
+      ></v-text-field>
+      <v-text-field
+        density="compact"
+        prepend-inner-icon="mdi-magnify"
+        variant="plain"
+        label="label"
+      ></v-text-field>
+      <v-text-field
+        density="compact"
+        prepend-inner-icon="mdi-magnify"
+        variant="filled"
+        label="filled"
+      ></v-text-field>
+    </div>
   </v-sheet>
 </template>
 

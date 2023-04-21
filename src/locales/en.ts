@@ -118,7 +118,7 @@ export default {
       fileUploadPreview: "File Upload Preview",
     },
     chatbot_v1: "Chatbot v1",
-    chatbot_v2: "Chatbot v2",
+    chatbot_v2: "Chatbot v2(Stream)",
   },
 
   dashboard: {

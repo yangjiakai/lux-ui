@@ -32,3 +32,8 @@ export const formatFileSize = (size: number): string => {
 
   return `${size.toFixed(2)} ${units[unitIndex]}`;
 };
+
+// 判断当前设备是否为移动端
+export const isMobile = (): boolean => {
+  return /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
+};
