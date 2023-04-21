@@ -10,6 +10,7 @@ import FeatureLotte from "./components/FeatureLotte.vue";
 // import FeatureChatBot from "./components/FeatureChatBot.vue";
 // import FeatureDynamicScroller from "./components/FeatureDynamicScroller.vue";
 import FeatureImageUploadPreview from "./components/FeatureImageUploadPreview.vue";
+import FeatureMultipleSelect from "./components/FeatureMultipleSelect.vue";
 </script>
 
 <template>
@@ -28,8 +29,12 @@ import FeatureImageUploadPreview from "./components/FeatureImageUploadPreview.vu
   <FeatureCard title="File">
     <FeatureFile />
   </FeatureCard>
+
   <FeatureCard title="ImageUploadPreview">
     <FeatureImageUploadPreview />
+  </FeatureCard>
+  <FeatureCard title="MultipleSelect">
+    <FeatureMultipleSelect />
   </FeatureCard>
 </template>
 
