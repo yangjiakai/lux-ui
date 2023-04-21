@@ -14,6 +14,23 @@ const navigation = ref(configs.navigation);
 const openGithubSite = () => {
   window.open("https://github.com/yangjiakai", "_blank");
 };
+
+onMounted(() => {
+  scrollToBottom();
+});
+
+const scrollToBottom = () => {
+  const contentArea = document.querySelector(".v-navigation-drawer__content");
+  const activeItem = document.querySelector(
+    ".v-list-item--active"
+  ) as HTMLElement;
+
+  setTimeout(() => {
+    contentArea?.scrollTo({
+      top: activeItem?.offsetTop,
+    });
+  }, 100);
+};
 </script>
 
 <template>
@@ -44,14 +61,15 @@ const openGithubSite = () => {
           alt=""
         />
       </v-card>
+      <v-divider></v-divider>
     </template>
 
     <!-- ---------------------------------------------- -->
     <!---Nav List -->
     <!-- ---------------------------------------------- -->
-    <perfect-scrollbar class="scrollnav">
-      <main-menu :menu="navigation.menu"></main-menu>
-    </perfect-scrollbar>
+
+    <main-menu :menu="navigation.menu"></main-menu>
+
     <!-- ---------------------------------------------- -->
     <!---Bottom Area -->
     <!-- ---------------------------------------------- -->

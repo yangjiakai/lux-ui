@@ -9,11 +9,9 @@ const props = defineProps({
     default: () => [],
   },
 });
-
-onMounted(() => {});
 </script>
 <template>
-  <v-list nav dense color="primary">
+  <v-list class="menu-list" nav dense color="primary">
     <template v-for="menuArea in props.menu" :key="menuArea.key">
       <div
         v-if="!customizeTheme.miniSidebar && (menuArea.key || menuArea.text)"
