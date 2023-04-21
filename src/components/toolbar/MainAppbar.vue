@@ -63,7 +63,7 @@ const showMobileSearch = ref(false);
         </v-btn>
         <!-- search input desktop -->
 
-        <v-btn icon class="text-none">
+        <v-btn v-if="mdAndUp" icon class="text-none">
           <v-badge dot color="success">
             <v-icon>mdi-account-multiple-outline</v-icon>
           </v-badge>
