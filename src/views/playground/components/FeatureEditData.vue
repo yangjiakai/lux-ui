@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { faker } from "@faker-js/faker";
+import moment from "moment";
 const generateMessage = () => {
   return {
     // 生成4位id
@@ -7,16 +8,16 @@ const generateMessage = () => {
     username: faker.internet.userName(),
     usermail: faker.internet.email(),
     phone: faker.phone.number(),
-    jdate: faker.date.past(),
+    jdate: moment(faker.date.past()).format("YYYY/MM/DD"),
     role: faker.name.jobTitle(),
-    rolestatus: "primary",
+    rolestatus: faker.color.human(),
   };
 };
 
 const list = () => {
   let list = [] as any[];
   list = Array.from({ length: 20 }, (value, index) => ({
-    id: index + "",
+    id: "#1000" + index + "",
     ...generateMessage(),
   }));
   return list;
@@ -26,12 +27,12 @@ onMounted(() => {
   console.log(list());
 });
 
-const valid = ref(true);
 const dialog = ref(false);
 const search = ref("");
 const rolesbg = ref(["primary", "secondary", "error", "success", "warning"]);
 const desserts = ref(list());
 const editedIndex = ref(-1);
+const refForm = ref();
 const editedItem = ref({
   id: "",
   avatar: "1.jpg",
@@ -44,7 +45,7 @@ const editedItem = ref({
 });
 const defaultItem = ref({
   id: "",
-  avatar: "1.jpg",
+  avatar: faker.internet.avatar(),
   username: "",
   usermail: "",
   phone: "",
@@ -52,6 +53,11 @@ const defaultItem = ref({
   role: "",
   rolestatus: "",
 });
+
+const nameRules = [
+  (v) => !!v || "Name is required",
+  (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
+];
 
 //Methods
 const filteredList = computed(() => {
@@ -61,15 +67,15 @@ const filteredList = computed(() => {
 });
 
 function editItem(item: any) {
-  //   editedIndex.value = desserts.value.indexOf(item);
-  //   editedItem.value = Object.assign({}, item);
-  //   dialog.value = true;
+  editedIndex.value = desserts.value.indexOf(item);
+  editedItem.value = Object.assign({}, item);
+  dialog.value = true;
 }
 function deleteItem(item: any) {
-  //   const index = desserts.value.indexOf(item);
-  //   confirm("Are you sure you want to delete this item?") &&
-  //     desserts.value.splice(index, 1);
-  //   ``;
+  const index = desserts.value.indexOf(item);
+  confirm("Are you sure you want to delete this item?") &&
+    desserts.value.splice(index, 1);
+  ``;
 }
 
 function close() {
@@ -79,13 +85,14 @@ function close() {
     editedIndex.value = -1;
   }, 300);
 }
+
 function save() {
-  //   if (editedIndex.value > -1) {
-  //     Object.assign(desserts.value[editedIndex.value], editedItem.value);
-  //   } else {
-  //     desserts.value.push(editedItem.value);
-  //   }
-  //   close();
+  if (editedIndex.value > -1) {
+    Object.assign(desserts.value[editedIndex.value], editedItem.value);
+  } else {
+    desserts.value.push(editedItem.value);
+  }
+  close();
 }
 
 //Computed Property
@@ -94,8 +101,6 @@ const formTitle = computed(() => {
 });
 </script>
 <template>
-  <h1>asds</h1>
-  <h2>asdas</h2>
   <v-row>
     <v-col cols="12" lg="4" md="6">
       <v-text-field
@@ -104,10 +109,11 @@ const formTitle = computed(() => {
         label="Search Contacts"
         hide-details
         variant="outlined"
+        color="primary"
       ></v-text-field>
     </v-col>
     <v-col cols="12" lg="8" md="6" class="text-right">
-      <v-dialog v-model="dialog" max-width="500">
+      <v-dialog v-model="dialog" max-width="700">
         <template v-slot:activator="{ props }">
           <v-btn color="primary" v-bind="props" flat class="ml-auto">
             <v-icon class="mr-2">mdi-account-multiple-plus</v-icon>Add Contact
@@ -119,12 +125,13 @@ const formTitle = computed(() => {
           </v-card-title>
 
           <v-card-text>
-            <v-form ref="form" v-model="valid" lazy-validation>
+            <v-form class="mt-5" ref="form" v-model="refForm" lazy-validation>
               <v-row>
                 <v-col cols="12" sm="6">
                   <v-text-field
                     variant="outlined"
-                    hide-details
+                    color="primary"
+                    density="compact"
                     v-model="editedItem.id"
                     label="Id"
                   ></v-text-field>
@@ -132,7 +139,11 @@ const formTitle = computed(() => {
                 <v-col cols="12" sm="6">
                   <v-text-field
                     variant="outlined"
-                    hide-details
+                    color="primary"
+                    density="compact"
+                    :rules="nameRules"
+                    :counter="10"
+                    required
                     v-model="editedItem.username"
                     label="User info"
                   ></v-text-field>
@@ -140,7 +151,8 @@ const formTitle = computed(() => {
                 <v-col cols="12" sm="6">
                   <v-text-field
                     variant="outlined"
-                    hide-details
+                    color="primary"
+                    density="compact"
                     v-model="editedItem.usermail"
                     label="User email"
                     type="email"
@@ -149,7 +161,8 @@ const formTitle = computed(() => {
                 <v-col cols="12" sm="6">
                   <v-text-field
                     variant="outlined"
-                    hide-details
+                    color="primary"
+                    density="compact"
                     v-model="editedItem.phone"
                     label="Phone"
                     type="phone"
@@ -158,7 +171,8 @@ const formTitle = computed(() => {
                 <v-col cols="12" sm="6">
                   <v-text-field
                     variant="outlined"
-                    hide-details
+                    color="primary"
+                    density="compact"
                     v-model="editedItem.jdate"
                     label="Joining Date"
                   ></v-text-field>
@@ -166,7 +180,8 @@ const formTitle = computed(() => {
                 <v-col cols="12" sm="6">
                   <v-text-field
                     variant="outlined"
-                    hide-details
+                    color="primary"
+                    density="compact"
                     v-model="editedItem.role"
                     label="Role"
                   ></v-text-field>
@@ -174,7 +189,8 @@ const formTitle = computed(() => {
                 <v-col cols="12" sm="12">
                   <v-select
                     variant="outlined"
-                    hide-details
+                    color="primary"
+                    density="compact"
                     :items="rolesbg"
                     v-model="editedItem.rolestatus"
                     label="Role Background"
@@ -183,7 +199,7 @@ const formTitle = computed(() => {
               </v-row>
             </v-form>
           </v-card-text>
-
+          <v-divider></v-divider>
           <v-card-actions class="pa-4">
             <v-spacer></v-spacer>
             <v-btn color="error" @click="close">Cancel</v-btn>
@@ -210,11 +226,11 @@ const formTitle = computed(() => {
         <th class="text-subtitle-1 font-weight-semibold">Actions</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="text-body-1">
       <tr v-for="item in filteredList" :key="item.id">
-        <td class="text-subtitle-1">{{ item.id }}</td>
+        <td class="font-weight-bold">{{ item.id }}</td>
         <td>
-          <div class="d-flex align-center py-4">
+          <div class="d-flex align-center py-2">
             <div>
               <v-img
                 :src="item.avatar"
@@ -224,36 +240,45 @@ const formTitle = computed(() => {
             </div>
 
             <div class="ml-5">
-              <h4 class="text-h6">{{ item.username }}</h4>
-              <span class="text-subtitle-1 d-block mt-1 textSecondary">{{
+              <p class="font-weight-bold">{{ item.username }}</p>
+              <span class="d-block mt-1 textSecondary">{{
                 item.usermail
               }}</span>
             </div>
           </div>
         </td>
-        <td class="text-subtitle-1">{{ item.phone }}</td>
-        <td class="text-subtitle-1">{{ item.jdate }}</td>
+        <td>{{ item.phone }}</td>
+        <td>{{ item.jdate }}</td>
         <td>
-          <v-chip :color="item.rolestatus" size="small" label>{{
-            item.role
-          }}</v-chip>
+          <v-chip
+            class="font-weight-bold"
+            :color="
+              item.rolestatus === 'black' || item.rolestatus === 'white'
+                ? 'primary'
+                : item.rolestatus
+            "
+            size="small"
+            label
+            >{{ item.role }}</v-chip
+          >
         </td>
         <td>
           <div class="d-flex align-center">
             <v-tooltip text="Edit">
               <template v-slot:activator="{ props }">
                 <v-btn icon flat @click="editItem(item)" v-bind="props"
-                  ><PencilIcon
-                    stroke-width="1.5"
-                    size="20"
-                    class="text-primary"
+                  ><img
+                    width="26"
+                    src="https://img.icons8.com/fluency/48/null/edit.png"
                 /></v-btn>
               </template>
             </v-tooltip>
             <v-tooltip text="Delete">
               <template v-slot:activator="{ props }">
                 <v-btn icon flat @click="deleteItem(item)" v-bind="props"
-                  ><TrashIcon stroke-width="1.5" size="20" class="text-error"
+                  ><img
+                    width="26"
+                    src="https://img.icons8.com/fluency/48/null/filled-trash.png"
                 /></v-btn>
               </template>
             </v-tooltip>

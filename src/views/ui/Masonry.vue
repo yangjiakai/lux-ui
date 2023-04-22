@@ -28,16 +28,16 @@ const initPhotos = () => {
   }));
 };
 
-const loadMore = () => {
-  photos.value = photos.value.concat(
-    Array.from({ length: 5 }, (value, index) => ({
-      id: photos.value.length + index + "",
-      url: faker.image.animals(undefined, getPhotoHeight(index), true),
-      title: faker.lorem.word(),
-      description: faker.lorem.text(),
-    }))
-  );
-};
+// const loadMore = () => {
+//   photos.value = photos.value.concat(
+//     Array.from({ length: 5 }, (value, index) => ({
+//       id: photos.value.length + index + "",
+//       url: faker.image.animals(undefined, getPhotoHeight(index), true),
+//       title: faker.lorem.word(),
+//       description: faker.lorem.text(),
+//     }))
+//   );
+// };
 
 const onScroll = (e) => {
   const target = e.target;
