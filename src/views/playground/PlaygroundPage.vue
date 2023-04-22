@@ -12,6 +12,7 @@ import FeatureDynamicScroller from "./components/FeatureDynamicScroller.vue";
 import FeatureImageUploadPreview from "./components/FeatureImageUploadPreview.vue";
 import FeatureMultipleSelect from "./components/FeatureMultipleSelect.vue";
 import FeatureGithubEventTimeLine from "./components/FeatureGithubEventTimeLine.vue";
+import FeatureFacker from "./components/FeatureFacker.vue";
 </script>
 
 <template>
@@ -45,6 +46,10 @@ import FeatureGithubEventTimeLine from "./components/FeatureGithubEventTimeLine.
 
   <FeatureCard title="GithubEventTimeLine">
     <FeatureGithubEventTimeLine />
+  </FeatureCard>
+
+  <FeatureCard title="Facker">
+    <FeatureFacker />
   </FeatureCard>
 </template>
 
