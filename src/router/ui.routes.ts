@@ -148,6 +148,22 @@ export default [
       title: "VirtualScroller",
     },
   },
+  // FackApiRef
+  {
+    path: "/ui/faker-api-ref",
+    name: "ui-faker-api-ref",
+    component: () =>
+      import(
+        /* webpackChunkName: "ui-faker-api-ref" */ "@/views/ui/FakerApiRefPage.vue"
+      ),
+    meta: {
+      requiresAuth: true,
+      layout: "ui",
+      category: "UI",
+      title: "FakeApiRef",
+    },
+  },
+
   {
     path: "/playground",
     name: "ui-playground",

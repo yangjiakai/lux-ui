@@ -100,6 +100,7 @@ export default {
     masonry: "おしゃれスクロール2 ",
     virtualList: "バーチャルリスト ",
     virtualScroller: "バーチャルスクロールバー ",
+    fakerApiRef: "Faker Api Ref ",
     charts: "チャート ",
     echartLine: "Echart Line ",
     echartBar: "Echart Bar ",

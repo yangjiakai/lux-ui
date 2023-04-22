@@ -102,6 +102,7 @@ export default {
     masonry: "Vue-Masonry-Wall ",
     virtualList: "Virtual List ",
     virtualScroller: "Virtual Scroller ",
+    fakerApiRef: "Faker API Reference",
     charts: "Charts ",
     echartLine: "Echart Line ",
     echartBar: "Echart Bar ",

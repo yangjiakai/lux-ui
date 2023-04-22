@@ -100,6 +100,7 @@ export default {
     masonry: "瀑布流布局2",
     virtualList: "虚拟列表 ",
     virtualScroller: "虚拟滚动 ",
+    fakerApiRef: "FakerAPI参考",
     charts: "图表 ",
     echartLine: "Echart Line ",
     echartBar: "Echart Bar ",

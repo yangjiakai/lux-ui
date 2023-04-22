@@ -77,4 +77,11 @@ export default [
     link: "/ui/virtual-scroller",
     key: "menu.virtualScroller",
   },
+  // Facker
+  {
+    icon: "mdi-format-list-bulleted-triangle",
+    text: "Faker Api Reference",
+    link: "/ui/faker-api-ref",
+    key: "menu.fakerApiRef",
+  },
 ];
