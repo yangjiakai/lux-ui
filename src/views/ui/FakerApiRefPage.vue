@@ -1139,7 +1139,7 @@ const system = reactive({
           <div v-for="(item, key) in address" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1">{{ item.value }}</span
+              <span class="flex-fill">{{ item.value }}</span
               ><b class="text-blue">{{ item.code }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1160,7 +1160,7 @@ const system = reactive({
           <div v-for="(item, key) in animal" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1">{{ item.value }}</span
+              <span class="flex-fill">{{ item.value }}</span
               ><b class="text-blue">{{ item.code }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1181,7 +1181,7 @@ const system = reactive({
           <div v-for="(item, key) in commerce" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }}:</b>
-              <span class="flex-1">{{ item.value }}</span
+              <span class="flex-fill">{{ item.value }}</span
               ><b class="text-blue">{{ `faker.commerce.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1200,7 +1200,7 @@ const system = reactive({
           <div v-for="(item, key) in color" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1">{{ item.value }}</span
+              <span class="flex-fill">{{ item.value }}</span
               ><b class="text-blue">{{ `faker.color.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1221,7 +1221,7 @@ const system = reactive({
           <div v-for="(item, key) in company" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1">{{ item.value }}</span
+              <span class="flex-fill">{{ item.value }}</span
               ><b class="text-blue">{{ `faker.company.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1242,7 +1242,7 @@ const system = reactive({
           <div v-for="(item, key) in database" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1">{{ item.value }}</span
+              <span class="flex-fill">{{ item.value }}</span
               ><b class="text-blue">{{ `faker.database.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1261,7 +1261,7 @@ const system = reactive({
           <div v-for="(item, key) in date" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1">{{ item.value }}</span
+              <span class="flex-fill">{{ item.value }}</span
               ><b class="text-blue">{{ `faker.date.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1282,7 +1282,7 @@ const system = reactive({
           <div v-for="(item, key) in finance" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1">{{ item.value }}</span
+              <span class="flex-fill">{{ item.value }}</span
               ><b class="text-blue">{{ `faker.finance.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1301,7 +1301,7 @@ const system = reactive({
           <div v-for="(item, key) in git" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1">{{ item.value }}</span
+              <span class="flex-fill">{{ item.value }}</span
               ><b class="text-blue">{{ `faker.git.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1322,7 +1322,7 @@ const system = reactive({
           <div v-for="(item, key) in hacker" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1">{{ item.value }}</span
+              <span class="flex-fill">{{ item.value }}</span
               ><b class="text-blue">{{ `faker.hacker.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1343,7 +1343,7 @@ const system = reactive({
           <div v-for="(item, key) in helpers" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1"> {{ item.value }} </span
+              <span class="flex-fill"> {{ item.value }} </span
               ><b class="text-blue">{{ `faker.helpers.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1362,7 +1362,7 @@ const system = reactive({
           <div v-for="(item, key) in image" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <div class="flex-1">
+              <div class="flex-fill">
                 <img :src="item.value" :alt="item.label" />
               </div>
               <b class="text-blue">{{ `faker.image.${key}()` }}</b>
@@ -1385,7 +1385,7 @@ const system = reactive({
           <div v-for="(item, key) in internet" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1"> {{ item.value }} </span
+              <span class="flex-fill"> {{ item.value }} </span
               ><b class="text-blue">{{ `faker.internet.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1404,7 +1404,7 @@ const system = reactive({
           <div v-for="(item, key) in lorem" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1"> {{ item.value }} </span
+              <span class="flex-fill"> {{ item.value }} </span
               ><b class="text-blue">{{ `faker.lorem.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1424,7 +1424,7 @@ const system = reactive({
           <div v-for="(item, key) in name" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1"> {{ item.value }} </span
+              <span class="flex-fill"> {{ item.value }} </span
               ><b class="text-blue">{{ `faker.name.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1443,7 +1443,7 @@ const system = reactive({
           <div v-for="(item, key) in phone" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1"> {{ item.value }} </span
+              <span class="flex-fill"> {{ item.value }} </span
               ><b class="text-blue">{{ `faker.phone.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1462,7 +1462,7 @@ const system = reactive({
           <div v-for="(item, key) in git" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1"> {{ item.value }} </span
+              <span class="flex-fill"> {{ item.value }} </span
               ><b class="text-blue">{{ `faker.git.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1483,7 +1483,7 @@ const system = reactive({
           <div v-for="(item, key) in system" :key="key">
             <div class="d-flex">
               <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-1"> {{ item.value }} </span
+              <span class="flex-fill"> {{ item.value }} </span
               ><b class="text-blue">{{ `faker.system.${key}()` }}</b>
             </div>
             <v-divider class="my-2"></v-divider>
@@ -1502,7 +1502,7 @@ const system = reactive({
           <div class="d-flex" v-for="(item, key) in image" :key="key">
             <div>
               <b class="mr-1">{{ item.label }} : </b>
-              <div class="flex-1">
+              <div class="flex-fill">
                 <v-img width="300" :src="item.value" :alt="item.label" />
               </div>
 

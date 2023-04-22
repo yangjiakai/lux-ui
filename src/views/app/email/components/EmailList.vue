@@ -75,7 +75,7 @@ const filterdEmailList = computed(() => {
               :color="email.starred ? 'yellow' : 'grey'"
               variant="text"
             ></v-btn>
-            <div class="flex-1 mx-5">
+            <div class="flex-fill mx-5">
               <div class="font-weight-bold">
                 {{ email.title }}
               </div>

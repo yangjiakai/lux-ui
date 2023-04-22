@@ -24,7 +24,7 @@ const showMobileSearch = ref(false);
     <!-- ---------------------------------------------- -->
     <!-- search input mobil -->
     <!-- ---------------------------------------------- -->
-    <div class="d-flex flex-1 align-center" v-if="showMobileSearch">
+    <div class="d-flex flex-fill align-center" v-if="showMobileSearch">
       <v-text-field
         color="primary"
         variant="solo"
@@ -35,7 +35,7 @@ const showMobileSearch = ref(false);
         placeholder="Search"
       ></v-text-field>
     </div>
-    <div v-else class="d-flex align-center justify-space-between flex-1">
+    <div v-else class="d-flex align-center justify-space-between w-100">
       <!-- ---------------------------------------------- -->
       <!-- NavIcon -->
       <!-- ---------------------------------------------- -->
@@ -45,7 +45,6 @@ const showMobileSearch = ref(false);
       <div>
         <v-text-field
           v-if="mdAndUp"
-          class="flex-1"
           style="width: 400px"
           color="primary"
           variant="solo"
@@ -57,6 +56,7 @@ const showMobileSearch = ref(false);
       </div>
 
       <v-spacer></v-spacer>
+
       <div>
         <v-btn v-if="!mdAndUp" icon @click="showMobileSearch = true">
           <v-icon>mdi-magnify</v-icon>

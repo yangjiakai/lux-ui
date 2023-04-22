@@ -204,9 +204,11 @@ const { xs } = useDisplay();
         :width="xs ? '100%' : '600px'"
       >
         <v-card-title>
-          <span class="flex-1">
+          <span class="flex-fill">
             <v-avatar size="40">
-              <img src="https://img.icons8.com/color/96/null/translation.png" />
+              <v-img
+                src="https://img.icons8.com/color/96/null/translation.png"
+              />
             </v-avatar>
 
             OpenAi {{ $t("toolbox.translationAssistant.title") }}
@@ -217,7 +219,7 @@ const { xs } = useDisplay();
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-card-title>
-        <hr />
+        <v-divider />
         <v-card-actions class="px-5">
           <span class="text-body-2"
             >{{ $t("toolbox.translationAssistant.targetLanguage") }}:</span
@@ -263,7 +265,7 @@ const { xs } = useDisplay();
             >{{ $t("toolbox.translationAssistant.translate") }}</v-btn
           >
         </v-card-actions>
-        <hr />
+        <v-divider />
         <v-card-text>
           <v-row no-gutters justify="center" dense>
             <v-col cols="12">
@@ -338,7 +340,7 @@ const { xs } = useDisplay();
                 </v-card-actions> </v-card
             ></v-col> </v-row
         ></v-card-text>
-        <hr />
+        <v-divider />
       </v-card>
     </transition>
   </teleport>

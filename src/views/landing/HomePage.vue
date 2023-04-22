@@ -91,7 +91,7 @@
           <v-card color="secondary" class="info-card">
             <div class="card-top r text-content">
               <Icon class="mr-5 text-h4" icon="logos:capacitorjs-icon" />
-              <div class="flex-1">
+              <div class="flex-fill">
                 Who has the advantage now? Who do you think will win the
                 election?
               </div>
@@ -157,7 +157,7 @@
           <v-card color="secondary" class="info-card">
             <div class="card-top r text-content">
               <Icon class="text-h4" icon="logos:engine-yard-icon" />
-              <div class="flex-1 mx-4">
+              <div class="flex-fill mx-4">
                 <p>
                   <span class="text-accent">Elon Mask</span> shared a
                   <span class="text-accent">link</span>
@@ -198,7 +198,7 @@
                 >
                 </v-img>
 
-                <div class="pa-2 flex-1">
+                <div class="pa-2 flex-fill">
                   <v-card-subtitle class="pt-4"> Number 10 </v-card-subtitle>
                   <v-card-text>
                     <div>Whitehaven BeachAA</div>
@@ -231,7 +231,7 @@
               ></v-img>
             </v-avatar>
             <span class="text-h4 mx-5">67903</span>
-            <div class="flex-1 text-content">
+            <div class="flex-fill text-content">
               people viewed your profile in the past 90 days
             </div>
             <v-img

@@ -16,6 +16,29 @@ html {
 
   }
 
+  audio,
+  canvas,
+  embed,
+  iframe,
+  img,
+  object,
+  svg,
+  video {
+    display: block;
+    vertical-align: middle;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
   h1,
   h2,
   h3,
@@ -126,10 +149,6 @@ html {
     text-transform: capitalize;
   }
 
-  .border,
-  .v-divider {
-    border-color: rgba(var(--v-border-color), 1) !important;
-  }
 
   .avtar-border {
     border: 2px solid rgb(var(--v-theme-surface)) !important;
@@ -167,6 +186,7 @@ html {
     .v-app-bar {
       box-shadow: rgb(145 158 171 / 30%) 0px 0px 2px 0px, rgb(145 158 171 / 2%) 0px 12px 24px -4px !important;
     }
+
   }
 
 }

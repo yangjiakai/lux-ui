@@ -29,7 +29,7 @@ const snackbar = reactive({
         <v-avatar class="mr-5" size="avatarSize">
           <img :src="user.profile_image.small" alt="alt" />
         </v-avatar>
-        <div class="flex-1">
+        <div class="flex-fill">
           <h5>{{ user.name }}</h5>
           <h5>{{ user.username }}</h5>
         </div>

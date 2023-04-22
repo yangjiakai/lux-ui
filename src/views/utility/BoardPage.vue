@@ -5,7 +5,7 @@
       cols="3"
       v-for="column in columns"
       :key="column.key"
-      class="pa-4 flex-1"
+      class="pa-4 flex-fill"
     >
       <div class="d-flex align-center">
         <h5 class="font-weight-bold">{{ column.key }}</h5>
@@ -38,13 +38,13 @@
         ></v-text-field>
         <div class="mt-3 d-flex flex-md-row flex-column">
           <v-btn
-            class="flex-1 ma-1"
+            class="flex-fill ma-1"
             size="small"
             @click="column.isAddVisible = !column.isAddVisible"
             >Cancel</v-btn
           >
           <v-btn
-            class="flex-1 ma-1"
+            class="flex-fill ma-1"
             size="small"
             color="primary"
             @click="addCard(column)"
@@ -77,7 +77,7 @@
   <v-dialog persistent v-model="editDialog" width="600">
     <v-card>
       <v-card-title class="pa-4 d-flex align-center">
-        <span class="flex-1">Edit Card</span>
+        <span class="flex-fill">Edit Card</span>
         <v-btn
           variant="text"
           rounded

@@ -23,7 +23,7 @@ const submit = () => {
               <v-avatar size="36px">
                 <img src="@/assets/images/svg1.svg" alt="" />
               </v-avatar>
-              <div class="mx-3 flex-1">
+              <div class="mx-3 flex-fill">
                 <div class="font-weight-bold mb-1 ml-1">title</div>
                 <div v-show="expanded">
                   <v-menu>

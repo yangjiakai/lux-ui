@@ -91,7 +91,7 @@ onMounted(() => {
   </div>
   <div v-else>
     <h6 class="text-h6 font-weight-bold pa-5 d-flex align-center">
-      <span class="flex-1">Ticket</span>
+      <span class="flex-fill">Ticket</span>
     </h6>
     <v-table class="pa-3">
       <thead>

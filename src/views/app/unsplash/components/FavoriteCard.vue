@@ -52,7 +52,7 @@ const removePhoto = (photo) => {
             >
             </v-img>
           </div>
-          <div class="px-2 flex-1 two-line">
+          <div class="px-2 flex-fill two-line">
             {{ item.description || item.alt_description }}
           </div>
         </v-card>

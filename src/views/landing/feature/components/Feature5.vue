@@ -56,7 +56,7 @@
                 <v-icon color="primary">mdi-home</v-icon>
               </v-card>
 
-              <div class="flex-1">
+              <div class="flex-fill">
                 <h6>Social Media Marketing{{ i }}</h6>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum

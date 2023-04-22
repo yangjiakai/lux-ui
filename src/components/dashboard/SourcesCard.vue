@@ -1,6 +1,6 @@
 <template>
   <h6 class="text-h6 pa-5 d-flex align-center">
-    <span class="flex-1 font-weight-bold">Traffic Sources</span>
+    <span class="flex-fill font-weight-bold">Traffic Sources</span>
   </h6>
 
   <v-chart class="chart" :option="option" autoresize />

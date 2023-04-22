@@ -96,7 +96,7 @@ onMounted(() => {
   </div>
   <div v-else>
     <h6 class="text-h6 px-5 pt-5 d-flex align-center font-weight-bold">
-      <span class="flex-1 font-weight-bold">Table</span>
+      <span class="flex-fill font-weight-bold">Table</span>
     </h6>
     <perfect-scrollbar style="height: 400px">
       <v-table class="pa-3">

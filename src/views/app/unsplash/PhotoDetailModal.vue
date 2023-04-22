@@ -55,7 +55,7 @@ initData();
   <v-card v-else height="90%">
     <v-card-title>
       <div class="d-flex align-center pa-3">
-        <div class="flex-1 d-flex align-center">
+        <div class="flex-fill d-flex align-center">
           <div>
             <v-avatar class="mr-3" size="avatarSize" color="red">
               <img :src="photo.user.profile_image.small" alt="alt" />

@@ -28,7 +28,7 @@ const apiKeyShow = ref(false);
       <v-card-title class="font-weight-bold pa-5">
         Input your Api Key</v-card-title
       >
-      <hr />
+      <v-divider />
       <v-card-text>
         <v-label class="font-weight-medium mb-2 ml-2">YOUR API KEY</v-label>
         <v-text-field

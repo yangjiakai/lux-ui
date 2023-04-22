@@ -13,6 +13,7 @@ import FeatureImageUploadPreview from "./components/FeatureImageUploadPreview.vu
 import FeatureMultipleSelect from "./components/FeatureMultipleSelect.vue";
 import FeatureGithubEventTimeLine from "./components/FeatureGithubEventTimeLine.vue";
 import FeatureFacker from "./components/FeatureFacker.vue";
+import FeatureEditData from "./components/FeatureEditData.vue";
 </script>
 
 <template>
@@ -50,6 +51,10 @@ import FeatureFacker from "./components/FeatureFacker.vue";
 
   <FeatureCard title="Facker">
     <FeatureFacker />
+  </FeatureCard>
+
+  <FeatureCard title="EditData">
+    <FeatureEditData />
   </FeatureCard>
 </template>
 

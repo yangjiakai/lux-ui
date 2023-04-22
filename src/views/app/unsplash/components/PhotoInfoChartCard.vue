@@ -158,14 +158,14 @@ const changeChart = (type) => {
         <v-btn
           :variant="currentChart === 'view' ? 'flat' : 'text'"
           color="primary"
-          class="flex-1 mr-3"
+          class="flex-fill mr-3"
           @click="changeChart('view')"
           >Views</v-btn
         >
         <v-btn
           :variant="currentChart === 'download' ? 'flat' : 'text'"
           color="primary"
-          class="flex-1"
+          class="flex-fill"
           @click="changeChart('download')"
           >Download</v-btn
         >

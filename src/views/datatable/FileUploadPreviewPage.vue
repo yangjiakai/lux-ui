@@ -212,7 +212,7 @@ const filterdFileInfos = computed(() => {
               </v-card-text>
               <v-divider></v-divider>
               <div class="d-flex align-center pa-3">
-                <div class="flex-1">
+                <div class="flex-fill">
                   <h5 class="text-h6 font-weight-bold">{{ fileInfo.name }}</h5>
                   <h6 class="text-grey">
                     {{ fileInfo.suffix }} {{ fileInfo.imageSize }}

@@ -22,7 +22,7 @@ const dialog = ref(false);
     </template>
     <v-card>
       <v-card-title> 请输入您的API KEY </v-card-title>
-      <hr />
+      <v-divider />
       <v-card-text> </v-card-text>
 
       <v-card-actions>

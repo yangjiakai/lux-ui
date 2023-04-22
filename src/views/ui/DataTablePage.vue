@@ -88,7 +88,7 @@ const getLikesColor = (likes) => {
           clearable
         ></v-text-field>
       </v-card-title>
-      <hr />
+      <v-divider />
       <v-card-text>
         <v-data-table-server
           :headers="headers"

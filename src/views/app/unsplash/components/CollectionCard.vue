@@ -36,7 +36,7 @@ const snackbar = reactive({
               ></v-img>
             </v-col>
             <v-col cols="4">
-              <div class="flex-1 pb-1">
+              <div class="flex-fill pb-1">
                 <v-img
                   height="150"
                   cover

@@ -30,7 +30,7 @@ import members from "@/data/members";
               <v-img height="100%" cover :src="member.avatar" alt="alt" />
             </div>
 
-            <div class="info flex-1 pa-10">
+            <div class="info flex-fill pa-10">
               <h6 class="text-h6">{{ member.name }}</h6>
               <p class="text-body-1 text-blue-grey">{{ member.position }}</p>
               <p class="text-body-2 text-grey">{{ member.description }}</p>

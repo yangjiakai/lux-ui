@@ -30,7 +30,7 @@ const { xs } = useDisplay();
         height="500px"
       >
         <v-card-title>
-          <span class="flex-1">
+          <span class="flex-fill">
             <v-avatar size="40">
               <img
                 src="https://img.icons8.com/color/96/null/filled-chat.png"
@@ -46,11 +46,11 @@ const { xs } = useDisplay();
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-card-title>
-        <hr />
+        <v-divider />
         <v-card-text class="overflow-scroll">
           <MessageArea />
         </v-card-text>
-        <hr />
+        <v-divider />
         <v-card-actions>
           <InputArea />
         </v-card-actions>
