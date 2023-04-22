@@ -2,7 +2,7 @@
   <!-- loading spinner -->
   <div
     v-if="loading"
-    class="h-full d-flex flex-grow-1 align-center justify-center"
+    class="h-100 d-flex flex-grow-1 align-center justify-center"
   >
     <v-progress-circular indeterminate color="primary"></v-progress-circular>
   </div>

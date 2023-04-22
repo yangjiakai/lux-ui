@@ -21,7 +21,6 @@ const loading = ref(false);
 
 const loadMore = async () => {
   loading.value = true;
-  console.log(hasMore.value);
 
   if (!hasMore.value) {
     loading.value = false;

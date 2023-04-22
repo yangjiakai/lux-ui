@@ -9,7 +9,6 @@ import App from "./App.vue";
 // Composables
 import { createApp } from "vue";
 import vuetify from "./plugins/vuetify";
-import { VueMasonryPlugin } from "vue-masonry";
 import MasonryWall from "@yeger/vue-masonry-wall";
 import VueVirtualScroller from "vue-virtual-scroller";
 import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
@@ -28,7 +27,6 @@ const app = createApp(App);
 
 app.use(router);
 app.use(PerfectScrollbar);
-app.use(VueMasonryPlugin);
 app.use(MasonryWall);
 app.use(VueVirtualScroller);
 app.use(VueApexCharts);
