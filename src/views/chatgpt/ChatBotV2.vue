@@ -95,11 +95,10 @@ const createCompletion = async () => {
 // Scroll to the bottom of the message container
 const scrollToBottom = () => {
   const container = document.querySelector(".message-container");
-  setTimeout(() => {
-    container?.scrollTo({
-      top: container?.scrollHeight,
-    });
-  }, 100);
+
+  container?.scrollTo({
+    top: container?.scrollHeight,
+  });
 };
 
 watch(
