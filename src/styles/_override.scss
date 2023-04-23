@@ -63,12 +63,16 @@ html {
 
       td {
         border-bottom: 0 !important;
+        padding-top: 4px !important;
+        padding-bottom: 4px !important;
       }
 
       tbody {
         tr {
+
           font-size: 0.875em;
           transition: box-shadow 0.2s, transform 0.2s;
+
 
           &:not(.v-data-table__selected):hover {
             box-shadow: 0 3px 15px -2px rgba(0, 0, 0, 0.12);

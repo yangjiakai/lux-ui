@@ -38,7 +38,7 @@ const scrollToTop = () => {
   visibility: hidden;
   transition: all 0.3s ease;
   bottom: 50px;
-  right: 20px;
+  right: 5px;
   z-index: 999;
   padding: 0.5rem;
   border-radius: 0.5rem;

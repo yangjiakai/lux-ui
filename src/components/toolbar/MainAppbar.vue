@@ -35,7 +35,7 @@ const showMobileSearch = ref(false);
         placeholder="Search"
       ></v-text-field>
     </div>
-    <div v-else class="d-flex align-center justify-space-between w-100">
+    <div v-else class="px-2 d-flex align-center justify-space-between w-100">
       <!-- ---------------------------------------------- -->
       <!-- NavIcon -->
       <!-- ---------------------------------------------- -->
@@ -45,11 +45,12 @@ const showMobileSearch = ref(false);
       <div>
         <v-text-field
           v-if="mdAndUp"
+          class="ml-2"
           style="width: 400px"
           color="primary"
           variant="solo"
           density="compact"
-          prepend-icon="mdi-magnify"
+          prepend-inner-icon="mdi-magnify"
           hide-details
           placeholder="Search"
         ></v-text-field>

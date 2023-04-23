@@ -20,10 +20,11 @@ const queryOptions = reactive({
 const headers = [
   { title: "ID", key: "id" },
   { title: "标题", key: "title" },
-  { title: "封面图", key: "cover_photo" },
+  { title: "封面图", key: "cover_photo", align: "center" },
+  { title: "预览图", key: "preview_photos", align: "center" },
   { title: "照片数量", key: "total_photos", align: "center" },
   { title: "描述", key: "description", width: "500px" },
-  { title: "预览图", key: "preview_photos" },
+
   { title: "链接", key: "links" },
   { title: "发布时间", key: "published_at" },
   { title: "", key: "data-table-expand" },
@@ -54,6 +55,7 @@ const getTopics = async () => {
 };
 
 const onUpdateOptions = async (options) => {
+  if (!queryOptions.query) return;
   queryOptions.per_page = options.itemsPerPage;
   queryOptions.page = options.page;
   await getTopics();
@@ -66,17 +68,20 @@ const onUpdateOptions = async (options) => {
       <v-card-title class="font-weight-bold">
         <span> Unsplash Topics</span>
         <v-spacer></v-spacer>
-        <v-text-field
-          v-model="queryOptions.query"
-          variant="solo"
-          class="elevation-1"
-          append-icon="mdi-magnify"
-          @click:append="getTopics"
-          label="Search"
-          single-line
-          hide-details
-          clearable
-        ></v-text-field>
+
+        <div class="w-25">
+          <v-text-field
+            v-model="queryOptions.query"
+            variant="solo"
+            prepend-inner-icon="mdi-magnify"
+            @click:append="getTopics"
+            label="Search"
+            single-line
+            hide-details
+            clearable
+            density="compact"
+          ></v-text-field>
+        </div>
       </v-card-title>
       <v-divider />
       <v-card-text>
@@ -94,13 +99,29 @@ const onUpdateOptions = async (options) => {
         >
           <template v-slot:item="{ item }">
             <tr>
-              <td>{{ item.columns.id }}</td>
-              <td>{{ item.columns.title }}</td>
+              <td class="font-weight-bold">#{{ item.columns.id }}</td>
+              <td class="font-weight-bold">{{ item.columns.title }}</td>
               <td class="pa-2">
                 <v-img
                   :src="item.columns.cover_photo.urls.thumb"
-                  max-width="100px"
+                  height="100"
+                  width="160"
+                  cover
+                  class="rounded-lg"
                 />
+              </td>
+              <td>
+                <div class="d-flex align-center">
+                  <v-img
+                    v-for="photo in item.columns.preview_photos"
+                    :key="photo.id"
+                    :src="photo.urls.thumb"
+                    height="100"
+                    width="60"
+                    cover
+                    class="mr-2 rounded-lg"
+                  />
+                </div>
               </td>
               <td class="text-center">
                 <v-chip size="small">

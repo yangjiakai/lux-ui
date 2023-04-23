@@ -7,6 +7,7 @@
 import { searchCollectionsApi } from "@/api/unsplashApi";
 import CopyLabel from "@/components/common/CopyLabel.vue";
 import moment from "moment";
+import ImagePreview from "@/components/ImagePreview.vue";
 
 const loading = ref(true);
 const totalRows = ref(0);
@@ -23,10 +24,10 @@ const headers = [
   { title: "拥有者", key: "user" },
   { title: "照片数量", key: "total_photos", align: "center" },
 
-  { title: "封面图", key: "cover_photo" },
-  { title: "预览图", key: "preview_photos" },
+  { title: "封面图", key: "cover_photo", align: "center" },
+  { title: "预览图", key: "preview_photos", align: "center" },
   { title: "链接", key: "links" },
-  { title: "标签", key: "tags" },
+  { title: "标签", key: "tags", width: "300px", align: "center" },
   { title: "发布时间", key: "published_at" },
 ];
 
@@ -57,6 +58,7 @@ const getCollections = async () => {
 };
 
 const onUpdateOptions = async (options) => {
+  if (!queryOptions.query) return;
   queryOptions.per_page = options.itemsPerPage;
   queryOptions.page = options.page;
   await getCollections();
@@ -69,20 +71,22 @@ const onUpdateOptions = async (options) => {
       <v-card-title class="font-weight-bold">
         <span> Unsplash Collections</span>
         <v-spacer></v-spacer>
-        <v-text-field
-          v-model="queryOptions.query"
-          variant="solo"
-          class="elevation-1"
-          append-icon="mdi-magnify"
-          @click:append="getCollections"
-          label="Search"
-          single-line
-          hide-details
-          clearable
-        ></v-text-field>
+        <div class="w-25">
+          <v-text-field
+            v-model="queryOptions.query"
+            variant="solo"
+            prepend-inner-icon="mdi-magnify"
+            @click:append="getCollections"
+            label="Search"
+            single-line
+            hide-details
+            clearable
+            density="compact"
+          ></v-text-field>
+        </div>
       </v-card-title>
       <v-divider />
-      <v-card-text>
+      <div>
         <v-data-table-server
           :headers="headers"
           :items="collectionList"
@@ -97,8 +101,8 @@ const onUpdateOptions = async (options) => {
         >
           <template v-slot:item="{ item }">
             <tr>
-              <td>{{ item.columns.id }}</td>
-              <td>{{ item.columns.title }}</td>
+              <td># {{ item.columns.id }}</td>
+              <td class="font-weight-bold">{{ item.columns.title }}</td>
               <td class="font-weight-bold">
                 <v-avatar size="30" class="mr-2">
                   <img :src="item.columns.user.profile_image.small" alt="alt" />
@@ -113,19 +117,30 @@ const onUpdateOptions = async (options) => {
               </td>
 
               <td class="pa-2">
-                <v-img
-                  :src="item.columns.cover_photo.urls.thumb"
-                  max-width="100px"
+                <ImagePreview
+                  :thumbnail="item.columns.cover_photo.urls.thumb"
+                  :previewImage="item.columns.cover_photo.urls.small"
                 />
+                <!-- <v-img
+                  :src="item.columns.cover_photo.urls.thumb"
+                  height="100"
+                  width="160"
+                  cover
+                  class="rounded-lg"
+                /> -->
               </td>
               <td>
-                <!-- <v-img
-                  v-for="photo in item.columns.preview_photos"
-                  :key="photo.id"
-                  :src="photo.urls.thumb"
-                  max-width="100px"
-                  class="mr-2"
-                /> -->
+                <div class="d-flex align-center">
+                  <v-img
+                    v-for="photo in item.columns.preview_photos"
+                    :key="photo.id"
+                    :src="photo.urls.thumb"
+                    height="100"
+                    width="60"
+                    cover
+                    class="mr-2 rounded-lg"
+                  />
+                </div>
               </td>
               <td>
                 <CopyLabel :text="item.columns.links.html" />
@@ -135,9 +150,9 @@ const onUpdateOptions = async (options) => {
                 <v-chip
                   v-for="tag in item.columns.tags"
                   variant="outlined"
-                  color="primary"
+                  color="grey"
                   size="small"
-                  class="font-weight-bold mr-1"
+                  class="font-weight-bold mx-1 my-1"
                 >
                   {{ tag.title }}
                 </v-chip>
@@ -154,7 +169,7 @@ const onUpdateOptions = async (options) => {
             </tr>
           </template>
         </v-data-table-server>
-      </v-card-text>
+      </div>
     </v-card>
   </div>
 </template>

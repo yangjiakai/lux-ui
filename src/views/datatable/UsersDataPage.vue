@@ -23,9 +23,9 @@ const headers = [
   { title: "全名", key: "name" },
   { title: "位置", key: "location", width: "200px" },
   { title: "是否可用", key: "for_hire", align: "center" },
-  { title: "收藏数", key: "total_collections" },
-  { title: "喜欢数", key: "total_likes" },
-  { title: "照片数", key: "total_photos" },
+  { title: "收藏数", key: "total_collections", align: "center" },
+  { title: "喜欢数", key: "total_likes", align: "center" },
+  { title: "照片数", key: "total_photos", align: "center" },
   { title: "接受条款", key: "accepted_tos", align: "center" },
   { title: "作品集", key: "portfolio_url" },
 ];
@@ -60,6 +60,7 @@ const getUsers = async () => {
 };
 
 const onUpdateOptions = async (options) => {
+  if (!queryOptions.query) return;
   queryOptions.per_page = options.itemsPerPage;
   queryOptions.page = options.page;
   await getUsers();
@@ -78,17 +79,20 @@ const getLikesColor = (likes) => {
       <v-card-title class="font-weight-bold">
         <span> Unsplash Users</span>
         <v-spacer></v-spacer>
-        <v-text-field
-          v-model="queryOptions.query"
-          variant="solo"
-          class="elevation-1"
-          append-icon="mdi-magnify"
-          @click:append="getUsers"
-          label="Search"
-          single-line
-          hide-details
-          clearable
-        ></v-text-field>
+
+        <div class="w-25">
+          <v-text-field
+            v-model="queryOptions.query"
+            variant="solo"
+            prepend-inner-icon="mdi-magnify"
+            @click:append="getUsers"
+            label="Search"
+            single-line
+            hide-details
+            clearable
+            density="compact"
+          ></v-text-field>
+        </div>
       </v-card-title>
       <v-divider />
       <v-card-text class="table-container">
@@ -105,8 +109,8 @@ const getLikesColor = (likes) => {
           height="900"
         >
           <template v-slot:item="{ item }">
-            <tr>
-              <td class="font-weight-bold">
+            <tr class="">
+              <td class="font-weight-bold text-body-2">
                 <CopyLabel :text="item.columns.username" />
               </td>
               <td>

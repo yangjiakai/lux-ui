@@ -68,19 +68,11 @@ watch(currentColor, (newVal) => {
       width="300"
       class="theme-drawer"
     >
-      <div class="pa-6">
+      <div class="pa-5">
         <div class="top-area">
           <div class="d-flex align-center">
             <b>UI Configurator</b>
             <v-spacer></v-spacer>
-            <v-btn
-              variant="text"
-              size="small"
-              rounded
-              icon="mdi-close"
-              @click="themeDrawer = false"
-            >
-            </v-btn>
           </div>
           <div>See our dashboard options.</div>
         </div>
@@ -153,7 +145,7 @@ watch(currentColor, (newVal) => {
             :label="`Mini: ${customizeTheme.miniSidebar}`"
           ></v-switch>
         </div>
-        <hr class="my-6" />
+        <hr class="mb-6" />
         <div>
           <v-btn color="" class="gradient info" block size="large"
             >Contact Me</v-btn
@@ -163,7 +155,7 @@ watch(currentColor, (newVal) => {
           <v-icon color="primary" class="mr-6">mdi-email-outline</v-icon>
           <a href="mailto:yjkbako@gmail.com">yjkbako@gmail.com</a>
         </div>
-        <div class="ml-5 d-flex align-center">
+        <div>
           <img src="@/assets/wechat.jpg" alt="" />
         </div>
       </div>
@@ -176,7 +168,7 @@ watch(currentColor, (newVal) => {
   position: fixed;
   background-color: #705cf6;
   top: 340px;
-  right: 0px;
+  right: -45px;
   z-index: 999;
   padding: 0.5rem 1rem;
   border-top-left-radius: 0.5rem;
@@ -186,6 +178,7 @@ watch(currentColor, (newVal) => {
   cursor: pointer;
   &:hover {
     box-shadow: 1px 1px 18px #705cf6;
+    right: 0px;
     transition: all 0.5s;
   }
 

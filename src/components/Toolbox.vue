@@ -105,14 +105,14 @@ const toolboxShow = ref(false);
   z-index: 999;
   position: fixed;
   bottom: 150px;
-  right: 20px;
+  right: 5px;
 }
 
 .toolbox-activator {
   position: fixed;
   transition: all 0.3s ease;
   bottom: 100px;
-  right: 20px;
+  right: 5px;
   z-index: 999;
   padding: 0.5rem;
   border-radius: 0.5rem;

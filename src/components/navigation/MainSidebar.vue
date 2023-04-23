@@ -35,8 +35,9 @@ const scrollToBottom = () => {
 
 <template>
   <v-navigation-drawer
-    v-model="customizeTheme.mainSidebar"
+    border="none"
     elevation="1"
+    v-model="customizeTheme.mainSidebar"
     id="mainMenu"
   >
     <!-- ---------------------------------------------- -->
@@ -44,7 +45,7 @@ const scrollToBottom = () => {
     <!-- ---------------------------------------------- -->
     <template v-if="!customizeTheme.miniSidebar" v-slot:prepend>
       <v-card
-        elevation="0"
+        style="box-shadow: rgba(0, 0, 0, 0.05) 0px 25px 15px -20px"
         height="100"
         class="d-flex align-center justify-center"
       >
@@ -61,7 +62,6 @@ const scrollToBottom = () => {
           alt=""
         />
       </v-card>
-      <v-divider></v-divider>
     </template>
 
     <!-- ---------------------------------------------- -->
