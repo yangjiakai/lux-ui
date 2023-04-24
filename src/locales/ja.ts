@@ -115,6 +115,8 @@ export default {
       topicsDataPage: "トピックデータ",
       topicPhotosDataPage: "トピック写真データ",
       fileUploadPreview: "ファイルアップロードプレビュー",
+      dynamicFormRender: "Dynamic Form Render",
+      customFormGeneration: "Custom Form Generation",
     },
     chatbot_v1: "Chatbot v1",
     chatbot_v2: "Chatbot v2(Stream)",

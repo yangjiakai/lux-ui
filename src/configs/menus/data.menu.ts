@@ -40,4 +40,18 @@ export default [
     link: "/data/file-upload-preview",
     key: "menu.data.fileUploadPreview",
   },
+  // Dynamic form rendering
+  {
+    icon: "mdi-form-select",
+    text: "Dynamic Form Render",
+    link: "/data/dynamic-form-render",
+    key: "menu.data.dynamicFormRender",
+  },
+  // Custom form generation
+  {
+    icon: "mdi-form-select",
+    text: "Custom Form Generation",
+    link: "/data/custom-form-generation",
+    key: "menu.data.customFormGeneration",
+  },
 ];

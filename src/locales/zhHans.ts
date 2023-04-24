@@ -115,6 +115,8 @@ export default {
       topicsDataPage: "主题数据",
       topicPhotosDataPage: "主题照片数据",
       fileUploadPreview: "文件上传预览",
+      dynamicFormRender: "动态表单渲染",
+      customFormGeneration: "自定义表单生成",
     },
     chatbot_v1: "Chatbot v1",
     chatbot_v2: "Chatbot v2(Stream)",

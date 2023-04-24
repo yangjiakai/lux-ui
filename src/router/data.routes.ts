@@ -65,4 +65,26 @@ export default [
       title: "FileUploadPreview",
     },
   },
+  // dynamic form render
+  {
+    path: "/data/dynamic-form-render",
+    component: () => import("@/views/datatable/DynamicFormRenderPage.vue"),
+    meta: {
+      requiresAuth: true,
+      layout: "ui",
+      category: "Data",
+      title: "DynamicFormRender",
+    },
+  },
+  // custom form generation
+  {
+    path: "/data/custom-form-generation",
+    component: () => import("@/views/datatable/CustomFormGenerationPage.vue"),
+    meta: {
+      requiresAuth: true,
+      layout: "ui",
+      category: "Data",
+      title: "CustomFormGeneration",
+    },
+  },
 ];
