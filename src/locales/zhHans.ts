@@ -120,6 +120,7 @@ export default {
     },
     chatbot_v1: "Chatbot v1",
     chatbot_v2: "Chatbot v2(Stream)",
+    voiceBot: "实时语音对话",
   },
   dashboard: {
     activity: "活动",
@@ -188,13 +189,13 @@ export default {
       itemsSelected: "已选择{0}",
       nextMonthAriaLabel: "下个月",
       nextYearAriaLabel: "明年",
-      prevMonthAriaLabel: "前一个月",
-      prevYearAriaLabel: "前一年",
+      prevMonthAriaLabel: "上个月",
+      prevYearAriaLabel: "去年",
     },
     noDataText: "无可用数据",
     carousel: {
-      prev: "以前的视觉",
-      next: "下一个视觉",
+      prev: "上一张",
+      next: "下一张",
       ariaLabel: {
         delimiter: "{1}的轮播幻灯片{0}",
       },
