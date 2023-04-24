@@ -60,6 +60,13 @@ const onUpdateOptions = async (options) => {
   queryOptions.page = options.page;
   await getTopics();
 };
+
+const imgOverlay = ref(false);
+const imgSrc = ref("");
+const previewImg = (url) => {
+  imgSrc.value = url;
+  imgOverlay.value = true;
+};
 </script>
 
 <template>
@@ -107,7 +114,8 @@ const onUpdateOptions = async (options) => {
                   height="100"
                   width="160"
                   cover
-                  class="rounded-lg"
+                  class="rounded-lg v-card--link"
+                  @click="previewImg(item.columns.cover_photo.urls.regular)"
                 />
               </td>
               <td>
@@ -119,7 +127,8 @@ const onUpdateOptions = async (options) => {
                     height="100"
                     width="60"
                     cover
-                    class="mr-2 rounded-lg"
+                    class="mr-2 rounded-lg v-card--link"
+                    @click="previewImg(photo.urls.regular)"
                   />
                 </div>
               </td>
@@ -141,6 +150,18 @@ const onUpdateOptions = async (options) => {
         </v-data-table-server>
       </v-card-text>
     </v-card>
+    <v-overlay
+      v-model="imgOverlay"
+      location-strategy="connected"
+      scroll-strategy="none"
+    >
+      <div
+        @click="imgOverlay = false"
+        class="w-screen h-screen d-flex align-center justify-center"
+      >
+        <v-img height="80%" :src="imgSrc" />
+      </div>
+    </v-overlay>
   </div>
 </template>
 

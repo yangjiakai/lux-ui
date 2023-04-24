@@ -7,7 +7,6 @@
 import { searchCollectionsApi } from "@/api/unsplashApi";
 import CopyLabel from "@/components/common/CopyLabel.vue";
 import moment from "moment";
-import ImagePreview from "@/components/ImagePreview.vue";
 
 const loading = ref(true);
 const totalRows = ref(0);
@@ -63,6 +62,13 @@ const onUpdateOptions = async (options) => {
   queryOptions.page = options.page;
   await getCollections();
 };
+
+const imgOverlay = ref(false);
+const imgSrc = ref("");
+const previewImg = (url) => {
+  imgSrc.value = url;
+  imgOverlay.value = true;
+};
 </script>
 
 <template>
@@ -117,17 +123,14 @@ const onUpdateOptions = async (options) => {
               </td>
 
               <td class="pa-2">
-                <ImagePreview
-                  :thumbnail="item.columns.cover_photo.urls.thumb"
-                  :previewImage="item.columns.cover_photo.urls.small"
-                />
-                <!-- <v-img
+                <v-img
                   :src="item.columns.cover_photo.urls.thumb"
                   height="100"
                   width="160"
                   cover
-                  class="rounded-lg"
-                /> -->
+                  class="rounded-lg v-card--link"
+                  @click="previewImg(item.columns.cover_photo.urls.regular)"
+                />
               </td>
               <td>
                 <div class="d-flex align-center">
@@ -135,10 +138,11 @@ const onUpdateOptions = async (options) => {
                     v-for="photo in item.columns.preview_photos"
                     :key="photo.id"
                     :src="photo.urls.thumb"
+                    @click="previewImg(photo.urls.regular)"
                     height="100"
                     width="60"
                     cover
-                    class="mr-2 rounded-lg"
+                    class="mr-2 rounded-lg v-card--link"
                   />
                 </div>
               </td>
@@ -171,6 +175,18 @@ const onUpdateOptions = async (options) => {
         </v-data-table-server>
       </div>
     </v-card>
+    <v-overlay
+      v-model="imgOverlay"
+      location-strategy="connected"
+      scroll-strategy="none"
+    >
+      <div
+        @click="imgOverlay = false"
+        class="w-screen h-screen d-flex align-center justify-center"
+      >
+        <v-img height="80%" :src="imgSrc" />
+      </div>
+    </v-overlay>
   </div>
 </template>
 

@@ -45,7 +45,7 @@ const getPhotos = async () => {
       color: photo.color,
       size: photo.width + " x " + photo.height,
       alt_description: photo.alt_description,
-      thumb: photo.urls.thumb,
+      thumb: photo.urls,
       download: photo.links.download,
       likes: photo.likes,
       tags: photo.tags,
@@ -76,6 +76,13 @@ const downloadPhoto = (photo) => {
   a.href = photo.download + "&force=true";
   a.download = photo.id + ".jpg";
   a.click();
+};
+
+const imgOverlay = ref(false);
+const imgSrc = ref("");
+const previewImg = (url) => {
+  imgSrc.value = url;
+  imgOverlay.value = true;
 };
 </script>
 
@@ -133,11 +140,12 @@ const downloadPhoto = (photo) => {
               <td>{{ item.columns.alt_description }}</td>
               <td class="pa-2">
                 <v-img
-                  :src="item.columns.thumb"
+                  :src="item.columns.thumb.thumb"
                   height="100"
                   width="160"
                   cover
-                  class="rounded-lg"
+                  class="rounded-lg v-card--link"
+                  @click="previewImg(item.columns.thumb.regular)"
                 />
               </td>
 
@@ -177,6 +185,18 @@ const downloadPhoto = (photo) => {
         </v-data-table-server>
       </div>
     </v-card>
+    <v-overlay
+      v-model="imgOverlay"
+      location-strategy="connected"
+      scroll-strategy="none"
+    >
+      <div
+        @click="imgOverlay = false"
+        class="w-screen h-screen d-flex align-center justify-center"
+      >
+        <v-img height="80%" :src="imgSrc" />
+      </div>
+    </v-overlay>
   </div>
 </template>
 
