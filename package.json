@@ -26,6 +26,7 @@
     "focus-trap": "^7.4.0",
     "happy-dom": "^9.6.1",
     "md-editor-v3": "^2.11.2",
+    "microsoft-cognitiveservices-speech-sdk": "^1.27.0",
     "moment": "^2.29.4",
     "openai": "^3.2.1",
     "pinia": "^2.0.34",

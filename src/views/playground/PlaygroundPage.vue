@@ -14,6 +14,7 @@ import FeatureMultipleSelect from "./components/FeatureMultipleSelect.vue";
 import FeatureGithubEventTimeLine from "./components/FeatureGithubEventTimeLine.vue";
 import FeatureFacker from "./components/FeatureFacker.vue";
 import FeatureEditData from "./components/FeatureEditData.vue";
+import FeatureTTS from "./components/FeatureTTS.vue";
 </script>
 
 <template>
@@ -55,6 +56,10 @@ import FeatureEditData from "./components/FeatureEditData.vue";
 
   <FeatureCard title="EditData">
     <FeatureEditData />
+  </FeatureCard>
+
+  <FeatureCard title="TTS">
+    <FeatureTTS />
   </FeatureCard>
 </template>
 
