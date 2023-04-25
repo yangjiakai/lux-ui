@@ -18,6 +18,8 @@ import AnimaitonCss02 from "@/components/animations/AnimaitonCss02.vue";
 import { useSpeechStore } from "@/stores/speechStore";
 
 import { createTranscriptionApi, createCompletionApi } from "@/api/aiApi";
+import VoiceConfigDialog from "@/components/ai/VoiceConfigDialog.vue";
+
 const snackbarStore = useSnackbarStore();
 const chatStore = useChatStore();
 const speechStore = useSpeechStore();
@@ -224,6 +226,7 @@ const state = reactive({
 
       <AnimationAi :size="300" />
     </div>
+
     <v-sheet
       elevation="0"
       color="transparent"
@@ -253,6 +256,23 @@ const state = reactive({
         ><v-icon>mdi-microphone</v-icon></v-btn
       >
     </v-sheet>
+
+    <span class="config">
+      <VoiceConfigDialog />
+
+      <span class="ml-2 text-h6 font-weight-bold text-primary">{{
+        speechStore.localName
+      }}</span>
+      <v-chip
+        density="comfortable"
+        class="d-none d-sm-inline ml-1 font-weight-bold"
+        label
+        size="small"
+        color="primary"
+      >
+        {{ speechStore.speechSynthesisLanguage }}</v-chip
+      >
+    </span>
   </v-card>
 </template>
 
@@ -298,5 +318,13 @@ const state = reactive({
 .bg {
   background-image: url("@/assets/images/chat-bg-2.png");
   background-repeat: repeat;
+  position: relative;
+}
+
+.config {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  margin: 30px;
 }
 </style>

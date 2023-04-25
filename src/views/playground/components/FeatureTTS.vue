@@ -71,15 +71,7 @@ const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
 const text = ref("Hello, this is an example of text-to-speech synthesis.");
 
-const languages = ref([
-  "fr-FR",
-  "ja-JP",
-  "en-US",
-  "zh-CN",
-  "zh-HK",
-  "ko-KR",
-  "de-DE",
-]);
+const languages = ref(["ja-JP", "en-US", "zh-CN", "zh-HK"]);
 
 const allVoices = ref<VoiceInfo[]>([]);
 
@@ -107,6 +99,36 @@ async function handleTextToSpeech(text: string) {
     console.log("End");
   }
 }
+
+onMounted(() => {
+  getVoices();
+});
+
+const localeList = computed(() => {
+  return [...new Set(allVoices.value.map((voiceInfo) => voiceInfo.locale))];
+});
+
+const currentVoice = computed(() => {
+  return allVoices.value.find(
+    (voiceInfo) => voiceInfo.shortName === speechStore.speechSynthesisVoiceName
+  );
+});
+
+const currentVoiceStyleList = computed(() => {
+  return allVoices.value.filter(
+    (voiceInfo) => voiceInfo.locale === speechStore.currentLang
+  );
+});
+
+const currentVoiceStyle = computed(() => {
+  return currentVoiceStyleList.value.find(
+    (voiceInfo) => voiceInfo.shortName === speechStore.speechSynthesisVoiceName
+  );
+});
+
+const selectVoice = (voiceInfo: VoiceInfo) => {
+  speechStore.updateVoiceInfo(voiceInfo);
+};
 </script>
 
 <template>
@@ -124,63 +146,90 @@ async function handleTextToSpeech(text: string) {
 
     <v-icon v-if="speechStore.isPlaying">mdi-home</v-icon>
 
-    <v-btn
-      @click="speechStore.updateIsPlaying()"
-      :color="speechStore.isPlaying ? 'green' : 'error'"
-      >{{ speechStore.isPlaying }}</v-btn
-    >
+    <v-btn :color="speechStore.isPlaying ? 'green' : 'error'">{{
+      speechStore.isPlaying
+    }}</v-btn>
 
-    <v-divider></v-divider>
-    <v-row>
-      <v-col
-        class="6"
-        md="4"
-        lg="3"
-        v-for="voiceInfo in allVoices"
-        :key="voiceInfo.name"
-      >
-        <v-card>
-          <v-card-title>
-            <div>
-              {{ voiceInfo.localName }}
-              <v-avatar v-if="voiceInfo.gender === 1" size="30" color="red">
-                <img
-                  src="https://img.icons8.com/bubbles/50/null/lock-female-user.png"
-                />
-              </v-avatar>
-              <v-avatar v-else size="30" color="blue">
-                <img
-                  src="https://img.icons8.com/bubbles/50/null/user-male.png"
-                />
-              </v-avatar>
-            </div>
-          </v-card-title>
-          <v-divider></v-divider>
-          <v-card-text>
-            <div>{{ voiceInfo.name }}</div>
-            <div>
-              <v-chip class="font-weight-bold" color="blue">{{
-                voiceInfo.locale
-              }}</v-chip>
-            </div>
-            <div class="font-weight-bold">{{ voiceInfo.shortName }}</div>
+    <v-divider class="mb-10"></v-divider>
 
-            <!-- <div>{{ voiceInfo.voiceType }}</div> -->
-            <div v-if="voiceInfo.styleList.length > 0">
-              <v-select
-                density="compact"
-                :items="voiceInfo.styleList"
-                label="style"
-              ></v-select>
-            </div>
-
-            <!-- <div>{{ voiceInfo.voicePath }}</div> -->
-          </v-card-text>
-          <v-divider></v-divider>
-        </v-card>
-      </v-col>
-    </v-row>
+    <v-container>
+      <v-row>
+        <v-col cols="12" md="4">
+          <v-card>
+            <v-list elevation="1" density="compact">
+              <v-list-subheader
+                >Total {{ allVoices.length }} Voices</v-list-subheader
+              >
+              <RecycleScroller
+                class="scroller"
+                :items="allVoices"
+                :item-size="50"
+                key-field="name"
+                v-slot="{ item }"
+              >
+                <v-list-item
+                  :active-color="primary"
+                  @click="selectVoice(item)"
+                  :active="
+                    item.shortName === speechStore.speechSynthesisVoiceName
+                  "
+                  three-line
+                >
+                  <!-- ---------------------------------------------- -->
+                  <!-- Prepend-->
+                  <!-- ---------------------------------------------- -->
+                  <template v-slot:prepend>
+                    <!-- <span class="mr-3">{{ item.id }}</span> -->
+                    <v-avatar v-if="item.gender === 1" size="30" color="red">
+                      <img
+                        src="https://img.icons8.com/bubbles/50/null/lock-female-user.png"
+                      />
+                    </v-avatar>
+                    <v-avatar v-else size="30" color="blue">
+                      <img
+                        src="https://img.icons8.com/bubbles/50/null/user-male.png"
+                      />
+                    </v-avatar>
+                  </template>
+                  <!-- ---------------------------------------------- -->
+                  <!-- Append-->
+                  <!-- ---------------------------------------------- -->
+                  <template v-slot:append>
+                    <div class="full-h d-flex align-center">
+                      <span class="text-body-2 text-grey">
+                        <v-chip
+                          size="small"
+                          class="font-weight-bold"
+                          color="blue"
+                          >{{ item.locale }}</v-chip
+                        >
+                      </span>
+                    </div>
+                  </template>
+                  <!-- ---------------------------------------------- -->
+                  <!-- Main Content-->
+                  <!-- ---------------------------------------------- -->
+                  <div>
+                    <v-list-item-title class="font-weight-bold text-primary"
+                      >{{ item.localName }}
+                      <span class="text-body-2 ml-2"
+                        >({{ item.shortName }})</span
+                      ></v-list-item-title
+                    >
+                    <v-list-item-subtitle>{{ item.name }}</v-list-item-subtitle>
+                  </div>
+                </v-list-item>
+              </RecycleScroller>
+            </v-list>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.scroller {
+  height: 400px;
+}
+</style>

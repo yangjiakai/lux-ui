@@ -2,11 +2,9 @@ import type { VoiceInfo } from "microsoft-cognitiveservices-speech-sdk";
 import { useSpeechStore } from "@/stores/speechStore";
 import {
   AudioConfig,
-  CancellationErrorCode,
   SpeechSynthesisOutputFormat,
   SpeakerAudioDestination,
   SpeechConfig,
-  SpeechRecognizer,
   SpeechSynthesizer,
   ResultReason,
 } from "microsoft-cognitiveservices-speech-sdk";
@@ -27,30 +25,31 @@ interface Config {
 export function useSpeechService() {
   const speechStore = useSpeechStore();
 
+  // 使用speechStore中的speechConfig
+  const player = new SpeakerAudioDestination();
+  player.onAudioStart = function (_) {
+    // 在开始语音合成之前设置为 true
+    // state.isPlaying = true;
+    console.log("playback started");
+  };
+  player.onAudioEnd = function (_) {
+    // state.isPlaying = false;
+    console.log("playback finished");
+  };
+
+  const audioConfiga = AudioConfig.fromSpeakerOutput(player);
+
+  const speechConfig = SpeechConfig.fromSubscription(
+    import.meta.env.VITE_TTS_KEY,
+    import.meta.env.VITE_TTS_REGION
+  );
+
+  // 设置输出音频格式
+  speechConfig.speechSynthesisOutputFormat =
+    SpeechSynthesisOutputFormat.Audio16Khz32KBitRateMonoMp3;
+  const synthesizer = new SpeechSynthesizer(speechConfig, audioConfiga);
+
   async function textToSpeech(text: string) {
-    // 使用speechStore中的speechConfig
-    const player = new SpeakerAudioDestination();
-    player.onAudioStart = function (_) {
-      // 在开始语音合成之前设置为 true
-      // state.isPlaying = true;
-      console.log("playback started");
-    };
-    player.onAudioEnd = function (_) {
-      // state.isPlaying = false;
-      console.log("playback finished");
-    };
-
-    const audioConfiga = AudioConfig.fromSpeakerOutput(player);
-
-    const speechConfig = SpeechConfig.fromSubscription(
-      import.meta.env.VITE_TTS_KEY,
-      import.meta.env.VITE_TTS_REGION
-    );
-
-    // 设置输出音频格式
-    speechConfig.speechSynthesisOutputFormat =
-      SpeechSynthesisOutputFormat.Audio16Khz32KBitRateMonoMp3;
-    const synthesizer = new SpeechSynthesizer(speechConfig, audioConfiga);
     try {
       const result = await new Promise((resolve, reject) => {
         synthesizer;
@@ -88,7 +87,14 @@ export function useSpeechService() {
     }
   }
 
+  // 获取语音列表
+  const getVoices = async (): Promise<VoiceInfo[]> => {
+    const res = await synthesizer.getVoicesAsync();
+    return res.voices;
+  };
+
   return {
     textToSpeech,
+    getVoices,
   };
 }

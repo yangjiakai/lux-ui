@@ -32,7 +32,12 @@ const length = computed(() => list.value.length);
           key-field="id"
           v-slot="{ item }"
         >
-          <v-list-item @click="" three-line>
+          <v-list-item
+            :active="item.id === '1'"
+            active-color="error"
+            @click=""
+            three-line
+          >
             <!-- ---------------------------------------------- -->
             <!-- Prepend-->
             <!-- ---------------------------------------------- -->
