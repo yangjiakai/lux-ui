@@ -77,6 +77,7 @@ const createCompletion = async () => {
         model: "gpt-3.5-turbo",
         temperature: 1,
         n: 1,
+        max_tokens: 100,
       },
       chatStore.getApiKey
     );
