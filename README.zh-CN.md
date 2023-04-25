@@ -154,10 +154,12 @@ npm run dev
 ### 🔑 配置 ApiKey
 
 找到根目录下的`.env.template`文件，去掉`.template`后缀
-把`VITE_OPENAI_API_KEY`,`VITE_UNSPLASH_ACCESS_KEY`,`VITE_GITHUB_CLIENT_ID`分别替换成你自己的 Key
+把`VITE_OPENAI_API_KEY`,`VITE_UNSPLASH_ACCESS_KEY`,`VITE_GITHUB_CLIENT_ID`,`VITE_TTS_KEY` , `VITE_TTS_REGION`分别替换成你自己的
 
 > openai apikey： https://platform.openai.com/account/api-keys
 
 > unsplash apikey： https://unsplash.com/oauth/applications
 
 > github apikey： https://github.com/settings/tokens
+
+> azure textToSpeech : https://speech.microsoft.com/
