@@ -9,24 +9,18 @@ import { useChatStore } from "@/views/app/chat/chatStore";
 import AnimationAi from "@/components/animations/AnimationBot1.vue";
 // import AnimationSpeech from "@/components/animations/AnimationSpeech.vue";
 import AnimationRecording from "@/components/animations/AnimationRecording.vue";
-import {
-  AudioConfig,
-  SpeakerAudioDestination,
-  SpeechConfig,
-  SpeechSynthesisOutputFormat,
-  ResultReason,
-  SpeechSynthesizer,
-} from "microsoft-cognitiveservices-speech-sdk";
+
 import MdEditor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
 
 import AnimaitonCss01 from "@/components/animations/AnimaitonCss01.vue";
 import AnimaitonCss02 from "@/components/animations/AnimaitonCss02.vue";
-// import AnimaitonCss03 from "@/components/animations/AnimaitonCss03.vue";
+import { useSpeechStore } from "@/stores/speechStore";
 
 import { createTranscriptionApi, createCompletionApi } from "@/api/aiApi";
 const snackbarStore = useSnackbarStore();
 const chatStore = useChatStore();
+const speechStore = useSpeechStore();
 
 interface Message {
   content: string;
@@ -92,8 +86,8 @@ const createCompletion = async () => {
       content: completion.data.choices[0].message.content,
       role: "assistant",
     });
-
-    textToSpeech();
+    state.isResponse = false;
+    speechStore.textToSpeech(completion.data.choices[0].message.content);
   } catch (error) {
     state.isResponse = false;
     snackbarStore.showErrorMessage(error.message);
@@ -177,88 +171,11 @@ const stopRecording = () => {
 const state = reactive({
   isRecording: false,
   isResponse: false,
-  isPlaying: false,
 });
-
-const subscriptionKey = ref(import.meta.env.VITE_SCRIPTION_KEY);
-const region = ref("eastus");
-
-// 创建语音配置对象
-const speechConfig = SpeechConfig.fromSubscription(
-  subscriptionKey.value,
-  region.value
-);
-
-// 设置输出音频格式
-speechConfig.speechSynthesisOutputFormat =
-  SpeechSynthesisOutputFormat.Audio16Khz32KBitRateMonoMp3;
-
-// 通过playback结束事件来判断播放结束
-const player = new SpeakerAudioDestination();
-player.onAudioStart = function (_) {
-  // 在开始语音合成之前设置为 true
-  state.isPlaying = true;
-  console.log("playback started");
-};
-player.onAudioEnd = function (_) {
-  state.isPlaying = false;
-  console.log("playback finished");
-};
-
-// const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
-const audioConfiga = AudioConfig.fromSpeakerOutput(player);
-
-// 创建一个语音合成器
-const synthesizer = new SpeechSynthesizer(speechConfig, audioConfiga);
-
-async function textToSpeech() {
-  // 将文本转换为语音
-  try {
-    const result = await new Promise((resolve, reject) => {
-      synthesizer.speakTextAsync(
-        messages.value[messages.value.length - 1].content,
-        (speechResult) => {
-          if (speechResult.reason === ResultReason.SynthesizingAudioCompleted) {
-            resolve(speechResult);
-          } else {
-            reject(
-              new Error(
-                `Speech synthesis failed with reason: ${speechResult.reason}`
-              )
-            );
-          }
-        },
-        (error) => {
-          state.isPlaying = false; // 在语音合成出现错误时设置为 false
-          reject(error);
-        }
-      );
-    });
-    state.isResponse = false;
-    // 处理语音合成结果，例如播放音频或将其发送到客户端
-    console.log("Text-to-speech synthesis result:", result);
-  } catch (error) {
-    console.error("Error during text-to-speech synthesis:", error);
-  } finally {
-    // 关闭语音合成器以释放资源
-    synthesizer.close();
-  }
-}
-
-// 获取语音列表
-// const getVoices = async () => {
-//   const res = await synthesizer.getVoicesAsync();
-//   allVoices.value = res.voices.filter((voice) =>
-//     languages.value.includes(voice.locale)
-//   );
-
-//   // fr-FR 法语 ja-JP 日语 en-US 英语 zh-CN 中文 zh-HK 粤语 ko-KR 韩语 de-DE 德语
-
-//   console.log("allVoices", allVoices.value);
-// };
 </script>
 
 <template>
+  <!-- Message List -->
   <v-card class="bg">
     <perfect-scrollbar v-if="messages.length > 1" class="message-container">
       <template v-for="message in messages">
@@ -299,6 +216,7 @@ async function textToSpeech() {
       </div>
     </perfect-scrollbar>
 
+    <!-- No Message Content -->
     <div class="no-message-container" v-else>
       <h1 style="color: #6746f5" class="text-h4 text-md-h2 font-weight-bold">
         Talk With Me
@@ -313,10 +231,19 @@ async function textToSpeech() {
       max-width="400"
       height="120"
     >
-      <!-- Todo Select Model  -->
-
+      <!-- Recording Animation -->
+      <AnimationRecording
+        v-if="state.isRecording"
+        @click="stopRecording"
+        :size="140"
+      />
+      <!-- Response Animation -->
+      <AnimaitonCss02 v-else-if="state.isResponse" />
+      <!-- Playing Animation -->
+      <AnimaitonCss01 v-else-if="speechStore.isPlaying" />
+      <!-- Recording Btn -->
       <v-btn
-        v-if="!state.isRecording && !state.isResponse && !state.isPlaying"
+        v-else
         size="x-large"
         color="#6746f5"
         class="text-white"
@@ -325,46 +252,6 @@ async function textToSpeech() {
         @click="startRecording"
         ><v-icon>mdi-microphone</v-icon></v-btn
       >
-      <!-- Recording Animation -->
-
-      <AnimationRecording
-        v-else-if="state.isRecording"
-        @click="stopRecording"
-        :size="140"
-      />
-      <!-- <v-btn
-      
-        color="success"
-        @click="stopRecording"
-      >
-        <AnimaitonCss01 />
-      </v-btn> -->
-
-      <!-- Response Animation -->
-      <AnimaitonCss02 v-else-if="state.isResponse" />
-
-      <!-- Playing Animation -->
-
-      <AnimaitonCss01 v-else-if="state.isPlaying" />
-      <!-- <AnimaitonCss03 /> -->
-      <!-- <v-text-field
-        color="primary"
-        ref="input"
-        v-model="userMessage"
-        placeholder="SendMessage"
-        hide-details
-        @keyup.enter="sendMessage"
-      >
-        <template #prepend-inner>
-          <v-icon @click="startRecording">mdi-microphone</v-icon>
-
-          <v-icon @click="stopRecording">mdi-microphone-outline</v-icon>
-        </template>
-
-        <template #append-inner>
-          <v-icon @click="sendMessage">mdi-send</v-icon>
-        </template>
-      </v-text-field> -->
     </v-sheet>
   </v-card>
 </template>

@@ -6,11 +6,14 @@
 <script setup lang="ts">
 import * as sdk from "microsoft-cognitiveservices-speech-sdk";
 import type { VoiceInfo } from "microsoft-cognitiveservices-speech-sdk";
+import { useSpeechService } from "@/hooks/useSpeechService";
+import { useSpeechStore } from "@/stores/speechStore";
+const speechStore = useSpeechStore();
 // import { supportLanguageMap } from "@/configs/azure";
 
 // const currentLang = ref("en-US");
 
-const subscriptionKey = ref(import.meta.env.VITE_SCRIPTION_KEY);
+const subscriptionKey = ref(import.meta.env.VITE_TTS_KEY);
 const region = ref("eastus");
 
 // 创建语音配置对象
@@ -26,45 +29,45 @@ speechConfig.speechSynthesisOutputFormat =
 // 创建一个语音合成器
 const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
-async function textToSpeech(text) {
-  console.log("textToSpeech");
-  console.log("text", text);
-  console.log("subscriptionKey", subscriptionKey);
-  console.log("region", region);
+// async function textToSpeech(text) {
+//   console.log("textToSpeech");
+//   console.log("text", text);
+//   console.log("subscriptionKey", subscriptionKey);
+//   console.log("region", region);
 
-  // 将文本转换为语音
-  try {
-    const result = await new Promise((resolve, reject) => {
-      synthesizer.speakTextAsync(
-        text,
-        (speechResult) => {
-          if (
-            speechResult.reason === sdk.ResultReason.SynthesizingAudioCompleted
-          ) {
-            resolve(speechResult);
-          } else {
-            reject(
-              new Error(
-                `Speech synthesis failed with reason: ${speechResult.reason}`
-              )
-            );
-          }
-        },
-        (error) => {
-          reject(error);
-        }
-      );
-    });
+//   // 将文本转换为语音
+//   try {
+//     const result = await new Promise((resolve, reject) => {
+//       synthesizer.speakTextAsync(
+//         text,
+//         (speechResult) => {
+//           if (
+//             speechResult.reason === sdk.ResultReason.SynthesizingAudioCompleted
+//           ) {
+//             resolve(speechResult);
+//           } else {
+//             reject(
+//               new Error(
+//                 `Speech synthesis failed with reason: ${speechResult.reason}`
+//               )
+//             );
+//           }
+//         },
+//         (error) => {
+//           reject(error);
+//         }
+//       );
+//     });
 
-    // 处理语音合成结果，例如播放音频或将其发送到客户端
-    console.log("Text-to-speech synthesis result:", result);
-  } catch (error) {
-    console.error("Error during text-to-speech synthesis:", error);
-  } finally {
-    // 关闭语音合成器以释放资源
-    synthesizer.close();
-  }
-}
+//     // 处理语音合成结果，例如播放音频或将其发送到客户端
+//     console.log("Text-to-speech synthesis result:", result);
+//   } catch (error) {
+//     console.error("Error during text-to-speech synthesis:", error);
+//   } finally {
+//     // 关闭语音合成器以释放资源
+//     synthesizer.close();
+//   }
+// }
 
 const text = ref("Hello, this is an example of text-to-speech synthesis.");
 
@@ -91,14 +94,42 @@ const getVoices = async () => {
 
   console.log("allVoices", allVoices.value);
 };
+
+const { textToSpeech } = useSpeechService();
+
+async function handleTextToSpeech(text: string) {
+  try {
+    await textToSpeech(text);
+    console.log("Start");
+  } catch (error) {
+    console.error("Error during text-to-speech:", error);
+  } finally {
+    console.log("End");
+  }
+}
 </script>
 
 <template>
-  <div class="">
+  <div class="pa-5">
     text-sm-center
     <v-text-field name="name" label="label" id="id"></v-text-field>
     <v-btn color="success" @click="textToSpeech(text)">说话</v-btn>
     <v-btn color="success" @click="getVoices">获取VoiceInfo</v-btn>
+    <v-btn color="success" @click="handleTextToSpeech('hello world ')"
+      >text</v-btn
+    >
+    <v-btn color="success" @click="speechStore.textToSpeech('hello world ')">
+      too
+    </v-btn>
+
+    <v-icon v-if="speechStore.isPlaying">mdi-home</v-icon>
+
+    <v-btn
+      @click="speechStore.updateIsPlaying()"
+      :color="speechStore.isPlaying ? 'green' : 'error'"
+      >{{ speechStore.isPlaying }}</v-btn
+    >
+
     <v-divider></v-divider>
     <v-row>
       <v-col
