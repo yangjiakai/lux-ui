@@ -105,9 +105,6 @@ onMounted(() => {
                           >({{ item.shortName }})</span
                         ></v-list-item-title
                       >
-                      <v-list-item-subtitle>{{
-                        item.name
-                      }}</v-list-item-subtitle>
                     </div>
                   </v-list-item>
                 </RecycleScroller>
