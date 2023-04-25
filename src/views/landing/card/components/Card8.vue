@@ -18,18 +18,20 @@
       max-width="1600 "
       class="mx-auto my-10"
     >
-      <v-row align="center" justify="center">
-        <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 3">
-          <v-card
-            class="card-2 mx-auto my-5 pa-2"
-            height="400"
-            width="300"
-            variant="flat"
-          >
-            <v-card height="100%" elevation="0"> {{ i }}</v-card>
-          </v-card>
-        </v-col>
-      </v-row>
+      <v-container>
+        <v-row align="center" justify="center">
+          <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 3">
+            <v-card
+              class="card-2 mx-auto my-5 pa-2"
+              height="400"
+              width="300"
+              variant="flat"
+            >
+              <v-card height="100%" elevation="0"> {{ i }}</v-card>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-sheet>
   </v-sheet>
 </template>

@@ -49,20 +49,22 @@ const items = [
       max-width="1600 "
       class="mx-auto my-10"
     >
-      <v-row align="center" justify="center">
-        <v-col cols="6" md="4" lg="3" v-for="item in items">
-          <v-card
-            elevation="0"
-            class="text-center pa-5 base-card text-center mx-auto d-flex flex-column justify-center"
-          >
-            <h1 class="text-h2 font-weight-black">{{ item.title }}</h1>
-            <p class="py-5">
-              {{ item.description }}
-            </p>
-            <h6>{{ item.subTitle }}</h6>
-          </v-card>
-        </v-col>
-      </v-row>
+      <v-container>
+        <v-row align="center" justify="center">
+          <v-col cols="12" md="4" lg="3" v-for="item in items">
+            <v-card
+              elevation="0"
+              class="text-center pa-5 base-card text-center mx-auto d-flex flex-column justify-center"
+            >
+              <h1 class="text-h2 font-weight-black">{{ item.title }}</h1>
+              <p class="py-5">
+                {{ item.description }}
+              </p>
+              <h6>{{ item.subTitle }}</h6>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-sheet>
   </v-sheet>
 </template>

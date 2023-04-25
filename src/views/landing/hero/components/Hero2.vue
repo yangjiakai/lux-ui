@@ -40,20 +40,9 @@
                 Stack is a Spatial Browser for Mindful Online Living
               </h2>
             </v-card>
-            <div>
-              <v-btn
-                width="200"
-                height="60"
-                class="text-white mr-5"
-                color="primary"
+            <div class="text-center">
+              <v-btn size="x-large" class="text-white" color="primary"
                 >Get Stack</v-btn
-              >
-              <v-btn
-                variant="outlined"
-                width="200"
-                height="60"
-                class="text-primary"
-                >Watch Demo</v-btn
               >
             </div>
           </v-sheet>

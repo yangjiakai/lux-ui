@@ -20,16 +20,18 @@ import logos from "@/data/logos";
       max-width="1600 "
       class="mx-auto my-10"
     >
-      <v-row align="center" justify="center">
-        <v-col cols="6" sm="6" md="4" lg="3" v-for="logo in logos">
-          <v-card
-            elevation="0"
-            class="pa-5 base-card text-center mx-auto d-flex flex-column justify-center"
-          >
-            <v-img height="60" :src="logo.logoUrl"></v-img>
-          </v-card>
-        </v-col>
-      </v-row>
+      <v-container>
+        <v-row align="center" justify="center">
+          <v-col cols="6" sm="6" md="4" lg="3" v-for="logo in logos">
+            <v-card
+              elevation="0"
+              class="pa-5 base-card text-center mx-auto d-flex flex-column justify-center"
+            >
+              <v-img height="60" :src="logo.logoUrl"></v-img>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-sheet>
   </v-sheet>
 </template>

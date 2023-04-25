@@ -20,18 +20,20 @@ import { Icon } from "@iconify/vue";
       max-width="1600 "
       class="mx-auto my-10"
     >
-      <v-row align="center" justify="center">
-        <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 3">
-          <div class="card">
-            <div class="cup-warp">
-              <Icon class="animate-icon cup" icon="fxemoji:sunrays" />
+      <v-container>
+        <v-row align="center" justify="center">
+          <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 3">
+            <div class="card">
+              <div class="cup-warp">
+                <Icon class="animate-icon cup" icon="fxemoji:sunrays" />
 
-              <!-- <Icon class="animate-icon" icon="logos:bamboo" /> -->
+                <!-- <Icon class="animate-icon" icon="logos:bamboo" /> -->
+              </div>
+              <div class="button">GET INVETED{{ i }}</div>
             </div>
-            <div class="button">GET INVETED{{ i }}</div>
-          </div>
-        </v-col>
-      </v-row>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-sheet>
   </v-sheet>
 </template>

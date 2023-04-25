@@ -1125,175 +1125,180 @@ const system = reactive({
 </script>
 
 <template>
-  <v-row>
-    <!-- ---------------------------------------------- -->
-    <!-- address Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary">
-          address
-        </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in address" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill">{{ item.value }}</span
-              ><b class="text-blue">{{ item.code }}</b>
+  <v-container>
+    <v-row>
+      <!-- ---------------------------------------------- -->
+      <!-- address Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            address
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in address" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill">{{ item.value }}</span
+                ><b class="text-blue">{{ item.code }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
             </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- animal Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary">
-          animal
-        </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in animal" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill">{{ item.value }}</span
-              ><b class="text-blue">{{ item.code }}</b>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- animal Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            animal
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in animal" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill">{{ item.value }}</span
+                ><b class="text-blue">{{ item.code }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
             </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- commerce Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary">
-          commerce
-        </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in commerce" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }}:</b>
-              <span class="flex-fill">{{ item.value }}</span
-              ><b class="text-blue">{{ `faker.commerce.${key}()` }}</b>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- commerce Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            commerce
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in commerce" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }}:</b>
+                <span class="flex-fill">{{ item.value }}</span
+                ><b class="text-blue">{{ `faker.commerce.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
             </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- color Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary"> color </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in color" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill">{{ item.value }}</span
-              ><b class="text-blue">{{ `faker.color.${key}()` }}</b>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- color Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            color
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in color" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill">{{ item.value }}</span
+                ><b class="text-blue">{{ `faker.color.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
             </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- company Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary">
-          company
-        </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in company" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill">{{ item.value }}</span
-              ><b class="text-blue">{{ `faker.company.${key}()` }}</b>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- company Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            company
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in company" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill">{{ item.value }}</span
+                ><b class="text-blue">{{ `faker.company.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
             </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- database Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary">
-          database
-        </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in database" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill">{{ item.value }}</span
-              ><b class="text-blue">{{ `faker.database.${key}()` }}</b>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- database Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            database
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in database" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill">{{ item.value }}</span
+                ><b class="text-blue">{{ `faker.database.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
             </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- date Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary"> date </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in date" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill">{{ item.value }}</span
-              ><b class="text-blue">{{ `faker.date.${key}()` }}</b>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- date Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            date
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in date" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill">{{ item.value }}</span
+                ><b class="text-blue">{{ `faker.date.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
             </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- finance Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary">
-          finance
-        </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in finance" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill">{{ item.value }}</span
-              ><b class="text-blue">{{ `faker.finance.${key}()` }}</b>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- finance Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            finance
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in finance" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill">{{ item.value }}</span
+                ><b class="text-blue">{{ `faker.finance.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
             </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- git Card -->
-    <!-- ---------------------------------------------- -->
-    <!-- <v-col cols="12" md="4">
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- git Card -->
+      <!-- ---------------------------------------------- -->
+      <!-- <v-col cols="12" md="4">
       <v-card>
         <v-card-title class="font-weight-bold bg-primary"> git </v-card-title>
         <v-divider></v-divider>
@@ -1309,52 +1314,52 @@ const system = reactive({
         </v-card-text>
       </v-card>
     </v-col> -->
-    <!-- ---------------------------------------------- -->
-    <!-- hacker Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary">
-          hacker
-        </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in hacker" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill">{{ item.value }}</span
-              ><b class="text-blue">{{ `faker.hacker.${key}()` }}</b>
+      <!-- ---------------------------------------------- -->
+      <!-- hacker Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            hacker
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in hacker" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill">{{ item.value }}</span
+                ><b class="text-blue">{{ `faker.hacker.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
             </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- helpers Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary">
-          helpers
-        </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in helpers" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill"> {{ item.value }} </span
-              ><b class="text-blue">{{ `faker.helpers.${key}()` }}</b>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- helpers Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            helpers
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in helpers" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill"> {{ item.value }} </span
+                ><b class="text-blue">{{ `faker.helpers.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
             </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- image Card -->
-    <!-- ---------------------------------------------- -->
-    <!-- <v-col cols="12" md="4">
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- image Card -->
+      <!-- ---------------------------------------------- -->
+      <!-- <v-col cols="12" md="4">
       <v-card>
         <v-card-title class="font-weight-bold bg-primary"> image </v-card-title>
         <v-divider></v-divider>
@@ -1372,148 +1377,157 @@ const system = reactive({
         </v-card-text>
       </v-card>
     </v-col> -->
-    <!-- ---------------------------------------------- -->
-    <!-- internet Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary">
-          internet
-        </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in internet" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill"> {{ item.value }} </span
-              ><b class="text-blue">{{ `faker.internet.${key}()` }}</b>
-            </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- lorem Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary"> lorem </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in lorem" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill"> {{ item.value }} </span
-              ><b class="text-blue">{{ `faker.lorem.${key}()` }}</b>
-            </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-
-    <!-- ---------------------------------------------- -->
-    <!-- name Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary"> name </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in name" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill"> {{ item.value }} </span
-              ><b class="text-blue">{{ `faker.name.${key}()` }}</b>
-            </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- phone Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary"> phone </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in phone" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill"> {{ item.value }} </span
-              ><b class="text-blue">{{ `faker.phone.${key}()` }}</b>
-            </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- git Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary"> git </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in git" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill"> {{ item.value }} </span
-              ><b class="text-blue">{{ `faker.git.${key}()` }}</b>
-            </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- stystem Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary">
-          system
-        </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div v-for="(item, key) in system" :key="key">
-            <div class="d-flex">
-              <b class="mr-1">{{ item.label }} : </b>
-              <span class="flex-fill"> {{ item.value }} </span
-              ><b class="text-blue">{{ `faker.system.${key}()` }}</b>
-            </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-    <!-- ---------------------------------------------- -->
-    <!-- image Card -->
-    <!-- ---------------------------------------------- -->
-    <v-col cols="12" md="4">
-      <v-card>
-        <v-card-title class="font-weight-bold bg-primary"> image </v-card-title>
-        <v-divider></v-divider>
-        <v-card-text>
-          <div class="d-flex" v-for="(item, key) in image" :key="key">
-            <div>
-              <b class="mr-1">{{ item.label }} : </b>
-              <div class="flex-fill">
-                <v-img width="300" :src="item.value" :alt="item.label" />
+      <!-- ---------------------------------------------- -->
+      <!-- internet Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            internet
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in internet" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill"> {{ item.value }} </span
+                ><b class="text-blue">{{ `faker.internet.${key}()` }}</b>
               </div>
-
-              <b class="text-blue">{{ `faker.image.${key}()` }}</b>
+              <v-divider class="my-2"></v-divider>
             </div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-card-text>
-      </v-card>
-    </v-col>
-  </v-row>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- lorem Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            lorem
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in lorem" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill"> {{ item.value }} </span
+                ><b class="text-blue">{{ `faker.lorem.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+
+      <!-- ---------------------------------------------- -->
+      <!-- name Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            name
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in name" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill"> {{ item.value }} </span
+                ><b class="text-blue">{{ `faker.name.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- phone Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            phone
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in phone" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill"> {{ item.value }} </span
+                ><b class="text-blue">{{ `faker.phone.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- git Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary"> git </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in git" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill"> {{ item.value }} </span
+                ><b class="text-blue">{{ `faker.git.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- stystem Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            system
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div v-for="(item, key) in system" :key="key">
+              <div class="d-flex">
+                <b class="mr-1">{{ item.label }} : </b>
+                <span class="flex-fill"> {{ item.value }} </span
+                ><b class="text-blue">{{ `faker.system.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <!-- ---------------------------------------------- -->
+      <!-- image Card -->
+      <!-- ---------------------------------------------- -->
+      <v-col cols="12" md="4">
+        <v-card>
+          <v-card-title class="font-weight-bold bg-primary">
+            image
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text>
+            <div class="d-flex" v-for="(item, key) in image" :key="key">
+              <div>
+                <b class="mr-1">{{ item.label }} : </b>
+                <div class="flex-fill">
+                  <v-img width="300" :src="item.value" :alt="item.label" />
+                </div>
+
+                <b class="text-blue">{{ `faker.image.${key}()` }}</b>
+              </div>
+              <v-divider class="my-2"></v-divider>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <style scoped lang="scss"></style>

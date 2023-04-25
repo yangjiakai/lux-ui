@@ -23,66 +23,68 @@
       max-width="1600 "
       class="mx-auto my-10"
     >
-      <v-row align="center">
-        <v-col cols="12" md="4">
-          <div class="card">
-            <div class="wrapper">
+      <v-container>
+        <v-row align="center">
+          <v-col cols="12" md="4">
+            <div class="card">
+              <div class="wrapper">
+                <img
+                  src="https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg"
+                  class="cover-image"
+                />
+              </div>
               <img
-                src="https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg"
-                class="cover-image"
+                src="https://ggayane.github.io/css-experiments/cards/dark_rider-title.png"
+                class="title"
+              />
+              <img
+                src="https://ggayane.github.io/css-experiments/cards/dark_rider-character.webp"
+                class="character"
               />
             </div>
-            <img
-              src="https://ggayane.github.io/css-experiments/cards/dark_rider-title.png"
-              class="title"
-            />
-            <img
-              src="https://ggayane.github.io/css-experiments/cards/dark_rider-character.webp"
-              class="character"
-            />
-          </div>
-        </v-col>
-        <v-col cols="12" md="4">
-          <div class="card my-10">
-            <div class="wrapper">
+          </v-col>
+          <v-col cols="12" md="4">
+            <div class="card my-10">
+              <div class="wrapper">
+                <img
+                  src="@/assets/images/card2/yoimiya_bg.jpg"
+                  class="cover-image"
+                />
+              </div>
               <img
-                src="@/assets/images/card2/yoimiya_bg.jpg"
-                class="cover-image"
+                src="https://ggayane.github.io/css-experiments/cards/dark_rider-title.png"
+                class="title"
+              />
+              <img src="@/assets/images/card2/yoimiya.png" class="character" />
+            </div>
+          </v-col>
+          <v-col cols="12" md="4">
+            <div class="card">
+              <div class="wrapper">
+                <img
+                  src="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg"
+                  class="cover-image"
+                />
+              </div>
+              <img
+                src="https://ggayane.github.io/css-experiments/cards/force_mage-title.png"
+                class="title"
+              />
+              <img
+                src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp"
+                class="character"
               />
             </div>
-            <img
-              src="https://ggayane.github.io/css-experiments/cards/dark_rider-title.png"
-              class="title"
-            />
-            <img src="@/assets/images/card2/yoimiya.png" class="character" />
-          </div>
-        </v-col>
-        <v-col cols="12" md="4">
-          <div class="card">
-            <div class="wrapper">
-              <img
-                src="https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg"
-                class="cover-image"
-              />
-            </div>
-            <img
-              src="https://ggayane.github.io/css-experiments/cards/force_mage-title.png"
-              class="title"
-            />
-            <img
-              src="https://ggayane.github.io/css-experiments/cards/force_mage-character.webp"
-              class="character"
-            />
-          </div>
-        </v-col>
-      </v-row>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-sheet>
   </v-sheet>
 </template>
 
 <style scoped lang="scss">
 .card {
-  width: 400px;
+  max-width: 400px;
   height: 600px;
   position: relative;
   display: flex;

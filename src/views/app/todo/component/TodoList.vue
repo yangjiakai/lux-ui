@@ -101,7 +101,7 @@ const filterdTodoList = computed(() => {
 
 <style scoped lang="scss">
 .todo-list {
-  height: 970px;
+  height: 100%;
 
   .todo-item {
     transition: all 0.3s;

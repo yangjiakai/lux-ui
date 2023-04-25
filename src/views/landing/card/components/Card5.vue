@@ -19,23 +19,25 @@
       class="mx-auto my-10"
     >
       <v-item-group selected-class="active-card">
-        <v-row align="center" justify="center">
-          <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 3">
-            <v-item v-slot="{ isSelected, selectedClass, toggle }">
-              <v-card
-                :theme="isSelected ? 'dark' : 'light'"
-                elevation="0"
-                height="400"
-                width="300"
-                class="mx-auto pa-10 pa-md-15 d-flex flex-column justify-center card"
-                :class="selectedClass"
-                @click="toggle"
-              >
-                <h1 class="text-white">Let Test Some thing{{ i }}</h1>
-              </v-card>
-            </v-item>
-          </v-col>
-        </v-row>
+        <v-container>
+          <v-row align="center" justify="center">
+            <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 3">
+              <v-item v-slot="{ isSelected, selectedClass, toggle }">
+                <v-card
+                  :theme="isSelected ? 'dark' : 'light'"
+                  elevation="0"
+                  height="400"
+                  width="300"
+                  class="mx-auto pa-10 pa-md-15 d-flex flex-column justify-center card"
+                  :class="selectedClass"
+                  @click="toggle"
+                >
+                  <h1 class="text-white">Let Test Some thing{{ i }}</h1>
+                </v-card>
+              </v-item>
+            </v-col>
+          </v-row>
+        </v-container>
       </v-item-group>
     </v-sheet>
   </v-sheet>

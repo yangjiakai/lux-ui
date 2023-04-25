@@ -200,7 +200,7 @@ const openPhotoDialog = (id: string) => {
       <v-spacer></v-spacer>
       <v-btn color="">Go</v-btn>
     </v-toolbar>
-    <v-row>
+    <v-row no-gutters>
       <v-col cols="12" xl="10">
         <v-card class="mt-2">
           <v-tabs v-model="tab" bg-color="primary">
@@ -577,7 +577,6 @@ const openPhotoDialog = (id: string) => {
         <FavoriteCard />
       </v-col>
     </v-row>
-
     <!-- SnackBar -->
     <v-snackbar v-model="snackbar.isShow" :timeout="snackbar.timeout">
       {{ snackbar.text }}

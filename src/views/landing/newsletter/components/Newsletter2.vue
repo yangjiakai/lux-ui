@@ -25,7 +25,7 @@
       max-width="1600"
       class="mx-auto pa-5"
     >
-      <v-container class="">
+      <v-container>
         <v-row align="center" justify="center">
           <v-col cols="12" lg="3">
             <h1 class="text-h5 font-weight-bold text-center">

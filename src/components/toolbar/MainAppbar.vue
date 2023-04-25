@@ -70,7 +70,7 @@ const showMobileSearch = ref(false);
           </v-badge>
         </v-btn>
 
-        <v-btn icon to="/apps/todo" class="text-none">
+        <v-btn v-if="mdAndUp" icon to="/apps/todo" class="text-none">
           <v-badge :content="`${todoStore.getTodoList.length} +`" color="error">
             <v-icon>mdi-calendar-check</v-icon>
           </v-badge>
