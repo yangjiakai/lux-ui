@@ -10,7 +10,7 @@ import type { VoiceInfo } from "microsoft-cognitiveservices-speech-sdk";
 
 // const currentLang = ref("en-US");
 
-const subscriptionKey = ref("3a3b5d289df1465ea8fb41b4d9a8ef91");
+const subscriptionKey = ref(import.meta.env.VITE_SCRIPTION_KEY);
 const region = ref("eastus");
 
 // 创建语音配置对象
