@@ -1,15 +1,12 @@
-import Clipboard from 'clipboard';
-
+import Clipboard from "clipboard";
 export default function handleClipboard(text, event) {
   const clipboard = new Clipboard(event.target, {
-    text: () => text
+    text: () => text,
   });
-  clipboard.on('success', (e) => {
-    console.log("copy success ", text);
+  clipboard.on("success", (e) => {
     clipboard.destroy();
   });
-  clipboard.on('error', (e) => {
-    console.error("copy error ", text);
+  clipboard.on("error", (e) => {
     clipboard.destroy();
   });
   clipboard.onClick(event);
