@@ -21,7 +21,6 @@ const getIcon = (type) => {
       :color="snackbarStore.type"
       class="elevation-10"
       location="top"
-      multi-line
     >
       <div class="d-flex align-center">
         <v-icon class="mr-2">{{ getIcon(snackbarStore.type) }}</v-icon>
