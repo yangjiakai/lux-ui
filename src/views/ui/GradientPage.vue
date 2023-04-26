@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { useClipboard } from "@vueuse/core";
 import { gradients } from "@/data/gradients";
 import { Icon } from "@iconify/vue";
+import clipboard from '@/utils/clipboardUtils';
 import CopyLabel from "@/components/common/CopyLabel.vue";
-const { copy, copied } = useClipboard();
 
 const dialog = ref(false);
 const angle = ref(135);
@@ -71,7 +70,7 @@ const changeGradientAngel = () => {
           />
         </div>
         <div class="center-area">
-          <div class="gradient-from" @click="copy(gradientFrom)">
+          <div class="gradient-from" @click="clipboard(gradientFrom, $event)">
             <Icon
               :color="gradientFrom"
               icon="academicons:ceur-square"
@@ -85,7 +84,7 @@ const changeGradientAngel = () => {
             class="right-icon"
             icon="akar-icons:circle-chevron-right-fill"
           />
-          <div class="gradient-to" @click="copy(gradientTo)">
+          <div class="gradient-to" @click="clipboard(gradientTo, $event)">
             <Icon
               icon="academicons:ceur-square"
               inline="true"
@@ -110,7 +109,7 @@ const changeGradientAngel = () => {
           <div
             class="gradient-code-content"
             v-if="isCodeShow"
-            @click="copy(bgGradient)"
+            @click="clipboard(bgGradient, $event)"
           >
             <copy-label :text="bgGradient" /></div
         ></transition>

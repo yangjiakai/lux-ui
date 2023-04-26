@@ -1,11 +1,10 @@
 <!--
 * @Component: CopyLabel
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
-import { useClipboard } from "@vueuse/core";
-const { copy } = useClipboard();
+import clipboard from '@/utils/clipboardUtils';
 
 // SnackBar
 const snackbar = ref(false);
@@ -22,9 +21,9 @@ const props = defineProps({
 });
 
 // Copy Text
-const copyText = () => {
+const copyText = (event: Event) => {
   console.log(props.text);
-  copy(props.text);
+  clipboard(props.text, event);
 
   snackbar.value = true;
 };
@@ -41,7 +40,7 @@ const copyText = () => {
       </template>
     </v-snackbar>
 
-    <v-btn v-bind="$attrs" icon @click="copyText()"
+    <v-btn v-bind="$attrs" icon @click="copyText($event)"
       ><v-icon>mdi-content-copy</v-icon>
       <v-tooltip activator="parent" location="bottom" text="Copy"></v-tooltip>
     </v-btn>

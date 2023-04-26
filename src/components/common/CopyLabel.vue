@@ -1,11 +1,10 @@
 <!--
 * @Component: CopyLabel
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
-import { useClipboard } from "@vueuse/core";
-const { copy } = useClipboard();
+import clipboard from '@/utils/clipboardUtils';
 
 // ToolTip
 const tooltip = ref("Copy");
@@ -27,8 +26,8 @@ const props = defineProps({
 const { text } = toRefs(props);
 
 // Copy Text
-const copyText = (text: string) => {
-  copy(text);
+const copyText = (text: string, event: Event) => {
+  clipboard(text, event);
   heartBeat.value = true;
   snackbar.value = true;
   tooltip.value = "Copied!";
@@ -56,7 +55,7 @@ const copyText = (text: string) => {
         }"
         class="text"
         v-bind="props"
-        @click.stop.prevent="copyText(text)"
+        @click.stop.prevent="copyText(text, $event)"
       >
         {{ text }}
       </span>
