@@ -32,6 +32,7 @@ export const useSpeechStore = defineStore({
         paths: [
           "speechSynthesisLanguage",
           "speechSynthesisVoiceName",
+          "localName",
           "voiceRate",
           "voiceEmotion",
         ],
