@@ -4,6 +4,8 @@ import PageTitle from "@/components/PageTitle.vue";
 import MainSidevar from "@/components/navigation/MainSidebar.vue";
 import MainAppbar from "@/components/toolbar/MainAppbar.vue";
 import ToolBox from "@/components/Toolbox.vue";
+import { useCustomizeThemeStore } from "@/stores/customizeTheme";
+const customizeTheme = useCustomizeThemeStore();
 
 // import GlobalLoading from "@/components/GlobalLoading.vue";
 </script>
@@ -21,7 +23,12 @@ import ToolBox from "@/components/Toolbox.vue";
     <!-- ---------------------------------------------- -->
     <!---MainArea -->
     <!-- ---------------------------------------------- -->
-    <v-main class="main-bg">
+    <v-main
+      v-touch="{
+        right: () => (customizeTheme.mainSidebar = true),
+      }"
+      class="main-bg"
+    >
       <!-- <GlobalLoading /> -->
 
       <v-container class="pa-0 pa-sm-4" fluid>

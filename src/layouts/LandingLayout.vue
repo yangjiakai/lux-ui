@@ -3,6 +3,8 @@ import MainSidebar from "@/components/navigation/MainSidebar.vue";
 import MainAppbar from "@/components/toolbar/MainAppbar.vue";
 // import GlobalLoading from "@/components/GlobalLoading.vue";
 import ToolBox from "@/components/Toolbox.vue";
+import { useCustomizeThemeStore } from "@/stores/customizeTheme";
+const customizeTheme = useCustomizeThemeStore();
 </script>
 
 <template>
@@ -19,7 +21,13 @@ import ToolBox from "@/components/Toolbox.vue";
     <!---MainArea -->
     <!-- ---------------------------------------------- -->
     <perfect-scrollbar>
-      <v-main class="main-area">
+      <v-main
+        class="main-area"
+        v-touch="{
+          left: () => (customizeTheme.mainSidebar = false),
+          right: () => (customizeTheme.mainSidebar = true),
+        }"
+      >
         <!-- <GlobalLoading /> -->
         <ToolBox />
         <slot></slot>
