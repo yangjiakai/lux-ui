@@ -115,45 +115,50 @@ watch(
 </script>
 
 <template>
-  <v-card>
-    <perfect-scrollbar v-if="messages.length > 0" class="message-container">
-      <template v-for="message in messages">
-        <div v-if="message.role === 'user'">
-          <div class="pa-6 user-message">
-            <div class="message align-center">
-              <v-avatar class="mr-9">
-                <img src="@/assets/images/avatars/avatar_user.jpg" alt="alt" />
-              </v-avatar>
-              <b> {{ message.content }}</b>
+  <div class="chat-bot">
+    <div class="messsage-area">
+      <perfect-scrollbar v-if="messages.length > 0" class="message-container">
+        <template v-for="message in messages">
+          <div v-if="message.role === 'user'">
+            <div class="pa-5 user-message">
+              <div class="message align-center">
+                <v-avatar class="mr-9">
+                  <img
+                    src="@/assets/images/avatars/avatar_user.jpg"
+                    alt="alt"
+                  />
+                </v-avatar>
+                <b> {{ message.content }}</b>
+              </div>
             </div>
           </div>
-        </div>
-        <div v-else>
-          <div class="bg-white pa-6">
-            <div class="message">
-              <v-avatar class="mr-4 mt-4">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
-                  alt="alt"
-                />
-              </v-avatar>
-              <md-editor v-model="message.content" previewOnly />
+          <div v-else>
+            <div class="pa-5 assitant-message">
+              <div class="message">
+                <v-avatar class="mr-4 mt-4">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
+                    alt="alt"
+                  />
+                </v-avatar>
+                <md-editor v-model="message.content" previewOnly />
+              </div>
             </div>
           </div>
-        </div>
-      </template>
-    </perfect-scrollbar>
-    <div class="no-message-container" v-else>
-      <h1 class="text-h4 text-md-h2 text-blue-lighten-1 font-weight-bold">
-        Ask Me Any Thing
-      </h1>
-      <AnimationAi :size="300" />
+        </template>
+      </perfect-scrollbar>
+      <div class="no-message-container" v-else>
+        <h1 class="text-h4 text-md-h2 text-blue-lighten-1 font-weight-bold">
+          Ask Me Any Thing
+        </h1>
+        <AnimationAi :size="300" />
+      </div>
     </div>
+    <div class="input-area">
+      <v-sheet elevation="0" class="input-panel" max-width="1200">
+        <!-- Todo Select Model  -->
 
-    <v-sheet elevation="0" class="my-4 px-4 mx-auto" max-width="1200">
-      <!-- Todo Select Model  -->
-
-      <!-- <div class="mb-2">
+        <!-- <div class="mb-2">
         <v-select
           class="w-50"
           label="Model"
@@ -162,30 +167,56 @@ watch(
           variant="solo"
         ></v-select>
       </div> -->
-      <v-text-field
-        color="primary"
-        ref="input"
-        v-model="userMessage"
-        placeholder="SendMessage"
-        hide-details
-        @keyup.enter="sendMessage"
-      >
-        <template #prepend-inner>
-          <v-icon>mdi-microphone</v-icon>
-        </template>
+        <v-text-field
+          color="primary"
+          ref="input"
+          v-model="userMessage"
+          placeholder="SendMessage"
+          hide-details
+          @keyup.enter="sendMessage"
+        >
+          <template #prepend-inner>
+            <v-icon>mdi-microphone</v-icon>
+          </template>
 
-        <template #append-inner>
-          <v-icon @click="sendMessage">mdi-send</v-icon>
-        </template>
-      </v-text-field>
-    </v-sheet>
-  </v-card>
+          <template #append-inner>
+            <v-icon @click="sendMessage">mdi-send</v-icon>
+          </template>
+        </v-text-field>
+      </v-sheet>
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
+.chat-bot {
+  background-color: #fcfcfe;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .messsage-area {
+    flex: 1;
+  }
+  .input-area {
+    padding: 1rem;
+
+    align-items: center;
+    .input-panel {
+      border-radius: 5px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+}
+
 .user-message {
-  background-color: #f6f6f6;
+  background-color: #f6f6fd;
   border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.assitant-message {
+  background-color: #fff;
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -196,11 +227,11 @@ watch(
 }
 
 .message-container {
-  height: calc(100vh - 270px);
+  height: 100%;
 }
 
 .no-message-container {
-  height: calc(100vh - 270px);
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

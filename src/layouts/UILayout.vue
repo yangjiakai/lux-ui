@@ -11,37 +11,36 @@ const customizeTheme = useCustomizeThemeStore();
 </script>
 
 <template>
-  <div>
-    <!-- ---------------------------------------------- -->
-    <!---Main Sidebar -->
-    <!-- ---------------------------------------------- -->
-    <MainSidevar />
-    <!-- ---------------------------------------------- -->
-    <!---Top AppBar -->
-    <!-- ---------------------------------------------- -->
-    <MainAppbar />
-    <!-- ---------------------------------------------- -->
-    <!---MainArea -->
-    <!-- ---------------------------------------------- -->
-    <v-main
-      v-touch="{
-        right: () => (customizeTheme.mainSidebar = true),
-      }"
-      class="main-bg"
-    >
-      <!-- <GlobalLoading /> -->
+  <!-- ---------------------------------------------- -->
+  <!---Main Sidebar -->
+  <!-- ---------------------------------------------- -->
+  <MainSidevar />
+  <!-- ---------------------------------------------- -->
+  <!---Top AppBar -->
+  <!-- ---------------------------------------------- -->
+  <MainAppbar />
+  <!-- ---------------------------------------------- -->
+  <!---MainArea -->
+  <!-- ---------------------------------------------- -->
+  <v-main
+    v-touch="{
+      left: () => (customizeTheme.mainSidebar = false),
+      right: () => (customizeTheme.mainSidebar = true),
+    }"
+    class="main-container"
+  >
+    <!-- <GlobalLoading /> -->
 
-      <v-container class="pa-0 pa-sm-4" fluid>
-        <div class="pa-4 pa-sm-0">
-          <PageTitle></PageTitle>
-          <Breadcrumb></Breadcrumb>
-        </div>
+    <div class="d-none d-sm-block pa-3">
+      <PageTitle></PageTitle>
+      <Breadcrumb></Breadcrumb>
+    </div>
 
-        <ToolBox />
-        <slot></slot>
-      </v-container>
-    </v-main>
-  </div>
+    <div class="flex-fill">
+      <slot></slot>
+    </div>
+    <ToolBox />
+  </v-main>
 </template>
 
 <style scoped>
@@ -49,7 +48,9 @@ const customizeTheme = useCustomizeThemeStore();
   height: calc(100vh - 326px);
 }
 
-.main-bg {
-  min-height: calc(100vh - 64px);
+.main-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 </style>

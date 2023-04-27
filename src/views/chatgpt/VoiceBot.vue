@@ -179,105 +179,112 @@ const state = reactive({
 
 <template>
   <!-- Message List -->
-  <v-card class="bg">
-    <perfect-scrollbar v-if="messages.length > 1" class="message-container">
-      <template v-for="message in messages">
-        <div v-if="message.role === 'user'">
-          <div class="pa-6 user-message">
-            <v-avatar class="ml-4" rounded="sm" variant="elevated">
-              <img src="@/assets/images/avatars/avatar_user.jpg" alt="alt" />
-            </v-avatar>
-            <v-card class="gradient gray" theme="dark">
-              <v-card-text>
-                <b> {{ message.content }}</b></v-card-text
-              >
-            </v-card>
+  <div class="chat-bot">
+    <div class="messsage-area">
+      <perfect-scrollbar v-if="messages.length > 1" class="message-container">
+        <template v-for="message in messages">
+          <div v-if="message.role === 'user'">
+            <div class="pa-6 user-message">
+              <v-avatar class="ml-4" rounded="sm" variant="elevated">
+                <img src="@/assets/images/avatars/avatar_user.jpg" alt="alt" />
+              </v-avatar>
+              <v-card class="gradient gray" theme="dark">
+                <v-card-text>
+                  <b> {{ message.content }}</b></v-card-text
+                >
+              </v-card>
+            </div>
+          </div>
+          <div v-else-if="message.role === 'assistant'">
+            <div class="pa-6 assistant-message">
+              <v-avatar class="mr-4" rounded="sm" variant="elevated">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
+                  alt="alt"
+                />
+              </v-avatar>
+              <v-card>
+                <div>
+                  <md-editor v-model="message.content" previewOnly />
+                </div>
+              </v-card>
+            </div>
+          </div>
+        </template>
+        <div v-if="isLoading">
+          <div class="pa-6">
+            <div class="message">
+              <AnimationAi :size="100" />
+            </div>
           </div>
         </div>
-        <div v-else-if="message.role === 'assistant'">
-          <div class="pa-6 assistant-message">
-            <v-avatar class="mr-4" rounded="sm" variant="elevated">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
-                alt="alt"
-              />
-            </v-avatar>
-            <v-card>
-              <div>
-                <md-editor v-model="message.content" previewOnly />
-              </div>
-            </v-card>
-          </div>
-        </div>
-      </template>
-      <div v-if="isLoading">
-        <div class="pa-6">
-          <div class="message">
-            <AnimationAi :size="100" />
-          </div>
-        </div>
+      </perfect-scrollbar>
+
+      <!-- No Message Content -->
+      <div class="no-message-container" v-else>
+        <h1 style="color: #6746f5" class="text-h4 text-md-h2 font-weight-bold">
+          Talk With Me
+        </h1>
+
+        <AnimationAi :size="300" />
       </div>
-    </perfect-scrollbar>
-
-    <!-- No Message Content -->
-    <div class="no-message-container" v-else>
-      <h1 style="color: #6746f5" class="text-h4 text-md-h2 font-weight-bold">
-        Talk With Me
-      </h1>
-
-      <AnimationAi :size="300" />
     </div>
-
-    <v-sheet
-      elevation="0"
-      color="transparent"
-      class="my-4 px-4 mx-auto d-flex align-center justify-center"
-      max-width="400"
-      height="120"
-    >
-      <!-- Recording Animation -->
-      <AnimationRecording
-        v-if="state.isRecording"
-        @click="stopRecording"
-        :size="140"
-      />
-      <!-- Response Animation -->
-      <AnimaitonCss02 v-else-if="state.isResponse" />
-      <!-- Playing Animation -->
-      <AnimaitonCss01 v-else-if="speechStore.isPlaying" />
-      <!-- Recording Btn -->
-      <v-btn
-        v-else
-        size="x-large"
-        color="#6746f5"
-        class="text-white"
-        icon
-        variant="elevated"
-        @click="startRecording"
-        ><v-icon>mdi-microphone</v-icon></v-btn
+    <div class="input-area">
+      <v-sheet
+        elevation="0"
+        color="transparent"
+        class="input-panel"
+        max-width="400"
+        height="120"
       >
-    </v-sheet>
-
-    <span class="config">
-      <VoiceConfigDialog />
-
-      <span class="ml-2 text-h6 font-weight-bold text-primary">{{
-        speechStore.localName
-      }}</span>
-      <v-chip
-        density="comfortable"
-        class="d-none d-sm-inline ml-1 font-weight-bold"
-        label
-        size="small"
-        color="primary"
-      >
-        {{ speechStore.speechSynthesisLanguage }}</v-chip
-      >
-    </span>
-  </v-card>
+        <!-- Recording Animation -->
+        <AnimationRecording
+          v-if="state.isRecording"
+          @click="stopRecording"
+          :size="140"
+        />
+        <!-- Response Animation -->
+        <AnimaitonCss02 v-else-if="state.isResponse" />
+        <!-- Playing Animation -->
+        <AnimaitonCss01 v-else-if="speechStore.isPlaying" />
+        <!-- Recording Btn -->
+        <v-btn
+          v-else
+          size="x-large"
+          color="#6746f5"
+          class="text-white"
+          icon
+          variant="elevated"
+          @click="startRecording"
+          ><v-icon>mdi-microphone</v-icon></v-btn
+        >
+      </v-sheet>
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
+.chat-bot {
+  background-image: url("@/assets/images/chat-bg-2.png");
+  background-repeat: repeat;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .messsage-area {
+    flex: 1;
+  }
+  .input-area {
+    padding: 1rem;
+
+    align-items: center;
+    .input-panel {
+      border-radius: 5px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+}
+
 .user-message {
   display: flex;
   align-content: center;
@@ -299,13 +306,13 @@ const state = reactive({
 }
 
 .message-container {
-  height: calc(100vh - 340px);
+  height: 100%;
   background-image: url("@/assets/images/chat-bg-2.png");
   background-repeat: repeat;
 }
 
 .no-message-container {
-  height: calc(100vh - 340px);
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -316,12 +323,6 @@ const state = reactive({
   }
 }
 
-.bg {
-  background-image: url("@/assets/images/chat-bg-2.png");
-  background-repeat: repeat;
-  position: relative;
-}
-
 .config {
   position: absolute;
   bottom: 10px;
@@ -329,3 +330,20 @@ const state = reactive({
   margin: 30px;
 }
 </style>
+
+<!-- <span class="config">
+  <VoiceConfigDialog />
+
+  <span class="ml-2 text-h6 font-weight-bold text-primary">{{
+    speechStore.localName
+  }}</span>
+  <v-chip
+    density="comfortable"
+    class="d-none d-sm-inline ml-1 font-weight-bold"
+    label
+    size="small"
+    color="primary"
+  >
+    {{ speechStore.speechSynthesisLanguage }}</v-chip
+  >
+</span> -->
