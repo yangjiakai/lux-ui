@@ -9,7 +9,7 @@ import { Icon } from "@iconify/vue";
 </script>
 
 <template>
-  <div class="">
+  <v-container>
     <v-card>
       <perfect-scrollbar class="user-card">
         <v-table fixed-header fixed-footer height="900">
@@ -73,7 +73,7 @@ import { Icon } from "@iconify/vue";
         </v-table>
       </perfect-scrollbar>
     </v-card>
-  </div>
+  </v-container>
 </template>
 
 <style scoped lang="scss">

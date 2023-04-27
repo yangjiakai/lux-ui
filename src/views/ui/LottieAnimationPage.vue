@@ -11,7 +11,7 @@ import Animation404 from "@/components/animations/Animation404.vue";
 </script>
 
 <template>
-  <div class="">
+  <v-container>
     <v-card>
       <v-row>
         <v-col cols="12" md="3">
@@ -29,7 +29,7 @@ import Animation404 from "@/components/animations/Animation404.vue";
         </v-col>
       </v-row>
     </v-card>
-  </div>
+  </v-container>
 </template>
 
 <style scoped lang="scss"></style>

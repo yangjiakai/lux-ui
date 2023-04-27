@@ -91,7 +91,7 @@ const filterdFileInfos = computed(() => {
 </script>
 
 <template>
-  <v-sheet class="pa-5">
+  <v-container>
     <div class="d-flex justify-space-between align-start">
       <!-- ---------------------------------------------- -->
       <!-- File Input -->
@@ -278,7 +278,7 @@ const filterdFileInfos = computed(() => {
         </v-data-table>
       </div>
     </v-sheet>
-  </v-sheet>
+  </v-container>
 </template>
 
 <style scoped lang="scss"></style>

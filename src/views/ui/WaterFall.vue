@@ -34,7 +34,7 @@ const onImageLoad = () => {
 </script>
 
 <template>
-  <div>
+  <v-container>
     <div v-if="isLoading" class="text-center">
       <v-progress-circular indeterminate color="primary"></v-progress-circular>
     </div>
@@ -72,7 +72,7 @@ const onImageLoad = () => {
         </template>
       </masonry-wall>
     </v-card>
-  </div>
+  </v-container>
 </template>
 
 <style scoped></style>

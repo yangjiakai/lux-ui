@@ -1,78 +1,81 @@
 <template>
-  <!-- board column -->
-  <v-row style="min-width: 800px">
-    <v-col
-      cols="3"
-      v-for="column in columns"
-      :key="column.key"
-      class="pa-4 flex-fill"
-    >
-      <div class="d-flex align-center">
-        <h5 class="font-weight-bold">{{ column.key }}</h5>
-        <v-spacer></v-spacer>
-        <!-- add new card button -->
-        <v-btn
-          variant="text"
-          rounded
-          icon="mdi-plus"
-          size="small"
-          color="primary"
-          class="mr-n3"
-          @click="column.isAddVisible = !column.isAddVisible"
-        >
-        </v-btn>
-      </div>
-
-      <!-- add new card form -->
-      <v-card v-show="column.isAddVisible" class="pa-5 my-2">
-        <v-text-field
-          color="primary"
-          v-model="column.addTitle"
-          label="Title"
-          variant="underlined"
-          hideDetails
-          placeholder="Input title for this card"
-          autofocus
-          @keyup.enter="addCard(column)"
-          @keyup.esc="column.isAddVisible = false"
-        ></v-text-field>
-        <div class="mt-3 d-flex flex-md-row flex-column">
+  <v-container>
+    <!-- board column -->
+    <v-row style="min-width: 800px">
+      <v-col
+        cols="3"
+        v-for="column in columns"
+        :key="column.key"
+        class="pa-4 flex-fill"
+      >
+        <div class="d-flex align-center">
+          <h5 class="font-weight-bold">{{ column.key }}</h5>
+          <v-spacer></v-spacer>
+          <!-- add new card button -->
           <v-btn
-            class="flex-fill ma-1"
-            size="small"
-            @click="column.isAddVisible = !column.isAddVisible"
-            >Cancel</v-btn
-          >
-          <v-btn
-            class="flex-fill ma-1"
+            variant="text"
+            rounded
+            icon="mdi-plus"
             size="small"
             color="primary"
-            @click="addCard(column)"
-            >Add</v-btn
+            class="mr-n3"
+            @click="column.isAddVisible = !column.isAddVisible"
           >
+          </v-btn>
         </div>
-      </v-card>
 
-      <!-- draggable cards -->
-      <vue-draggable
-        v-model="column.cards"
-        v-bind="dragOptions"
-        class="list-group"
-        @change="column.callback"
-        itemKey="id"
-      >
-        <template #item="{ element, index }">
-          <board-card
-            :key="index"
-            :card="element"
-            class="board-item my-2 pa-2"
-            @edit="showEdit(element)"
-            @delete="showDelete(element)"
-          />
-        </template>
-      </vue-draggable>
-    </v-col>
-  </v-row>
+        <!-- add new card form -->
+        <v-card v-show="column.isAddVisible" class="pa-5 my-2">
+          <v-text-field
+            color="primary"
+            v-model="column.addTitle"
+            label="Title"
+            variant="underlined"
+            hideDetails
+            placeholder="Input title for this card"
+            autofocus
+            @keyup.enter="addCard(column)"
+            @keyup.esc="column.isAddVisible = false"
+          ></v-text-field>
+          <div class="mt-3 d-flex flex-md-row flex-column">
+            <v-btn
+              class="flex-fill ma-1"
+              size="small"
+              @click="column.isAddVisible = !column.isAddVisible"
+              >Cancel</v-btn
+            >
+            <v-btn
+              class="flex-fill ma-1"
+              size="small"
+              color="primary"
+              @click="addCard(column)"
+              >Add</v-btn
+            >
+          </div>
+        </v-card>
+
+        <!-- draggable cards -->
+        <vue-draggable
+          v-model="column.cards"
+          v-bind="dragOptions"
+          class="list-group"
+          @change="column.callback"
+          itemKey="id"
+        >
+          <template #item="{ element, index }">
+            <board-card
+              :key="index"
+              :card="element"
+              class="board-item my-2 pa-2"
+              @edit="showEdit(element)"
+              @delete="showDelete(element)"
+            />
+          </template>
+        </vue-draggable>
+      </v-col>
+    </v-row>
+  </v-container>
+
   <!-- edit card dialog -->
   <v-dialog persistent v-model="editDialog" width="600">
     <v-card>

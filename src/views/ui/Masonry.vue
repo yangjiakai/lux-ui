@@ -54,7 +54,7 @@ const onScroll = (e) => {
 </script>
 
 <template>
-  <perfect-scrollbar class="photo-container" v-scroll.self="onScroll">
+  <v-container class="h-full" v-scroll.self="onScroll">
     <v-card>
       <masonry-wall :items="photos" :ssr-columns="1" :padding="30">
         <template #default="{ item }">
@@ -89,11 +89,7 @@ const onScroll = (e) => {
         </template>
       </masonry-wall>
     </v-card>
-  </perfect-scrollbar>
+  </v-container>
 </template>
 
-<style scoped>
-.photo-container {
-  height: calc(100vh - 200px);
-}
-</style>
+<style scoped></style>

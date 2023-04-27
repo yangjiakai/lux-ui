@@ -9,7 +9,7 @@ import TodoCard from "@/views/app/todo/component/TodoCard.vue";
 </script>
 
 <template>
-  <div class="app-container">
+  <v-container class="app-container">
     <!-- ---------------------------------------------- -->
     <!-- Side Bar -->
     <!-- ---------------------------------------------- -->
@@ -29,13 +29,13 @@ import TodoCard from "@/views/app/todo/component/TodoCard.vue";
     </div>
 
     <TodoCard />
-  </div>
+  </v-container>
 </template>
 
 <style scoped lang="scss">
 .app-container {
   display: flex;
-  height: calc(100vh - 180px);
+  height: 100%;
   width: 100%;
   font-size: 13px;
 

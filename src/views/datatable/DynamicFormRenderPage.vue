@@ -8,12 +8,14 @@ import AnimationFolder from "@/components/animations/AnimationFolder.vue";
 </script>
 
 <template>
-  <v-card height="80vh" class="d-flex align-center flex-column justify-center">
-    <div class="text-center">
-      <h1 class="text-h4 font-weight-bold text-grey">新建文件夹.jpg</h1>
-      <AnimationFolder :size="400" />
+  <v-container class="h-full">
+    <div class="h-full bg-white d-flex align-center justify-center">
+      <div class="text-center">
+        <h1 class="text-h4 font-weight-bold text-grey">新建文件夹.jpg</h1>
+        <AnimationFolder :size="400" />
+      </div>
     </div>
-  </v-card>
+  </v-container>
 </template>
 
 <style scoped lang="scss"></style>

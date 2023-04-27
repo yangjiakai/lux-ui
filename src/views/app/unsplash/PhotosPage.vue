@@ -186,7 +186,7 @@ const openPhotoDialog = (id: string) => {
 </script>
 
 <template>
-  <div class="photo-page">
+  <v-container class="photo-page">
     <v-toolbar color="primary">
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
       <v-text-field
@@ -590,7 +590,7 @@ const openPhotoDialog = (id: string) => {
     <v-dialog v-model="photoDialog">
       <PhotoDetail :photoId="photoId" />
     </v-dialog>
-  </div>
+  </v-container>
 </template>
 
 <style scoped lang="scss">

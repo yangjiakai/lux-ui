@@ -230,13 +230,7 @@ const state = reactive({
       </div>
     </div>
     <div class="input-area">
-      <v-sheet
-        elevation="0"
-        color="transparent"
-        class="input-panel"
-        max-width="400"
-        height="120"
-      >
+      <v-sheet class="input-panel" height="120">
         <!-- Recording Animation -->
         <AnimationRecording
           v-if="state.isRecording"
@@ -258,6 +252,22 @@ const state = reactive({
           @click="startRecording"
           ><v-icon>mdi-microphone</v-icon></v-btn
         >
+        <span class="config">
+          <VoiceConfigDialog />
+
+          <span class="ml-2 text-h6 font-weight-bold text-primary">{{
+            speechStore.localName
+          }}</span>
+          <v-chip
+            density="comfortable"
+            class="d-none d-sm-inline ml-1 font-weight-bold"
+            label
+            size="small"
+            color="primary"
+          >
+            {{ speechStore.speechSynthesisLanguage }}</v-chip
+          >
+        </span>
       </v-sheet>
     </div>
   </div>
@@ -265,8 +275,7 @@ const state = reactive({
 
 <style scoped lang="scss">
 .chat-bot {
-  background-image: url("@/assets/images/chat-bg-2.png");
-  background-repeat: repeat;
+  background-color: #fff;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -279,8 +288,18 @@ const state = reactive({
     align-items: center;
     .input-panel {
       border-radius: 5px;
-      max-width: 1200px;
+      max-width: 600px;
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      .config {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        margin: 30px;
+      }
     }
   }
 }
@@ -307,8 +326,6 @@ const state = reactive({
 
 .message-container {
   height: 100%;
-  background-image: url("@/assets/images/chat-bg-2.png");
-  background-repeat: repeat;
 }
 
 .no-message-container {
@@ -321,13 +338,6 @@ const state = reactive({
     font-size: 2rem;
     font-weight: 500;
   }
-}
-
-.config {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  margin: 30px;
 }
 </style>
 

@@ -8,7 +8,7 @@ import EmailMenu from "@/views/app/email/components/EmailMenu.vue";
 </script>
 
 <template>
-  <div class="app-container">
+  <v-container class="app-container">
     <!-- ---------------------------------------------- -->
     <!-- Side Bar -->
     <!-- ---------------------------------------------- -->
@@ -26,13 +26,13 @@ import EmailMenu from "@/views/app/email/components/EmailMenu.vue";
         </transition>
       </router-view>
     </div>
-  </div>
+  </v-container>
 </template>
 
 <style scoped lang="scss">
 .app-container {
   display: flex;
-  height: calc(100vh - 180px);
+  height: 100%;
   width: 100%;
   font-size: 13px;
 

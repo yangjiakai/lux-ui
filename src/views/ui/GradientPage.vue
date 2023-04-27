@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { gradients } from "@/data/gradients";
 import { Icon } from "@iconify/vue";
-import clipboard from '@/utils/clipboardUtils';
+import clipboard from "@/utils/clipboardUtils";
 import CopyLabel from "@/components/common/CopyLabel.vue";
 
 const dialog = ref(false);
@@ -34,7 +34,7 @@ const changeGradientAngel = () => {
 };
 </script>
 <template>
-  <div class="jk-gradient">
+  <v-container class="jk-gradient">
     <div class="display-area">
       <div class="gradient-list shadow-md">
         <div
@@ -48,7 +48,7 @@ const changeGradientAngel = () => {
         </div>
       </div>
     </div>
-  </div>
+  </v-container>
   <v-dialog transition="fade" v-model="isDetailShow">
     <v-card
       height="80vh"

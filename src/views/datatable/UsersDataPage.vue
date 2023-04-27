@@ -74,7 +74,7 @@ const getLikesColor = (likes) => {
 </script>
 
 <template>
-  <div class="">
+  <v-container>
     <v-card>
       <v-card-title class="font-weight-bold">
         <span> Unsplash Users</span>
@@ -176,5 +176,5 @@ const getLikesColor = (likes) => {
         </v-data-table-server>
       </v-card-text>
     </v-card>
-  </div>
+  </v-container>
 </template>
