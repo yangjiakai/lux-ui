@@ -26,6 +26,8 @@ const userMessage = ref("");
 
 // Send Messsage
 const sendMessage = async () => {
+  // Clear the input
+  userMessage.value = "";
   if (userMessage.value) {
     // Add the message to the list
     messages.value.push({
@@ -35,8 +37,6 @@ const sendMessage = async () => {
 
     // Create a completion
     await createCompletion();
-    // Clear the input
-    userMessage.value = "";
   }
 };
 

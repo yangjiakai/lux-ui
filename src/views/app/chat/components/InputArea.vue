@@ -49,6 +49,9 @@ const sendMessage = () => {
     return;
   }
 
+  // 清空Input
+  userMessage.value = "";
+
   // 发送User Message
   chatStore.addToHistory(createMessage(user.value, userMessage.value));
 
@@ -58,9 +61,6 @@ const sendMessage = () => {
 
   // 请求AI回答
   getCompletion();
-
-  // 清空Input
-  userMessage.value = "";
 };
 
 const getCompletion = async () => {
