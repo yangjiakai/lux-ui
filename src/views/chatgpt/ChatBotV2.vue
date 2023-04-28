@@ -26,14 +26,15 @@ const userMessage = ref("");
 
 // Send Messsage
 const sendMessage = async () => {
-  // Clear the input
-  userMessage.value = "";
   if (userMessage.value) {
     // Add the message to the list
     messages.value.push({
       content: userMessage.value,
       role: "user",
     });
+
+    // Clear the input
+    userMessage.value = "";
 
     // Create a completion
     await createCompletion();
@@ -240,5 +241,9 @@ watch(
     font-size: 2rem;
     font-weight: 500;
   }
+}
+
+::v-deep .md-editor-preview-wrapper {
+  padding: 5px 16px;
 }
 </style>

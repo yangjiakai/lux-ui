@@ -49,11 +49,11 @@ const sendMessage = () => {
     return;
   }
 
-  // 清空Input
-  userMessage.value = "";
-
   // 发送User Message
   chatStore.addToHistory(createMessage(user.value, userMessage.value));
+
+  // 清空Input
+  userMessage.value = "";
 
   // AI等待Message
   aiMessage.value = "Please wait a moment ......";

@@ -339,6 +339,10 @@ const state = reactive({
     font-weight: 500;
   }
 }
+
+::v-deep .md-editor-preview-wrapper {
+  padding: 5px 16px;
+}
 </style>
 
 <!-- <span class="config">
