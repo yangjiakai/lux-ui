@@ -5,7 +5,7 @@ export default [
     component: () => import("@/views/chatgpt/ChatBotV1.vue"),
     meta: {
       requiresAuth: true,
-      layout: "ui",
+      layout: "landing",
       category: "AI",
       title: "ChatBotV1",
     },
@@ -15,7 +15,7 @@ export default [
     component: () => import("@/views/chatgpt/ChatBotV2.vue"),
     meta: {
       requiresAuth: true,
-      layout: "ui",
+      layout: "landing",
       category: "AI",
       title: "ChatBotV2",
     },
@@ -26,7 +26,7 @@ export default [
     component: () => import("@/views/chatgpt/VoiceBot.vue"),
     meta: {
       requiresAuth: true,
-      layout: "ui",
+      layout: "landing",
       category: "AI",
       title: "VoiceBot",
     },

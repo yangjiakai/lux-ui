@@ -8,40 +8,40 @@ const customizeTheme = useCustomizeThemeStore();
 </script>
 
 <template>
-  <div>
-    <!-- ---------------------------------------------- -->
-    <!---Main Sidebar -->
-    <!-- ---------------------------------------------- -->
-    <MainSidebar />
-    <!-- ---------------------------------------------- -->
-    <!---Top AppBar -->
-    <!-- ---------------------------------------------- -->
-    <MainAppbar />
-    <!-- ---------------------------------------------- -->
-    <!---MainArea -->
-    <!-- ---------------------------------------------- -->
-    <perfect-scrollbar>
-      <v-main
-        class="main-area"
-        v-touch="{
-          left: () => (customizeTheme.mainSidebar = false),
-          right: () => (customizeTheme.mainSidebar = true),
-        }"
-      >
-        <!-- <GlobalLoading /> -->
-        <ToolBox />
-        <slot></slot>
-      </v-main>
-    </perfect-scrollbar>
-  </div>
+  <!-- ---------------------------------------------- -->
+  <!---Main Sidebar -->
+  <!-- ---------------------------------------------- -->
+  <MainSidebar />
+  <!-- ---------------------------------------------- -->
+  <!---Top AppBar -->
+  <!-- ---------------------------------------------- -->
+  <MainAppbar />
+  <!-- ---------------------------------------------- -->
+  <!---MainArea -->
+  <!-- ---------------------------------------------- -->
+
+  <v-main
+    class="main-container"
+    v-touch="{
+      left: () => (customizeTheme.mainSidebar = false),
+      right: () => (customizeTheme.mainSidebar = true),
+    }"
+  >
+    <!-- <GlobalLoading /> -->
+    <ToolBox />
+    <div class="flex-fill">
+      <slot></slot>
+    </div>
+  </v-main>
 </template>
 
 <style scoped>
 .scrollnav {
   height: calc(100vh - 326px);
 }
-
-.main-area {
-  height: calc(100vh-64px);
+.main-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 </style>
