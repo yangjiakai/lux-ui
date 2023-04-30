@@ -79,6 +79,8 @@ const createCompletion = async () => {
 // Scroll to the bottom of the message container
 const scrollToBottom = () => {
   const container = document.querySelector(".message-container");
+  console.log("container: ", container);
+
   setTimeout(() => {
     container?.scrollTo({
       top: container?.scrollHeight,
@@ -105,7 +107,7 @@ watch(
       <perfect-scrollbar v-if="messages.length > 0" class="message-container">
         <template v-for="message in messages">
           <div v-if="message.role === 'user'">
-            <div class="pa-6 user-message">
+            <div class="pa-4 user-message">
               <v-avatar class="ml-4" rounded="sm" variant="elevated">
                 <img src="@/assets/images/avatars/avatar_user.jpg" alt="alt" />
               </v-avatar>
@@ -117,7 +119,7 @@ watch(
             </div>
           </div>
           <div v-else>
-            <div class="pa-6 assistant-message">
+            <div class="pa-4 assistant-message">
               <v-avatar class="mr-4" rounded="sm" variant="elevated">
                 <img
                   src="@/assets/images/avatars/avatar_assistant.jpg"
@@ -180,9 +182,11 @@ watch(
   flex-direction: column;
   .messsage-area {
     flex: 1;
+    height: 100%;
   }
   .input-area {
     padding: 1rem;
+    height: 90px;
 
     align-items: center;
     .input-panel {
@@ -214,7 +218,7 @@ watch(
 }
 
 .message-container {
-  height: 100%;
+  height: calc(100vh - 154px);
   background-image: url("@/assets/images/chat-bg-2.png");
   background-repeat: repeat;
 }

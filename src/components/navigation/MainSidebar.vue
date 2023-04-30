@@ -74,7 +74,13 @@ const scrollToBottom = () => {
     <!---Bottom Area -->
     <!-- ---------------------------------------------- -->
     <template v-if="!customizeTheme.miniSidebar" v-slot:append>
-      <v-card theme="dark" height="225" class="pa-3" variant="text">
+      <v-card
+        theme="dark"
+        height="225"
+        class="pa-3"
+        variant="text"
+        style="box-shadow: rgba(0, 0, 0, 0.05) 0px -25px 15px -20px"
+      >
         <v-card
           class="d-flex flex-column gradient pa-2"
           :class="customizeTheme.primaryColor.colorName"

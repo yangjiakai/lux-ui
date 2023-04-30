@@ -184,11 +184,14 @@ const state = reactive({
       <perfect-scrollbar v-if="messages.length > 1" class="message-container">
         <template v-for="message in messages">
           <div v-if="message.role === 'user'">
-            <div class="pa-6 user-message">
-              <v-avatar class="ml-4" rounded="sm" variant="elevated">
+            <div class="pa-5 user-message">
+              <v-avatar class="ml-4" rounded="lg" variant="elevated">
                 <img src="@/assets/images/avatars/avatar_user.jpg" alt="alt" />
               </v-avatar>
-              <v-card class="gradient gray" theme="dark">
+              <v-card
+                class="gradient gray rounded-xl rounded-be-0"
+                theme="dark"
+              >
                 <v-card-text>
                   <b> {{ message.content }}</b></v-card-text
                 >
@@ -196,14 +199,15 @@ const state = reactive({
             </div>
           </div>
           <div v-else-if="message.role === 'assistant'">
-            <div class="pa-6 assistant-message">
+            <div class="pa-5 assistant-message">
               <v-avatar class="mr-4" rounded="sm" variant="elevated">
                 <img
                   src="@/assets/images/avatars/avatar_assistant.jpg"
                   alt="alt"
                 />
               </v-avatar>
-              <v-card>
+
+              <v-card class="rounded-xl rounded-bs-0">
                 <div>
                   <md-editor v-model="message.content" previewOnly />
                 </div>
@@ -283,7 +287,9 @@ const state = reactive({
     flex: 1;
   }
   .input-area {
+    height: 152;
     padding: 1rem;
+    border-top: 1px solid #ddd;
 
     align-items: center;
     .input-panel {
@@ -325,7 +331,8 @@ const state = reactive({
 }
 
 .message-container {
-  height: 100%;
+  height: calc(100vh - 216px);
+  background-color: rgba(250, 250, 250, 1);
 }
 
 .no-message-container {

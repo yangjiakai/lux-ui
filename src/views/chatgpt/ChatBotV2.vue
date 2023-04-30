@@ -123,7 +123,7 @@ watch(
           <div v-if="message.role === 'user'">
             <div class="pa-5 user-message">
               <div class="message align-center">
-                <v-avatar class="mr-9">
+                <v-avatar class="mr-4 mr-lg-8">
                   <img
                     src="@/assets/images/avatars/avatar_user.jpg"
                     alt="alt"
@@ -136,7 +136,7 @@ watch(
           <div v-else>
             <div class="pa-5 assitant-message">
               <div class="message">
-                <v-avatar class="mr-4 mt-4">
+                <v-avatar class="mr-4 mr-lg-8">
                   <img
                     src="@/assets/images/avatars/avatar_assistant.jpg"
                     alt="alt"
@@ -200,7 +200,7 @@ watch(
   }
   .input-area {
     padding: 1rem;
-
+    height: 90px;
     align-items: center;
     .input-panel {
       border-radius: 5px;
@@ -228,7 +228,7 @@ watch(
 }
 
 .message-container {
-  height: 100%;
+  height: calc(100vh - 154px);
 }
 
 .no-message-container {
@@ -243,7 +243,7 @@ watch(
   }
 }
 
-::v-deep .md-editor-preview-wrapper {
-  padding: 5px 16px;
+:deep(.md-editor-preview-wrapper) {
+  padding: 0px;
 }
 </style>
