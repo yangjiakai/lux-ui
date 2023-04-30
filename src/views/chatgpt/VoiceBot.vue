@@ -347,7 +347,7 @@ const state = reactive({
   }
 }
 
-::v-deep .md-editor-preview-wrapper {
+:deep(.md-editor-preview-wrapper) {
   padding: 5px 16px;
 }
 </style>

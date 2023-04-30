@@ -246,7 +246,7 @@ watch(
   }
 }
 
-::v-deep .md-editor-preview-wrapper {
+:deep(.md-editor-preview-wrapper) {
   padding: 5px 15px;
 }
 </style>
