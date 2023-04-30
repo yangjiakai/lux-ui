@@ -7,7 +7,7 @@
 import { useSnackbarStore } from "@/stores/snackbarStore";
 import { useChatStore } from "@/views/app/chat/chatStore";
 import AnimationAi from "@/components/animations/AnimationBot1.vue";
-
+import { Icon } from "@iconify/vue";
 import MdEditor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
 import { createCompletionApi } from "@/api/aiApi";
@@ -153,6 +153,8 @@ watch(
       <v-sheet elevation="0" class="input-panel">
         <v-text-field
           color="primary"
+          type="text"
+          clearable
           variant="solo"
           ref="input"
           v-model="userMessage"
@@ -163,9 +165,18 @@ watch(
           <template #prepend-inner>
             <v-icon>mdi-microphone</v-icon>
           </template>
-
-          <template #append-inner>
-            <v-icon @click="sendMessage">mdi-send</v-icon>
+          <template v-slot:append-inner>
+            <v-fade-transition leave-absolute>
+              <Icon
+                v-if="isLoading"
+                class="text-primary"
+                width="30"
+                icon="eos-icons:three-dots-loading"
+              />
+              <v-icon color="primary" v-else @click="sendMessage"
+                >mdi-send</v-icon
+              >
+            </v-fade-transition>
           </template>
         </v-text-field>
       </v-sheet>
@@ -236,6 +247,6 @@ watch(
 }
 
 ::v-deep .md-editor-preview-wrapper {
-  padding: 5px 16px;
+  padding: 5px 15px;
 }
 </style>

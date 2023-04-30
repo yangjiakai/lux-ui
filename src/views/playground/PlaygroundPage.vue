@@ -12,55 +12,57 @@ import FeatureDynamicScroller from "./components/FeatureDynamicScroller.vue";
 import FeatureImageUploadPreview from "./components/FeatureImageUploadPreview.vue";
 import FeatureMultipleSelect from "./components/FeatureMultipleSelect.vue";
 import FeatureGithubEventTimeLine from "./components/FeatureGithubEventTimeLine.vue";
-import FeatureFacker from "./components/FeatureFacker.vue";
+import FeatureFaker from "./components/FeatureFaker.vue";
 import FeatureEditData from "./components/FeatureEditData.vue";
 import FeatureTTS from "./components/FeatureTTS.vue";
 </script>
 
 <template>
-  <FeatureCard title="LoadMore">
-    <FeatureLoadMore />
-  </FeatureCard>
+  <v-container>
+    <FeatureCard title="LoadMore">
+      <FeatureLoadMore />
+    </FeatureCard>
 
-  <FeatureCard title="LotteAnimation">
-    <FeatureLotte />
-  </FeatureCard>
+    <FeatureCard title="LotteAnimation">
+      <FeatureLotte />
+    </FeatureCard>
 
-  <FeatureCard title="ChatBot">
-    <FeatureChatBot />
-  </FeatureCard>
+    <FeatureCard title="ChatBot">
+      <FeatureChatBot />
+    </FeatureCard>
 
-  <FeatureCard title="DynamicScroller">
-    <FeatureDynamicScroller />
-  </FeatureCard>
+    <FeatureCard title="DynamicScroller">
+      <FeatureDynamicScroller />
+    </FeatureCard>
 
-  <FeatureCard title="File">
-    <FeatureFile />
-  </FeatureCard>
+    <!-- <FeatureCard title="File">
+      <FeatureFile />
+    </FeatureCard> -->
 
-  <FeatureCard title="ImageUploadPreview">
-    <FeatureImageUploadPreview />
-  </FeatureCard>
+    <FeatureCard title="ImageUploadPreview">
+      <FeatureImageUploadPreview />
+    </FeatureCard>
 
-  <FeatureCard title="MultipleSelect">
-    <FeatureMultipleSelect />
-  </FeatureCard>
+    <FeatureCard title="MultipleSelect">
+      <FeatureMultipleSelect />
+    </FeatureCard>
 
-  <FeatureCard title="GithubEventTimeLine">
-    <FeatureGithubEventTimeLine />
-  </FeatureCard>
+    <FeatureCard title="GithubEventTimeLine">
+      <FeatureGithubEventTimeLine />
+    </FeatureCard>
 
-  <FeatureCard title="Facker">
-    <FeatureFacker />
-  </FeatureCard>
+    <FeatureCard title="Faker">
+      <FeatureFaker />
+    </FeatureCard>
 
-  <FeatureCard title="EditData">
-    <FeatureEditData />
-  </FeatureCard>
+    <FeatureCard title="EditData">
+      <FeatureEditData />
+    </FeatureCard>
 
-  <FeatureCard title="TTS">
-    <FeatureTTS />
-  </FeatureCard>
+    <FeatureCard title="TTS">
+      <FeatureTTS />
+    </FeatureCard>
+  </v-container>
 </template>
 
 <style scoped lang="scss"></style>
