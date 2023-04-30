@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { isMobile } from "@/utils/common";
 
 interface Color {
   colorId: number;
@@ -24,12 +23,15 @@ export const useCustomizeThemeStore = defineStore({
       colorName: "grey",
       colorValue: "#344767",
     },
-    mainSidebar: isMobile() ? false : true,
+    mainSidebar: true,
+    // mainSidebar: isMobile() ? false : true,
   }),
 
   persist: {
     enabled: true,
-    strategies: [{ storage: localStorage, paths: ["darkTheme"] }],
+    strategies: [
+      { storage: localStorage, paths: ["darkTheme", "mainSidebar"] },
+    ],
   },
 
   getters: {},
