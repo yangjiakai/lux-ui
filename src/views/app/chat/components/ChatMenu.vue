@@ -35,10 +35,7 @@ const chatStore = useChatStore();
       >
         <template v-slot:prepend>
           <v-avatar class="mx-5" size="40">
-            <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
-              alt="alt"
-            />
+            <img src="@/assets/images/avatars/avatar_assistant.jpg" alt="alt" />
           </v-avatar>
         </template>
       </v-list-item>

@@ -120,7 +120,7 @@ watch(
             <div class="pa-6 assistant-message">
               <v-avatar class="mr-4" rounded="sm" variant="elevated">
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
+                  src="@/assets/images/avatars/avatar_assistant.jpg"
                   alt="alt"
                 />
               </v-avatar>

@@ -138,7 +138,7 @@ watch(
               <div class="message">
                 <v-avatar class="mr-4 mt-4">
                   <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
+                    src="@/assets/images/avatars/avatar_assistant.jpg"
                     alt="alt"
                   />
                 </v-avatar>
