@@ -10,6 +10,8 @@ import BarChart2 from "./component/BarChart2.vue";
 </script>
 
 <template>
-  <BarChart1 />
-  <BarChart2 />
+  <v-container>
+    <BarChart1 />
+    <BarChart2 />
+  </v-container>
 </template>

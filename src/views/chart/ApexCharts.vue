@@ -8,9 +8,11 @@ import ApexHeatMapCharts from "@/components/charts/apexchart/ApexHeatMapCharts.v
 import ApexLineAreaCharts from "@/components/charts/apexchart/ApexLineAreaCharts.vue";
 </script>
 <template>
-  <h1 class="text-h5">ApexChart</h1>
-  <ApexHeatMapCharts />
-  <ApexLineAreaCharts />
+  <v-container>
+    <h1 class="text-h5">ApexChart</h1>
+    <ApexHeatMapCharts />
+    <ApexLineAreaCharts />
+  </v-container>
 </template>
 
 <style scoped lang="scss"></style>

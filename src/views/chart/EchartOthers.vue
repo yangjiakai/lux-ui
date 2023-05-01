@@ -4,7 +4,7 @@
 * @Description: Echart 其他图表
 -->
 <template>
-  <div class="">EchartOthers</div>
+  <v-container class="">EchartOthers</v-container>
 </template>
 
 <script setup lang="ts"></script>
