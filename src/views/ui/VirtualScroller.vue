@@ -19,6 +19,8 @@ const list = ref(
 );
 
 const length = computed(() => list.value.length);
+
+const selectedItem = ref<any>();
 </script>
 <template>
   <v-container>
@@ -33,9 +35,9 @@ const length = computed(() => list.value.length);
           v-slot="{ item }"
         >
           <v-list-item
-            :active="item.id === '1'"
-            active-color="error"
-            @click=""
+            :active="item.id === selectedItem?.id"
+            active-color="primary"
+            @click="selectedItem = item"
             three-line
           >
             <!-- ---------------------------------------------- -->
