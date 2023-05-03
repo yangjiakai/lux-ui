@@ -76,6 +76,7 @@ const filterdTodoList = computed(() => {
               </div>
               <div>
                 <v-chip
+                  :key="tag"
                   size="x-small"
                   variant="outlined"
                   class="mr-1 mt-1"
