@@ -15,6 +15,7 @@ import FeatureGithubEventTimeLine from "./components/FeatureGithubEventTimeLine.
 import FeatureFaker from "./components/FeatureFaker.vue";
 import FeatureEditData from "./components/FeatureEditData.vue";
 import FeatureTTS from "./components/FeatureTTS.vue";
+import FeatureGradientChart from "./components/FeatureGradientChart.vue";
 </script>
 
 <template>
@@ -61,6 +62,10 @@ import FeatureTTS from "./components/FeatureTTS.vue";
 
     <FeatureCard title="TTS">
       <FeatureTTS />
+    </FeatureCard>
+
+    <FeatureCard title="GradientChart">
+      <FeatureGradientChart />
     </FeatureCard>
   </v-container>
 </template>
