@@ -56,6 +56,7 @@ const todoStore = useTodoStore();
         :to="`/apps/todo/label/${label.id}`"
         link
         :title="label.title"
+        :key="label.id"
       >
         <template v-slot:prepend>
           <v-icon :color="label.color">mdi-label-outline </v-icon>
