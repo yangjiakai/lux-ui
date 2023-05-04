@@ -16,7 +16,6 @@ import FeatureFaker from "./components/FeatureFaker.vue";
 import FeatureEditData from "./components/FeatureEditData.vue";
 import FeatureTTS from "./components/FeatureTTS.vue";
 import FeatureGradientChart from "./components/FeatureGradientChart.vue";
-import FeatureEditor from "./components/FeatureEditor.vue";
 </script>
 
 <template>
@@ -67,10 +66,6 @@ import FeatureEditor from "./components/FeatureEditor.vue";
 
     <FeatureCard title="GradientChart">
       <FeatureGradientChart />
-    </FeatureCard>
-
-    <FeatureCard title="Editor">
-      <FeatureEditor />
     </FeatureCard>
   </v-container>
 </template>
