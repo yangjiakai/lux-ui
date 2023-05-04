@@ -117,6 +117,7 @@ export default {
       fileUploadPreview: "文件上传预览",
       dynamicFormRender: "动态表单渲染",
       customFormGeneration: "自定义表单生成",
+      richTextEditor: "富文本编辑器",
     },
     chatbot_v1: "Chatbot v1",
     chatbot_v2: "Chatbot v2(Stream)",

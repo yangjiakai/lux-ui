@@ -117,6 +117,7 @@ export default {
       fileUploadPreview: "ファイルアップロードプレビュー",
       dynamicFormRender: "Dynamic Form Render",
       customFormGeneration: "Custom Form Generation",
+      richTextEditor: "Rich Text Editor",
     },
     chatbot_v1: "ChatBot v1",
     chatbot_v2: "ChatBot v2(Stream)",

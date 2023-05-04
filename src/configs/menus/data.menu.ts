@@ -54,4 +54,11 @@ export default [
     link: "/data/custom-form-generation",
     key: "menu.data.customFormGeneration",
   },
+  // Rich text
+  {
+    icon: "mdi-form-textbox",
+    text: "Rich Text Editor",
+    link: "/data/rich-text-editor",
+    key: "menu.data.richTextEditor",
+  },
 ];
