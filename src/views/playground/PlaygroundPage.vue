@@ -4,7 +4,7 @@
 * @Description: 
 -->
 <script setup lang="ts">
-import FeatureCard from "./components/FeatureCard.vue";
+import FeatureCard from "@/components/FeatureCard.vue";
 import FeatureLoadMore from "./components/FeatureLoadMore.vue";
 import FeatureLotte from "./components/FeatureLotte.vue";
 import FeatureChatBot from "./components/FeatureChatBot.vue";
