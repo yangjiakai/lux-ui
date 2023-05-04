@@ -7,7 +7,6 @@
 import { heatMapChart } from "./ApexChartsData";
 </script>
 <template>
-  <div class="">ApexHeatMapCharts</div>
   <apexchart
     type="heatmap"
     height="310"

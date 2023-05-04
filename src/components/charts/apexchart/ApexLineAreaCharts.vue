@@ -7,7 +7,6 @@
 import { lineAreaChartSpline } from "./ApexChartsData";
 </script>
 <template>
-  <h1 class="pl-5">ApexLineAreaCharts</h1>
   <apexchart
     type="area"
     height="350"
