@@ -42,6 +42,7 @@ echarts.use([
   PieChart,
   MapChart,
   RadarChart,
+
   PictorialBarChart,
   RadarComponent,
   ToolboxComponent,
