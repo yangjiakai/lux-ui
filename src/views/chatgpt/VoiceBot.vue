@@ -244,7 +244,7 @@ const clearMessages = () => {
       </div>
     </div>
     <div class="input-area">
-      <v-sheet class="input-panel" height="120">
+      <v-sheet class="input-panel" height="100">
         <div class="panel-left">
           <span>
             <VoiceConfigDialog />
