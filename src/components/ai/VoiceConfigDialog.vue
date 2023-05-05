@@ -21,8 +21,22 @@ const getVoiceInfo = async () => {
   allVoices.value = res.filter((voice) =>
     languages.value.includes(voice.locale)
   );
+
+  const currentVoice = allVoices.value.find(
+    (voice) => voice.shortName === speechStore.speechSynthesisVoiceName
+  ) as VoiceInfo;
+
+  speechStore.updateVoiceInfo(currentVoice);
+
   // fr-FR 法语 ja-JP 日语 en-US 英语 zh-CN 中文 zh-HK 粤语 ko-KR 韩语 de-DE 德语
 };
+
+watch(
+  () => speechStore.voiceConfigDialog,
+  () => {
+    getVoiceInfo();
+  }
+);
 
 onMounted(() => {
   getVoiceInfo();
@@ -44,11 +58,16 @@ onMounted(() => {
       <v-container>
         <v-row>
           <v-col cols="12">
-            <v-card>
+            <v-card style="border-left: 5px solid #445573">
+              <v-card-title> Voice Modal </v-card-title>
+              <v-divider></v-divider>
               <v-list elevation="1" density="compact">
                 <v-list-subheader
-                  >Total {{ allVoices.length }} Voices</v-list-subheader
-                >
+                  ><span>Total {{ allVoices.length }} Voices</span>
+                  <span class="ml-2 font-weight-bold"
+                    >(Current Modal: {{ speechStore.localName }})</span
+                  >
+                </v-list-subheader>
                 <RecycleScroller
                   class="scroller"
                   :items="allVoices"
@@ -109,6 +128,47 @@ onMounted(() => {
                   </v-list-item>
                 </RecycleScroller>
               </v-list>
+            </v-card>
+          </v-col>
+          <v-col cols="12">
+            <v-card style="border-left: 5px solid #445573">
+              <v-card-title> Voice Config </v-card-title>
+              <v-divider></v-divider>
+              <v-card-text>
+                <!-- Rate -->
+
+                <v-row class="align-center">
+                  <v-col cols="12" sm="2" class="pb-sm-3 pb-0">
+                    <v-label class="font-weight-medium">Rate</v-label>
+                  </v-col>
+                  <v-col cols="12" sm="10">
+                    <v-slider
+                      v-model="speechStore.voiceRate"
+                      thumb-label="always"
+                      :min="0.1"
+                      :max="2"
+                      :step="0.1"
+                      hide-details
+                    ></v-slider>
+                  </v-col>
+                </v-row>
+
+                <!-- Emotion -->
+                <v-row class="align-center mb-3">
+                  <v-col cols="12" sm="2" class="pb-sm-3 pb-0">
+                    <v-label class="font-weight-medium">Emotion</v-label>
+                  </v-col>
+                  <v-col cols="12" sm="10">
+                    <v-select
+                      v-model="speechStore.voiceEmotion"
+                      variant="outlined"
+                      hide-details
+                      density="compact"
+                      :items="speechStore.styleList"
+                    ></v-select>
+                  </v-col>
+                </v-row>
+              </v-card-text>
             </v-card>
           </v-col>
         </v-row>

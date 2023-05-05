@@ -77,7 +77,7 @@ const createCompletion = async () => {
         model: "gpt-3.5-turbo",
         temperature: 1,
         n: 1,
-        max_tokens: 100,
+        max_tokens: 200,
       },
       chatStore.getApiKey
     );
@@ -90,7 +90,7 @@ const createCompletion = async () => {
       role: "assistant",
     });
     state.isResponse = false;
-    speechStore.textToSpeech(completion.data.choices[0].message.content);
+    speechStore.ssmlToSpeak(completion.data.choices[0].message.content);
   } catch (error) {
     state.isResponse = false;
     snackbarStore.showErrorMessage(error.message);
