@@ -18,7 +18,7 @@
   margin: 20px auto;
   position: relative;
   background: currentColor;
-  color: #6746f5;
+  color: #4c5271;
   box-sizing: border-box;
   animation: animloader 0.3s 0.3s linear infinite alternate;
 }

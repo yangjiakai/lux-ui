@@ -17,7 +17,7 @@
   display: block;
   margin: 15px auto;
   position: relative;
-  color: #6746f5;
+  color: #4c5271;
   box-sizing: border-box;
   animation: animloader 1s linear infinite;
 }

@@ -44,8 +44,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-btn color="primary" icon @click="speechStore.voiceConfigDialog = true">
-    <v-icon size="30">mdi-cog-outline</v-icon>
+  <v-btn variant="elevated" icon @click="speechStore.voiceConfigDialog = true">
+    <v-icon size="30" class="text-primary">mdi-cog-outline</v-icon>
     <v-tooltip
       activator="parent"
       location="top"
@@ -65,7 +65,17 @@ onMounted(() => {
                 <v-list-subheader
                   ><span>Total {{ allVoices.length }} Voices</span>
                   <span class="ml-2 font-weight-bold"
-                    >(Current Modal: {{ speechStore.localName }})</span
+                    >(Current Modal: {{ speechStore.localName }}
+                    <v-chip
+                      density="comfortable"
+                      class="d-none d-sm-inline ml-1 font-weight-bold"
+                      label
+                      size="small"
+                      color="primary"
+                    >
+                      {{ speechStore.speechSynthesisLanguage }}</v-chip
+                    >
+                    )</span
                   >
                 </v-list-subheader>
                 <RecycleScroller

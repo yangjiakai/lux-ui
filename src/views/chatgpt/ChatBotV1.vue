@@ -6,7 +6,7 @@
 <script setup lang="ts">
 import { useSnackbarStore } from "@/stores/snackbarStore";
 import { useChatStore } from "@/views/app/chat/chatStore";
-import AnimationAi from "@/components/animations/AnimationBot1.vue";
+import AnimationAi from "@/components/animations/AnimationChat1.vue";
 import { Icon } from "@iconify/vue";
 import MdEditor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
