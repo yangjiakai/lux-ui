@@ -236,7 +236,7 @@ const clearMessages = () => {
 
       <!-- No Message Content -->
       <div class="no-message-container" v-else>
-        <h1 class="text-grey-lighten-2 text-h3 text-md-h2 font-weight-bold">
+        <h1 style="color: #4d5271" class="text-h3 text-md-h2 font-weight-bold">
           Talk With Me
         </h1>
 
