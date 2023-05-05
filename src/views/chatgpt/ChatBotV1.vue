@@ -129,7 +129,11 @@ watch(
               </v-avatar>
               <v-card>
                 <div>
-                  <md-editor v-model="message.content" previewOnly />
+                  <md-editor
+                    v-model="message.content"
+                    class="font-1"
+                    previewOnly
+                  />
                 </div>
               </v-card>
             </div>
@@ -251,10 +255,14 @@ watch(
   padding: 5px 15px;
 }
 
-:deep(
-    #md-editor-v3-preview .md-editor-content .md-editor-preview,
-    .md-editor-content .md-editor-html
-  ) {
+.font-1 {
   font-size: 13px !important;
+}
+
+@media screen and (max-width: 768px) {
+  :deep(#md-editor-v3-preview),
+  .user-message {
+    font-size: 14px !important;
+  }
 }
 </style>
