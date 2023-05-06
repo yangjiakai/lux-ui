@@ -10,6 +10,8 @@ import CopyBtn from "@/components/common/CopyBtn.vue";
 import { useDisplay } from "vuetify";
 import { read } from "@/utils/aiUtils";
 import { useSnackbarStore } from "@/stores/snackbarStore";
+import { useSpeechStore } from "@/stores/speechStore";
+const speechStore = useSpeechStore();
 const snackbarStore = useSnackbarStore();
 const chatStore = useChatStore();
 const langs = [
@@ -184,6 +186,12 @@ const record = () => {
 
 const dialog = ref(false);
 const { xs } = useDisplay();
+
+const readText = () => {
+  if (targetContent.value) {
+    speechStore.ssmlToSpeak(targetContent.value);
+  }
+};
 </script>
 
 <template>
@@ -330,7 +338,7 @@ const { xs } = useDisplay();
                     :text="$t('toolbox.translationAssistant.read')"
                   >
                     <template #activator="{ props }">
-                      <v-btn @click="" v-bind="props" icon
+                      <v-btn @click="readText" v-bind="props" icon
                         ><v-icon>mdi-volume-high</v-icon>
                       </v-btn>
                     </template>
