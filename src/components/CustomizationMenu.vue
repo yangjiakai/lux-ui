@@ -58,6 +58,8 @@ const updatePrimaryColor = (newColor: Color) => {
   theme.themes.value.light.colors.primary = newColor.colorValue;
   theme.themes.value.dark.colors.primary = newColor.colorValue;
   customizeTheme.setPrimaryColor(newColor);
+  currentColor.value = newColor;
+
 }
 </script>
 
