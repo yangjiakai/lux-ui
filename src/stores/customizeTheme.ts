@@ -30,7 +30,7 @@ export const useCustomizeThemeStore = defineStore({
   persist: {
     enabled: true,
     strategies: [
-      { storage: localStorage, paths: ["darkTheme", "mainSidebar"] },
+      { storage: localStorage, paths: ["darkTheme", "primaryColor", "mainSidebar"] },
     ],
   },
 
