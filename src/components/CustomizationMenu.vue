@@ -48,11 +48,17 @@ const primaryColors = ref([
   },
 ]);
 
+onMounted(() => updatePrimaryColor(customizeTheme.primaryColor));
+
 watch(currentColor, (newVal) => {
-  theme.themes.value.light.colors.primary = newVal.colorValue;
-  theme.themes.value.dark.colors.primary = newVal.colorValue;
-  customizeTheme.setPrimaryColor(newVal);
+  updatePrimaryColor(newVal)
 });
+
+const updatePrimaryColor = (newColor: Color) => {
+  theme.themes.value.light.colors.primary = newColor.colorValue;
+  theme.themes.value.dark.colors.primary = newColor.colorValue;
+  customizeTheme.setPrimaryColor(newColor);
+}
 </script>
 
 <template>
