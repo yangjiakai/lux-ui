@@ -120,8 +120,12 @@ watch(
             </div>
           </div>
           <div v-else>
-            <div class="pa-4 assistant-message">
-              <v-avatar class="mr-4" rounded="sm" variant="elevated">
+            <div class="pa-2 pa-md-5 assistant-message">
+              <v-avatar
+                class="d-none d-md-block mr-2 mr-md-4"
+                rounded="sm"
+                variant="elevated"
+              >
                 <img
                   src="@/assets/images/avatars/avatar_assistant.jpg"
                   alt="alt"
