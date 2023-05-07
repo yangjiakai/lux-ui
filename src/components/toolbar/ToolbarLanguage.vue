@@ -1,9 +1,9 @@
 <template>
   <v-menu scroll-y>
     <template v-slot:activator="{ props }">
-      <v-btn width="100" v-bind="props">
-        <Icon :icon="`twemoji:flag-${currentLocale.name}`" class="mr-2" />
-        <span class="text-body-2">{{ currentLocale.label }}</span>
+      <v-btn icon v-bind="props">
+        <!-- <Icon :icon="`twemoji:flag-${currentLocale.name}`" /> -->
+        <v-icon color="primary">mdi-translate</v-icon>
       </v-btn>
     </template>
     <v-list elevation="1" nav>
@@ -12,6 +12,7 @@
         :key="locale.code"
         @click="setLocale(locale.code)"
         density="compact"
+        :active="locale.code === current"
       >
         <template v-slot:prepend>
           <Icon :icon="`twemoji:flag-${locale.name}`" class="mr-2" />
@@ -31,7 +32,8 @@ const { availableLocales } = config.locales;
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
 const customizeTheme = useCustomizeThemeStore();
 const availableLocaleList = computed(() => {
-  return availableLocales.filter((item) => item.code !== current.value);
+  // return availableLocales.filter((item) => item.code !== current.value);
+  return availableLocales;
 });
 
 const currentLocale = computed(() => {
