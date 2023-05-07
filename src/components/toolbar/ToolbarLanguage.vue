@@ -28,7 +28,8 @@ import { Icon } from "@iconify/vue";
 import { useLocale } from "vuetify";
 const { current } = useLocale();
 const { availableLocales } = config.locales;
-
+import { useCustomizeThemeStore } from "@/stores/customizeTheme";
+const customizeTheme = useCustomizeThemeStore();
 const availableLocaleList = computed(() => {
   return availableLocales.filter((item) => item.code !== current.value);
 });
@@ -37,7 +38,12 @@ const currentLocale = computed(() => {
   return availableLocales.filter((item) => item.code === current.value)[0];
 });
 
+onMounted(() => {
+  setLocale(customizeTheme.localCode);
+});
+
 const setLocale = (locale) => {
   current.value = locale;
+  customizeTheme.setLocalCode(locale);
 };
 </script>
