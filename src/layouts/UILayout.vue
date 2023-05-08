@@ -31,7 +31,7 @@ const customizeTheme = useCustomizeThemeStore();
   >
     <!-- <GlobalLoading /> -->
 
-    <div class="d-none d-sm-block pa-3">
+    <div class="d-none d-sm-block px-3">
       <PageTitle></PageTitle>
       <Breadcrumb></Breadcrumb>
     </div>
