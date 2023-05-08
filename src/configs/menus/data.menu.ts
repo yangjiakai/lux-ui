@@ -61,4 +61,11 @@ export default [
     link: "/data/rich-text-editor",
     key: "menu.data.richTextEditor",
   },
+  // Edit Table
+  {
+    icon: "mdi-table-edit",
+    text: "Edit Table",
+    link: "/data/edit-table",
+    key: "menu.data.editTable",
+  },
 ];

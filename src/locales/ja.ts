@@ -118,6 +118,7 @@ export default {
       dynamicFormRender: "Dynamic Form Render",
       customFormGeneration: "Custom Form Generation",
       richTextEditor: "Rich Text Editor",
+      editTable: "Edit Table",
     },
     chatbot_v1: "ChatBot v1",
     chatbot_v2: "ChatBot v2(Stream)",
