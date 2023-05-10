@@ -4,7 +4,8 @@
 * @Description: 
 -->
 <script setup lang="ts">
-import CurrencyItem from "./CurrencyItem.vue";
+import CurrencyItem from "./formItems/CurrencyItem.vue";
+import MultiFileUpload from "./formItems/MultiFileUpload.vue";
 
 const price = ref(2000);
 </script>
@@ -12,6 +13,7 @@ const price = ref(2000);
 <template>
   <div class="">
     <CurrencyItem v-model="price" />
+    <MultiFileUpload />
   </div>
 </template>
 
