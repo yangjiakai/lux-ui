@@ -104,28 +104,6 @@ onMounted(() => {
   getVoices();
 });
 
-const localeList = computed(() => {
-  return [...new Set(allVoices.value.map((voiceInfo) => voiceInfo.locale))];
-});
-
-const currentVoice = computed(() => {
-  return allVoices.value.find(
-    (voiceInfo) => voiceInfo.shortName === speechStore.speechSynthesisVoiceName
-  );
-});
-
-const currentVoiceStyleList = computed(() => {
-  return allVoices.value.filter(
-    (voiceInfo) => voiceInfo.locale === speechStore.currentLang
-  );
-});
-
-const currentVoiceStyle = computed(() => {
-  return currentVoiceStyleList.value.find(
-    (voiceInfo) => voiceInfo.shortName === speechStore.speechSynthesisVoiceName
-  );
-});
-
 const selectVoice = (voiceInfo: VoiceInfo) => {
   speechStore.updateVoiceInfo(voiceInfo);
 };
@@ -168,7 +146,7 @@ const selectVoice = (voiceInfo: VoiceInfo) => {
                 v-slot="{ item }"
               >
                 <v-list-item
-                  :active-color="primary"
+                  active-color="primary"
                   @click="selectVoice(item)"
                   :active="
                     item.shortName === speechStore.speechSynthesisVoiceName
