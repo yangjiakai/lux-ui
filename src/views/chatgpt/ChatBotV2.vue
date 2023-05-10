@@ -18,11 +18,11 @@ interface Message {
   role: "user" | "assistant";
 }
 
-// Message List
-const messages = ref<Message[]>([]);
-
 // User Input Message
 const userMessage = ref("");
+
+// Message List
+const messages = ref<Message[]>([]);
 
 // Send Messsage
 const sendMessage = async () => {
@@ -113,13 +113,33 @@ watch(
     deep: true,
   }
 );
+
+// Count the number of code blocks and complete the last one if it is not completed
+const countAndCompleteCodeBlocks = (text: string) => {
+  const codeBlocks = text.split("```").filter((x) => x !== "").length - 1;
+  if (codeBlocks && codeBlocks % 2 !== 0) {
+    return text + "\n```\n";
+  }
+  return text;
+};
+
+const displayMessages = computed(() => {
+  const messagesCopy = messages.value.slice(); // 创建原始数组的副本
+  const lastMessage = messagesCopy[messagesCopy.length - 1];
+  const updatedLastMessage = {
+    ...lastMessage,
+    content: countAndCompleteCodeBlocks(lastMessage.content),
+  };
+  messagesCopy[messagesCopy.length - 1] = updatedLastMessage;
+  return messagesCopy;
+});
 </script>
 
 <template>
   <div class="chat-bot">
     <div class="messsage-area">
       <perfect-scrollbar v-if="messages.length > 0" class="message-container">
-        <template v-for="message in messages">
+        <template v-for="message in displayMessages">
           <div v-if="message.role === 'user'">
             <div class="pa-5 user-message">
               <div class="message align-center">
