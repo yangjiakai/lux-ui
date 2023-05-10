@@ -6,16 +6,16 @@
 <script setup lang="ts">
 import TodoList from "@/views/app/todo/component/TodoList.vue";
 import { useTodoStore } from "@/views/app/todo/todoStore";
+import { watchEffect } from "vue";
 
 const todoStore = useTodoStore();
 const route = useRoute();
 
-watch(
-  () => route.params.id,
-  (id) => {
-    todoStore.currentLabel = id as string;
+watchEffect(() => {
+  if (route.params.id) {
+    todoStore.currentLabel = route.params.id as string;
   }
-);
+});
 </script>
 
 <template>
