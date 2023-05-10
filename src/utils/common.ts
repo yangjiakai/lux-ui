@@ -37,3 +37,35 @@ export const formatFileSize = (size: number): string => {
 export const isMobile = (): boolean => {
   return /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
 };
+
+// scroll to top
+interface ScrollOptions {
+  behavior?: "auto" | "smooth";
+  block?: "start" | "center" | "end" | "nearest";
+  inline?: "start" | "center" | "end" | "nearest";
+  top?: number;
+}
+
+export const scrollToTop = (
+  element: HTMLElement | null,
+  options: ScrollOptions = { top: 0, behavior: "auto" }
+): void => {
+  if (!element) {
+    console.error("Element not found");
+    return;
+  }
+  element.scrollTo({
+    ...options,
+  });
+};
+
+// scroll to bottom
+export const scrollToBottom = (
+  element: HTMLElement | null,
+  options: ScrollOptions = { behavior: "auto" }
+): void => {
+  element?.scrollTo({
+    ...options,
+    top: element.scrollHeight,
+  });
+};

@@ -42,3 +42,12 @@ export const read = async (
   // Repeat the process
   return read(reader, target);
 };
+
+// Count the number of code blocks and complete the last one if it is not completed
+export const countAndCompleteCodeBlocks = (text: string) => {
+  const codeBlocks = text.split("```").length - 1;
+  if (codeBlocks && codeBlocks % 2 !== 0) {
+    return text + "\n```\n";
+  }
+  return text;
+};

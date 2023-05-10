@@ -7,9 +7,10 @@
 import { useSnackbarStore } from "@/stores/snackbarStore";
 import { useChatStore } from "@/views/app/chat/chatStore";
 import AnimationAi from "@/components/animations/AnimationBot2.vue";
-import { read } from "@/utils/aiUtils";
+import { read, countAndCompleteCodeBlocks } from "@/utils/aiUtils";
 import MdEditor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
+import { scrollToBottom } from "@/utils/common";
 const snackbarStore = useSnackbarStore();
 const chatStore = useChatStore();
 
@@ -93,35 +94,17 @@ const createCompletion = async () => {
   }
 };
 
-// Scroll to the bottom of the message container
-const scrollToBottom = () => {
-  const container = document.querySelector(".message-container");
-
-  container?.scrollTo({
-    top: container?.scrollHeight,
-  });
-};
-
 watch(
   () => messages.value,
   (val) => {
     if (val) {
-      scrollToBottom();
+      scrollToBottom(document.querySelector(".message-container"));
     }
   },
   {
     deep: true,
   }
 );
-
-// Count the number of code blocks and complete the last one if it is not completed
-const countAndCompleteCodeBlocks = (text: string) => {
-  const codeBlocks = text.split("```").length - 1;
-  if (codeBlocks && codeBlocks % 2 !== 0) {
-    return text + "\n```\n";
-  }
-  return text;
-};
 
 const displayMessages = computed(() => {
   const messagesCopy = messages.value.slice(); // 创建原始数组的副本
