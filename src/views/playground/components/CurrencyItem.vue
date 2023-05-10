@@ -26,20 +26,19 @@ const formatCurrency = (value: number) => {
 };
 
 const handleInput = (event: Event) => {
-  const target = event.target as HTMLInputElement;
-  const value = target.value;
-  const number = Number(value.replace(/^0+/, "").replace(/[^\d.]/g, ""));
-  emit("update:modelValue", number);
+  const rawValue = event.target.value.replace(/^0+/, "").replace(/[^\d.]/g, "");
+  const floatValue = parseFloat(rawValue);
+  emit("update:modelValue", isNaN(floatValue) ? null : floatValue);
 };
 </script>
 
 <template>
-  <v-text-field
+  <input
     type="text"
     v-bind="$attrs"
     :value="formattedValue"
     @input="handleInput"
-  ></v-text-field>
+  />
 </template>
 
 <style scoped lang="scss"></style>
