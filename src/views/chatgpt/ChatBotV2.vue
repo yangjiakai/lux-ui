@@ -116,7 +116,7 @@ watch(
 
 // Count the number of code blocks and complete the last one if it is not completed
 const countAndCompleteCodeBlocks = (text: string) => {
-  const codeBlocks = text.split("```").filter((x) => x !== "").length - 1;
+  const codeBlocks = text.split("```").length - 1;
   if (codeBlocks && codeBlocks % 2 !== 0) {
     return text + "\n```\n";
   }
