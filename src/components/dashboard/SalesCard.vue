@@ -136,10 +136,10 @@ onMounted(() => {
       <div class="d-flex flex-column flex-grow-1">
         <div class="pa-2">
           <div class="text-h4">
-            {{ formatCurrency(26358.49) }}
+            {{ formatCurrency(12145.49) }}
           </div>
           <div class="text-primary mt-1">
-            {{ formatCurrency(7123.21) }}
+            {{ formatCurrency(4275.21) }}
             {{ $t("dashboard.lastweek") }}
           </div>
         </div>
