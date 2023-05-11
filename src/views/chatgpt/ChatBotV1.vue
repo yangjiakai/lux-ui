@@ -12,20 +12,41 @@ import { read, countAndCompleteCodeBlocks } from "@/utils/aiUtils";
 import { scrollToBottom } from "@/utils/common";
 import { Icon } from "@iconify/vue";
 import MdEditor from "md-editor-v3";
+import { useChatGPTStore } from "@/stores/chatGPTStore";
 import "md-editor-v3/lib/style.css";
 const snackbarStore = useSnackbarStore();
 const chatStore = useChatStore();
+const chatGPTStore = useChatGPTStore();
 
 interface Message {
   content: string;
-  role: "user" | "assistant";
+  role: "user" | "assistant" | "system";
 }
+// User Input Message
+const userMessage = ref("");
+
+// Prompt Message
+const promptMessage = computed(() => {
+  return [
+    {
+      content: chatGPTStore.propmpt,
+      role: "system",
+    },
+  ];
+});
 
 // Message List
 const messages = ref<Message[]>([]);
 
-// User Input Message
-const userMessage = ref("");
+const requestMessages = computed(() => {
+  if (messages.value.length <= 10) {
+    return [...promptMessage.value, ...messages.value];
+  } else {
+    // 截取最新的10条信息
+    const slicedMessages = messages.value.slice(-10);
+    return [...promptMessage.value, ...slicedMessages];
+  }
+});
 
 const isLoading = ref(false);
 
@@ -64,7 +85,7 @@ const createCompletion = async () => {
         },
         method: "POST",
         body: JSON.stringify({
-          messages: messages.value,
+          messages: requestMessages.value,
           model: "gpt-3.5-turbo",
           stream: true,
         }),
