@@ -3,7 +3,7 @@
 * @Maintainer: J.K. Yang
 * @Description: 
 -->
-<script setup lang="ts">
+<script setup>
 const props = defineProps({
   modelValue: {
     type: Number,
@@ -18,14 +18,14 @@ const formattedValue = computed(() => {
   return props.modelValue !== null ? formatCurrency(props.modelValue) : "";
 });
 
-const formatCurrency = (value: number) => {
+const formatCurrency = (value) => {
   return new Intl.NumberFormat("ja-JP", {
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
   }).format(value);
 };
 
-const handleInput = (event: Event) => {
+const handleInput = (event) => {
   const rawValue = event.target.value.replace(/^0+/, "").replace(/[^\d.]/g, "");
   const floatValue = parseFloat(rawValue);
   emit("update:modelValue", isNaN(floatValue) ? null : floatValue);
