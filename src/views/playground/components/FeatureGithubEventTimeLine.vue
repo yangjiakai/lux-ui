@@ -41,6 +41,8 @@ const getPublicEvent = async () => {
       created_at: activity.created_at,
     };
   });
+  console.log(activityList.value);
+
   setTimeout(() => {
     loading.value = false;
   }, 1000);

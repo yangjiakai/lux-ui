@@ -6,43 +6,63 @@ const loading = ref(false);
 const username = ref("yangjiakai");
 const activityList = ref([
   {
-    id: 1,
+    id: "29003260817",
     type: "PushEvent",
     user: "yangjiakai",
     avatar: "https://avatars.githubusercontent.com/u/35951244?",
     repo: "yangjiakai/lux-admin-vuetify3",
-    content: "Update Readme",
-    created_at: "2023-04-06T16:01:30Z",
+    content:
+      "<p>Update Dashboard View</p><br/><div><span class='mr-1'>✅</span> Add PieChart1</div>",
+    action: "Commit",
+    created_at: "2023-05-12T14:06:59Z",
   },
+]);
+
+const mockAcitvitys = [
   {
-    id: 2,
-    type: "IssuesEvent",
+    id: "29003260817",
+    type: "PushEvent",
     user: "yangjiakai",
     avatar: "https://avatars.githubusercontent.com/u/35951244?",
     repo: "yangjiakai/lux-admin-vuetify3",
-    content: "全局的配置管理，比如dev配置，和pro配置隔离开",
-    created_at: "2023-04-06T16:01:30Z",
+    content:
+      "<p> Update Dashboard View</p><br/><div><span class='mr-1'>✅</span> Add PieChart1</div><div><span class='mr-1'>✅</span> Add PieChart2</div><div><span class='mr-1'>✅</span> Update ActivityCard,SalesCard,SOurcesCard</div>",
+    action: "Commit",
+    created_at: "2023-05-12T14:06:59Z",
   },
-]);
+  {
+    id: "29003260817",
+    type: "PushEvent",
+    user: "yangjiakai",
+    avatar: "https://avatars.githubusercontent.com/u/35951244?",
+    repo: "yangjiakai/lux-admin-vuetify3",
+    content:
+      "<p>Update ChatBot</p><br/><div><span class='mr-1'>✅</span> Chatbot1 Add Stream</div><div><span class='mr-1'>✅</span> Add ScrollToBottom Common Method</div>",
+    action: "Commit",
+    created_at: "2023-05-11T14:06:59Z",
+  },
+];
+
 const getPublicEvent = async () => {
   loading.value = true;
-  const response = await getPublicEventsApi(username.value);
+  // const response = await getPublicEventsApi(username.value);
 
-  activityList.value = response.data
-    .map((activity) => {
-      return {
-        id: activity.id,
-        type: activity.type,
-        user: activity.actor.display_login,
-        avatar: activity.actor.avatar_url,
-        repo: activity.repo?.name,
-        content: getContent(activity),
-        action:
-          activity.type === "IssuesEvent" ? activity.payload.action : "Commit",
-        created_at: activity.created_at,
-      };
-    })
-    .splice(0, 2);
+  // activityList.value = response.data
+  //   .map((activity) => {
+  //     return {
+  //       id: activity.id,
+  //       type: activity.type,
+  //       user: activity.actor.display_login,
+  //       avatar: activity.actor.avatar_url,
+  //       repo: activity.repo?.name,
+  //       content: getContent(activity),
+  //       action:
+  //         activity.type === "IssuesEvent" ? activity.payload.action : "Commit",
+  //       created_at: activity.created_at,
+  //     };
+  //   })
+
+  activityList.value = mockAcitvitys;
   setTimeout(() => {
     loading.value = false;
   }, 1000);
