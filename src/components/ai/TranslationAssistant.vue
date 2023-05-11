@@ -5,7 +5,7 @@
 -->
 <script setup lang="ts">
 import { createTranscriptionApi } from "@/api/aiApi";
-import { useChatStore } from "@/views/app/chat/chatStore";
+import { useChatGPTStore } from "@/stores/chatGPTStore";
 import CopyBtn from "@/components/common/CopyBtn.vue";
 import { useDisplay } from "vuetify";
 import { read } from "@/utils/aiUtils";
@@ -13,7 +13,7 @@ import { useSnackbarStore } from "@/stores/snackbarStore";
 import { useSpeechStore } from "@/stores/speechStore";
 const speechStore = useSpeechStore();
 const snackbarStore = useSnackbarStore();
-const chatStore = useChatStore();
+const chatGPTStore = useChatGPTStore();
 const langs = [
   {
     code: "en",
@@ -81,7 +81,7 @@ const translate = async () => {
     return;
   }
 
-  if (!chatStore.getApiKey) {
+  if (!chatGPTStore.getApiKey) {
     snackbarStore.showErrorMessage("请先输入API KEY");
     return;
   }
@@ -92,7 +92,7 @@ const translate = async () => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${chatStore.getApiKey}`,
+          Authorization: `Bearer ${chatGPTStore.getApiKey}`,
         },
         method: "POST",
         body: JSON.stringify({
@@ -160,7 +160,10 @@ const startRecording = async () => {
         const formData = new FormData();
         formData.append("file", file);
         formData.append("model", "whisper-1");
-        const res = await createTranscriptionApi(formData, chatStore.getApiKey);
+        const res = await createTranscriptionApi(
+          formData,
+          chatGPTStore.getApiKey
+        );
         baseContent.value = res.data.text;
       };
     })

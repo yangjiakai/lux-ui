@@ -4,26 +4,18 @@
 * @Description: 
 -->
 <script setup lang="ts">
-import { useChatStore } from "@/views/app/chat/chatStore";
-
-const chatStore = useChatStore();
+import { useChatGPTStore } from "@/stores/chatGPTStore";
+const chatGPTStore = useChatGPTStore();
 
 const close = () => {
-  chatStore.apiKeyDialog = false;
+  chatGPTStore.configDialog = false;
 };
-
-const key = computed({
-  get: () => chatStore.apiKey,
-  set: (value) => {
-    chatStore.saveApiKey(value); // 假设您有一个名为setApiKey的Pinia store mutation
-  },
-});
 
 const apiKeyShow = ref(false);
 </script>
 
 <template>
-  <v-dialog v-model="chatStore.apiKeyDialog" width="600">
+  <v-dialog v-model="chatGPTStore.configDialog" width="600">
     <v-card>
       <v-card-title class="font-weight-bold pa-5">
         Input your Api Key</v-card-title
@@ -34,7 +26,7 @@ const apiKeyShow = ref(false);
         <v-text-field
           color="primary"
           variant="outlined"
-          v-model="key"
+          v-model="chatGPTStore.apiKey"
           class="px-2 py-1"
           placeholder="If not input , the ApiKey in the .env will be used."
           prepend-inner-icon="mdi-key"

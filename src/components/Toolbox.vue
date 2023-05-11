@@ -7,9 +7,9 @@
 import { Icon } from "@iconify/vue";
 import ChatAssistant from "@/components/ai/ChatAssistant.vue";
 import TranslationAssistant from "@/components/ai/TranslationAssistant.vue";
-import { useChatStore } from "@/views/app/chat/chatStore";
+import { useChatGPTStore } from "@/stores/chatGPTStore";
 import ApiKeyDialog from "@/components/ApiKeyDialog.vue";
-const chatStore = useChatStore();
+const chatGPTStore = useChatGPTStore();
 const toolboxShow = ref(false);
 </script>
 
@@ -50,7 +50,7 @@ const toolboxShow = ref(false);
       <!-- ApiKey -->
       <!-- ---------------------------------------------- -->
       <v-btn
-        @click="chatStore.apiKeyDialog = true"
+        @click="chatGPTStore.configDialog = true"
         variant="text"
         size="50"
         color="blue"

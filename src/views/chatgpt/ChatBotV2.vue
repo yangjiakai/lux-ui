@@ -5,7 +5,6 @@
 -->
 <script setup lang="ts">
 import { useSnackbarStore } from "@/stores/snackbarStore";
-import { useChatStore } from "@/views/app/chat/chatStore";
 import AnimationAi from "@/components/animations/AnimationBot2.vue";
 import { read, countAndCompleteCodeBlocks } from "@/utils/aiUtils";
 import MdEditor from "md-editor-v3";
@@ -13,7 +12,6 @@ import "md-editor-v3/lib/style.css";
 import { scrollToBottom } from "@/utils/common";
 import { useChatGPTStore } from "@/stores/chatGPTStore";
 const snackbarStore = useSnackbarStore();
-const chatStore = useChatStore();
 const chatGPTStore = useChatGPTStore();
 
 interface Message {
@@ -66,7 +64,7 @@ const sendMessage = async () => {
 
 const createCompletion = async () => {
   // Check if the API key is set
-  if (!chatStore.getApiKey) {
+  if (!chatGPTStore.getApiKey) {
     snackbarStore.showErrorMessage("请先输入API KEY");
     return;
   }
@@ -78,7 +76,7 @@ const createCompletion = async () => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${chatStore.getApiKey}`,
+          Authorization: `Bearer ${chatGPTStore.getApiKey}`,
         },
         method: "POST",
         body: JSON.stringify({

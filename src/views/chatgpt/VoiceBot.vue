@@ -5,25 +5,20 @@
 -->
 <script setup lang="ts">
 import { useSnackbarStore } from "@/stores/snackbarStore";
-import { useChatStore } from "@/views/app/chat/chatStore";
 import AnimationAi from "@/components/animations/AnimationBot1.vue";
 // import AnimationSpeech from "@/components/animations/AnimationSpeech.vue";
 import AnimationRecording from "@/components/animations/AnimationRecording.vue";
-
 import MdEditor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
-
 import AnimaitonCss01 from "@/components/animations/AnimaitonCss01.vue";
 import AnimaitonCss02 from "@/components/animations/AnimaitonCss02.vue";
 import { useSpeechStore } from "@/stores/speechStore";
-
 import { createTranscriptionApi, createCompletionApi } from "@/api/aiApi";
 import VoiceConfigDialog from "@/components/ai/VoiceConfigDialog.vue";
-
+import { useChatGPTStore } from "@/stores/chatGPTStore";
 const snackbarStore = useSnackbarStore();
-const chatStore = useChatStore();
 const speechStore = useSpeechStore();
-
+const chatGPTStore = useChatGPTStore();
 interface Message {
   content: string;
   role: "user" | "assistant" | "system";
@@ -64,7 +59,7 @@ const sendMessage = async () => {
 
 const createCompletion = async () => {
   // Check if the API key is set
-  if (!chatStore.getApiKey) {
+  if (!chatGPTStore.getApiKey) {
     snackbarStore.showErrorMessage("请先输入API KEY");
     isLoading.value = false;
     return;
@@ -79,7 +74,7 @@ const createCompletion = async () => {
         n: 1,
         max_tokens: 200,
       },
-      chatStore.getApiKey
+      chatGPTStore.getApiKey
     );
 
     isLoading.value = false;
@@ -145,7 +140,10 @@ const startRecording = async () => {
         const formData = new FormData();
         formData.append("file", file);
         formData.append("model", "whisper-1");
-        const res = await createTranscriptionApi(formData, chatStore.getApiKey);
+        const res = await createTranscriptionApi(
+          formData,
+          chatGPTStore.getApiKey
+        );
         userMessage.value = res.data.text;
 
         // 停止媒体流的所有轨道

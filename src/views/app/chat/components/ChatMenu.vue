@@ -5,8 +5,8 @@
 -->
 <script setup lang="ts">
 import ApiKeyDialog from "@/components/ApiKeyDialog.vue";
-import { useChatStore } from "../chatStore";
-const chatStore = useChatStore();
+import { useChatGPTStore } from "@/stores/chatGPTStore";
+const chatGPTStore = useChatGPTStore();
 </script>
 
 <template>
@@ -20,7 +20,7 @@ const chatStore = useChatStore();
       block
       size="large"
       class="text-white mb-2"
-      @click="chatStore.apiKeyDialog = true"
+      @click="chatGPTStore.configDialog = true"
       >API KEY</v-btn
     >
     <ApiKeyDialog />

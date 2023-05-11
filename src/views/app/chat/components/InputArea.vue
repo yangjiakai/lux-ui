@@ -7,8 +7,9 @@
 import type { User, Message } from "../chatTypes";
 import { useChatStore } from "../chatStore";
 import { createCompletion } from "../openAIApi";
-
+import { useChatGPTStore } from "@/stores/chatGPTStore";
 const chatStore = useChatStore();
+const chatGPTStore = useChatGPTStore();
 const userMessage = ref("");
 const aiMessage = ref("");
 
@@ -43,7 +44,7 @@ const sendMessage = () => {
   if (!userMessage.value) return;
 
   // 判断ApiKey是否为空
-  if (!chatStore.getApiKey) {
+  if (!chatGPTStore.getApiKey) {
     errorMsg.value = "请先设置API密钥。";
     isError.value = true;
     return;
@@ -67,7 +68,7 @@ const getCompletion = async () => {
   try {
     const response = await createCompletion(
       userMessage.value,
-      chatStore.getApiKey
+      chatGPTStore.getApiKey
     );
 
     if (response.data.error) {

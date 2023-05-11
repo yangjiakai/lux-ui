@@ -5,13 +5,14 @@
 -->
 <script setup lang="ts">
 import { useSnackbarStore } from "@/stores/snackbarStore";
-import { useChatStore } from "@/views/app/chat/chatStore";
 import AnimationAi from "@/components/animations/AnimationBot2.vue";
 import { read } from "@/utils/aiUtils";
 import MdEditor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
+import { useChatGPTStore } from "@/stores/chatGPTStore";
 const snackbarStore = useSnackbarStore();
-const chatStore = useChatStore();
+
+const chatGPTStore = useChatGPTStore();
 
 interface Message {
   content: string;
@@ -42,7 +43,7 @@ const sendMessage = async () => {
 
 // If you have set up an API key, please use your own key. If not, please use the one I provided.
 const myApikey = computed(() => {
-  return chatStore.apiKey || import.meta.env.VITE_OPENAI_API_KEY;
+  return chatGPTStore.apiKey || import.meta.env.VITE_OPENAI_API_KEY;
 });
 
 const createCompletion = async () => {
