@@ -19,15 +19,15 @@ const queryOptions = reactive({
 
 const headers = [
   { title: "ID", key: "id" },
-  { title: "标题", key: "title" },
-  { title: "拥有者", key: "user" },
-  { title: "照片数量", key: "total_photos", align: "center" },
+  { title: "Title", key: "title" },
+  { title: "Owner", key: "user" },
+  { title: "Total", key: "total_photos", align: "center" },
 
-  { title: "封面图", key: "cover_photo", align: "center" },
-  { title: "预览图", key: "preview_photos", align: "center" },
-  { title: "链接", key: "links" },
-  { title: "标签", key: "tags", width: "300px", align: "center" },
-  { title: "发布时间", key: "published_at" },
+  { title: "cover", key: "cover_photo", align: "center" },
+  { title: "preview", key: "preview_photos", align: "center" },
+  { title: "link", key: "links" },
+  { title: "tags", key: "tags", width: "300px", align: "center" },
+  { title: "publish", key: "published_at" },
 ];
 
 const collectionList = ref([]);

@@ -8,8 +8,10 @@
 import { Ref } from "vue";
 import type { EChartsOption } from "echarts";
 import { useChart, RenderType, ThemeType } from "@/plugins/echarts";
-
-const textTitle = ref("EchartPie");
+// import { useTheme } from "vuetify";
+// const { current } = useTheme();
+import { useCustomizeThemeStore } from "@/stores/customizeTheme";
+const customizeTheme = useCustomizeThemeStore();
 const dataSet = ref([
   { value: 335, name: "Direct" },
   { value: 310, name: "Email" },
@@ -20,8 +22,7 @@ const dataSet = ref([
 
 const option = computed<EChartsOption>(() => ({
   // ...chart option
-  backgroundColor: "#fff",
-
+  backgroundColor: customizeTheme.darkTheme ? "#1E293B" : "#FFF",
   tooltip: {
     trigger: "item",
   },
@@ -96,7 +97,7 @@ watch(
 </script>
 
 <template>
-  <v-card height="360">
+  <v-card color="transparent" height="360">
     <div ref="chartEl" :style="{ width: `100%`, height: `100%` }"></div>
   </v-card>
 </template>

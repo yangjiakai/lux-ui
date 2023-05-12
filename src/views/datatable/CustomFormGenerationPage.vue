@@ -11,7 +11,7 @@ import AnimationFolder from "@/components/animations/AnimationFolder.vue";
   <v-container class="h-full">
     <div class="h-full bg-white d-flex align-center justify-center">
       <div class="text-center">
-        <h1 class="text-h4 font-weight-bold text-grey">新建文件夹.jpg</h1>
+        <h1 class="text-h4 font-weight-bold text-grey">New folder.jpg</h1>
         <AnimationFolder :size="400" />
       </div>
     </div>

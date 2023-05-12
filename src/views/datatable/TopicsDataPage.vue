@@ -19,14 +19,14 @@ const queryOptions = reactive({
 
 const headers = [
   { title: "ID", key: "id" },
-  { title: "标题", key: "title" },
-  { title: "封面图", key: "cover_photo", align: "center" },
-  { title: "预览图", key: "preview_photos", align: "center" },
-  { title: "照片数量", key: "total_photos", align: "center" },
-  { title: "描述", key: "description", width: "500px" },
+  { title: "Title", key: "title" },
+  { title: "Cover", key: "cover_photo", align: "center" },
+  { title: "Preview", key: "preview_photos", align: "center" },
+  { title: "Photos", key: "total_photos", align: "center" },
+  { title: "Description", key: "description", width: "500px" },
 
-  { title: "链接", key: "links" },
-  { title: "发布时间", key: "published_at" },
+  { title: "Link", key: "links" },
+  { title: "Publish", key: "published_at" },
   { title: "", key: "data-table-expand" },
 ];
 
