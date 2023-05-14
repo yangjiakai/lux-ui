@@ -244,9 +244,7 @@ const clearMessages = () => {
     <div class="input-area">
       <v-sheet class="input-panel" height="100">
         <div class="panel-left">
-          <span>
-            <VoiceConfigDialog />
-          </span>
+          <VoiceConfigDialog />
         </div>
         <div class="panel-center">
           <!-- Recording Animation -->

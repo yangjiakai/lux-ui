@@ -25,6 +25,8 @@ const userMessage = ref("");
 
 // Prompt Message
 const promptMessage = computed(() => {
+  console.log("chatGPTStore.propmpt", chatGPTStore.propmpt);
+
   return [
     {
       content: chatGPTStore.propmpt,
@@ -198,8 +200,22 @@ const displayMessages = computed(() => {
       </div>
     </div>
     <div class="input-area">
-      <v-sheet elevation="0" class="input-panel">
+      <v-sheet elevation="0" class="input-panel d-flex align-center pa-1">
+        <v-btn
+          variant="elevated"
+          icon
+          @click="chatGPTStore.configDialog = true"
+        >
+          <v-icon size="30" class="text-primary">mdi-cog-outline</v-icon>
+          <v-tooltip
+            activator="parent"
+            location="top"
+            text="ChatGPT Config"
+          ></v-tooltip>
+        </v-btn>
+
         <v-text-field
+          class="ml-2"
           color="primary"
           type="text"
           clearable
@@ -210,9 +226,6 @@ const displayMessages = computed(() => {
           hide-details
           @keyup.enter="sendMessage"
         >
-          <template #prepend-inner>
-            <v-icon>mdi-microphone</v-icon>
-          </template>
           <template v-slot:append-inner>
             <v-fade-transition leave-absolute>
               <Icon
@@ -228,6 +241,7 @@ const displayMessages = computed(() => {
           </template>
         </v-text-field>
       </v-sheet>
+      <ApiKeyDialog />
     </div>
   </div>
 </template>

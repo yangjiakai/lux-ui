@@ -179,19 +179,25 @@ const displayMessages = computed(() => {
       </div>
     </div>
     <div class="input-area">
-      <v-sheet elevation="0" class="input-panel" max-width="1200">
-        <!-- Todo Select Model  -->
-
-        <!-- <div class="mb-2">
-        <v-select
-          class="w-50"
-          label="Model"
-          hide-details
-          :items="['GPT-4', 'GPT-3.5']"
-          variant="solo"
-        ></v-select>
-      </div> -->
+      <v-sheet
+        elevation="0"
+        class="input-panel d-flex align-center pa-1"
+        max-width="1200"
+      >
+        <v-btn
+          variant="elevated"
+          icon
+          @click="chatGPTStore.configDialog = true"
+        >
+          <v-icon size="30" class="text-primary">mdi-cog-outline</v-icon>
+          <v-tooltip
+            activator="parent"
+            location="top"
+            text="ChatGPT Config"
+          ></v-tooltip>
+        </v-btn>
         <v-text-field
+          class="ml-2"
           color="primary"
           ref="input"
           v-model="userMessage"
@@ -199,9 +205,9 @@ const displayMessages = computed(() => {
           hide-details
           @keyup.enter="sendMessage"
         >
-          <template #prepend-inner>
+          <!-- <template #prepend-inner>
             <v-icon>mdi-microphone</v-icon>
-          </template>
+          </template> -->
 
           <template #append-inner>
             <v-icon @click="sendMessage">mdi-send</v-icon>

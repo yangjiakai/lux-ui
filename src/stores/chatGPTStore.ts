@@ -6,6 +6,7 @@ export const useChatGPTStore = defineStore({
     propmpt: "",
     configDialog: false,
     apiKey: "",
+    model: "gpt-3.5-turbo",
   }),
 
   persist: {
@@ -17,5 +18,10 @@ export const useChatGPTStore = defineStore({
     // If you have set up an API key, please use your own key. If not, please use the one I provided.
     getApiKey: (state) => state.apiKey || import.meta.env.VITE_OPENAI_API_KEY,
   },
-  actions: {},
+  actions: {
+    updatePropmpt() {},
+    updateModel(model: string) {
+      this.model = model;
+    },
+  },
 });

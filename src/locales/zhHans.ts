@@ -120,9 +120,9 @@ export default {
       richTextEditor: "富文本编辑器",
       editTable: "可编辑数据表",
     },
-    chatbot_v1: "Chatbot v1",
-    chatbot_v2: "Chatbot v2(Stream)",
-    voiceBot: "实时语音对话",
+    chatbot_v1: "聊天助手",
+    chatbot_v2: "问答助手",
+    voicebot: "语音对话助手",
   },
   dashboard: {
     activity: "活动",
@@ -141,6 +141,9 @@ export default {
     apikey: {
       title: "API Key",
     },
+    chatgptConfig: {
+      title: "ChatGPT 配置",
+    },
     chatAssistant: {
       title: "聊天助手",
     },
@@ -156,6 +159,15 @@ export default {
     },
     playGround: {
       title: "PlayGround",
+    },
+  },
+  chatgpt: {
+    config: {
+      title: "ChatGPT 配置",
+      apikey: "API Key",
+      apikeyPlaceholder: "优先使用输入的apikey,否则读取环境变量的apikey",
+      model: "语言模型",
+      role: "扮演角色",
     },
   },
   // Vuetify 组件内部翻译

@@ -120,8 +120,8 @@ export default {
       richTextEditor: "Rich Text Editor",
       editTable: "Edit Table",
     },
-    chatbot_v1: "ChatBot v1",
-    chatbot_v2: "ChatBot v2(Stream)",
+    chatbot_v1: "ChatBot",
+    chatbot_v2: "Q&A Bot",
     voicebot: "VoiceBot",
   },
   dashboard: {
@@ -156,6 +156,15 @@ export default {
     },
     playGround: {
       title: "プレイグラウンド",
+    },
+  },
+  chatgpt: {
+    config: {
+      title: "ChatGPT 設定",
+      apikey: "API Key",
+      apikeyPlaceholder: "ApiKeyが入力されていない場合,.envを使用します。",
+      model: "言語モデル",
+      role: "Role",
     },
   },
 

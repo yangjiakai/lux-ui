@@ -59,7 +59,7 @@ const toolboxShow = ref(false);
         <v-tooltip
           activator="parent"
           location="left"
-          :text="$t('toolbox.apikey.title')"
+          :text="$t('toolbox.chatgptConfig.title')"
         ></v-tooltip>
       </v-btn>
       <ApiKeyDialog />
