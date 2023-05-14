@@ -123,6 +123,8 @@ export default {
     chatbot_v1: "ChatBot",
     chatbot_v2: "Q&A Bot",
     voicebot: "VoiceBot",
+    imagebot: "ImageBot",
+    chartbot: "ChartBot",
   },
   dashboard: {
     activity: "アクティビティ",

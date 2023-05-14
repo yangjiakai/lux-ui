@@ -17,4 +17,18 @@ export default [
     text: "Voice Bot",
     link: "/ai/voice-bot",
   },
+  // Image Bot
+  {
+    icon: "mdi-robot-outline",
+    key: "menu.imagebot",
+    text: "Image Bot",
+    link: "/ai/image-bot",
+  },
+  // Chart Bot
+  {
+    icon: "mdi-robot-dead-outline",
+    key: "menu.chartbot",
+    text: "Chart Bot",
+    link: "/ai/chart-bot",
+  },
 ];

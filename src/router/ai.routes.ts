@@ -31,4 +31,26 @@ export default [
       title: "VoiceBot",
     },
   },
+  // image bot
+  {
+    path: "/ai/image-bot",
+    component: () => import("@/views/chatgpt/ImageBot.vue"),
+    meta: {
+      requiresAuth: true,
+      layout: "landing",
+      category: "AI",
+      title: "ImageBot",
+    },
+  },
+  // chart bot
+  {
+    path: "/ai/chart-bot",
+    component: () => import("@/views/chatgpt/ChartBot.vue"),
+    meta: {
+      requiresAuth: true,
+      layout: "landing",
+      category: "AI",
+      title: "ChartBot",
+    },
+  },
 ];
