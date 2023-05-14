@@ -141,6 +141,9 @@ export default {
     apikey: {
       title: "API Key",
     },
+    chatgptConfig: {
+      title: "ChatGPT Config",
+    },
     chatAssistant: {
       title: "チャットアシスタント",
     },
