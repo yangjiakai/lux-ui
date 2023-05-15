@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { faker } from "@faker-js/faker";
 import moment from "moment";
+
+const chooseColor = () => {
+  let colors = ["red", "indigo", "blue", "cyan", "teal"];
+  let randomColor = colors[Math.floor(Math.random() * colors.length)];
+  return randomColor;
+};
+
 const generateMessage = () => {
   return {
     // 生成4位id
@@ -10,7 +17,7 @@ const generateMessage = () => {
     phone: faker.phone.number(),
     jdate: moment(faker.date.past()).format("YYYY/MM/DD"),
     role: faker.name.jobTitle(),
-    rolestatus: faker.color.human(),
+    rolestatus: chooseColor(),
   };
 };
 
@@ -249,14 +256,14 @@ const formTitle = computed(() => {
                 <div>
                   <v-img
                     :src="item.avatar"
-                    width="45px"
+                    width="40"
                     class="rounded-circle img-fluid"
                   ></v-img>
                 </div>
 
                 <div class="ml-5">
                   <p class="font-weight-bold">{{ item.username }}</p>
-                  <span class="d-block mt-1 textSecondary">{{
+                  <span class="d-block mt-1 text-caption textSecondary">{{
                     item.usermail
                   }}</span>
                 </div>
@@ -267,11 +274,7 @@ const formTitle = computed(() => {
             <td>
               <v-chip
                 class="font-weight-bold"
-                :color="
-                  item.rolestatus === 'black' || item.rolestatus === 'white'
-                    ? 'primary'
-                    : item.rolestatus
-                "
+                :color="item.rolestatus"
                 size="small"
                 label
                 >{{ item.role }}</v-chip
@@ -281,20 +284,36 @@ const formTitle = computed(() => {
               <div class="d-flex align-center">
                 <v-tooltip text="Edit">
                   <template v-slot:activator="{ props }">
-                    <v-btn icon flat @click="editItem(item)" v-bind="props"
-                      ><img
+                    <v-btn
+                      color="blue"
+                      icon
+                      variant="text"
+                      @click="editItem(item)"
+                      v-bind="props"
+                    >
+                      <v-icon>mdi-pencil-outline</v-icon>
+                      <!-- <img
                         width="26"
                         src="https://img.icons8.com/fluency/48/null/edit.png"
-                    /></v-btn>
+                    /> -->
+                    </v-btn>
                   </template>
                 </v-tooltip>
                 <v-tooltip text="Delete">
                   <template v-slot:activator="{ props }">
-                    <v-btn icon flat @click="deleteItem(item)" v-bind="props"
-                      ><img
+                    <v-btn
+                      icon
+                      variant="text"
+                      @click="deleteItem(item)"
+                      v-bind="props"
+                      color="error"
+                    >
+                      <v-icon>mdi-delete-outline</v-icon>
+                      <!-- <img
                         width="26"
                         src="https://img.icons8.com/fluency/48/null/filled-trash.png"
-                    /></v-btn>
+                    /> -->
+                    </v-btn>
                   </template>
                 </v-tooltip>
               </div>
