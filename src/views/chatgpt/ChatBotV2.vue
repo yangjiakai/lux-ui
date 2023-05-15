@@ -11,6 +11,7 @@ import MdEditor from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
 import { scrollToBottom } from "@/utils/common";
 import { useChatGPTStore } from "@/stores/chatGPTStore";
+import ApiKeyDialog from "@/components/ApiKeyDialog.vue";
 const snackbarStore = useSnackbarStore();
 const chatGPTStore = useChatGPTStore();
 
@@ -214,6 +215,7 @@ const displayMessages = computed(() => {
           </template>
         </v-text-field>
       </v-sheet>
+      <ApiKeyDialog />
     </div>
   </div>
 </template>

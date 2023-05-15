@@ -51,7 +51,7 @@ const promptList = computed(() => {
           variant="outlined"
           v-model="chatGPTStore.apiKey"
           class="px-2 py-1"
-          placeholder="If not input , the ApiKey in the .env will be used."
+          :placeholder="$t('chatgpt.config.apikeyPlaceholder')"
           prepend-inner-icon="mdi-key"
           autofocus
           clearable

@@ -13,6 +13,7 @@ import { Icon } from "@iconify/vue";
 import MdEditor from "md-editor-v3";
 import { useChatGPTStore } from "@/stores/chatGPTStore";
 import "md-editor-v3/lib/style.css";
+import ApiKeyDialog from "@/components/ApiKeyDialog.vue";
 const snackbarStore = useSnackbarStore();
 const chatGPTStore = useChatGPTStore();
 

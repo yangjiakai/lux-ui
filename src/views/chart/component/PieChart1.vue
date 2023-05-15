@@ -23,6 +23,7 @@ const dataSet = ref([
 const option = computed<EChartsOption>(() => ({
   // ...chart option
   backgroundColor: customizeTheme.darkTheme ? "#1E293B" : "#FFF",
+
   tooltip: {
     trigger: "item",
   },
