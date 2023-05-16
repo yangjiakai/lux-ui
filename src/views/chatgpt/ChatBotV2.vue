@@ -166,7 +166,7 @@ const handleKeydown = (e) => {
                     alt="alt"
                   />
                 </v-avatar>
-                <b> {{ message.content }}</b>
+                <span> {{ message.content }}</span>
               </div>
             </div>
           </div>
