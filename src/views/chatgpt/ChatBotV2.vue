@@ -159,7 +159,7 @@ const handleKeydown = (e) => {
         <template v-for="message in displayMessages">
           <div v-if="message.role === 'user'">
             <div class="pa-5 user-message">
-              <div class="message align-center">
+              <div class="message align-center text-pre-wrap">
                 <v-avatar class="mr-4 mr-lg-8">
                   <img
                     src="@/assets/images/avatars/avatar_user.jpg"

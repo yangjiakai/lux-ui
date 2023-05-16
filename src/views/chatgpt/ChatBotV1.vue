@@ -146,7 +146,7 @@ const displayMessages = computed(() => {
 
 const handleKeydown = (e) => {
   if (e.key === "Enter" && (e.altKey || e.shiftKey)) {
-    // 当同时按下 ctrl 和 enter 时，插入一个换行符
+    // 当同时按下 alt或者shift 和 enter 时，插入一个换行符
     e.preventDefault();
     userMessage.value += "\n";
   } else if (e.key === "Enter") {
@@ -167,7 +167,7 @@ const handleKeydown = (e) => {
               <v-avatar class="ml-4" rounded="sm" variant="elevated">
                 <img src="@/assets/images/avatars/avatar_user.jpg" alt="alt" />
               </v-avatar>
-              <v-card class="gradient gray" theme="dark">
+              <v-card class="gradient gray text-pre-wrap" theme="dark">
                 <v-card-text>
                   <b> {{ message.content }}</b></v-card-text
                 >
