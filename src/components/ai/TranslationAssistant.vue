@@ -81,14 +81,15 @@ const translate = async () => {
     return;
   }
 
-  if (!chatGPTStore.getApiKey) {
-    snackbarStore.showErrorMessage("请先输入API KEY");
-    return;
-  }
+  // if (!chatGPTStore.getApiKey) {
+  //   snackbarStore.showErrorMessage("请先输入API KEY");
+  //   return;
+  // }
   isLoading.value = true;
   try {
     const completion = await fetch(
-      "https://api.openai.com/v1/chat/completions",
+      "https://baixiang.yunrobot.cn/v1/chat/completions",
+      // "https://api.openai.com/v1/chat/completions",
       {
         headers: {
           "Content-Type": "application/json",

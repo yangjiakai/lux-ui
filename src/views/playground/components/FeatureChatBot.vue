@@ -48,10 +48,10 @@ const myApikey = computed(() => {
 
 const createCompletion = async () => {
   // Check if the API key is set
-  if (!myApikey.value) {
-    snackbarStore.showErrorMessage("请先输入API KEY");
-    return;
-  }
+  // if (!myApikey.value) {
+  //   snackbarStore.showErrorMessage("请先输入API KEY");
+  //   return;
+  // }
 
   try {
     // Create a completion (axios is not used here because it does not support streaming)

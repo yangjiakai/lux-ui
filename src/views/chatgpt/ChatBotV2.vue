@@ -65,15 +65,16 @@ const sendMessage = async () => {
 
 const createCompletion = async () => {
   // Check if the API key is set
-  if (!chatGPTStore.getApiKey) {
-    snackbarStore.showErrorMessage("请先输入API KEY");
-    return;
-  }
+  // if (!chatGPTStore.getApiKey) {
+  //   snackbarStore.showErrorMessage("请先输入API KEY");
+  //   return;
+  // }
 
   try {
     // Create a completion (axios is not used here because it does not support streaming)
     const completion = await fetch(
-      "https://api.openai.com/v1/chat/completions",
+      "https://baixiang.yunrobot.cn/v1/chat/completions",
+      // "https://api.openai.com/v1/chat/completions",
       {
         headers: {
           "Content-Type": "application/json",

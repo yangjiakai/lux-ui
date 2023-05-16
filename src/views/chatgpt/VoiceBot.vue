@@ -59,11 +59,11 @@ const sendMessage = async () => {
 
 const createCompletion = async () => {
   // Check if the API key is set
-  if (!chatGPTStore.getApiKey) {
-    snackbarStore.showErrorMessage("请先输入API KEY");
-    isLoading.value = false;
-    return;
-  }
+  // if (!chatGPTStore.getApiKey) {
+  //   snackbarStore.showErrorMessage("请先输入API KEY");
+  //   isLoading.value = false;
+  //   return;
+  // }
 
   try {
     const completion = await createCompletionApi(

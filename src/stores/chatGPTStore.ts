@@ -16,7 +16,8 @@ export const useChatGPTStore = defineStore({
 
   getters: {
     // If you have set up an API key, please use your own key. If not, please use the one I provided.
-    getApiKey: (state) => state.apiKey || import.meta.env.VITE_OPENAI_API_KEY,
+    // getApiKey: (state) => state.apiKey || import.meta.env.VITE_OPENAI_API_KEY,
+    getApiKey: (state) => state.apiKey,
   },
   actions: {
     updatePropmpt() {},

@@ -11,6 +11,7 @@ interface State {
   darkTheme: boolean;
   primaryColor: Color;
   mainSidebar: boolean;
+  localCode: string;
 }
 
 export const useCustomizeThemeStore = defineStore({
@@ -31,7 +32,10 @@ export const useCustomizeThemeStore = defineStore({
   persist: {
     enabled: true,
     strategies: [
-      { storage: localStorage, paths: ["darkTheme", "primaryColor", "localCode", "mainSidebar"] },
+      {
+        storage: localStorage,
+        paths: ["darkTheme", "primaryColor", "localCode", "mainSidebar"],
+      },
     ],
   },
 
