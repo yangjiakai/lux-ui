@@ -137,6 +137,18 @@ const displayMessages = computed(() => {
   messagesCopy[messagesCopy.length - 1] = updatedLastMessage;
   return messagesCopy;
 });
+
+const handleKeydown = (e) => {
+  if (e.key === "Enter" && e.altKey) {
+    // 当同时按下 ctrl 和 enter 时，插入一个换行符
+    e.preventDefault();
+    userMessage.value += "\n";
+  } else if (e.key === "Enter") {
+    // 当只按下 enter 时，发送消息
+    e.preventDefault();
+    sendMessage();
+  }
+};
 </script>
 
 <template>
@@ -197,14 +209,19 @@ const displayMessages = computed(() => {
             text="ChatGPT Config"
           ></v-tooltip>
         </v-btn>
-        <v-text-field
+        <v-textarea
           class="ml-2"
           color="primary"
+          type="text"
+          clearable
+          variant="solo"
           ref="input"
           v-model="userMessage"
           placeholder="SendMessage"
           hide-details
-          @keyup.enter="sendMessage"
+          @keydown="handleKeydown"
+          rows="1"
+          no-resize
         >
           <!-- <template #prepend-inner>
             <v-icon>mdi-microphone</v-icon>
@@ -213,7 +230,7 @@ const displayMessages = computed(() => {
           <template #append-inner>
             <v-icon @click="sendMessage">mdi-send</v-icon>
           </template>
-        </v-text-field>
+        </v-textarea>
       </v-sheet>
       <ApiKeyDialog />
     </div>

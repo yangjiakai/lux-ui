@@ -78,7 +78,9 @@ const createCompletion = async () => {
   try {
     // Create a completion (axios is not used here because it does not support streaming)
     const completion = await fetch(
+      // "https://chat.aibox.pro/baixiang/v1/chat/completions",
       "https://api.openai.com/v1/chat/completions",
+      // "https://api.vuetify3.com/v1/chat/completions",
       {
         headers: {
           "Content-Type": "application/json",
@@ -142,6 +144,18 @@ const displayMessages = computed(() => {
   messagesCopy[messagesCopy.length - 1] = updatedLastMessage;
   return messagesCopy;
 });
+
+const handleKeydown = (e) => {
+  if (e.key === "Enter" && e.altKey) {
+    // 当同时按下 ctrl 和 enter 时，插入一个换行符
+    e.preventDefault();
+    userMessage.value += "\n";
+  } else if (e.key === "Enter") {
+    // 当只按下 enter 时，发送消息
+    e.preventDefault();
+    sendMessage();
+  }
+};
 </script>
 
 <template>
@@ -215,7 +229,7 @@ const displayMessages = computed(() => {
           ></v-tooltip>
         </v-btn>
 
-        <v-text-field
+        <v-textarea
           class="ml-2"
           color="primary"
           type="text"
@@ -225,7 +239,9 @@ const displayMessages = computed(() => {
           v-model="userMessage"
           placeholder="SendMessage"
           hide-details
-          @keyup.enter="sendMessage"
+          @keydown="handleKeydown"
+          rows="1"
+          no-resize
         >
           <template v-slot:append-inner>
             <v-fade-transition leave-absolute>
@@ -240,7 +256,7 @@ const displayMessages = computed(() => {
               >
             </v-fade-transition>
           </template>
-        </v-text-field>
+        </v-textarea>
       </v-sheet>
       <ApiKeyDialog />
     </div>
