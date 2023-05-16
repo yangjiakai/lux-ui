@@ -140,8 +140,8 @@ const displayMessages = computed(() => {
 });
 
 const handleKeydown = (e) => {
-  if (e.key === "Enter" && e.altKey) {
-    // 当同时按下 ctrl 和 enter 时，插入一个换行符
+  if (e.key === "Enter" && (e.altKey || e.shiftKey)) {
+    // 当同时按下 alt或者shift 和 enter 时，插入一个换行符
     e.preventDefault();
     userMessage.value += "\n";
   } else if (e.key === "Enter") {
