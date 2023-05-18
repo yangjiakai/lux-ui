@@ -191,12 +191,14 @@ export const useSpeechStore = defineStore({
       this.speechSynthesisLanguage = voiceInfo.locale;
       this.localName = voiceInfo.localName;
       if (voiceInfo?.styleList && voiceInfo.styleList.length > 0) {
-        this.styleList = voiceInfo.styleList;
         if (this.styleList.includes(this.voiceEmotion)) {
           return;
         } else {
           this.voiceEmotion = voiceInfo.styleList[0];
         }
+      } else {
+        this.styleList = [];
+        this.voiceEmotion = "";
       }
     },
   },
