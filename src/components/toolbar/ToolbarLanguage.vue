@@ -36,9 +36,9 @@ const availableLocaleList = computed(() => {
   return availableLocales;
 });
 
-const currentLocale = computed(() => {
-  return availableLocales.filter((item) => item.code === current.value)[0];
-});
+// const currentLocale = computed(() => {
+//   return availableLocales.filter((item) => item.code === current.value)[0];
+// });
 
 onMounted(() => {
   setLocale(customizeTheme.localCode);
