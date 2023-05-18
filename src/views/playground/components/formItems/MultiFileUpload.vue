@@ -57,19 +57,20 @@ const addFiles = (newFiles) => {
     return;
   }
 
-  const newFileList = Array.from(newFiles);
-  const newFileInfoList = [];
-  newFileList.forEach((file) => {
-    newFileInfoList.push({
-      name: file.name,
-      lastModifiedDate: file.lastModifiedDate,
-      size: file.size,
-      deleteFlg: false,
-    });
-  });
+  const newFilesList = Array.from(newFiles);
 
-  uploadFileList.value = [...uploadFileList.value, ...newFileList];
-  fileInfoList.value = [...fileInfoList.value, ...newFileInfoList];
+  for (const newFile of newFilesList) {
+    // 同名のファイルをチェックし、上書き確認
+
+    uploadFileList.value.push(newFile);
+    fileInfoList.value.push({
+      name: newFile.name,
+      lastModified: new Date(newFile.lastModified),
+      size: newFile.size,
+      deleteFlag: false,
+    });
+  }
+  // 重複ファイルを削除
 };
 </script>
 
