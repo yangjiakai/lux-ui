@@ -7,6 +7,7 @@
 import { useEditor, EditorContent } from "@tiptap/vue-3";
 import StarterKit from "@tiptap/starter-kit";
 import EditorMenubar from "@/components/RichEditorMenubar.vue";
+import MdEditorCard from "./MdEditorCard.vue";
 const editor = useEditor({
   extensions: [StarterKit],
   content: `
@@ -44,6 +45,15 @@ const editor = useEditor({
 <template>
   <v-container>
     <v-row>
+      <v-col>
+        <v-card min-height="90vh">
+          <v-card-title>
+            <h2 class="font-weight-bold pa-3">MdEditor</h2>
+          </v-card-title>
+          <v-divider></v-divider>
+          <v-card-text class="mt-8"> <MdEditorCard /> </v-card-text>
+        </v-card>
+      </v-col>
       <v-col>
         <v-card min-height="90vh">
           <v-card-title>
