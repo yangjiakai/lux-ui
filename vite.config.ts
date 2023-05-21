@@ -37,6 +37,13 @@ export default defineConfig({
   },
   server: {
     port: 4399,
+    proxy: {
+      "/sdApi": {
+        target: "http://me.yunrobot.cn:7860",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/sdApi/, ""),
+      },
+    },
   },
   css: {
     preprocessorOptions: {
