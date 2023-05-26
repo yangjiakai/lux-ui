@@ -31,7 +31,7 @@ const chatGPTStore = useChatGPTStore();
         to="/apps/chat/base-channel"
         active-class="active-chat"
         link
-        title="摩诃善法大吉祥智慧主"
+        title="Nahida"
       >
         <template v-slot:prepend>
           <v-avatar class="mx-5" size="40">
