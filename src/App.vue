@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app" :theme="customizeTheme.darkTheme ? 'dark' : 'light'">
+  <v-app :theme="customizeTheme.darkTheme ? 'dark' : 'light'">
     <component :is="currentLayout" v-if="isRouterLoaded">
       <router-view> </router-view>
     </component>

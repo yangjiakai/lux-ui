@@ -55,6 +55,15 @@ onMounted(() => {
 
   <v-dialog v-model="speechStore.voiceConfigDialog" width="500">
     <v-card>
+      <v-card-title>
+        <v-spacer></v-spacer>
+        <v-btn
+          variant="flat"
+          icon
+          @click="speechStore.voiceConfigDialog = false"
+          ><v-icon>mdi-close</v-icon></v-btn
+        >
+      </v-card-title>
       <v-container>
         <v-row>
           <v-col cols="12">
@@ -197,6 +206,6 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .scroller {
-  height: 400px;
+  height: 300px;
 }
 </style>
