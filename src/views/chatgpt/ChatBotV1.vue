@@ -212,7 +212,7 @@ const inputRow = ref(1);
         </v-btn>
         <transition name="fade">
           <v-textarea class="mx-2" color="primary" type="text" clearable variant="solo" ref="input" v-model="userMessage"
-            placeholder="SendMessage" hide-details @keydown="handleKeydown" :rows="inputRow" @focus="inputRow = 3"
+            placeholder="Ask Anything" hide-details @keydown="handleKeydown" :rows="inputRow" @focus="inputRow = 3"
             @blur="inputRow = 1">
           </v-textarea>
         </transition>
