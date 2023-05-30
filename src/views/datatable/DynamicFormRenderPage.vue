@@ -5,6 +5,7 @@
 -->
 <script setup lang="ts">
 import AnimationFolder from "@/components/animations/AnimationFolder.vue";
+
 </script>
 
 <template>

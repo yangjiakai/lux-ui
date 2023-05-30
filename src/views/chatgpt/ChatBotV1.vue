@@ -155,6 +155,9 @@ const handleKeydown = (e) => {
     sendMessage();
   }
 };
+
+
+const inputRow = ref(1);
 </script>
 
 <template>
@@ -169,30 +172,18 @@ const handleKeydown = (e) => {
               </v-avatar>
               <v-card class="gradient gray text-pre-wrap" theme="dark">
                 <v-card-text>
-                  <b> {{ message.content }}</b></v-card-text
-                >
+                  <b> {{ message.content }}</b></v-card-text>
               </v-card>
             </div>
           </div>
           <div v-else>
             <div class="pa-2 pa-md-5 assistant-message">
-              <v-avatar
-                class="d-none d-md-block mr-2 mr-md-4"
-                rounded="sm"
-                variant="elevated"
-              >
-                <img
-                  src="@/assets/images/avatars/avatar_assistant.jpg"
-                  alt="alt"
-                />
+              <v-avatar class="d-none d-md-block mr-2 mr-md-4" rounded="sm" variant="elevated">
+                <img src="@/assets/images/avatars/avatar_assistant.jpg" alt="alt" />
               </v-avatar>
               <v-card>
                 <div>
-                  <md-editor
-                    v-model="message.content"
-                    class="font-1"
-                    previewOnly
-                  />
+                  <md-editor v-model="message.content" class="font-1" previewOnly />
                 </div>
               </v-card>
             </div>
@@ -214,48 +205,23 @@ const handleKeydown = (e) => {
       </div>
     </div>
     <div class="input-area">
-      <v-sheet elevation="0" class="input-panel d-flex align-center pa-1">
-        <v-btn
-          variant="elevated"
-          icon
-          @click="chatGPTStore.configDialog = true"
-        >
+      <v-sheet color="transparent" elevation="0" class="input-panel d-flex align-end pa-1">
+        <v-btn class="mb-1" variant="elevated" icon @click="chatGPTStore.configDialog = true">
           <v-icon size="30" class="text-primary">mdi-cog-outline</v-icon>
-          <v-tooltip
-            activator="parent"
-            location="top"
-            text="ChatGPT Config"
-          ></v-tooltip>
+          <v-tooltip activator="parent" location="top" text="ChatGPT Config"></v-tooltip>
+        </v-btn>
+        <transition name="fade">
+          <v-textarea class="mx-2" color="primary" type="text" clearable variant="solo" ref="input" v-model="userMessage"
+            placeholder="SendMessage" hide-details @keydown="handleKeydown" :rows="inputRow" @focus="inputRow = 3"
+            @blur="inputRow = 1">
+          </v-textarea>
+        </transition>
+
+        <v-btn class="mb-1" color="primary" variant="elevated" icon>
+          <Icon v-if="isLoading" class="text-white" width="30" icon="eos-icons:three-dots-loading" />
+          <v-icon v-else @click="sendMessage">mdi-send</v-icon>
         </v-btn>
 
-        <v-textarea
-          class="ml-2"
-          color="primary"
-          type="text"
-          clearable
-          variant="solo"
-          ref="input"
-          v-model="userMessage"
-          placeholder="SendMessage"
-          hide-details
-          @keydown="handleKeydown"
-          rows="1"
-          no-resize
-        >
-          <template v-slot:append-inner>
-            <v-fade-transition leave-absolute>
-              <Icon
-                v-if="isLoading"
-                class="text-primary"
-                width="30"
-                icon="eos-icons:three-dots-loading"
-              />
-              <v-icon color="primary" v-else @click="sendMessage"
-                >mdi-send</v-icon
-              >
-            </v-fade-transition>
-          </template>
-        </v-textarea>
       </v-sheet>
       <ApiKeyDialog />
     </div>
@@ -269,15 +235,20 @@ const handleKeydown = (e) => {
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+
   .messsage-area {
     flex: 1;
     height: 100%;
   }
-  .input-area {
-    padding: 1rem;
-    height: 90px;
 
+  .input-area {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 1rem;
     align-items: center;
+
     .input-panel {
       border-radius: 5px;
       max-width: 1200px;
@@ -318,6 +289,7 @@ const handleKeydown = (e) => {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   h1 {
     font-size: 2rem;
     font-weight: 500;
@@ -333,6 +305,7 @@ const handleKeydown = (e) => {
 }
 
 @media screen and (max-width: 768px) {
+
   :deep(#md-editor-v3-preview),
   .user-message {
     font-size: 14px !important;
