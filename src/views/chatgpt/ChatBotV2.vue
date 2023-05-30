@@ -150,6 +150,8 @@ const handleKeydown = (e) => {
     sendMessage();
   }
 };
+
+const inputRow = ref(1);
 </script>
 
 <template>
@@ -161,10 +163,7 @@ const handleKeydown = (e) => {
             <div class="pa-5 user-message">
               <div class="message align-center text-pre-wrap">
                 <v-avatar class="mr-4 mr-lg-8">
-                  <img
-                    src="@/assets/images/avatars/avatar_user.jpg"
-                    alt="alt"
-                  />
+                  <img src="@/assets/images/avatars/avatar_user.jpg" alt="alt" />
                 </v-avatar>
                 <span> {{ message.content }}</span>
               </div>
@@ -174,10 +173,7 @@ const handleKeydown = (e) => {
             <div class="pa-5 assitant-message">
               <div class="message">
                 <v-avatar class="mr-4 mr-lg-8">
-                  <img
-                    src="@/assets/images/avatars/avatar_assistant.jpg"
-                    alt="alt"
-                  />
+                  <img src="@/assets/images/avatars/avatar_assistant.jpg" alt="alt" />
                 </v-avatar>
                 <md-editor v-model="message.content" previewOnly />
               </div>
@@ -193,45 +189,20 @@ const handleKeydown = (e) => {
       </div>
     </div>
     <div class="input-area">
-      <v-sheet
-        elevation="0"
-        class="input-panel d-flex align-center pa-1"
-        max-width="1200"
-      >
-        <v-btn
-          variant="elevated"
-          icon
-          @click="chatGPTStore.configDialog = true"
-        >
+      <v-sheet elevation="0" class="input-panel d-flex align-end pa-1" max-width="1200">
+        <v-btn class="mb-1" variant="elevated" icon @click="chatGPTStore.configDialog = true">
           <v-icon size="30" class="text-primary">mdi-cog-outline</v-icon>
-          <v-tooltip
-            activator="parent"
-            location="top"
-            text="ChatGPT Config"
-          ></v-tooltip>
+          <v-tooltip activator="parent" location="top" text="ChatGPT Config"></v-tooltip>
         </v-btn>
-        <v-textarea
-          class="ml-2"
-          color="primary"
-          type="text"
-          clearable
-          variant="solo"
-          ref="input"
-          v-model="userMessage"
-          placeholder="SendMessage"
-          hide-details
-          @keydown="handleKeydown"
-          rows="1"
-          no-resize
-        >
-          <!-- <template #prepend-inner>
-            <v-icon>mdi-microphone</v-icon>
-          </template> -->
+        <v-textarea class="mx-2" color="primary" type="text" clearable variant="solo" ref="input" v-model="userMessage"
+          placeholder="Ask Me Anything" hide-details @keydown="handleKeydown" no-resize :rows="inputRow"
+          @focus="inputRow = 3" @blur="inputRow = 1">
 
-          <template #append-inner>
-            <v-icon @click="sendMessage">mdi-send</v-icon>
-          </template>
         </v-textarea>
+        <v-btn class="mb-1" color="primary" variant="elevated" icon>
+          <v-icon @click="sendMessage">mdi-send</v-icon>
+        </v-btn>
+
       </v-sheet>
       <ApiKeyDialog />
     </div>
@@ -244,13 +215,20 @@ const handleKeydown = (e) => {
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+
   .messsage-area {
     flex: 1;
   }
+
   .input-area {
     padding: 1rem;
-    height: 90px;
+
     align-items: center;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+
     .input-panel {
       border-radius: 5px;
       max-width: 1200px;
@@ -286,6 +264,7 @@ const handleKeydown = (e) => {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
   h1 {
     font-size: 2rem;
     font-weight: 500;

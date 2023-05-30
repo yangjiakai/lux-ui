@@ -9,7 +9,6 @@ import AnimationChat from "@/components/animations/AnimationChat1.vue";
 import AnimationAi from "@/components/animations/AnimationBot1.vue";
 import { read, countAndCompleteCodeBlocks } from "@/utils/aiUtils";
 import { scrollToBottom } from "@/utils/common";
-import { Icon } from "@iconify/vue";
 import MdEditor from "md-editor-v3";
 import { useChatGPTStore } from "@/stores/chatGPTStore";
 import "md-editor-v3/lib/style.css";
@@ -218,8 +217,7 @@ const inputRow = ref(1);
         </transition>
 
         <v-btn class="mb-1" color="primary" variant="elevated" icon>
-          <Icon v-if="isLoading" class="text-white" width="30" icon="eos-icons:three-dots-loading" />
-          <v-icon v-else @click="sendMessage">mdi-send</v-icon>
+          <v-icon @click="sendMessage">mdi-send</v-icon>
         </v-btn>
 
       </v-sheet>
