@@ -17,10 +17,15 @@ import FeatureEditData from "./components/FeatureEditData.vue";
 import FeatureTTS from "./components/FeatureTTS.vue";
 import FeatureGradientChart from "./components/FeatureGradientChart.vue";
 import FeatureFormItem from "./components/FeatureFormItem.vue";
+import FeatureDynamicRouter from "./components/FeatureDynamicRouter.vue";
 </script>
 
 <template>
   <v-container>
+    <FeatureCard title="DynamicRouter">
+      <FeatureDynamicRouter />
+    </FeatureCard>
+
     <FeatureCard title="LoadMore">
       <FeatureLoadMore />
     </FeatureCard>
@@ -72,6 +77,9 @@ import FeatureFormItem from "./components/FeatureFormItem.vue";
     <FeatureCard title="FormItem">
       <FeatureFormItem />
     </FeatureCard>
+
+
+
   </v-container>
 </template>
 
