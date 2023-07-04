@@ -6,6 +6,7 @@ export const useChatGPTStore = defineStore({
     propmpt: "",
     configDialog: false,
     apiKey: "",
+    proxyUrl: "",
     model: "gpt-3.5-turbo",
   }),
 
@@ -20,7 +21,7 @@ export const useChatGPTStore = defineStore({
     getApiKey: (state) => state.apiKey,
   },
   actions: {
-    updatePropmpt() {},
+    updatePropmpt() { },
     updateModel(model: string) {
       this.model = model;
     },

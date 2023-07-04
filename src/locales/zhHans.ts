@@ -167,6 +167,8 @@ export default {
     config: {
       title: "ChatGPT 配置",
       apikey: "API Key",
+      proxyUrl: "代理地址",
+      proxyUrlPlaceholder: "请输入你的代理地址",
       apikeyPlaceholder: "优先使用输入的apikey,否则读取环境变量的apikey",
       model: "语言模型",
       role: "扮演角色",

@@ -355,20 +355,3 @@ const clearMessages = () => {
   padding: 5px 16px;
 }
 </style>
-
-<!-- <span class="config">
-  <VoiceConfigDialog />
-
-  <span class="ml-2 text-h6 font-weight-bold text-primary">{{
-    speechStore.localName
-  }}</span>
-  <v-chip
-    density="comfortable"
-    class="d-none d-sm-inline ml-1 font-weight-bold"
-    label
-    size="small"
-    color="primary"
-  >
-    {{ speechStore.speechSynthesisLanguage }}</v-chip
-  >
-</span> -->

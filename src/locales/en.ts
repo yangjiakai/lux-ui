@@ -171,6 +171,8 @@ export default {
     config: {
       title: "ChatGPT Config",
       apikey: "API Key",
+      proxyUrl: "Proxy Url",
+      proxyUrlPlaceholder: "Input your proxy url here.",
       apikeyPlaceholder: "If not input , the ApiKey in the .env will be used.",
       model: "Model",
       role: "Role",

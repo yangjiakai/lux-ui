@@ -167,6 +167,8 @@ export default {
     config: {
       title: "ChatGPT 設定",
       apikey: "API Key",
+      proxyUrl: "Proxy Url",
+      proxyUrlPlaceholder: "Proxy Urlを入力してください",
       apikeyPlaceholder: "ApiKeyが入力されていない場合,.envを使用します。",
       model: "言語モデル",
       role: "Role",
