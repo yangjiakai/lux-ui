@@ -197,6 +197,7 @@ export default {
       },
       sortBy: "Sort by",
     },
+
     dataFooter: {
       itemsPerPageText: "Items per page:",
       itemsPerPageAll: "All",

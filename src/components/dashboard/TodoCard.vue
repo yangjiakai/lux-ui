@@ -46,11 +46,13 @@ const getLabelColor = (id: string) => {
       <transition-group name="fade">
         <div v-for="todo in filterdTodoList" :key="todo.id">
           <div class="todo-item d-flex align-center pa-5">
-            <v-checkbox-btn
-              v-model="todo.completed"
-              color="primary"
-              class="pe-2"
-            ></v-checkbox-btn>
+            <div>
+              <v-checkbox-btn
+                v-model="todo.completed"
+                color="primary"
+                class="pe-2"
+              ></v-checkbox-btn>
+            </div>
             <v-avatar size="40">
               <v-img
                 src="https://avatars.githubusercontent.com/u/35951244?v=4"

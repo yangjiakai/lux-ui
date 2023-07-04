@@ -1,6 +1,10 @@
 import { defineStore } from "pinia";
 import router from "@/router";
 
+interface Message {
+    content: string;
+    role: "user" | "assistant" | "system";
+}
 export const useChatHistoryStore = defineStore({
     id: "chatHistory",
     state: () => ({
@@ -9,10 +13,15 @@ export const useChatHistoryStore = defineStore({
             {
                 id: 1,
                 title: "New Chat",
-                path: "/chat/1",
                 isEdit: false,
             },
         ],
+        chatHistory: [
+            {
+                id: 1,
+                messages: []
+            }
+        ]
     }),
 
     persist: {
@@ -20,17 +29,33 @@ export const useChatHistoryStore = defineStore({
         strategies: [{ storage: localStorage, paths: ["chatMenus"] }],
     },
 
-    getters: {},
+    getters: {
+        getHistoryActive: (state) => () => {
+            const history = state.chatHistory.find((item) => item.id === state.activeChatMenuId);
+            if (history) {
+                return history.messages;
+            }
+            return [];
+        },
+
+        getHistoryById: (state) => (id: number) => {
+            const history = state.chatHistory.find((item) => item.id === id);
+            if (history) {
+                return history.messages;
+            }
+            return [];
+        }
+
+
+    },
     actions: {
         addMenu(id: number) {
             this.chatMenus.unshift({
                 id: id,
                 title: "New Chat" + id,
-                path: `/chat/${id}}`,
                 isEdit: false,
             });
             this.activeChatMenuId = id;
-
             router.push(`/chat/${id}`);
         },
 
@@ -56,7 +81,15 @@ export const useChatHistoryStore = defineStore({
         clearAllChat() {
             this.chatMenus = [];
             this.addMenu(1);
+        },
+
+        addHistory(id: any, message: Message) {
+            const history = this.chatHistory.find((item) => item.id === id);
+            if (history) {
+                history.messages.push(message);
+            }
         }
+
 
     },
 });

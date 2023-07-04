@@ -58,11 +58,14 @@ const filterdEmailList = computed(() => {
             class="email-item d-flex align-center pa-5"
             @click="router.push(`/apps/email/inbox/${email.id}`)"
           >
-            <v-checkbox-btn
-              v-model="email.read"
-              color="primary"
-              class="pe-2"
-            ></v-checkbox-btn>
+            <div>
+              <v-checkbox-btn
+                v-model="email.read"
+                color="primary"
+                class="pe-2"
+              ></v-checkbox-btn>
+            </div>
+
             <v-avatar size="40">
               <v-img
                 src="https://avatars.githubusercontent.com/u/35951244?v=4"
