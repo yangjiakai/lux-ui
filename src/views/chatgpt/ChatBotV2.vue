@@ -163,7 +163,10 @@ const inputRow = ref(1);
             <div class="pa-5 user-message">
               <div class="message align-center text-pre-wrap">
                 <v-avatar class="mr-4 mr-lg-8">
-                  <img src="@/assets/images/avatars/avatar_user.jpg" alt="alt" />
+                  <img
+                    src="@/assets/images/avatars/avatar_user.jpg"
+                    alt="alt"
+                  />
                 </v-avatar>
                 <span> {{ message.content }}</span>
               </div>
@@ -173,7 +176,10 @@ const inputRow = ref(1);
             <div class="pa-5 assitant-message">
               <div class="message">
                 <v-avatar class="mr-4 mr-lg-8">
-                  <img src="@/assets/images/avatars/avatar_assistant.jpg" alt="alt" />
+                  <img
+                    src="@/assets/images/avatars/avatar_assistant.jpg"
+                    alt="alt"
+                  />
                 </v-avatar>
                 <md-editor v-model="message.content" previewOnly />
               </div>
@@ -189,20 +195,45 @@ const inputRow = ref(1);
       </div>
     </div>
     <div class="input-area">
-      <v-sheet elevation="0" class="input-panel d-flex align-end pa-1" max-width="1200">
-        <v-btn class="mb-1" variant="elevated" icon @click="chatGPTStore.configDialog = true">
+      <v-sheet
+        elevation="0"
+        class="input-panel d-flex align-end pa-1"
+        max-width="1200"
+        color="transparent"
+      >
+        <v-btn
+          class="mb-1"
+          variant="elevated"
+          icon
+          @click="chatGPTStore.configDialog = true"
+        >
           <v-icon size="30" class="text-primary">mdi-cog-outline</v-icon>
-          <v-tooltip activator="parent" location="top" text="ChatGPT Config"></v-tooltip>
+          <v-tooltip
+            activator="parent"
+            location="top"
+            text="ChatGPT Config"
+          ></v-tooltip>
         </v-btn>
-        <v-textarea class="mx-2" color="primary" type="text" clearable variant="solo" ref="input" v-model="userMessage"
-          placeholder="Ask Me Anything" hide-details @keydown="handleKeydown" no-resize :rows="inputRow"
-          @focus="inputRow = 3" @blur="inputRow = 1">
-
+        <v-textarea
+          class="mx-2"
+          color="primary"
+          type="text"
+          clearable
+          variant="solo"
+          ref="input"
+          v-model="userMessage"
+          placeholder="Ask Me Anything"
+          hide-details
+          @keydown="handleKeydown"
+          no-resize
+          :rows="inputRow"
+          @focus="inputRow = 3"
+          @blur="inputRow = 1"
+        >
         </v-textarea>
         <v-btn class="mb-1" color="primary" variant="elevated" icon>
           <v-icon @click="sendMessage">mdi-send</v-icon>
         </v-btn>
-
       </v-sheet>
       <ApiKeyDialog />
     </div>
@@ -211,7 +242,6 @@ const inputRow = ref(1);
 
 <style scoped lang="scss">
 .chat-bot {
-  background-color: #fcfcfe;
   height: 100%;
   display: flex;
   flex-direction: column;
