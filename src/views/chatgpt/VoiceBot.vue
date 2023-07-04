@@ -285,7 +285,6 @@ const clearMessages = () => {
 
 <style scoped lang="scss">
 .chat-bot {
-  background-color: #fff;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -295,7 +294,6 @@ const clearMessages = () => {
   .input-area {
     height: 152;
     padding: 1rem;
-    border-top: 1px solid #ddd;
 
     align-items: center;
     .input-panel {
