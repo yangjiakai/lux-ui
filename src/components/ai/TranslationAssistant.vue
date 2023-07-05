@@ -11,6 +11,7 @@ import { useDisplay } from "vuetify";
 import { read } from "@/utils/aiUtils";
 import { useSnackbarStore } from "@/stores/snackbarStore";
 import { useSpeechStore } from "@/stores/speechStore";
+import { Icon } from "@iconify/vue";
 const speechStore = useSpeechStore();
 const snackbarStore = useSnackbarStore();
 const chatGPTStore = useChatGPTStore();
@@ -285,28 +286,43 @@ const readText = () => {
                 <div class="pa-2">
                   <v-textarea
                     v-model="baseContent"
-                    placeholder="Enter the text to be translated"
                     hide-details
                     variant="solo"
                     class="elevation-1"
                     color="white"
                     clearable
                     @focus="isBaseContentEmpty = false"
+                    :placeholder="
+                      $t(
+                        'toolbox.translationAssistant.sourceLanguagePlaceholder'
+                      )
+                    "
                   ></v-textarea>
                 </div>
                 <v-card-actions class="bg-grey-lighten-4 text-primary">
                   <v-tooltip
+                    v-if="!isRecording"
                     location="bottom"
                     :text="$t('toolbox.translationAssistant.speech')"
                   >
                     <template #activator="{ props }">
                       <v-btn @click="record" v-bind="props" icon>
                         <v-icon v-if="isRecording">mdi-microphone</v-icon>
-                        <v-icon v-else>mdi-microphone-outline</v-icon>
                       </v-btn>
                     </template>
                   </v-tooltip>
                   <v-tooltip
+                    location="bottom"
+                    :text="$t('toolbox.translationAssistant.stopSpeech')"
+                    v-else
+                  >
+                    <template #activator="{ props }">
+                      <v-btn @click="record" v-bind="props" icon>
+                        <Icon icon="svg-spinners:bars-scale-fade" />
+                      </v-btn>
+                    </template>
+                  </v-tooltip>
+                  <!-- <v-tooltip
                     location="bottom"
                     :text="$t('toolbox.translationAssistant.read')"
                   >
@@ -315,7 +331,7 @@ const readText = () => {
                         ><v-icon>mdi-volume-high</v-icon>
                       </v-btn>
                     </template>
-                  </v-tooltip>
+                  </v-tooltip> -->
                   <v-spacer></v-spacer>
                   <CopyBtn :text="baseContent" />
                 </v-card-actions>
@@ -332,6 +348,11 @@ const readText = () => {
                     class="elevation-1"
                     color="primary"
                     clearable
+                    :placeholder="
+                      $t(
+                        'toolbox.translationAssistant.targetLanguagePlaceholder'
+                      )
+                    "
                   ></v-textarea>
                 </div>
                 <v-card-actions
