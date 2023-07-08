@@ -95,7 +95,7 @@ const getLikesColor = (likes) => {
         </div>
       </v-card-title>
       <v-divider />
-      <v-card-text class="table-container">
+      <v-card-text class="pa-0">
         <v-data-table-server
           :headers="headers"
           :items="usersList"
@@ -178,3 +178,4 @@ const getLikesColor = (likes) => {
     </v-card>
   </v-container>
 </template>
+<style lang="scss" scoped></style>
