@@ -111,11 +111,13 @@ const animations = ref([
               {{ animation.name }}
             </v-card-title>
             <v-divider></v-divider>
-            <Vue3Lottie
-              :animationLink="animation.url"
-              :height="200"
-              :width="200"
-            />
+            <v-card-text>
+              <Vue3Lottie
+                :animationLink="animation.url"
+                :height="200"
+                :width="200"
+              />
+            </v-card-text>
           </v-card>
         </v-col>
       </v-row>
