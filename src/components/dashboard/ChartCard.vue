@@ -22,7 +22,7 @@ onMounted(() => {
     <h6 class="text-h6 d-flex align-center font-weight-bold">
       <span class="pa-5">Chart</span>
     </h6>
-    <v-card class="" variant="flat">
+    <v-card variant="flat">
       <BarChart1 />
     </v-card>
   </div>

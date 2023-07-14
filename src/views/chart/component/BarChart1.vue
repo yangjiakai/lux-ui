@@ -142,7 +142,7 @@ watch(
 </script>
 
 <template>
-  <v-card height="360">
+  <v-card height="350" class="pa-2" rounded="md">
     <div ref="chartEl" :style="{ width: `100%`, height: `100%` }"></div>
   </v-card>
 </template>
