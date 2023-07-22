@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useSnackbarStore } from "@/stores/snackbarStore";
 const gptInstance = axios.create({
-  baseURL: "https://baixiang.yunrobot.cn",
+  baseURL: "https://api.openai.com",
   timeout: 100000,
 });
 

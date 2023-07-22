@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import { createTranscriptionApi } from "@/api/aiApi";
@@ -89,8 +89,7 @@ const translate = async () => {
   isLoading.value = true;
   try {
     const completion = await fetch(
-      "https://baixiang.yunrobot.cn/v1/chat/completions",
-      // "https://api.openai.com/v1/chat/completions",
+      "https://api.openai.com/v1/chat/completions",
       {
         headers: {
           "Content-Type": "application/json",

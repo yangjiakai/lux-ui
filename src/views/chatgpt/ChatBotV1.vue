@@ -77,12 +77,11 @@ const createCompletion = async () => {
   try {
     // Create a completion (axios is not used here because it does not support streaming)
     const completion = await fetch(
-      "https://baixiang.yunrobot.cn/v1/chat/completions",
-      // "https://api.openai.com/v1/chat/completions",
+      "https://api.openai.com/v1/chat/completions",
       {
         headers: {
           "Content-Type": "application/json",
-          // Authorization: `Bearer ${chatGPTStore.getApiKey}`,
+          Authorization: `Bearer ${chatGPTStore.getApiKey}`,
         },
         method: "POST",
         body: JSON.stringify({

@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import { useChatGPTStore } from "@/stores/chatGPTStore";
@@ -56,7 +56,6 @@ const promptList = computed(() => {
           autofocus
           clearable
           hide-details
-          disabled
           @click:prepend-inner="apiKeyShow = !apiKeyShow"
         ></v-text-field>
 
