@@ -76,10 +76,10 @@ const createCompletion = async () => {
       "https://baixiang.yunrobot.cn/v1/chat/completions",
       // "https://api.openai.com/v1/chat/completions",
       {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${chatGPTStore.getApiKey}`,
-        },
+        // headers: {
+        //   "Content-Type": "application/json",
+        //   Authorization: `Bearer ${chatGPTStore.getApiKey}`,
+        // },
         method: "POST",
         body: JSON.stringify({
           messages: requestMessages.value,
