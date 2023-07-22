@@ -89,7 +89,7 @@ const translate = async () => {
   isLoading.value = true;
   try {
     const completion = await fetch(
-      "https://api.openai.com/v1/chat/completions",
+      `${chatGPTStore.proxyUrl}/v1/chat/completions`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -101,7 +101,7 @@ const translate = async () => {
             { role: "user", content: prompt.value },
             { role: "user", content: baseContent.value },
           ],
-          model: "gpt-3.5-turbo",
+          model: chatGPTStore.model,
           stream: true,
         }),
       }

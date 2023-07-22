@@ -6,13 +6,13 @@ export const useChatGPTStore = defineStore({
     propmpt: "",
     configDialog: false,
     apiKey: "",
-    proxyUrl: "",
+    proxyUrl: "https://api.openai.com",
     model: "gpt-3.5-turbo",
   }),
 
   persist: {
     enabled: true,
-    strategies: [{ storage: localStorage, paths: ["propmpt", "apiKey"] }],
+    strategies: [{ storage: localStorage, paths: ["propmpt", "apiKey", "proxyUrl", "model"] }],
   },
 
   getters: {

@@ -1,9 +1,17 @@
 import axios from "axios";
 import { useSnackbarStore } from "@/stores/snackbarStore";
+import { useChatGPTStore } from "@/stores/chatGPTStore";
+
 const gptInstance = axios.create({
-  baseURL: "https://api.openai.com",
   timeout: 100000,
 });
+
+gptInstance.interceptors.request.use((config) => {
+  const chatGPTStore = useChatGPTStore();
+  config.baseURL = chatGPTStore.proxyUrl;
+  return config;
+});
+
 
 gptInstance.interceptors.response.use(
   (response) => {

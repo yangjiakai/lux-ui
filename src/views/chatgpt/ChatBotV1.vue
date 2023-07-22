@@ -77,7 +77,7 @@ const createCompletion = async () => {
   try {
     // Create a completion (axios is not used here because it does not support streaming)
     const completion = await fetch(
-      "https://api.openai.com/v1/chat/completions",
+      `${chatGPTStore.proxyUrl}/v1/chat/completions`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -86,7 +86,7 @@ const createCompletion = async () => {
         method: "POST",
         body: JSON.stringify({
           messages: requestMessages.value,
-          model: "gpt-3.5-turbo",
+          model: chatGPTStore.model,
           stream: true,
         }),
       }
@@ -310,8 +310,6 @@ const inputRow = ref(1);
 
 .message-container {
   height: calc(100vh - 154px);
-  background-image: url("@/assets/images/chat-bg-2.png");
-  background-repeat: repeat;
 }
 
 .no-message-container {
