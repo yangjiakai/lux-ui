@@ -110,6 +110,9 @@ export default {
     echartScatter: "Echart Scatter ",
     echartOthers: "Echart Others ",
     apexChart: "ApexChart ",
+    plantumlSequence: "PlantUML Sequence",
+    plantumlObject: "PlantUML Object",
+    plantumlTiming: "PlantUML Timing",
     data: {
       usersDataPage: "Users Data",
       photosDataPage: "Photos Data",
