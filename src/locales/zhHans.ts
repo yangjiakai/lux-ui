@@ -108,6 +108,9 @@ export default {
     echartScatter: "Echart Scatter ",
     echartOthers: "Echart Others ",
     apexChart: "ApexChart ",
+    plantumlSequence: "PlantUML 序列图",
+    plantumlObject: "PlantUML 用例图",
+    plantumlTiming: "PlantUML 时序图",
     data: {
       usersDataPage: "用户数据",
       photosDataPage: "照片数据",

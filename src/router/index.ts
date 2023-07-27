@@ -6,6 +6,7 @@ import LandingRoutes from "./landing.routes";
 import UtilityRoutes from "./utility.routes";
 import PagesRoutes from "./pages.routes";
 import ChartsRoutes from "./charts.routes";
+import UmlRoutes from "./uml.routes";
 import AppsRoutes from "./apps.routes";
 import DataRoutes from "./data.routes";
 import AiRoutes from "./ai.routes";
@@ -37,6 +38,7 @@ export const routes = [
   ...UtilityRoutes,
   ...UIRoutes,
   ...ChartsRoutes,
+  ...UmlRoutes,
   ...AppsRoutes,
   ...DataRoutes,
   ...AiRoutes,
