@@ -5,7 +5,7 @@
 -->
 
 <script setup lang="ts">
-import plantumlEncoder from "plantuml-encoder";
+import { plantuml } from "@/plugins/plantuml";
 import FeatureCard from "@/components/FeatureCard.vue";
 
 const umlData = [
@@ -108,16 +108,12 @@ Foo -> Foo7: To queue
 `,
   },
 ]
-
-
-
 </script>
 
 <template>
   <v-container v-for="uml in umlData">
     <FeatureCard :title=uml.name>
-      <v-img class="thumbnail" :src="'http://www.plantuml.com/plantuml/svg/' + plantumlEncoder.encode(uml.data)" width="100vw"
-        :max-height=uml.size contain attrs="props" />
+      <v-img :src="plantuml(uml.data)" width="100vw" :max-height=uml.size contain attrs="props" />
     </FeatureCard>
   </v-container>
 </template>
