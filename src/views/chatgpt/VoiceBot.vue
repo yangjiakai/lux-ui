@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import { useSnackbarStore } from "@/stores/snackbarStore";
@@ -72,7 +72,7 @@ const createCompletion = async () => {
         model: "gpt-3.5-turbo",
         temperature: 1,
         n: 1,
-        max_tokens: 200,
+
       },
       chatGPTStore.getApiKey
     );
