@@ -17,28 +17,28 @@ export const useSnackbarStore = defineStore({
 
   getters: {},
   actions: {
-    showMessage(message: string) {
+    showMessage(message: MessageType) {
       this.isShow = true;
       this.message = message;
       this.type = "";
     },
 
-    showErrorMessage(message: string) {
+    showErrorMessage(message: MessageType) {
       this.isShow = true;
       this.message = message;
       this.type = "error";
     },
-    showSuccessMessage(message: string) {
+    showSuccessMessage(message: MessageType) {
       this.isShow = true;
       this.message = message;
       this.type = "success";
     },
-    showInfoMessage(message: string) {
+    showInfoMessage(message: MessageType) {
       this.isShow = true;
       this.message = message;
       this.type = "info";
     },
-    showWarningMessage(message: string) {
+    showWarningMessage(message: MessageType) {
       this.isShow = true;
       this.message = message;
       this.type = "warning";
