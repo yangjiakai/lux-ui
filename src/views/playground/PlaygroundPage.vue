@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import FeatureCard from "./components/FeatureCard.vue";
@@ -18,6 +18,7 @@ import FeatureTTS from "./components/FeatureTTS.vue";
 import FeatureGradientChart from "./components/FeatureGradientChart.vue";
 import FeatureFormItem from "./components/FeatureFormItem.vue";
 import FeatureDynamicRouter from "./components/FeatureDynamicRouter.vue";
+import FeatureAutoAnimation from "./components/FeatureAutoAnimation.vue";
 </script>
 
 <template>
@@ -78,8 +79,9 @@ import FeatureDynamicRouter from "./components/FeatureDynamicRouter.vue";
       <FeatureFormItem />
     </FeatureCard>
 
-
-
+    <FeatureCard title="AutoAnimation">
+      <FeatureAutoAnimation />
+    </FeatureCard>
   </v-container>
 </template>
 

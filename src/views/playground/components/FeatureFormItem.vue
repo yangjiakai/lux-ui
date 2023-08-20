@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import CurrencyItem from "./formItems/CurrencyItem.vue";
@@ -28,6 +28,7 @@ onMounted(() => {
 });
 
 const draw = () => {};
+const date = ref(new Date().toISOString().substr(0, 10));
 </script>
 
 <template>
@@ -44,6 +45,10 @@ const draw = () => {};
       persistent-hint
       single-line
     ></v-select>
+    <v-divider></v-divider>
+    <v-card width="400" class="pa-5">
+      <v-text-field v-model="date" type="date"></v-text-field>
+    </v-card>
   </div>
 </template>
 

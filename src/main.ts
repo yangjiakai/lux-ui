@@ -20,6 +20,7 @@ import router from "./router";
 import i18n from "./plugins/i18n";
 import "vue3-lottie/dist/style.css";
 import Vue3Lottie from "vue3-lottie";
+import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 
 const pinia = createPinia();
 pinia.use(piniaPersist);
@@ -33,5 +34,6 @@ app.use(VueApexCharts);
 app.use(pinia);
 app.use(i18n);
 app.use(Vue3Lottie, { name: "LottieAnimation" });
+app.use(autoAnimatePlugin);
 app.use(vuetify);
 app.mount("#app");
