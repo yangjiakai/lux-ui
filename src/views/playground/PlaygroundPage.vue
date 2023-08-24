@@ -19,10 +19,15 @@ import FeatureGradientChart from "./components/FeatureGradientChart.vue";
 import FeatureFormItem from "./components/FeatureFormItem.vue";
 import FeatureDynamicRouter from "./components/FeatureDynamicRouter.vue";
 import FeatureAutoAnimation from "./components/FeatureAutoAnimation.vue";
+import FeatureComplexSearch from "./components/FeatureComplexSearch.vue";
 </script>
 
 <template>
-  <v-container>
+  <v-container class="fluid">
+    <FeatureCard title="ComplexSearch">
+      <FeatureComplexSearch />
+    </FeatureCard>
+
     <FeatureCard title="DynamicRouter">
       <FeatureDynamicRouter />
     </FeatureCard>
