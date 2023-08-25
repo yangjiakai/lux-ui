@@ -4,7 +4,7 @@
 * @Description:
 -->
 <script setup lang="ts">
-import LabelFilter from "@/components/form/LabelFilter.vue";
+import { eagleResourseData } from "@/data/eagle.ts";
 // 领域
 // UI 设计 平面设计 插画设计 游戏设计 室内设计 工业设计
 const fieldLabelList = ref<string[]>([
@@ -65,10 +65,16 @@ const currentLicense = ref<string>("全部");
 const licenseBtnActive = computed<boolean>(() => {
   return currentLicense.value !== "全部";
 });
+
+// 我的最爱
+const eaglepackKey = ref<boolean>(false);
+const myFavorateKey = ref<boolean>(false);
+
+const eagleList = ref(eagleResourseData);
 </script>
 
 <template>
-  <v-card rounded variant="flat">
+  <v-card rounded variant="flat" class="text-blue-grey-darken-3">
     <!-- 领域 -->
     <v-chip-group v-model="currentFieldLabel" mandatory>
       <v-chip
@@ -101,79 +107,162 @@ const licenseBtnActive = computed<boolean>(() => {
     <v-sheet color=""> </v-sheet>
 
     <v-divider class="my-3"></v-divider>
+    <div class="d-flex align-center">
+      <!-- 排序 -->
+      <v-btn
+        variant="text"
+        color="primary"
+        :active="sortBtnActive"
+        class="mr-2"
+      >
+        {{ currentSort }}
+        <v-menu activator="parent">
+          <v-list>
+            <v-list-item
+              v-for="(item, index) in sortList"
+              :key="index"
+              :value="item"
+              @click="currentSort = item"
+            >
+              <v-list-item-title>{{ item }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+        <template v-slot:prepend>
+          <v-icon>mdi-sort</v-icon>
+        </template>
 
-    <!-- 排序 -->
-    <v-btn variant="text" color="primary" :active="sortBtnActive" class="mr-2">
-      {{ currentSort }}
-      <v-menu activator="parent">
-        <v-list>
-          <v-list-item
-            v-for="(item, index) in sortList"
-            :key="index"
-            :value="item"
-            @click="currentSort = item"
-          >
-            <v-list-item-title>{{ item }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-      <template v-slot:prepend>
-        <v-icon>mdi-sort</v-icon>
-      </template>
+        <template v-slot:append>
+          <v-icon>mdi-menu-down</v-icon>
+        </template>
+      </v-btn>
 
-      <template v-slot:append>
-        <v-icon>mdi-menu-down</v-icon>
-      </template>
-    </v-btn>
+      <!-- 类型 -->
+      <v-btn
+        variant="text"
+        color="primary"
+        :active="typeBtnActive"
+        class="mr-2"
+      >
+        {{ currentType }}
+        <v-menu activator="parent">
+          <v-list>
+            <v-list-item
+              v-for="(item, index) in typeList"
+              :key="index"
+              :value="item"
+              @click="currentType = item"
+            >
+              <v-list-item-title>{{ item }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+        <template v-slot:prepend>
+          <v-icon>mdi-clipboard-minus-outline</v-icon>
+        </template>
 
-    <!-- 类型 -->
-    <v-btn variant="text" color="primary" :active="typeBtnActive" class="mr-2">
-      {{ currentType }}
-      <v-menu activator="parent">
-        <v-list>
-          <v-list-item
-            v-for="(item, index) in typeList"
-            :key="index"
-            :value="item"
-            @click="currentType = item"
-          >
-            <v-list-item-title>{{ item }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-      <template v-slot:prepend>
-        <v-icon>mdi-clipboard-minus-outline</v-icon>
-      </template>
+        <template v-slot:append>
+          <v-icon>mdi-menu-down</v-icon>
+        </template>
+      </v-btn>
 
-      <template v-slot:append>
-        <v-icon>mdi-menu-down</v-icon>
-      </template>
-    </v-btn>
+      <!-- 版权 -->
+      <v-btn
+        variant="text"
+        color="primary"
+        :active="licenseBtnActive"
+        class="mr-2"
+      >
+        {{ currentLicense }}
+        <v-menu activator="parent">
+          <v-list>
+            <v-list-item
+              v-for="(item, index) in licenseList"
+              :key="index"
+              :value="item"
+              @click="currentLicense = item"
+            >
+              <v-list-item-title>{{ item }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+        <template v-slot:prepend>
+          <v-icon>mdi-copyright</v-icon>
+        </template>
 
-    <!-- 版权 -->
-    <v-btn variant="text" color="primary" :active="licenseBtnActive">
-      {{ currentLicense }}
-      <v-menu activator="parent">
-        <v-list>
-          <v-list-item
-            v-for="(item, index) in licenseList"
-            :key="index"
-            :value="item"
-            @click="currentLicense = item"
-          >
-            <v-list-item-title>{{ item }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-      <template v-slot:prepend>
-        <v-icon>mdi-copyright</v-icon>
-      </template>
+        <template v-slot:append>
+          <v-icon>mdi-menu-down</v-icon>
+        </template>
+      </v-btn>
 
-      <template v-slot:append>
-        <v-icon>mdi-menu-down</v-icon>
-      </template>
-    </v-btn>
+      <!-- eaglepack  -->
+      <div class="mr-5">
+        <v-switch
+          density="compact"
+          v-model="eaglepackKey"
+          hide-details
+          label="仅显示 EaglePack"
+          color="primary"
+          inset
+        ></v-switch>
+      </div>
+
+      <!-- 我的最爱 -->
+      <div>
+        <v-switch
+          density="compact"
+          v-model="myFavorateKey"
+          hide-details
+          label="仅显示我的最爱"
+          color="primary"
+          inset
+        ></v-switch>
+      </div>
+    </div>
   </v-card>
+
+  <v-sheet class="mt-5">
+    <perfect-scrollbar style="height: 800px">
+      <v-container>
+        <v-row align="center">
+          <v-col
+            v-for="item in eagleList"
+            :key="item.id"
+            cols="6"
+            md="4"
+            lg="3"
+          >
+            <v-card class="text-blue-grey-darken-3">
+              <v-img :src="item.thumbnail"></v-img>
+
+              <v-card-text
+                style="height: 120px"
+                class="d-flex flex-column justify-space-between"
+              >
+                <p class="text-h6" style="word-wrap: break-word">
+                  {{ item.title }}
+                </p>
+
+                <div class="d-flex align-center justify-space-between">
+                  <span class="text-blue-grey"> {{ item.author }}</span>
+                  <span>
+                    <span class="mr-2"
+                      ><v-icon>mdi-download</v-icon>
+                      {{ item.downloadsAndViews?.split("\n")[0] }}</span
+                    >
+                    <span
+                      ><v-icon>mdi-eye</v-icon>
+                      {{ item.downloadsAndViews?.split("\n")[1] }}</span
+                    >
+                  </span>
+                </div>
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </perfect-scrollbar>
+  </v-sheet>
 </template>
 
 <style scoped lang="scss"></style>
