@@ -71,6 +71,9 @@ const eaglepackKey = ref<boolean>(false);
 const myFavorateKey = ref<boolean>(false);
 
 const eagleList = ref(eagleResourseData);
+
+// 搜索
+const search = ref<string>("");
 </script>
 
 <template>
@@ -217,6 +220,26 @@ const eagleList = ref(eagleResourseData);
           color="primary"
           inset
         ></v-switch>
+      </div>
+
+      <!-- 搜索 -->
+      <v-spacer></v-spacer>
+      <div class="" style="width: 300px">
+        <v-text-field
+          v-model="search"
+          color="primary"
+          variant="outlined"
+          hide-details
+          density="compact"
+          filled
+          rounded
+          placeholder="搜索"
+          class="mr-5"
+        >
+          <template v-slot:prepend-inner>
+            <v-icon>mdi-magnify</v-icon>
+          </template>
+        </v-text-field>
       </div>
     </div>
   </v-card>
