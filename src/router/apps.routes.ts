@@ -1,7 +1,7 @@
 import unsplashRoutes from "@/views/app/unsplash/UnsplashRoutes";
 import todoRoutes from "@/views/app/todo/todoRoutes";
 import emailRoutes from "@/views/app/email/emailRoutes";
-import chatRoutes from "@/views/app/chat/chatRoutes";
+
 
 export default [
   {
@@ -32,18 +32,7 @@ export default [
       ),
     children: [...emailRoutes],
   },
-  {
-    path: "/apps/chat",
-    meta: {
-      requiresAuth: true,
-      layout: "ui",
-      category: "APP",
-      title: "Chat",
-    },
-    component: () =>
-      import(/* webpackChunkName: "app-chat" */ "@/views/app/chat/ChatApp.vue"),
-    children: [...chatRoutes],
-  },
+
   {
     path: "/apps/todo",
     meta: {

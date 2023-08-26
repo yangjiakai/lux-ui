@@ -1,9 +1,9 @@
 <script setup lang="ts">
-
-const email = ref('')
+const email = ref("");
 </script>
 <template>
-  <div>Forgot
+  <div>
+    Forgot
     <p>
       <v-row>
         <v-col cols="12" sm="6" md="4">
