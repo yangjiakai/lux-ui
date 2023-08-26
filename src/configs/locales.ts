@@ -1,14 +1,12 @@
-import enMessages from "../locales/en";
-import zhHansMessages from "../locales/zhHans";
-import jaMessages from "../locales/ja";
+import enMessages from "@/locales/en";
+import zhHansMessages from "@/locales/zhHans";
+import jaMessages from "@/locales/ja";
 
 const supported = ["en", "zhHans", "ja"];
 let locale = "en";
 
 try {
-  // get browser default language
   const { 0: browserLang } = navigator.language.split("-");
-
   if (supported.includes(browserLang)) locale = browserLang;
 } catch (e) {
   console.log(e);

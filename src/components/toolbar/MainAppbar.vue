@@ -1,12 +1,12 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import { useDisplay } from "vuetify";
 import { useCustomizeThemeStore } from "@/stores/customizeTheme";
-import ToolbarLanguage from "@/components/toolbar/ToolbarLanguage.vue";
+import LanguageSwitcher from "@/components/toolbar/LanguageSwitcher.vue";
 import ToolbarNotifications from "./ToolbarNotifications.vue";
 import ToolbarUser from "./ToolbarUser.vue";
 import { useTodoStore } from "@/views/app/todo/todoStore";
@@ -77,7 +77,7 @@ const showMobileSearch = ref(false);
         </v-btn>
         <v-divider vertical thickness="2" inset class="ml-5 mr-1"></v-divider>
 
-        <ToolbarLanguage />
+        <LanguageSwitcher />
         <ToolbarUser />
       </div>
     </div>
