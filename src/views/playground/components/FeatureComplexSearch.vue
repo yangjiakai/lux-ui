@@ -4,7 +4,7 @@
 * @Description:
 -->
 <script setup lang="ts">
-import { eagleResourseData } from "@/data/eagle.ts";
+import { eagleResourseData } from "@/data/eagle";
 // 领域
 // UI 设计 平面设计 插画设计 游戏设计 室内设计 工业设计
 const fieldLabelList = ref<string[]>([
