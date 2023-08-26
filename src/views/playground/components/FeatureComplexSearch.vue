@@ -107,7 +107,6 @@ const search = ref<string>("");
         {{ label }}
       </v-chip>
     </v-chip-group>
-    <v-sheet color=""> </v-sheet>
 
     <v-divider class="my-3"></v-divider>
     <div class="d-flex align-center">
@@ -221,7 +220,6 @@ const search = ref<string>("");
           inset
         ></v-switch>
       </div>
-
       <!-- 搜索 -->
       <v-spacer></v-spacer>
       <div class="" style="width: 300px">

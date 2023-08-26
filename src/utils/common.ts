@@ -1,4 +1,6 @@
+import { useLocale } from "vuetify";
 // Debounce
+
 export const debounce = (func: Function, wait: number): Function => {
   let timeout;
   return function (...args) {
@@ -69,3 +71,5 @@ export const scrollToBottom = (
     top: element.scrollHeight,
   });
 };
+
+
