@@ -20,10 +20,15 @@ import FeatureFormItem from "./components/FeatureFormItem.vue";
 import FeatureDynamicRouter from "./components/FeatureDynamicRouter.vue";
 import FeatureAutoAnimation from "./components/FeatureAutoAnimation.vue";
 import FeatureComplexSearch from "./components/FeatureComplexSearch.vue";
+import FeatureGamma from "./components/FeatureGamma.vue";
 </script>
 
 <template>
   <v-container class="fluid">
+    <FeatureCard title="Gamma">
+      <FeatureGamma />
+    </FeatureCard>
+
     <FeatureCard title="ComplexSearch">
       <FeatureComplexSearch />
     </FeatureCard>
