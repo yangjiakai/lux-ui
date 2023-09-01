@@ -5,6 +5,7 @@
 -->
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
+import _ from "lodash";
 const menu = ref([
   {
     title: "卡片模板",
@@ -163,11 +164,133 @@ const cards = [
       "https://gamma.app/_next/static/media/Title-with-team-photos.475f94b7.svg",
   },
 ];
+
+const desserts = ref([
+  {
+    name: "Frozen Yogurt",
+    calories: 159,
+    fat: 6.0,
+    carbs: 24,
+    protein: 4.0,
+    iron: "1",
+  },
+  {
+    name: "Jelly bean",
+    calories: 375,
+    fat: 0.0,
+    carbs: 94,
+    protein: 0.0,
+    iron: "0",
+  },
+  {
+    name: "KitKat",
+    calories: 518,
+    fat: 26.0,
+    carbs: 65,
+    protein: 7,
+    iron: "6",
+  },
+  {
+    name: "Eclair",
+    calories: 262,
+    fat: 16.0,
+    carbs: 23,
+    protein: 6.0,
+    iron: "7",
+  },
+  {
+    name: "Gingerbread",
+    calories: 356,
+    fat: 16.0,
+    carbs: 49,
+    protein: 3.9,
+    iron: "16",
+  },
+  {
+    name: "Ice cream sandwich",
+    calories: 237,
+    fat: 9.0,
+    carbs: 37,
+    protein: 4.3,
+    iron: "1",
+  },
+  {
+    name: "Lollipop",
+    calories: 392,
+    fat: 0.2,
+    carbs: 98,
+    protein: 0,
+    iron: "2",
+  },
+  {
+    name: "Cupcake",
+    calories: 305,
+    fat: 3.7,
+    carbs: 67,
+    protein: 4.3,
+    iron: "8",
+  },
+  {
+    name: "Honeycomb",
+    calories: 408,
+    fat: 3.2,
+    carbs: 87,
+    protein: 6.5,
+    iron: "45",
+  },
+  {
+    name: "Donut",
+    calories: 452,
+    fat: 25.0,
+    carbs: 51,
+    protein: 4.9,
+    iron: "22",
+  },
+]);
+
+// 当前正序还是降序
+const isAsc = ref(true);
+
+const sort = (key: string) => {
+  desserts.value = _.orderBy(
+    desserts.value,
+    [key],
+    [isAsc.value ? "asc" : "desc"]
+  );
+  isAsc.value = !isAsc.value;
+};
 </script>
 
 <template>
   <v-sheet height="800" class="position-relative">
-    toolbox
+    <v-table density="compact">
+      <thead>
+        <tr>
+          <th class="text-left">
+            Name
+            <v-btn
+              v-if="isAsc"
+              @click="sort('name')"
+              size="20"
+              icon
+              variant="text"
+            >
+              <v-icon>mdi-menu-up</v-icon>
+            </v-btn>
+            <v-btn v-else @click="sort('name')" size="20" icon variant="text">
+              <v-icon>mdi-menu-down</v-icon>
+            </v-btn>
+          </th>
+          <th class="text-left">Calories</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in desserts" :key="item.name">
+          <td>{{ item.name }}</td>
+          <td>{{ item.calories }}</td>
+        </tr>
+      </tbody>
+    </v-table>
     <div>
       <v-btn class="mr-2" color="primary">primary</v-btn>
       <v-btn class="mr-2" color="secondary">secondary</v-btn>
