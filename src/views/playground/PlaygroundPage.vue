@@ -21,10 +21,15 @@ import FeatureDynamicRouter from "./components/FeatureDynamicRouter.vue";
 import FeatureAutoAnimation from "./components/FeatureAutoAnimation.vue";
 import FeatureComplexSearch from "./components/FeatureComplexSearch.vue";
 import FeatureGamma from "./components/FeatureGamma.vue";
+import FeatureExpandTable from "./components/FeatureExpandTable.vue";
 </script>
 
 <template>
   <v-container class="fluid">
+    <FeatureCard title="ExpandTable">
+      <FeatureExpandTable />
+    </FeatureCard>
+
     <FeatureCard title="Gamma">
       <FeatureGamma />
     </FeatureCard>
