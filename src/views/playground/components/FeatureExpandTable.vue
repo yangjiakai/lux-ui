@@ -8,16 +8,20 @@ const expanded = ref([]);
 const dessertHeaders = ref([
   {
     title: "Dessert (100g serving)",
-    align: "start",
-    sortable: false,
     key: "name",
+    width: "300",
+    fixed: true,
   },
-  { title: "Calories", key: "calories" },
-  { title: "Fat (g)", key: "fat" },
-  { title: "Carbs (g)", key: "carbs" },
-  { title: "Protein (g)", key: "protein" },
-  { title: "Iron (%)", key: "iron" },
-  { title: "", key: "data-table-expand" },
+  {
+    title: "Calories",
+    key: "calories",
+    width: "300",
+  },
+  { title: "Fat (g)", key: "fat", width: "300" },
+  { title: "Carbs (g)", key: "carbs", width: "300" },
+  { title: "Protein (g)", key: "protein", width: "300" },
+  { title: "Iron (%)", key: "iron", width: "300" },
+  { title: "action", key: "data-table-expand", width: "300" },
 ]);
 const desserts = ref([
   {
@@ -108,7 +112,7 @@ const expandeFn = (val) => {
 </script>
 
 <template>
-  <div class="">
+  <div class="w-50">
     <v-data-table
       v-model:expanded="expanded"
       :headers="dessertHeaders"
@@ -128,7 +132,7 @@ const expandeFn = (val) => {
           <td :colspan="columns.length">More info about {{ item.raw.name }}</td>
         </tr>
       </template>
-      <template v-slot:item.data-table-expand="{ index }">
+      <!-- <template v-slot:item.data-table-expand="{ index }">
         <v-icon
           @click="expanded = [desserts[index].name]"
           v-if="!expanded.includes(desserts[index].name)"
@@ -139,7 +143,7 @@ const expandeFn = (val) => {
         <v-icon @click="expanded = []" v-else color="primary">
           mdi-chevron-down
         </v-icon>
-      </template>
+      </template> -->
     </v-data-table>
   </div>
 </template>
