@@ -109,6 +109,8 @@ const desserts = ref([
 const expandeFn = (val) => {
   console.log(val);
 };
+
+const refSelect = ref();
 </script>
 
 <template>
@@ -145,6 +147,21 @@ const expandeFn = (val) => {
         </v-icon>
       </template> -->
     </v-data-table>
+    <!-- 下拉框选择4个季节 -->
+    <v-select
+      ref="refSelect"
+      v-model="expanded"
+      :items="['Frozen Yogurt', 'Ice cream sandwich', 'Eclair', 'Cupcake']"
+      label="Select"
+      chips
+      small-chips
+      deletable-chips
+      clearable
+      :menuProps="{
+        height: 500,
+      }"
+    >
+    </v-select>
   </div>
 </template>
 
