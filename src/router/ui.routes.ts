@@ -171,12 +171,7 @@ export default [
       import(
         /* webpackChunkName: "ui-playground" */ "@/views/playground/PlaygroundPage.vue"
       ),
-    children: [
-      {
-        path: "/chat/:id",
-        component: () => import("@/views/playground/components/Chat.vue"),
-      }
-    ],
+
     meta: {
       requiresAuth: true,
       layout: "ui",
