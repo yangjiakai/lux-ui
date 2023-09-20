@@ -124,6 +124,23 @@ const refSelect = ref();
       class="elevation-1"
       @update:expanded="expandeFn"
     >
+      <!-- slot:headers -->
+      <template v-slot:headers="{ columns, isSorted, getSortIcon, toggleSort }">
+        <tr>
+          <template v-for="column in columns" :key="column.key">
+            <td class="bg-blue">
+              <span
+                class="mr-2 cursor-pointer"
+                @click="() => toggleSort(column)"
+                >{{ column.title }}</span
+              >
+              <template v-if="isSorted(column)">
+                <v-icon :icon="getSortIcon(column)"></v-icon>
+              </template>
+            </td>
+          </template>
+        </tr>
+      </template>
       <template v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title>Expandable Table</v-toolbar-title>

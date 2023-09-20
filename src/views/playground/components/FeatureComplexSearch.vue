@@ -71,6 +71,14 @@ const eaglepackKey = ref<boolean>(false);
 const myFavorateKey = ref<boolean>(false);
 
 const eagleList = ref(eagleResourseData);
+const filteredList = computed(() => {
+  return eagleList.value.filter((item) => {
+    return (
+      (item.thumbnail && item.title.includes(search.value)) ||
+      item.author.includes(search.value)
+    );
+  });
+});
 
 // 搜索
 const search = ref<string>("");
@@ -247,14 +255,14 @@ const search = ref<string>("");
       <v-container>
         <v-row align="center">
           <v-col
-            v-for="item in eagleList"
+            v-for="item in filteredList"
             :key="item.id"
             cols="6"
             md="4"
             lg="3"
           >
             <v-card class="text-blue-grey-darken-3">
-              <v-img :src="item.thumbnail"></v-img>
+              <v-img :lazy-src="item.thumbnail" :src="item.thumbnail"></v-img>
 
               <v-card-text
                 style="height: 120px"
