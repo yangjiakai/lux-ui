@@ -37,6 +37,14 @@
 
 Built upon the elegant themes of Vuetify, we have established a clear and efficient project structure, integrating the latest technology frameworks. This project aims to address a wide range of common technical requirements and features, while incorporating an AI assistant for a more intelligent experience. Additionally, we ensure that all pages are adaptive across multiple devices, achieving a seamless cross-platform compatibility.
 
+## 📖Other Versions
+
+Simplified version: <a href="https://github.com/yangjiakai/vuetify3-lux-admin-template-i18n/tree/main">vuetify3-lux-admin-template-i18n</a>
+
+Nuxt3 version:
+
+## 📖Documents
+
 ## 📚Features
 
 - 📖 [Vue 3.2](https://github.com/vuejs/core)

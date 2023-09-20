@@ -37,6 +37,13 @@
 
 在 Vuetify 精美的主题基础上，我们构建了一个清晰且高效的项目逻辑架构，整合了最新的技术框架。本项目旨在实现各种常见的技术需求和功能，同时融合了 AI 助手，以提供更智能化的体验。此外，我们确保所有页面在多种设备上均能自适应展示，实现优雅的跨平台兼容性。
 
+## 📖 其他版本
+
+精简模板: <a href="https://github.com/yangjiakai/vuetify3-lux-admin-template-i18n/tree/main">vuetify3-lux-admin-template-i18n</a>
+Nuxt3 版本：制作中
+
+## 文档
+
 ## 📚 特性
 
 - 📖 [Vue 3.2](https://github.com/vuejs/core)
