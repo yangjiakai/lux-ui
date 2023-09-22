@@ -19,9 +19,7 @@ diffusion.interceptors.request.use();
 diffusion.interceptors.response.use();
 
 //getmodels
-export const getModelsApi = () => {
-  return diffusion.get("/sdapi/v1/sd-models");
-};
+
 //txt2img
 export const txt2imgApi = (data: any) => {
   return diffusion.post("/sdapi/v1/txt2img", data);

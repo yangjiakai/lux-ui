@@ -1,24 +1,15 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
-import { getModelsApi } from "@/api/stableDiffusionApi";
 import ImageToImage from "./SDComponents/ImageToImage.vue";
 import TextToImage from "./SDComponents/TextToImage.vue";
 import { useStableDiffusionStore } from "@/stores/stableDiffusionStore";
 const sdStore = useStableDiffusionStore();
 
-const listModels = async () => {
-  const res = await getModelsApi();
-  const models = res.data.map((item) => item.model_name);
-  sdStore.updateModelList(models);
-};
-
-onMounted(() => {
-  listModels();
-});
+onMounted(() => {});
 
 const panelTab = ref("textToImage");
 </script>

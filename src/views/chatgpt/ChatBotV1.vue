@@ -74,23 +74,23 @@ const createCompletion = async () => {
   //   return;
   // }
 
+  const proxyUrl = chatGPTStore.proxyUrl
+    ? chatGPTStore.proxyUrl
+    : "https://openai.wndbac.cn";
   try {
     // Create a completion (axios is not used here because it does not support streaming)
-    const completion = await fetch(
-      `${chatGPTStore.proxyUrl}/v1/chat/completions`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${chatGPTStore.getApiKey}`,
-        },
-        method: "POST",
-        body: JSON.stringify({
-          messages: requestMessages.value,
-          model: chatGPTStore.model,
-          stream: true,
-        }),
-      }
-    );
+    const completion = await fetch(`${proxyUrl}/v1/chat/completions`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${chatGPTStore.getApiKey}`,
+      },
+      method: "POST",
+      body: JSON.stringify({
+        messages: requestMessages.value,
+        model: chatGPTStore.model,
+        stream: true,
+      }),
+    });
 
     // Handle errors
     if (!completion.ok) {
