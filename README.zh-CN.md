@@ -47,6 +47,8 @@ Nuxt3 版本：制作中
 
 ## 文档
 
+- 📖 [中文版文档 1.0 ](https://www.craft.me/s/tAMVv4hUxZIH6G)
+
 ## 📚 特性
 
 - 📖 [Vue 3.2](https://github.com/vuejs/core)

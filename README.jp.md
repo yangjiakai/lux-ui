@@ -45,6 +45,8 @@ Nuxt3 version:
 
 ## 📖Documents
 
+- 📖 [Document 1.0 Chinese](https://www.craft.me/s/tAMVv4hUxZIH6G)
+
 ## 📚 特徴
 
 - 📖 [Vue 3.2](https://github.com/vuejs/core)
