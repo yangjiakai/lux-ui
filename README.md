@@ -49,7 +49,7 @@ Nuxt3 version:
 
 Nuxt3 Full Version [lux-nuxt3](https://github.com/yangjiakai/lux-nuxt3)
 
-Nuxt3 Simplified Version [lux-nuxt3-template](https://github.com/yangjiakai/lux-nuxt3)
+Nuxt3 Simplified Version [lux-nuxt3-template](https://github.com/yangjiakai/lux-nuxt3-template)
 
 ## 📖Documents
 
