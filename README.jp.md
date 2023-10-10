@@ -43,6 +43,10 @@ Simplified version: <a href="https://github.com/yangjiakai/vuetify3-lux-admin-te
 
 Nuxt3 version:
 
+Nuxt3 Full Version [lux-nuxt3](https://github.com/yangjiakai/lux-nuxt3)
+
+Nuxt3 Simplified Version [lux-nuxt3-template](https://github.com/yangjiakai/lux-nuxt3)
+
 ## 📖Documents
 
 - 📖 [Document 1.0 Chinese](https://www.craft.me/s/tAMVv4hUxZIH6G)

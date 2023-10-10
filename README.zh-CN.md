@@ -43,7 +43,11 @@
 
 精简中文模板: <a href="https://github.com/yangjiakai/vuetify3-lux-admin-template-zh/tree/main">vuetify3-lux-admin-template-zh</a>
 
-Nuxt3 版本：制作中
+Nuxt3
+
+Nuxt3 完整版 [lux-nuxt3](https://github.com/yangjiakai/lux-nuxt3)
+
+Nuxt3 基础简化模板 [lux-nuxt3-template](https://github.com/yangjiakai/lux-nuxt3)
 
 ## 文档
 

@@ -39,11 +39,15 @@ Built upon the elegant themes of Vuetify, we have established a clear and effici
 
 ## 📖Other Versions
 
-Simplified i18n version: <a href="https://github.com/yangjiakai/vuetify3-lux-admin-template-i18n/tree/main">vuetify3-lux-admin-template-i18n</a>
+Simplified I18n Version: <a href="https://github.com/yangjiakai/vuetify3-lux-admin-template-i18n/tree/main">vuetify3-lux-admin-template-i18n</a>
 
-Simplified chinese version: <a href="https://github.com/yangjiakai/vuetify3-lux-admin-template-zh/tree/main">vuetify3-lux-admin-template-zh</a>
+Simplified Chinese Version: <a href="https://github.com/yangjiakai/vuetify3-lux-admin-template-zh/tree/main">vuetify3-lux-admin-template-zh</a>
 
 Nuxt3 version:
+
+Nuxt3 Full Version [lux-nuxt3](https://github.com/yangjiakai/lux-nuxt3)
+
+Nuxt3 Simplified Version [lux-nuxt3-template](https://github.com/yangjiakai/lux-nuxt3)
 
 ## 📖Documents
 
