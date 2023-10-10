@@ -39,7 +39,11 @@ Vuetify の洗練されたテーマを基盤に、明確で効率的なプロジ
 
 ## 📖Other Versions
 
-Simplified version: <a href="https://github.com/yangjiakai/vuetify3-lux-admin-template-i18n/tree/main">vuetify3-lux-admin-template-i18n</a>
+SPA Full Version: [lux-nuxt3](https://github.com/yangjiakai/lux-nuxt3)
+
+SPA Simplified i18n Version[lux-vuetify3-i18n](https://github.com/yangjiakai/vuetify3-lux-admin-template-i18n)
+
+SPA Simplified chinese Version[lux-vuetify3-zh](https://github.com/yangjiakai/vuetify3-lux-admin-template-zh)
 
 Nuxt3 version:
 

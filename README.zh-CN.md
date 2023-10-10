@@ -39,15 +39,19 @@
 
 ## 📖 其他版本
 
-精简国际化模板: <a href="https://github.com/yangjiakai/vuetify3-lux-admin-template-i18n/tree/main">vuetify3-lux-admin-template-i18n</a>
+### SPA Version
 
-精简中文模板: <a href="https://github.com/yangjiakai/vuetify3-lux-admin-template-zh/tree/main">vuetify3-lux-admin-template-zh</a>
+SPA 完整版: [lux-nuxt3](https://github.com/yangjiakai/lux-nuxt3)
 
-Nuxt3
+SPA 简化国际化模板 [lux-vuetify3-i18n](https://github.com/yangjiakai/vuetify3-lux-admin-template-i18n)
+
+SPA 简化中文模板 [lux-vuetify3-zh](https://github.com/yangjiakai/vuetify3-lux-admin-template-zh)
+
+### Nuxt3 Version
 
 Nuxt3 完整版 [lux-nuxt3](https://github.com/yangjiakai/lux-nuxt3)
 
-Nuxt3 基础简化模板 [lux-nuxt3-template](https://github.com/yangjiakai/lux-nuxt3)
+Nuxt3 简化版 [lux-nuxt3-template](https://github.com/yangjiakai/lux-nuxt3)
 
 ## 文档
 
