@@ -41,7 +41,7 @@
 
 ### SPA Version
 
-SPA 完整版: [lux-nuxt3](https://github.com/yangjiakai/lux-nuxt3)
+SPA 完整版: [lux-vuetify3](https://github.com/yangjiakai/lux-nuxt3)
 
 SPA 简化国际化模板 [lux-vuetify3-i18n](https://github.com/yangjiakai/vuetify3-lux-admin-template-i18n)
 

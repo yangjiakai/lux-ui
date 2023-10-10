@@ -39,7 +39,7 @@ Built upon the elegant themes of Vuetify, we have established a clear and effici
 
 ## 📖Other Versions
 
-SPA Full Version: [lux-nuxt3](https://github.com/yangjiakai/lux-nuxt3)
+SPA Full Version: [lux-vuetify3](https://github.com/yangjiakai/lux-nuxt3)
 
 SPA Simplified i18n Version[lux-vuetify3-i18n](https://github.com/yangjiakai/vuetify3-lux-admin-template-i18n)
 
