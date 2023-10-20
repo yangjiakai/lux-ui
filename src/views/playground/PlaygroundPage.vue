@@ -22,6 +22,7 @@ import FeatureAutoAnimation from "./components/FeatureAutoAnimation.vue";
 import FeatureComplexSearch from "./components/FeatureComplexSearch.vue";
 import FeatureGamma from "./components/FeatureGamma.vue";
 import FeatureExpandTable from "./components/FeatureExpandTable.vue";
+import FeatureDynamicTableHeader from "./components/FeatureDynamicTableHeader.vue";
 </script>
 
 <template>
@@ -96,6 +97,10 @@ import FeatureExpandTable from "./components/FeatureExpandTable.vue";
 
     <FeatureCard title="AutoAnimation">
       <FeatureAutoAnimation />
+    </FeatureCard>
+
+    <FeatureCard title="DynamicTableHeader">
+      <FeatureDynamicTableHeader />
     </FeatureCard>
   </v-container>
 </template>
