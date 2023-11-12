@@ -93,10 +93,12 @@ const promptList = computed(() => {
             >GPT-3.5</v-btn
           >
           <v-btn
-            :variant="chatGPTStore.model === 'gpt-4' ? 'flat' : 'text'"
+            :variant="
+              chatGPTStore.model === 'gpt-4-1106-preview' ? 'flat' : 'text'
+            "
             color="primary"
             class="flex-fill"
-            @click="chatGPTStore.updateModel('gpt-4')"
+            @click="chatGPTStore.updateModel('gpt-4-1106-preview')"
             >GPT-4.0</v-btn
           >
         </div>

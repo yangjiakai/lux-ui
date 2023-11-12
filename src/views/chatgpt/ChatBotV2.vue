@@ -72,7 +72,7 @@ const createCompletion = async () => {
   const proxyUrl = chatGPTStore.proxyUrl
     ? chatGPTStore.proxyUrl
     : "https://openai.wndbac.cn";
-  alert(proxyUrl);
+
   try {
     // Create a completion (axios is not used here because it does not support streaming)
     const completion = await fetch(`${proxyUrl}/v1/chat/completions`, {

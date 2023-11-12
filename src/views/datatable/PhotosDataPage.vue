@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import { searchPhotosApi } from "@/api/unsplashApi";
@@ -50,6 +50,7 @@ const getPhotos = async () => {
       likes: photo.likes,
       tags: photo.tags,
       created_at: moment(photo.created_at).format("YYYY/MM/DD"),
+      created_at2: moment(photo.created_at).format("YYYY/MM/DD"),
     };
   });
 
@@ -179,6 +180,9 @@ const previewImg = (url) => {
               </td>
               <td>
                 {{ item.columns.created_at }}
+              </td>
+              <td>
+                {{ item.columns.created_at2 }}
               </td>
             </tr>
           </template>
