@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import moment from "moment";
@@ -69,14 +69,14 @@ const toggleViewMode = () => {
 
 // List View
 const headers = [
-  { title: "FileName", key: "name", align: "center" },
-  { title: "ImageSize", key: "imageSize", align: "center" },
-  { title: "Suffix", key: "suffix", align: "center" },
-  { title: "TYPE", key: "type", align: "center" },
-  { title: "FileSize", key: "size", align: "center" },
-  { title: "Created", key: "lastModifiedDate", align: "center" },
-  { title: "Preview", key: "link", align: "center" },
-  { title: "PreviewEnabled", key: "previewEnabled", align: "center" },
+  { title: "FileName", key: "name" },
+  { title: "ImageSize", key: "imageSize" },
+  { title: "Suffix", key: "suffix" },
+  { title: "TYPE", key: "type" },
+  { title: "FileSize", key: "size" },
+  { title: "Created", key: "lastModifiedDate" },
+  { title: "Preview", key: "link" },
+  { title: "PreviewEnabled", key: "previewEnabled" },
 ];
 
 // Search

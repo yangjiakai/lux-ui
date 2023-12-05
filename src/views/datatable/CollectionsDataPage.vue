@@ -7,7 +7,7 @@
 import { searchCollectionsApi } from "@/api/unsplashApi";
 import CopyLabel from "@/components/common/CopyLabel.vue";
 import moment from "moment";
-
+import type { Collection } from "./types";
 const loading = ref(true);
 const totalRows = ref(0);
 
@@ -21,16 +21,16 @@ const headers = [
   { title: "ID", key: "id" },
   { title: "Title", key: "title" },
   { title: "Owner", key: "user" },
-  { title: "Total", key: "total_photos", align: "center" },
+  { title: "Total", key: "total_photos" },
 
-  { title: "cover", key: "cover_photo", align: "center" },
-  { title: "preview", key: "preview_photos", align: "center" },
+  { title: "cover", key: "cover_photo" },
+  { title: "preview", key: "preview_photos" },
   { title: "link", key: "links" },
-  { title: "tags", key: "tags", width: "300px", align: "center" },
+  { title: "tags", key: "tags", width: "300px" },
   { title: "publish", key: "published_at" },
 ];
 
-const collectionList = ref([]);
+const collectionList = ref<Collection[]>([]);
 
 const getCollections = async () => {
   loading.value = true;
@@ -107,35 +107,35 @@ const previewImg = (url) => {
         >
           <template v-slot:item="{ item }">
             <tr>
-              <td># {{ item.columns.id }}</td>
-              <td class="font-weight-bold">{{ item.columns.title }}</td>
+              <td># {{ item.id }}</td>
+              <td class="font-weight-bold">{{ item.title }}</td>
               <td class="font-weight-bold">
                 <v-avatar size="30" class="mr-2">
-                  <img :src="item.columns.user.profile_image.small" alt="alt" />
+                  <img :src="item.user.profile_image.small" alt="alt" />
                 </v-avatar>
-                <CopyLabel :text="item.columns.user.username" />
+                <CopyLabel :text="item.user.username" />
               </td>
 
               <td class="text-center">
                 <v-chip size="small">
-                  {{ item.columns.total_photos }}
+                  {{ item.total_photos }}
                 </v-chip>
               </td>
 
               <td class="pa-2">
                 <v-img
-                  :src="item.columns.cover_photo.urls.thumb"
+                  :src="item.cover_photo.urls.thumb"
                   height="100"
                   width="160"
                   cover
                   class="rounded-lg v-card--link"
-                  @click="previewImg(item.columns.cover_photo.urls.regular)"
+                  @click="previewImg(item.cover_photo.urls.regular)"
                 />
               </td>
               <td>
                 <div class="d-flex align-center">
                   <v-img
-                    v-for="photo in item.columns.preview_photos"
+                    v-for="photo in item.preview_photos"
                     :key="photo.id"
                     :src="photo.urls.thumb"
                     @click="previewImg(photo.urls.regular)"
@@ -147,12 +147,12 @@ const previewImg = (url) => {
                 </div>
               </td>
               <td>
-                <CopyLabel :text="item.columns.links.html" />
+                <CopyLabel :text="item.links.html" />
               </td>
 
               <td>
                 <v-chip
-                  v-for="tag in item.columns.tags"
+                  v-for="tag in item.tags"
                   variant="outlined"
                   color="grey"
                   size="small"
@@ -162,14 +162,8 @@ const previewImg = (url) => {
                 </v-chip>
               </td>
               <td>
-                {{ item.columns.published_at }}
+                {{ item.published_at }}
               </td>
-            </tr>
-          </template>
-
-          <template v-slot:expanded-row="{ columns }">
-            <tr>
-              <td :colspan="columns.length">More info about</td>
             </tr>
           </template>
         </v-data-table-server>

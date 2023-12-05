@@ -10,12 +10,12 @@ import "vuetify/styles";
 // Composables
 import { createVuetify } from "vuetify";
 import type { ThemeDefinition } from "vuetify";
-import * as components from "vuetify/components";
+
 import * as directives from "vuetify/directives";
 import { createVueI18nAdapter } from "vuetify/locale/adapters/vue-i18n";
 import { useI18n } from "vue-i18n";
 import i18n from "@/plugins/i18n";
-import * as labs from "vuetify/labs/components";
+
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 
@@ -54,10 +54,7 @@ const Darktheme: ThemeDefinition = {
 };
 
 export default createVuetify({
-  components: {
-    ...components,
-    ...labs,
-  },
+
   directives,
   theme: {
     themes: {

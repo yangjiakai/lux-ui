@@ -1,9 +1,10 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
+import type { User } from "./types";
 import { searchUsersApi } from "@/api/unsplashApi";
 import CopyLabel from "@/components/common/CopyLabel.vue";
 
@@ -16,21 +17,21 @@ const queryOptions = reactive({
   per_page: 25,
 });
 
-const headers = [
+const headers = ref([
   { title: "用户名", key: "username" },
   { title: "头像", key: "avatar" },
   { title: "用户id", key: "id" },
   { title: "全名", key: "name" },
   { title: "位置", key: "location", width: "200px" },
-  { title: "是否可用", key: "for_hire", align: "center" },
-  { title: "收藏数", key: "total_collections", align: "center" },
-  { title: "喜欢数", key: "total_likes", align: "center" },
-  { title: "照片数", key: "total_photos", align: "center" },
-  { title: "接受条款", key: "accepted_tos", align: "center" },
+  { title: "是否可用", key: "for_hire" },
+  { title: "收藏数", key: "total_collections" },
+  { title: "喜欢数", key: "total_likes" },
+  { title: "照片数", key: "total_photos" },
+  { title: "接受条款", key: "accepted_tos" },
   { title: "作品集", key: "portfolio_url" },
-];
+]);
 
-const usersList = ref([]);
+const usersList = ref<User[]>([]);
 
 const getUsers = async () => {
   loading.value = true;
@@ -53,6 +54,8 @@ const getUsers = async () => {
       portfolio_url: user.portfolio_url,
     };
   });
+
+  console.log(usersList.value);
 
   totalRows.value = usersResponse.data.total;
 
@@ -111,64 +114,60 @@ const getLikesColor = (likes) => {
           <template v-slot:item="{ item }">
             <tr class="">
               <td class="font-weight-bold text-body-2">
-                <CopyLabel :text="item.columns.username" />
+                <CopyLabel :text="item?.username" />
               </td>
               <td>
                 <v-avatar size="30">
-                  <img :src="item.columns.avatar" alt="alt" />
+                  <img :src="item.avatar" alt="alt" />
                 </v-avatar>
               </td>
-              <td>{{ item.columns.id }}</td>
+              <td>{{ item.id }}</td>
 
-              <td>{{ item.columns.name }}</td>
-              <td>{{ item.columns.location }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.location }}</td>
 
               <td class="text-center">
                 <v-chip
                   size="small"
-                  :color="item.columns.for_hire ? 'blue' : 'grey'"
+                  :color="item.for_hire ? 'blue' : 'grey'"
                   class="font-weight-bold"
                 >
-                  {{ item.columns.for_hire ? "Hire" : "No Hire" }}</v-chip
+                  {{ item.for_hire ? "Hire" : "No Hire" }}</v-chip
                 >
               </td>
               <td>
-                {{ item.columns.total_collections }}
+                {{ item.total_collections }}
               </td>
               <td>
                 <v-chip
                   size="small"
-                  :color="getLikesColor(item.columns.total_likes)"
+                  :color="getLikesColor(item.total_likes)"
                   class="font-weight-bold"
                 >
-                  {{ item.columns.total_likes }}</v-chip
+                  {{ item.total_likes }}</v-chip
                 >
               </td>
               <td>
-                {{ item.columns.total_photos }}
+                {{ item.total_photos }}
               </td>
               <td class="text-center">
                 <v-chip
                   size="small"
-                  :color="item.columns.accepted_tos ? 'green' : 'pink'"
+                  :color="item.accepted_tos ? 'green' : 'pink'"
                   class="font-weight-bold"
                 >
                   <v-icon
                     start
                     :icon="
-                      item.columns.accepted_tos
-                        ? 'mdi-security '
-                        : 'mdi-close-octagon'
+                      item.accepted_tos ? 'mdi-security ' : 'mdi-close-octagon'
                     "
                   ></v-icon>
-                  {{
-                    item.columns.accepted_tos ? "Accepted" : "Not Accepted"
-                  }}</v-chip
+                  {{ item.accepted_tos ? "Accepted" : "Not Accepted" }}</v-chip
                 >
               </td>
               <td>
-                <a :href="item.columns.portfolio_url" target="_blank">
-                  {{ item.columns.portfolio_url }}
+                <a :href="item.portfolio_url" target="_blank">
+                  {{ item.portfolio_url }}
                 </a>
               </td>
             </tr>
