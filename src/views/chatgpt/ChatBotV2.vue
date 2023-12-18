@@ -226,7 +226,7 @@ const inputRow = ref(1);
           @keydown="handleKeydown"
           no-resize
           :rows="inputRow"
-          @focus="inputRow = 3"
+          @focus="inputRow = 12"
           @blur="inputRow = 1"
         >
         </v-textarea>
