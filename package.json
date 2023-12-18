@@ -63,7 +63,7 @@
     "tailwindcss": "^3.3.1",
     "unplugin-auto-import": "^0.15.2",
     "vite": "^5.0.5",
-    "vite-plugin-vuetify": "^1.0.2",
+    "vite-plugin-vuetify": "^2.0.1",
     "vitest": "^1.0.1"
   }
 }
