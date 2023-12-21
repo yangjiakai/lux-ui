@@ -126,7 +126,7 @@ git clone https://github.com/yangjiakai/lux-admin-vuetify3.git
 
 cd lux-admin-vuetify3
 
-npm install
+npm install --legacy-peer-deps
 
 npm run dev
 ```
