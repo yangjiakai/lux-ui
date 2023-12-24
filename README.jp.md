@@ -126,9 +126,9 @@ git clone https://github.com/yangjiakai/lux-admin-vuetify3.git
 
 cd lux-admin-vuetify3
 
-npm install --legacy-peer-deps
+yarn install
 
-npm run dev
+yarn dev
 ```
 
 ### 🔑Set ApiKey
