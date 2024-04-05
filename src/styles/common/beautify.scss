@@ -33,9 +33,7 @@
   overflow: hidden;
 }
 
-.landing-warpper {
-  border: 2px dashed #aaa;
-}
+
 
 .h-full {
   height: 100%;
@@ -47,4 +45,10 @@
 
 .w-screen {
   width: 100vw !important;
+}
+
+.card-title {
+  color: rgba(var(--v-theme-grey-800)) !important;
+  font-weight: bold !important;
+  font-size: 18px !important;
 }
