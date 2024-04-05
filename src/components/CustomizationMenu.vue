@@ -11,9 +11,9 @@ const customizeTheme = useCustomizeThemeStore();
 const theme = useTheme();
 const themeDrawer = ref(false);
 const currentColor = ref<Color>({
-  colorId: 2,
-  colorName: "grey",
-  colorValue: "#344767",
+  colorId: 1,
+  colorName: "purple",
+  colorValue: "#705CF6",
 });
 const primaryColors = ref([
   {
