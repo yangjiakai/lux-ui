@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import { useTodoStore } from "../todoStore";
@@ -109,7 +109,7 @@ const filterdTodoList = computed(() => {
 
   .todo-item {
     transition: all 0.3s;
-    border-bottom: 1px solid #eee;
+
     &:hover {
       transition: all 0.3s;
       background-color: rgba(99, 99, 99, 0.2);

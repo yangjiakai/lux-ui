@@ -8,10 +8,8 @@
 import { Ref } from "vue";
 import type { EChartsOption } from "echarts";
 import { useChart, RenderType, ThemeType } from "@/plugins/echarts";
-// import { useTheme } from "vuetify";
-// const { current } = useTheme();
-import { useCustomizeThemeStore } from "@/stores/customizeTheme";
-const customizeTheme = useCustomizeThemeStore();
+import { useTheme } from "vuetify";
+const { current } = useTheme();
 const dataSet = ref([
   { value: 335, name: "Direct" },
   { value: 310, name: "Email" },
@@ -22,7 +20,7 @@ const dataSet = ref([
 
 const option = computed<EChartsOption>(() => ({
   // ...chart option
-  backgroundColor: customizeTheme.darkTheme ? "#1E293B" : "#FFF",
+  backgroundColor: current.value.colors.surface,
 
   tooltip: {
     trigger: "item",

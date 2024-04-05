@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 
 <script setup lang="ts">
@@ -105,7 +105,7 @@ Basic with Icons
         <!--   Basic Infomation -->
         <!-- ---------------------------------------------- -->
         <v-card class="mb-5">
-          <v-card-title class="bg-white py-4 font-weight-bold">
+          <v-card-title class="py-4 font-weight-bold">
             Basic Infomation
           </v-card-title>
           <v-divider></v-divider>
@@ -168,7 +168,7 @@ Basic with Icons
         <!--   Authentication  -->
         <!-- ---------------------------------------------- -->
         <v-card class="mb-5">
-          <v-card-title class="bg-white py-4 font-weight-bold">
+          <v-card-title class="py-4 font-weight-bold">
             Authentication</v-card-title
           >
           <v-divider></v-divider>
@@ -219,7 +219,7 @@ Basic with Icons
         <!--   Change Password  -->
         <!-- ---------------------------------------------- -->
         <v-card class="mb-5">
-          <v-card-title class="bg-white py-4 font-weight-bold">
+          <v-card-title class="py-4 font-weight-bold">
             Change Password
           </v-card-title>
           <v-divider></v-divider>
@@ -307,7 +307,7 @@ Basic with Icons
         <!--   Notifications  -->
         <!-- ---------------------------------------------- -->
         <v-card class="mb-5">
-          <v-card-title class="bg-white py-4 font-weight-bold">
+          <v-card-title class="py-4 font-weight-bold">
             Notifications</v-card-title
           >
           <v-divider></v-divider>

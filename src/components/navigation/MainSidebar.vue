@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import configs from "@/configs";
@@ -35,7 +35,6 @@ const scrollToBottom = () => {
 
 <template>
   <v-navigation-drawer
-    border="none"
     elevation="1"
     v-model="customizeTheme.mainSidebar"
     id="mainMenu"
@@ -44,12 +43,8 @@ const scrollToBottom = () => {
     <!---Top Area -->
     <!-- ---------------------------------------------- -->
     <template v-if="!customizeTheme.miniSidebar" v-slot:prepend>
-      <v-card
-        style="box-shadow: rgba(0, 0, 0, 0.05) 0px 25px 15px -20px"
-        height="100"
-        class="d-flex align-center justify-center"
-      >
-        <img
+      <v-card height="100" class="logo-card">
+        <!-- <img
           v-if="customizeTheme.darkTheme"
           width="200"
           src="@/assets/logo_dark.svg"
@@ -60,40 +55,31 @@ const scrollToBottom = () => {
           width="200"
           src="@/assets/logo_light.svg"
           alt=""
-        />
+        /> -->
+        <h1 class="logo-text h-full">
+          <Icon class="mr-2" width="40" icon="solar:plain-bold-duotone" />
+          <span>Lux-UI</span>
+        </h1>
       </v-card>
     </template>
 
     <!-- ---------------------------------------------- -->
     <!---Nav List -->
     <!-- ---------------------------------------------- -->
-
-    <main-menu :menu="navigation.menu"></main-menu>
-
+    <div class="main-menu">
+      <main-menu :menu="navigation.menu"></main-menu>
+    </div>
     <!-- ---------------------------------------------- -->
     <!---Bottom Area -->
     <!-- ---------------------------------------------- -->
     <template v-if="!customizeTheme.miniSidebar" v-slot:append>
-      <v-card
-        theme="dark"
-        height="225"
-        class="pa-3"
-        variant="text"
-        style="box-shadow: rgba(0, 0, 0, 0.05) 0px -25px 15px -20px"
-      >
+      <v-card height="225" class="pa-3" variant="text">
         <v-card
-          class="d-flex flex-column gradient pa-2"
-          :class="customizeTheme.primaryColor.colorName"
-          height="200"
+          class="d-flex flex-column pa-2 gradient-card text-white"
+          height="200 "
         >
           <v-card-title>
-            <v-btn
-              class="mr-2"
-              size="40"
-              color="white"
-              :class="`text-${customizeTheme.primaryColor.colorName}`"
-              icon
-            >
+            <v-btn class="mr-2" size="40" color="white" icon>
               <Icon width="30" icon="line-md:github-loop" />
             </v-btn>
             Yang J.K.
@@ -120,4 +106,29 @@ const scrollToBottom = () => {
   </v-navigation-drawer>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.gradient-card {
+  // background: linear-gradient(
+  //   to bottom,
+  //   rgba(var(--v-theme-primary), 1),
+  //   rgba(var(--v-theme-primary), 0.9)
+  // );
+  background: linear-gradient(
+    270deg,
+    rgba(var(--v-theme-primary), 0.7) 0,
+    rgb(var(--v-theme-primary)) 100%
+  );
+  box-shadow: 0 2px 6px rgba(var(--v-theme-primary), 0.3);
+}
+
+.logo-card {
+  .logo-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgba(var(--v-theme-primary));
+  }
+}
+</style>

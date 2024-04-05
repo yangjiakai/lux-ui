@@ -10,6 +10,7 @@ import LanguageSwitcher from "@/components/toolbar/LanguageSwitcher.vue";
 import ToolbarNotifications from "./ToolbarNotifications.vue";
 import ToolbarUser from "./ToolbarUser.vue";
 import { useTodoStore } from "@/views/app/todo/todoStore";
+import ThemeToggle from "./ThemeToggle.vue";
 const { mdAndUp } = useDisplay();
 const todoStore = useTodoStore();
 const customizeTheme = useCustomizeThemeStore();
@@ -76,7 +77,7 @@ const showMobileSearch = ref(false);
           </v-badge>
         </v-btn>
         <v-divider vertical thickness="2" inset class="ml-5 mr-1"></v-divider>
-
+        <ThemeToggle />
         <LanguageSwitcher />
         <ToolbarUser />
       </div>

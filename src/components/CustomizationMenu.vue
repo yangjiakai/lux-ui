@@ -19,7 +19,7 @@ const primaryColors = ref([
   {
     colorId: 1,
     colorName: "purple",
-    colorValue: "#CB0C9F",
+    colorValue: "#705CF6",
   },
   {
     colorId: 2,
@@ -51,7 +51,7 @@ const primaryColors = ref([
 onMounted(() => updatePrimaryColor(customizeTheme.primaryColor));
 
 watch(currentColor, (newVal) => {
-  updatePrimaryColor(newVal)
+  updatePrimaryColor(newVal);
 });
 
 const updatePrimaryColor = (newColor: Color) => {
@@ -59,8 +59,7 @@ const updatePrimaryColor = (newColor: Color) => {
   theme.themes.value.dark.colors.primary = newColor.colorValue;
   customizeTheme.setPrimaryColor(newColor);
   currentColor.value = newColor;
-
-}
+};
 </script>
 
 <template>
@@ -100,20 +99,6 @@ const updatePrimaryColor = (newColor: Color) => {
             </v-btn>
             <span class="ml-5">Dark Mode</span>
           </div>
-          <div class="px-3 pt-3" v-else>
-            <v-btn
-              @click="customizeTheme.darkTheme = !customizeTheme.darkTheme"
-              icon
-              color="white"
-              class="text-red"
-            >
-              <Icon
-                width="30"
-                icon="line-md:moon-filled-alt-to-sunny-filled-loop-transition"
-              />
-            </v-btn>
-            <span class="ml-5">Light Mode</span>
-          </div>
         </div>
         <hr class="my-6" />
 
@@ -146,12 +131,6 @@ const updatePrimaryColor = (newColor: Color) => {
         <hr class="my-6" />
         <div class="">
           <b>MiniSideBar</b>
-          <v-switch
-            color="primary"
-            class="ml-2"
-            hide-details
-            :label="`Mini: ${customizeTheme.miniSidebar}`"
-          ></v-switch>
         </div>
         <hr class="mb-6" />
         <div>

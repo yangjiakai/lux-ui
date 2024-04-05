@@ -139,7 +139,7 @@ watch(
           </div>
         </div>
         <div v-else>
-          <div class="bg-white pa-6">
+          <div class="pa-6">
             <div class="message">
               <v-avatar class="mr-4">
                 <img

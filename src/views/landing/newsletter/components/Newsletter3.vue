@@ -36,7 +36,7 @@
                 Stack is a Spatial Browser for Mindful Online Living
               </h2>
               <v-text-field
-                class="bg-white mt-5"
+                class="mt-5"
                 color="primary"
                 hide-details
                 variant="outlined"

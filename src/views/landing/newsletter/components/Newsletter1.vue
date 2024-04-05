@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts"></script>
 
@@ -34,7 +34,7 @@
           </v-col>
           <v-col cols="12" sm="9" md="7">
             <v-text-field
-              class="bg-white"
+              class=""
               color="primary"
               hide-details
               variant="outlined"

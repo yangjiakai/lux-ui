@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import AnimationFolder from "@/components/animations/AnimationFolder.vue";
@@ -9,7 +9,7 @@ import AnimationFolder from "@/components/animations/AnimationFolder.vue";
 
 <template>
   <v-container class="h-full">
-    <div class="h-full bg-white d-flex align-center justify-center">
+    <div class="h-full d-flex align-center justify-center">
       <div class="text-center">
         <h1 class="text-h4 font-weight-bold text-grey">New Folder.jpg</h1>
         <AnimationFolder :size="400" />
