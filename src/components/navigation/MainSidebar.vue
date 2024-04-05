@@ -91,11 +91,11 @@ const scrollToBottom = () => {
           </v-card-text>
           <v-card-actions>
             <v-btn
-              color="white"
               block
               prepend-icon="mdi-thumb-up-outline"
-              variant="elevated"
+              variant="outlined"
               @click="openGithubSite"
+              color="white"
             >
               Star-Me
             </v-btn>
