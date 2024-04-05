@@ -8,8 +8,8 @@ import { useSnackbarStore } from "@/stores/snackbarStore";
 import AnimationAi from "@/components/animations/AnimationBot1.vue";
 // import AnimationSpeech from "@/components/animations/AnimationSpeech.vue";
 import AnimationRecording from "@/components/animations/AnimationRecording.vue";
-import MdEditor from "md-editor-v3";
-import "md-editor-v3/lib/style.css";
+import { MdPreview } from "md-editor-v3";
+import "md-editor-v3/lib/preview.css";
 import AnimaitonCss01 from "@/components/animations/AnimaitonCss01.vue";
 import AnimaitonCss02 from "@/components/animations/AnimaitonCss02.vue";
 import { useSpeechStore } from "@/stores/speechStore";
@@ -72,7 +72,6 @@ const createCompletion = async () => {
         model: "gpt-3.5-turbo",
         temperature: 1,
         n: 1,
-
       },
       chatGPTStore.getApiKey
     );
@@ -217,7 +216,7 @@ const clearMessages = () => {
 
               <v-card class="rounded-xl rounded-bs-0">
                 <div>
-                  <md-editor v-model="message.content" previewOnly />
+                  <md-preview :modelValue="message.content" />
                 </div>
               </v-card>
             </div>

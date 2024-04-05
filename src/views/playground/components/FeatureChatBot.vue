@@ -1,14 +1,14 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import { useSnackbarStore } from "@/stores/snackbarStore";
 import AnimationAi from "@/components/animations/AnimationBot2.vue";
 import { read } from "@/utils/aiUtils";
-import MdEditor from "md-editor-v3";
-import "md-editor-v3/lib/style.css";
+import { MdPreview } from "md-editor-v3";
+import "md-editor-v3/lib/preview.css";
 import { useChatGPTStore } from "@/stores/chatGPTStore";
 const snackbarStore = useSnackbarStore();
 

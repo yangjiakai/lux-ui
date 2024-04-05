@@ -7,8 +7,8 @@
 import { useSnackbarStore } from "@/stores/snackbarStore";
 import AnimationAi from "@/components/animations/AnimationBot2.vue";
 import { read, countAndCompleteCodeBlocks } from "@/utils/aiUtils";
-import MdEditor from "md-editor-v3";
-import "md-editor-v3/lib/style.css";
+import { MdPreview } from "md-editor-v3";
+import "md-editor-v3/lib/preview.css";
 import { scrollToBottom } from "@/utils/common";
 import { useChatGPTStore } from "@/stores/chatGPTStore";
 import ApiKeyDialog from "@/components/ApiKeyDialog.vue";
@@ -71,7 +71,7 @@ const createCompletion = async () => {
   // }
   const proxyUrl = chatGPTStore.proxyUrl
     ? chatGPTStore.proxyUrl
-    : "https://openai.wndbac.cn";
+    : "https://api.openai-proxy.com";
 
   try {
     // Create a completion (axios is not used here because it does not support streaming)
@@ -180,7 +180,7 @@ const inputRow = ref(1);
                     alt="alt"
                   />
                 </v-avatar>
-                <md-editor v-model="message.content" previewOnly />
+                <md-preview :modelValue="message.content" />
               </div>
             </div>
           </div>

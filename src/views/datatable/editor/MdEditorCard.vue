@@ -1,12 +1,12 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
-import MdEditor from "md-editor-v3";
+import { MdPreview } from "md-editor-v3";
 
-import "md-editor-v3/lib/style.css";
+import "md-editor-v3/lib/preview.css";
 const content = ref(`
 <h2>Hi there,</h2>
 <p>

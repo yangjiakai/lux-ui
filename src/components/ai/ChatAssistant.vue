@@ -9,9 +9,10 @@ import { useSnackbarStore } from "@/stores/snackbarStore";
 import AnimationAi from "@/components/animations/AnimationBot1.vue";
 import { read, countAndCompleteCodeBlocks } from "@/utils/aiUtils";
 import { scrollToBottom } from "@/utils/common";
-import MdEditor from "md-editor-v3";
+import { MdPreview } from "md-editor-v3";
+import "md-editor-v3/lib/preview.css";
+
 import { useChatGPTStore } from "@/stores/chatGPTStore";
-import "md-editor-v3/lib/style.css";
 
 const snackbarStore = useSnackbarStore();
 const chatGPTStore = useChatGPTStore();
@@ -231,10 +232,9 @@ const { xs } = useDisplay();
                   </v-avatar>
                   <v-card>
                     <div>
-                      <md-editor
-                        v-model="message.content"
+                      <md-preview
+                        :modelValue="message.content"
                         class="font-1"
-                        previewOnly
                       />
                     </div>
                   </v-card>
