@@ -187,7 +187,7 @@ const inputRow = ref(1);
         </template>
       </perfect-scrollbar>
       <div class="no-message-container" v-else>
-        <h1 class="text-h4 text-md-h2 text-blue-lighten-1 font-weight-bold">
+        <h1 class="text-h4 text-md-h2 text-primary font-weight-bold">
           Ask Me Any Thing
         </h1>
         <AnimationAi :size="300" />

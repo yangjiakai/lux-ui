@@ -203,7 +203,7 @@ const inputRow = ref(1);
         </div>
       </perfect-scrollbar>
       <div class="no-message-container" v-else>
-        <h1 class="text-h4 text-md-h2 text-blue-lighten-1 font-weight-bold">
+        <h1 class="text-h4 text-md-h2 text-primary font-weight-bold">
           Chat With Me
         </h1>
         <AnimationChat :size="300" />
