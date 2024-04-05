@@ -195,10 +195,7 @@ const clearMessages = () => {
               <v-avatar class="ml-4" rounded="lg" variant="elevated">
                 <img src="@/assets/images/avatars/avatar_user.jpg" alt="alt" />
               </v-avatar>
-              <v-card
-                class="gradient gray rounded-xl rounded-be-0"
-                theme="dark"
-              >
+              <v-card class="rounded-xl rounded-be-0" color="primary">
                 <v-card-text>
                   <b> {{ message.content }}</b></v-card-text
                 >
@@ -262,7 +259,7 @@ const clearMessages = () => {
             size="x-large"
             icon
             variant="elevated"
-            class="gradient gray"
+            color="primary"
             @click="startRecording"
             ><v-icon size="30">mdi-microphone</v-icon></v-btn
           >
