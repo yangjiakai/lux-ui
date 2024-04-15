@@ -7,7 +7,7 @@ export const useChatGPTStore = defineStore({
     configDialog: false,
     apiKey: "",
     proxyUrl: "https://api.openai-proxy.com",
-    model: "gpt-3.5-turbo",
+    model: "gpt-4-turbo-2024-04-09",
   }),
 
   persist: {

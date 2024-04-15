@@ -84,22 +84,24 @@ const promptList = computed(() => {
         <v-label class="font-weight-medium mb-2 ml-2 mt-5">{{
           $t("chatgpt.config.model")
         }}</v-label>
-        <v-card variant="outlined" style="width: 220px" class="flex ml-2 pa-2">
+        <v-card variant="outlined" style="width: 430px" class="flex ml-2 pa-2">
           <v-btn
             :variant="chatGPTStore.model === 'gpt-3.5-turbo' ? 'flat' : 'text'"
             color="primary"
             class="flex-fill mr-3"
             @click="chatGPTStore.updateModel('gpt-3.5-turbo')"
+            width="200"
             >GPT-3.5</v-btn
           >
           <v-btn
             :variant="
-              chatGPTStore.model === 'gpt-4-1106-preview' ? 'flat' : 'text'
+              chatGPTStore.model === 'gpt-4-turbo-2024-04-09' ? 'flat' : 'text'
             "
             color="primary"
             class="flex-fill"
-            @click="chatGPTStore.updateModel('gpt-4-1106-preview')"
-            >GPT-4.0</v-btn
+            width="200"
+            @click="chatGPTStore.updateModel('gpt-4-turbo-2024-04-09')"
+            >GPT-4 turbo</v-btn
           >
         </v-card>
 
