@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import Testimonial1 from "./components/Testimonial1.vue";
@@ -14,7 +14,7 @@ import Testimonial4 from "./components/Testimonial4.vue";
   <!-- ---------------------------------------------- -->
   <!---Top Toolbar -->
   <!-- ---------------------------------------------- -->
-  <v-toolbar height="100" color="primary">
+  <v-toolbar rounded="lg" height="100" color="primary">
     <v-toolbar-title class="text-h5 font-weight-bold">
       <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
       <span>Testimonial</span>

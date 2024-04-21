@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import Card1 from "./components/Card1.vue";
@@ -18,7 +18,7 @@ import Card8 from "./components/Card8.vue";
   <!-- ---------------------------------------------- -->
   <!---Top Toolbar -->
   <!-- ---------------------------------------------- -->
-  <v-toolbar height="100" color="primary">
+  <v-toolbar rounded="lg" height="100" color="primary">
     <div class="ml-5">
       <h3 class="text-h5 font-weight-bold">
         Card

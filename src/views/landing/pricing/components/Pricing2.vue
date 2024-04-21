@@ -54,81 +54,80 @@ const pricing_plans = [
 </script>
 
 <template>
-  <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
-      <span>Pricing2</span>
-    </v-toolbar-title>
-  </v-toolbar>
-  <v-sheet elevation="0" class="mx-auto landing-warpper text-left" rounded>
-    <v-sheet
-      elevation="0"
-      color="transparent"
-      max-width="1600 "
-      class="mx-auto my-10 pa-10"
-    >
-      <v-item-group mandatory selected-class="active-card">
-        <v-row align="stretch">
-          <v-col cols="12" md="4" v-for="plan in pricing_plans">
-            <v-item v-slot="{ selectedClass, toggle }">
-              <v-card
-                elevation="0"
-                height="100%"
-                class="base-card mx-auto pa-5 d-flex flex-column justify-center"
-                :class="selectedClass"
-                @click="toggle"
-                color="#F6FAFE"
-              >
-                <div>
-                  <h3
-                    class="font-weight-bold text-h6 mb-5 text-center"
-                    :class="plan.colorClass"
-                  >
-                    {{ plan.type }}
-                  </h3>
-                  <v-card elevation="0" class="text-center">
-                    <h1 class="font-weight-black text-h4 my-10 text-color">
-                      <span>{{ plan.price }}</span>
-                    </h1>
-                    <p class="font-weight-bold">
-                      {{ plan.price }}/month/project
-                    </p>
-                    <p class="px-5 pt-5">
-                      <v-btn
-                        size="x-large"
-                        class="text-white my-5"
-                        block
-                        :color="plan.color"
-                        >Subscribe</v-btn
-                      >
-                    </p>
-                  </v-card>
-                  <div class="px-5 py-10">
-                    <h3 :class="plan.colorClass" class="mb-5">
+  <v-card class="my-5" rounded color="grey-50">
+    <v-card-title class="card-title">Feature2</v-card-title>
+    <v-divider></v-divider>
+    <div class="pa-10">
+      <v-card
+        max-width="1600"
+        class="mx-auto"
+        variant="flat"
+        color="transparent"
+      >
+        <v-item-group mandatory selected-class="active-card">
+          <v-row align="stretch">
+            <v-col cols="12" md="4" v-for="plan in pricing_plans">
+              <v-item v-slot="{ selectedClass, toggle }">
+                <v-card
+                  elevation="0"
+                  height="100%"
+                  class="base-card mx-auto pa-5 d-flex flex-column justify-center"
+                  :class="selectedClass"
+                  @click="toggle"
+                  color="#F6FAFE"
+                >
+                  <div>
+                    <h3
+                      class="font-weight-bold text-h6 mb-5 text-center"
+                      :class="plan.colorClass"
+                    >
                       {{ plan.type }}
                     </h3>
-                    <div>
-                      <div
-                        class="text-color text-body-2 font-weight-medium mb-3"
-                        v-for="feature in plan.features"
-                      >
-                        <v-btn size="20" icon class="mr-2">
-                          <v-icon size="14" :color="plan.color"
-                            >mdi-check</v-icon
-                          ></v-btn
+                    <v-card elevation="0" class="text-center">
+                      <h1 class="font-weight-black text-h4 my-10 text-color">
+                        <span>{{ plan.price }}</span>
+                      </h1>
+                      <p class="font-weight-bold">
+                        {{ plan.price }}/month/project
+                      </p>
+                      <p class="px-5 pt-5">
+                        <v-btn
+                          size="x-large"
+                          class="text-white my-5"
+                          block
+                          :color="plan.color"
+                          >Subscribe</v-btn
                         >
+                      </p>
+                    </v-card>
+                    <div class="px-5 py-10">
+                      <h3 :class="plan.colorClass" class="mb-5">
+                        {{ plan.type }}
+                      </h3>
+                      <div>
+                        <div
+                          class="text-color text-body-2 font-weight-medium mb-3"
+                          v-for="feature in plan.features"
+                        >
+                          <v-btn size="20" icon class="mr-2">
+                            <v-icon size="14" :color="plan.color"
+                              >mdi-check</v-icon
+                            ></v-btn
+                          >
 
-                        {{ feature }}
+                          {{ feature }}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </v-card>
-            </v-item>
-          </v-col>
-        </v-row>
-      </v-item-group>
-    </v-sheet>
-  </v-sheet>
+                </v-card>
+              </v-item>
+            </v-col>
+          </v-row>
+        </v-item-group>
+      </v-card>
+    </div>
+  </v-card>
 </template>
 
 <style scoped lang="scss">

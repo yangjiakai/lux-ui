@@ -1,24 +1,22 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import Pricing1 from "./components/Pricing1.vue";
 import Pricing2 from "./components/Pricing2.vue";
-import Pricing3 from "./components/Pricing3.vue";
-import Pricing4 from "./components/Pricing4.vue";
 </script>
 
 <template>
   <!-- ---------------------------------------------- -->
   <!---Top Toolbar -->
   <!-- ---------------------------------------------- -->
-  <v-toolbar height="100" color="primary">
+  <v-toolbar rounded="lg" height="100" color="primary">
     <div class="ml-5">
       <h3 class="text-h5 font-weight-bold">
         Pricing
-        <v-chip size="small" class="ma-2"> 4 Components </v-chip>
+        <v-chip size="small" class="ma-2"> 2 Components </v-chip>
       </h3>
     </div>
     <v-spacer></v-spacer>
@@ -32,8 +30,6 @@ import Pricing4 from "./components/Pricing4.vue";
   <div>
     <Pricing1 />
     <Pricing2 />
-    <Pricing3 />
-    <Pricing4 />
   </div>
 </template>
 

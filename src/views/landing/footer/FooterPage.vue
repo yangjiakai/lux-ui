@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import Footer1 from "./components/Footer1.vue";
@@ -14,7 +14,7 @@ import Footer4 from "./components/Footer4.vue";
   <!-- ---------------------------------------------- -->
   <!---Top Toolbar -->
   <!-- ---------------------------------------------- -->
-  <v-toolbar height="100" color="primary">
+  <v-toolbar rounded="lg" height="100" color="primary">
     <div class="ml-5">
       <h3 class="text-h5 font-weight-bold">
         Footer

@@ -1,7 +1,7 @@
 <!--
-* @Component: 
+* @Component:
 * @Maintainer: J.K. Yang
-* @Description: 
+* @Description:
 -->
 <script setup lang="ts">
 import Toolbar1 from "./components/Toolbar1.vue";
@@ -15,7 +15,7 @@ import Toolbar5 from "./components/Toolbar5.vue";
   <!-- ---------------------------------------------- -->
   <!---Top Toolbar -->
   <!-- ---------------------------------------------- -->
-  <v-toolbar height="100" color="primary">
+  <v-toolbar rounded="lg" height="100" color="primary">
     <div class="ml-5">
       <h3 class="text-h5 font-weight-bold">
         Toolbar

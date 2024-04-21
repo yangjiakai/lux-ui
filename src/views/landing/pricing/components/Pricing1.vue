@@ -45,59 +45,55 @@ const pricing_plans = [
 </script>
 
 <template>
-  <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
-      <span>Pricing1</span>
-    </v-toolbar-title>
-  </v-toolbar>
-  <v-sheet
-    color="#F2F5F8"
-    elevation="0"
-    class="mx-auto landing-warpper text-left"
-    rounded
-  >
-    <v-sheet
-      elevation="0"
-      color="transparent"
-      max-width="1600 "
-      class="mx-auto my-10 pa-10"
-    >
-      <v-item-group mandatory selected-class="active-card">
-        <v-row align="stretch">
-          <v-col cols="12" md="4" v-for="plan in pricing_plans">
-            <v-item v-slot="{ isSelected, selectedClass, toggle }">
-              <v-card
-                :theme="isSelected ? 'dark' : 'light'"
-                elevation="0"
-                height="100%"
-                class="base-card text-center mx-auto pa-10 pa-md-15 d-flex flex-column justify-center"
-                :class="selectedClass"
-                @click="toggle"
-              >
-                <div>
-                  <h3 class="font-weight-bold text-h5 mt-5 mb-10">
-                    {{ plan.plan_name }}
-                  </h3>
-                  <h1 class="font-weight-black text-h3 mt-5 mb-10">
-                    <span class="text-primary">{{ plan.price }}</span>
-                  </h1>
-
-                  <div class="text-h6 font-weight-bold mb-10">
-                    {{ plan.storage }}
-                  </div>
+  <v-card class="my-5" rounded color="grey-50">
+    <v-card-title class="card-title">Feature2</v-card-title>
+    <v-divider></v-divider>
+    <div class="pa-10">
+      <v-card
+        max-width="1600"
+        class="mx-auto"
+        variant="flat"
+        color="transparent"
+      >
+        <v-item-group mandatory selected-class="active-card">
+          <v-row align="stretch">
+            <v-col cols="12" md="4" v-for="plan in pricing_plans">
+              <v-item v-slot="{ isSelected, selectedClass, toggle }">
+                <v-card
+                  :theme="isSelected ? 'dark' : 'light'"
+                  elevation="0"
+                  height="100%"
+                  class="base-card text-center mx-auto pa-10 pa-md-15 d-flex flex-column justify-center"
+                  :class="selectedClass"
+                  @click="toggle"
+                >
                   <div>
-                    <div v-for="feature in plan.features">{{ feature }}</div>
-                  </div>
+                    <h3 class="font-weight-bold text-h5 mt-5 mb-10">
+                      {{ plan.plan_name }}
+                    </h3>
+                    <h1 class="font-weight-black text-h3 mt-5 mb-10">
+                      <span class="text-primary">{{ plan.price }}</span>
+                    </h1>
 
-                  <v-btn color="primary" size="large" class="mt-10">订阅</v-btn>
-                </div>
-              </v-card>
-            </v-item>
-          </v-col>
-        </v-row>
-      </v-item-group>
-    </v-sheet>
-  </v-sheet>
+                    <div class="text-h6 font-weight-bold mb-10">
+                      {{ plan.storage }}
+                    </div>
+                    <div>
+                      <div v-for="feature in plan.features">{{ feature }}</div>
+                    </div>
+
+                    <v-btn color="primary" size="large" class="mt-10"
+                      >订阅</v-btn
+                    >
+                  </div>
+                </v-card>
+              </v-item>
+            </v-col>
+          </v-row>
+        </v-item-group>
+      </v-card>
+    </div>
+  </v-card>
 </template>
 
 <style scoped lang="scss">
