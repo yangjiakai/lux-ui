@@ -72,7 +72,7 @@ const previewImg = (url) => {
 </script>
 
 <template>
-  <v-container>
+  <div class="pa-5">
     <v-card>
       <v-card-title class="font-weight-bold">
         <span> Unsplash Collections</span>
@@ -181,7 +181,7 @@ const previewImg = (url) => {
         <v-img height="80%" :src="imgSrc" />
       </div>
     </v-overlay>
-  </v-container>
+  </div>
 </template>
 
 <style scoped lang="scss"></style>

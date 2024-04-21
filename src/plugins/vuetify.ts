@@ -137,7 +137,10 @@ export default createVuetify({
     },
     VCheckbox: {
       color: "primary",
-    }
+    },
+    VCard: {
+      rounded: "lg",
+    },
   },
   locale: {
     adapter: createVueI18nAdapter({ i18n, useI18n }),
