@@ -1,14 +1,3 @@
-<template>
-  <v-app>
-    <component :is="currentLayout" v-if="isRouterLoaded">
-      <router-view> </router-view>
-    </component>
-    <CustomizationMenu />
-    <BackToTop />
-    <Snackbar />
-  </v-app>
-</template>
-
 <script setup lang="ts">
 import UILayout from "@/layouts/UILayout.vue";
 import LandingLayout from "@/layouts/LandingLayout.vue";
@@ -18,6 +7,10 @@ import CustomizationMenu from "@/components/CustomizationMenu.vue";
 
 import BackToTop from "@/components/common/BackToTop.vue";
 import Snackbar from "@/components/common/Snackbar.vue";
+import { useAppStore } from "@/stores/appStore";
+import { useTheme } from "vuetify";
+const appStore = useAppStore();
+const theme = useTheme();
 
 const route = useRoute();
 
@@ -42,6 +35,21 @@ const currentLayout = computed(() => {
   }
   return layouts[layoutName];
 });
+
+onMounted(() => {
+  theme.global.name.value = appStore.theme;
+});
 </script>
+
+<template>
+  <v-app>
+    <component :is="currentLayout" v-if="isRouterLoaded">
+      <router-view> </router-view>
+    </component>
+    <CustomizationMenu />
+    <BackToTop />
+    <Snackbar />
+  </v-app>
+</template>
 
 <style scoped></style>
