@@ -31,10 +31,10 @@ const customizeTheme = useCustomizeThemeStore();
   >
     <!-- <GlobalLoading /> -->
 
-    <div class="d-none d-sm-block px-3">
+    <v-card class="d-none d-sm-block px-5" rounded="0" color="primary">
       <PageTitle></PageTitle>
       <Breadcrumb></Breadcrumb>
-    </div>
+    </v-card>
 
     <div class="flex-fill">
       <slot></slot>

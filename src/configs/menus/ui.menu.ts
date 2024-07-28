@@ -15,6 +15,13 @@ export default [
   //   link: "/ui/data-table",
   //   key: "menu.dataTable",
   // },
+  // Tailwind
+  {
+    icon: "mdi-format-color-fill",
+    text: "Tailwind",
+    link: "/ui/tailwind",
+    key: "menu.tailwind",
+  },
   {
     icon: "mdi-format-color-fill",
     text: "Colors",
