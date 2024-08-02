@@ -1,11 +1,10 @@
 export default [
   {
     icon: "mdi-bulletin-board",
-    key: "menu.board",
+    key: "menu.dashboard",
     text: "Board",
     link: "/apps/board",
   },
-
 
   {
     icon: "mdi-format-list-checkbox",
