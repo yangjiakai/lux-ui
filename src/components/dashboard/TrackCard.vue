@@ -2,12 +2,12 @@
   <!-- loading spinner -->
   <div
     v-if="loading"
-    class="h-full d-flex flex-grow-1 align-center justify-center"
+    class="h-100 d-flex flex-grow-1 align-center justify-center"
   >
     <v-progress-circular indeterminate color="primary"></v-progress-circular>
   </div>
   <div v-else>
-    <h6 class="text-h6 pa-5 d-flex align-center">
+    <h6 class="text-title-large pa-5 d-flex align-center">
       <span class="flex-fill">Table</span>
     </h6>
     <v-table class="pa-3">

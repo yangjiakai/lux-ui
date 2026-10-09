@@ -56,7 +56,7 @@ const scrollToBottom = () => {
           src="@/assets/logo_light.svg"
           alt=""
         /> -->
-        <h1 class="logo-text h-full">
+        <h1 class="logo-text h-100">
           <Icon class="mr-2" width="40" icon="solar:plain-bold-duotone" />
           <span>Lux-UI</span>
         </h1>

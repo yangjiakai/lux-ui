@@ -63,8 +63,10 @@ const light = {
     'switch-disabled-thumb-opacity': 0.4,
     'switch-checked-disabled-opacity': 0.3,
 
-    // Shadows
-    'shadow-key-umbra-color': '#2F2B3D',
+    // Shadows (see styles/vuetify/_elevations.scss)
+    'shadow-color': '#555555',
+    'shadow-key-opacity': 0.08,
+    'shadow-ambient-opacity': 0.06,
   },
 }
 
@@ -116,14 +118,25 @@ const dark = {
     'switch-disabled-thumb-opacity': 0.8,
     'switch-checked-disabled-opacity': 0.3,
 
-    // Shadows
-    'shadow-key-umbra-color': '#0F1422',
+    // Shadows (see styles/vuetify/_elevations.scss)
+    'shadow-color': '#555555',
+    'shadow-key-opacity': 0.08,
+    'shadow-ambient-opacity': 0.06,
   },
 }
 
 export default createVuetify({
 
   directives,
+  // Keep the Vuetify 3 breakpoints (must match $grid-breakpoints in styles/settings.scss)
+  display: {
+    thresholds: {
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+      xxl: 2560,
+    },
+  },
   theme: {
     defaultTheme: "light",
     themes: {

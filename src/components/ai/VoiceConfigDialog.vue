@@ -123,7 +123,7 @@ onMounted(() => {
                     <!-- ---------------------------------------------- -->
                     <template v-slot:append>
                       <div class="full-h d-flex align-center">
-                        <span class="text-body-2 text-grey">
+                        <span class="text-body-medium text-grey">
                           <v-chip
                             size="small"
                             class="font-weight-bold"
@@ -139,7 +139,7 @@ onMounted(() => {
                     <div>
                       <v-list-item-title class="font-weight-bold text-primary"
                         >{{ item.localName }}
-                        <span class="text-body-2 ml-2"
+                        <span class="text-body-medium ml-2"
                           >({{ item.shortName }})</span
                         ></v-list-item-title
                       >

@@ -1,0 +1,36 @@
+// Vuetify Sass settings, loaded by vite-plugin-vuetify (styles.configFile)
+@use "./vuetify/elevations";
+
+@forward "vuetify/settings" with (
+  $body-font-family: ("Quicksand", sans-serif),
+
+  // Lux soft shadows, mapped onto the MD3 0-5 elevation scale
+  $shadow-key: elevations.$shadow-key,
+  $shadow-ambient: elevations.$shadow-ambient,
+
+  // Keep the Vuetify 3 breakpoints the layouts were designed for
+  // (must match `display.thresholds` in plugins/vuetify.ts)
+  $grid-breakpoints: (
+    "xs": 0,
+    "sm": 600px,
+    "md": 960px,
+    "lg": 1280px,
+    "xl": 1920px,
+    "xxl": 2560px,
+  ),
+
+  // Vuetify 4 dropped uppercase, letter-spaced (MD2) buttons by default
+  $button-text-transform: uppercase,
+  $button-text-letter-spacing: 0.0892857143em,
+
+  // Keep the MD2 `text-overline` class (menu section headers, labels)
+  $typography: (
+    "overline": (
+      "size": 0.75rem,
+      "weight": 500,
+      "line-height": 2.667,
+      "letter-spacing": 0.1666666667em,
+      "font-family": ("Quicksand", sans-serif),
+    ),
+  ),
+);

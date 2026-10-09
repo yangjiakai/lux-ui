@@ -2,7 +2,7 @@
   <v-container grid-list-xs>
     <v-row>
       <v-col>
-        <v-card width="600" height="800" class="pa-5" elevation="12">
+        <v-card max-width="600" height="800" class="pa-5" elevation="4">
           <v-form ref="form" v-model="valid" lazy-validation class="formStyle">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -97,7 +97,7 @@
                 ></path>
               </g>
             </svg>
-            <h1 class="text-center text-h6">Get Started</h1>
+            <h1 class="text-center text-title-large">Get Started</h1>
             <div class="label-text">Email</div>
             <v-text-field
               :density="formStyle.density"
@@ -137,7 +137,7 @@
       <v-col>
         <v-card class="pa-5" height="800" color="#ddd">
           <v-form ref="form2" v-model="valid" lazy-validation class="formStyle">
-            <h1 class="text-center text-h6">Operator</h1>
+            <h1 class="text-center text-title-large">Operator</h1>
             <div class="label-text">Density</div>
             <v-btn-toggle v-model="formStyle.density" color="primary" mandatory>
               <v-btn value="default">default</v-btn>

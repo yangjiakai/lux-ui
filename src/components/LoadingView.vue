@@ -6,7 +6,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="h-full d-flex align-center justify-center">
+  <div class="h-100 d-flex align-center justify-center">
     <v-progress-circular
       :size="50"
       :width="5"

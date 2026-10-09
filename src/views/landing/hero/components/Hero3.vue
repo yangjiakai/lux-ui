@@ -9,7 +9,7 @@
   <v-card class="my-5" rounded>
     <v-card-title class="card-title">Hero3</v-card-title>
     <v-divider></v-divider>
-    <v-row align="center">
+    <v-row class="align-center">
       <v-col cols="12" md="6">
         <img class="mx-auto" width="200" src="@/assets/logo2.svg" alt="" />
         <v-card
@@ -20,12 +20,12 @@
         >
           <h1
             style="color: #4a4d6d"
-            class="font-weight-black text-h3 text-lg-h2 text-xl-h1"
+            class="font-weight-black text-display-medium text-lg-display-large text-xl-display-large"
           >
             We organize chaotic
             <span class="text-primary">internet</span>
           </h1>
-          <h2 class="text-h6 text-secondary mt-4 mx-auto">
+          <h2 class="text-title-large text-secondary mt-4 mx-auto">
             Stack is a Spatial Browser for Mindful Online Living
           </h2>
         </v-card>
@@ -36,7 +36,7 @@
         </div>
       </v-col>
       <v-col cols="0" md="6">
-        <v-card class="h-full">
+        <v-card class="h-100">
           <v-img
             cover
             height="100%"

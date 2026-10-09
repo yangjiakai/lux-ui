@@ -10,7 +10,7 @@
     <v-card-title class="card-title">Feature4</v-card-title>
     <v-divider></v-divider>
     <div>
-      <v-row no-gutters align="stretch">
+      <v-row class="align-stretch" no-gutters>
         <v-col cols="12" md="6">
           <v-card height="100%">
             <v-img
@@ -28,7 +28,7 @@
             class="mx-auto pa-5 pa-sm-10 pa-md-15"
           >
             <RouterLink to="/" class="text-primary">WORK WITH US</RouterLink>
-            <h1 class="font-weight-black text-h3 mt-5 mb-10">
+            <h1 class="font-weight-black text-display-medium mt-5 mb-10">
               <span class="text-primary">Vuetify</span>
               your startup
             </h1>
@@ -38,14 +38,14 @@
               quos quisquam nobis, eos debitis magni omnis ea incidunt amet
               voluptate dignissimos!
             </p>
-            <h2 class="text-h6 mt-4 mx-auto">Premium Design</h2>
+            <h2 class="text-title-large mt-4 mx-auto">Premium Design</h2>
             <div class="my-5 ml-5">
               <li>Lifetime Updates</li>
               <li>Quality Support</li>
               <li>Easy to build websites</li>
             </div>
 
-            <h2 class="text-h6 mt-4 mx-auto my-5">Building your project</h2>
+            <h2 class="text-title-large mt-4 mx-auto my-5">Building your project</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis
               cupiditate totam, quae deleniti voluptate alias, doloribus

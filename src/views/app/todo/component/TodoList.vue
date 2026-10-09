@@ -65,7 +65,10 @@ const filterdTodoList = computed(() => {
                 alt="alt"
               />
             </v-avatar>
-            <div class="flex-fill mx-5">
+            <div
+              class="flex-fill mx-5 cursor-pointer"
+              @click="todoStore.openTodoCard(todo)"
+            >
               <div
                 class="font-weight-bold"
                 :class="todo.completed ? 'text-decoration-line-through' : ''"

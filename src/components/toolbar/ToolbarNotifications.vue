@@ -76,7 +76,7 @@ const messages = [
         <!-- ---------------------------------------------- -->
         <template v-slot:append>
           <div class="full-h d-flex align-center">
-            <span class="text-body-2 text-grey"> {{ message.time }}</span>
+            <span class="text-body-medium text-grey"> {{ message.time }}</span>
           </div>
         </template>
         <!-- ---------------------------------------------- -->

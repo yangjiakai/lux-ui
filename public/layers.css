@@ -1,0 +1,12 @@
+/*
+ * Cascade layer order. Must be linked from index.html before any other stylesheet,
+ * otherwise on-demand Vuetify component styles can declare their layers first and
+ * end up ordered before vuetify-core.
+ * https://vuetifyjs.com/en/styles/layers/#custom-layer-order
+ *
+ * - lux-base:      global element styles (img, a, headings), below Vuetify components
+ * - lux-app:       all styles under src/ (wrapped by postcss.config.js); they override
+ *                  Vuetify components but not Vuetify utilities, as in Vuetify 3
+ * - lux-utilities: utility fixes that must beat Vuetify's own utilities
+ */
+@layer vuetify-core, lux-base, vuetify-components, vuetify-overrides, lux-app, vuetify-utilities, vuetify-final, lux-utilities;

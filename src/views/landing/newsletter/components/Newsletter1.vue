@@ -7,7 +7,7 @@
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
       <span>Newsletter1</span>
     </v-toolbar-title>
@@ -26,25 +26,17 @@
       class="mx-auto pa-5"
     >
       <v-container>
-        <v-row align="center" justify="center">
+        <v-row class="align-center justify-center">
           <v-col cols="12" lg="3">
-            <h1 class="text-h5 font-weight-bold text-center">
+            <h1 class="text-headline-small font-weight-bold text-center">
               Receive updates in your inbox
             </h1>
           </v-col>
           <v-col cols="12" sm="9" md="7">
-            <v-text-field
-              class=""
-              color="primary"
-              hide-details
-              variant="outlined"
-              placeholder="email"
-            ></v-text-field>
+            <v-text-field class="" color="primary" hide-details variant="outlined" placeholder="email"></v-text-field>
           </v-col>
           <v-col cols="12" sm="3" md="2">
-            <v-btn size="x-large" block color="primary font-weight-bold"
-              >Subscribe</v-btn
-            >
+            <v-btn size="x-large" block color="primary font-weight-bold">Subscribe</v-btn>
           </v-col>
         </v-row>
       </v-container>

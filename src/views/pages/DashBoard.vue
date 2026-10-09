@@ -13,7 +13,7 @@ import TaskCard from "@/components/dashboard/ChartCard.vue";
     <!-- ---------------------------------------------- -->
     <!---First Row -->
     <!-- ---------------------------------------------- -->
-    <v-row class="flex-0" dense>
+    <v-row class="flex-0" density="compact">
       <v-col cols="12" xl="4">
         <!-- Sales Card -->
         <v-card class="card-shadow" height="420">
@@ -36,7 +36,7 @@ import TaskCard from "@/components/dashboard/ChartCard.vue";
       </v-col>
       <v-col cols="12" md="6" xl="4">
         <!-- Trafiic Card-->
-        <v-card class="card-shadow h-full" height="420">
+        <v-card class="card-shadow h-100" height="420">
           <sources-card></sources-card>
         </v-card>
       </v-col>
@@ -44,7 +44,7 @@ import TaskCard from "@/components/dashboard/ChartCard.vue";
     <!-- ---------------------------------------------- -->
     <!---Second Row -->
     <!-- ---------------------------------------------- -->
-    <v-row class="card-shadow flex-grow-0" dense>
+    <v-row class="card-shadow flex-grow-0" density="compact">
       <v-col cols="12" xl="6">
         <!-- Table Card-->
         <v-card class="card-shadow" height="420">
@@ -61,7 +61,7 @@ import TaskCard from "@/components/dashboard/ChartCard.vue";
     <!-- ---------------------------------------------- -->
     <!---Third Row -->
     <!-- ---------------------------------------------- -->
-    <v-row class="card-shadow flex-grow-0" dense>
+    <v-row class="card-shadow flex-grow-0" density="compact">
       <v-col cols="12" xl="6">
         <!-- Target Card-->
         <v-card class="card-shadow" height="420"

@@ -196,7 +196,7 @@ const previewImg = (url) => {
     >
       <div
         @click="imgOverlay = false"
-        class="w-screen h-screen d-flex align-center justify-center"
+        class="w-100 h-screen d-flex align-center justify-center"
       >
         <v-img height="80%" :src="imgSrc" />
       </div>

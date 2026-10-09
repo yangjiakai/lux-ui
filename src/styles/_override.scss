@@ -1,13 +1,10 @@
-html {
-  font-family: $font-family;
+@use "./variables" as *;
 
-  .v-application {
-    [class*="text-"] {
-      font-family: $font-family, sans-serif !important;
-    }
-
-    font-family: $font-family,
-    sans-serif !important;
+// Global element styles. Kept in a cascade layer below Vuetify components
+// (see public/layers.css) so they no longer override component styles such as v-img.
+@layer lux-base {
+  html {
+    font-family: $font-family;
   }
 
   audio,
@@ -19,7 +16,6 @@ html {
   svg,
   video {
     display: block;
-
   }
 
   img,
@@ -40,6 +36,17 @@ html {
   h5,
   h6 {
     font-weight: 500;
+  }
+}
+
+html {
+  .v-application {
+    [class*="text-"] {
+      font-family: $font-family, sans-serif !important;
+    }
+
+    font-family: $font-family,
+    sans-serif !important;
   }
 
   // tables beautify

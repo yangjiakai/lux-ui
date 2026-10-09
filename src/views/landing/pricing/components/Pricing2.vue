@@ -65,7 +65,7 @@ const pricing_plans = [
         color="transparent"
       >
         <v-item-group mandatory selected-class="active-card">
-          <v-row align="stretch">
+          <v-row class="align-stretch">
             <v-col cols="12" md="4" v-for="plan in pricing_plans">
               <v-item v-slot="{ selectedClass, toggle }">
                 <v-card
@@ -78,13 +78,13 @@ const pricing_plans = [
                 >
                   <div>
                     <h3
-                      class="font-weight-bold text-h6 mb-5 text-center"
+                      class="font-weight-bold text-title-large mb-5 text-center"
                       :class="plan.colorClass"
                     >
                       {{ plan.type }}
                     </h3>
                     <v-card elevation="0" class="text-center">
-                      <h1 class="font-weight-black text-h4 my-10 text-color">
+                      <h1 class="font-weight-black text-headline-large my-10 text-color">
                         <span>{{ plan.price }}</span>
                       </h1>
                       <p class="font-weight-bold">
@@ -106,7 +106,7 @@ const pricing_plans = [
                       </h3>
                       <div>
                         <div
-                          class="text-color text-body-2 font-weight-medium mb-3"
+                          class="text-color text-body-medium font-weight-medium mb-3"
                           v-for="feature in plan.features"
                         >
                           <v-btn size="20" icon class="mr-2">

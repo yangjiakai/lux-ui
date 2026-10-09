@@ -18,12 +18,6 @@ export default [
   // Tailwind
   {
     icon: "mdi-format-color-fill",
-    text: "Tailwind",
-    link: "/ui/tailwind",
-    key: "menu.tailwind",
-  },
-  {
-    icon: "mdi-format-color-fill",
     text: "Colors",
     link: "/ui/colors",
     key: "menu.colors",

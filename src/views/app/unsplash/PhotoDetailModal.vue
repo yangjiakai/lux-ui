@@ -54,7 +54,7 @@ initData();
 
 <template>
   <v-card height="90vh" :width="mdAndUp ? '1200' : '100%'" class="mx-auto">
-    <div v-if="isLoading" class="h-full d-flex align-center justify-center">
+    <div v-if="isLoading" class="h-100 d-flex align-center justify-center">
       <v-progress-circular
         :size="50"
         :width="5"
@@ -138,7 +138,7 @@ initData();
             <div class="photos-info mt-5">
               <v-row>
                 <v-col cols="12" md="6">
-                  <v-card class="shadow-1 h-full">
+                  <v-card class="shadow-1 h-100">
                     <div class="my-3">
                       <v-icon class="mx-3">mdi-map</v-icon>
                       <span>{{ photo.location.country }}</span>
@@ -165,7 +165,7 @@ initData();
                 </v-col>
               </v-row>
             </div>
-            <h4 class="text-h6 font-weight-bold py-3">Related Photos</h4>
+            <h4 class="text-title-large font-weight-bold py-3">Related Photos</h4>
             <v-row>
               <v-col
                 col="12"
@@ -178,7 +178,7 @@ initData();
               </v-col>
             </v-row>
 
-            <h4 class="text-h6 font-weight-bold py-3">Related Collections</h4>
+            <h4 class="text-title-large font-weight-bold py-3">Related Collections</h4>
             <v-row>
               <v-col
                 cols="12"
@@ -189,7 +189,7 @@ initData();
                 <CollectionCard :collection="collection"></CollectionCard>
               </v-col>
             </v-row>
-            <h4 class="text-h6 font-weight-bold py-3">Related tags</h4>
+            <h4 class="text-title-large font-weight-bold py-3">Related tags</h4>
             <v-card class="shadow-1 mb-3">
               <v-chip
                 class="interest-chip ma-2"

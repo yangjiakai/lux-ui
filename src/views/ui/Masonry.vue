@@ -22,7 +22,7 @@ const getPhotoHeight = (index: number) => {
 const initPhotos = () => {
   photos.value = Array.from({ length: 15 }, (value, index) => ({
     id: index + "",
-    url: faker.image.animals(undefined, getPhotoHeight(index), true),
+    url: faker.image.url({ width: 640, height: getPhotoHeight(index) }),
     title: faker.lorem.word(),
     description: faker.lorem.text(),
   }));
@@ -32,7 +32,7 @@ const initPhotos = () => {
 //   photos.value = photos.value.concat(
 //     Array.from({ length: 5 }, (value, index) => ({
 //       id: photos.value.length + index + "",
-//       url: faker.image.animals(undefined, getPhotoHeight(index), true),
+//       url: faker.image.url({ width: 640, height: getPhotoHeight(index) }),
 //       title: faker.lorem.word(),
 //       description: faker.lorem.text(),
 //     }))
@@ -54,7 +54,7 @@ const onScroll = (e) => {
 </script>
 
 <template>
-  <v-container class="h-full" v-scroll.self="onScroll">
+  <v-container class="h-100" v-scroll.self="onScroll">
     <v-card>
       <masonry-wall :items="photos" :ssr-columns="1" :padding="30">
         <template #default="{ item }">
@@ -66,11 +66,8 @@ const onScroll = (e) => {
               cover
             >
               <template v-slot:placeholder>
-                <v-row class="fill-height ma-0" align="center" justify="center">
-                  <v-progress-circular
-                    indeterminate
-                    color="grey-lighten-5"
-                  ></v-progress-circular>
+                <v-row class="fill-height ma-0 align-center justify-center">
+                  <v-progress-circular indeterminate color="grey-lighten-5"></v-progress-circular>
                 </v-row>
               </template>
               <v-card-title>Title{{ item.title }}</v-card-title>

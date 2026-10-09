@@ -14,7 +14,14 @@ const todoStore = useTodoStore();
     <!-- Add Task Dialog -->
     <!-- ---------------------------------------------- -->
 
-    <v-btn color="primary" block size="large" class="mb-3">Add Task</v-btn>
+    <v-btn
+      color="primary"
+      block
+      size="large"
+      class="mb-3"
+      @click="todoStore.openTodoCard()"
+      >Add Task</v-btn
+    >
 
     <v-list nav class="mt-2 pa-0">
       <v-list-item

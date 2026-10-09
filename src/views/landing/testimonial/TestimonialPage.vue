@@ -15,7 +15,7 @@ import Testimonial4 from "./components/Testimonial4.vue";
   <!---Top Toolbar -->
   <!-- ---------------------------------------------- -->
   <v-toolbar rounded="lg" height="100" color="primary">
-    <v-toolbar-title class="text-h5 font-weight-bold">
+    <v-toolbar-title class="text-headline-small font-weight-bold">
       <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
       <span>Testimonial</span>
       <v-chip class="ma-2" color="primary" text-color="white">

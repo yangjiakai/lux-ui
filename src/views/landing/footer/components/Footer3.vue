@@ -79,7 +79,7 @@ const navs = [
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <span>Footer3</span>
     </v-toolbar-title>
   </v-toolbar>
@@ -107,18 +107,18 @@ const navs = [
             />
             <p class="my-4">2000+ Our clients are subscribe Around the World</p>
             <h6 class="font-weight-bold text-blue-grey my-2">Email</h6>
-            <p class="text-body-2 text-primary">
+            <p class="text-body-medium text-primary">
               <a href="#">yjkbako@gmail.com</a>
             </p>
           </v-col>
           <v-col cols="12" md="6">
-            <v-row justify="center">
+            <v-row class="justify-center">
               <v-col cols="12" md="3" v-for="nav in navs">
-                <p class="text-h6 mb-4">
+                <p class="text-title-large mb-4">
                   <b>{{ nav.title }}</b>
                 </p>
                 <p
-                  class="text-body-2 text-primary mb-2"
+                  class="text-body-medium text-primary mb-2"
                   v-for="subNav in nav.subNavs"
                   :key="subNav.title"
                 >
@@ -130,7 +130,7 @@ const navs = [
             </v-row>
           </v-col>
           <v-col cols="12" md="3">
-            <p class="text-h6 mb-4">
+            <p class="text-title-large mb-4">
               <b>DownLoad App</b>
             </p>
             <div>

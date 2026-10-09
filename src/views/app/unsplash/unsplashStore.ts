@@ -1,8 +1,7 @@
 import { defineStore } from "pinia";
 import { Photo } from "./unsplashTypes";
 
-export const useUnsplashStore = defineStore({
-  id: "upsplash",
+export const useUnsplashStore = defineStore("upsplash", {
   state: () => ({
     favoriteList: ref<Photo[]>([]),
   }),

@@ -7,18 +7,33 @@
 import { Todo } from "../todoTypes";
 import { useTodoStore } from "../todoStore";
 const todoStore = useTodoStore();
-const dialog = ref(false);
-const task = ref<Todo>({
+const emptyTask = (): Todo => ({
   id: "",
   title: "",
   detail: "",
   tags: [],
   completed: false,
 });
+const task = ref<Todo>(emptyTask());
 const isEdit = computed(() => task.value && !!task.value.id);
 
+const dialog = computed({
+  get: () => todoStore.todoCardOpen,
+  set: (open: boolean) => {
+    if (!open) todoStore.closeTodoCard();
+  },
+});
+
+// Fill the form with a copy of the task being edited (or a blank one) on open
+watch(
+  () => todoStore.todoCardOpen,
+  (open) => {
+    if (open) task.value = todoStore.editingTodo ?? emptyTask();
+  }
+);
+
 const close = () => {
-  dialog.value = false;
+  todoStore.closeTodoCard();
 };
 
 const save = () => {
@@ -36,7 +51,7 @@ const save = () => {
 <template>
   <v-dialog v-model="dialog" width="600">
     <v-card>
-      <v-card-title class="pa-2">
+      <v-card-title class="pa-2 d-flex align-center">
         {{ isEdit ? "Edit Task" : "Add Task" }}
         <v-spacer></v-spacer>
         <v-btn icon @click="dialog = false">
@@ -79,29 +94,27 @@ const save = () => {
           hide-details
           multiple
         >
-          <template v-slot:selection="{ attrs, item, parent, selected }">
+          <template v-slot:selection="{ item }">
             <v-chip
-              v-if="item === Object(item)"
-              v-bind="attrs"
               class="font-weight-bold"
               :color="item.color"
               variant="outlined"
-              :input-value="selected"
               label
+              closable
+              @click:close="task.tags = task.tags.filter((id) => id !== item.id)"
             >
-              <span class="pr-2">
-                {{ item.title }}
-              </span>
-              <v-icon size="small" @click="parent.selectItem(item)"
-                >close</v-icon
-              >
+              {{ item.title }}
             </v-chip>
           </template>
 
-          <template v-slot:item="{ item }">
-            <v-chip :color="item.color" label variant="outlined" size="small">
-              {{ item.title }}
-            </v-chip>
+          <template v-slot:item="{ item, props }">
+            <v-list-item v-bind="props">
+              <template v-slot:title>
+                <v-chip :color="item.color" label variant="outlined" size="small">
+                  {{ item.title }}
+                </v-chip>
+              </template>
+            </v-list-item>
           </template>
         </v-select>
       </div>

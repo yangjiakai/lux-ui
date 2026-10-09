@@ -1,7 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useProfileStore = defineStore({
-  id: "userProfile",
+export const useProfileStore = defineStore("userProfile", {
   state: () => ({
     basic: {
       username: "shirabako",

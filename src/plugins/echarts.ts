@@ -29,6 +29,10 @@ import {
   GraphicComponent,
 } from "echarts/components";
 
+// ECharts 6 changed the default theme (palette, legend at the bottom, ...).
+// Register the bundled v5 theme so the charts keep their v5 layout.
+import "echarts/theme/v5";
+
 echarts.use([
   LegendComponent,
   TitleComponent,
@@ -67,6 +71,35 @@ export enum ThemeType {
   Default = "default",
 }
 
+// ECharts 5 theme values that ECharts 6 no longer applies by default. They are global
+// options, merged under each chart option so individual charts can still override them.
+const V5_GRADIENT_COLOR = ["#f6efa6", "#d88273", "#bf444c"];
+
+const V5_THEME_OPTIONS: Record<ThemeType, { theme: string; option: EChartsOption }> = {
+  [ThemeType.Default]: { theme: "v5", option: {} },
+  // the v5 "light" theme (now echarts/theme/rainbow) only replaced the palette
+  [ThemeType.Light]: {
+    theme: "v5",
+    option: {
+      color: [
+        "#37A2DA", "#32C5E9", "#67E0E3", "#9FE6B8", "#FFDB5C", "#ff9f7f", "#fb7293",
+        "#E062AE", "#E690D1", "#e7bcf3", "#9d96f5", "#8378EA", "#96BFFF",
+      ],
+    },
+  },
+  [ThemeType.Dark]: {
+    theme: "dark",
+    option: {
+      backgroundColor: "#100C2A",
+      gradientColor: V5_GRADIENT_COLOR,
+      color: [
+        "#4992ff", "#7cffb2", "#fddd60", "#ff6e76", "#58d9f9",
+        "#05c091", "#ff8a45", "#8d48e3", "#dd79ff",
+      ],
+    },
+  },
+};
+
 export function useChart(
   elRef: Ref<HTMLDivElement>,
   autoChartSize = false,
@@ -85,7 +118,7 @@ export function useChart(
     if (!el || !unref(el)) {
       return;
     }
-    chartInstance = echarts.init(el, theme);
+    chartInstance = echarts.init(el, V5_THEME_OPTIONS[theme].theme);
   };
 
   // 更新/设置配置
@@ -96,7 +129,7 @@ export function useChart(
         if (!chartInstance) return;
       }
 
-      chartInstance.setOption(option);
+      chartInstance.setOption({ ...V5_THEME_OPTIONS[theme].option, ...option });
       hideLoading();
     });
   };

@@ -1,12 +1,12 @@
 <template>
-  <v-container>
+  <v-container class="overflow-x-auto">
     <!-- board column -->
     <v-row style="min-width: 800px">
       <v-col
         cols="3"
         v-for="column in columns"
         :key="column.key"
-        class="pa-4 flex-fill"
+        class="pa-4"
       >
         <div class="d-flex align-center">
           <h5 class="font-weight-bold">{{ column.key }}</h5>

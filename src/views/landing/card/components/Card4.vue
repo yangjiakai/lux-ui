@@ -7,7 +7,7 @@
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <span>Card4</span>
     </v-toolbar-title>
   </v-toolbar>
@@ -25,7 +25,7 @@
     >
       <v-item-group selected-class="active-card">
         <v-container>
-          <v-row align="stretch">
+          <v-row class="align-stretch">
             <v-col cols="12" md="4" v-for="i in 3">
               <v-item v-slot="{ isSelected, selectedClass, toggle }">
                 <v-card
@@ -40,7 +40,7 @@
                     <RouterLink to="/" class="text-primary font-weight-bold"
                       >WORK WITH US{{ i }}</RouterLink
                     >
-                    <h1 class="font-weight-black text-h3 mt-5 mb-10">
+                    <h1 class="font-weight-black text-display-medium mt-5 mb-10">
                       Get your startup ready for
                       <span class="text-primary">Business</span>
                     </h1>

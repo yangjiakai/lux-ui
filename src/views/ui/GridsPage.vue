@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col class="mt-2" cols="12">
-        <v-card elevation="5">
+        <v-card elevation="2">
           <v-divider class="my-5"></v-divider>
           <v-table class="pa-2 table-card">
             <thead>

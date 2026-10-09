@@ -76,13 +76,13 @@ const articles = [
 
 <template>
   <v-toolbar class="mt-5" rounded="lg">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <span>Card1</span>
     </v-toolbar-title>
   </v-toolbar>
 
-  <v-container width="1600">
-    <v-row align="center">
+  <v-container max-width="1600">
+    <v-row class="align-center">
       <v-col
         cols="12"
         xs="6"
@@ -95,7 +95,7 @@ const articles = [
       >
         <v-card max-width="400" class="mx-auto">
           <v-img cover :src="item.image" height="200px"></v-img>
-          <v-card-title class="text-h6 font-weight-bold">
+          <v-card-title class="text-title-large font-weight-bold">
             {{ item.title }}
           </v-card-title>
           <v-card-subtitle> Last Read At{{ item.lastReadAt }}</v-card-subtitle>

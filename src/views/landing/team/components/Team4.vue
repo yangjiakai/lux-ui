@@ -9,7 +9,7 @@ import members from "@/data/members";
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <span>Team4</span>
     </v-toolbar-title>
   </v-toolbar>
@@ -20,11 +20,11 @@ import members from "@/data/members";
       max-width="1600 "
       class="mx-auto my-10"
     >
-      <h1 class="text-h3 font-weight-bold text-center text-blue-grey my-10">
+      <h1 class="text-display-medium font-weight-bold text-center text-blue-grey my-10">
         Meet the Team
       </h1>
       <v-container>
-        <v-row align="center" justify="center">
+        <v-row class="align-center justify-center">
           <v-col cols="12" md="6" v-for="member in members">
             <v-card class="text-left mx-auto d-flex">
               <div style="width: 200px">
@@ -32,20 +32,11 @@ import members from "@/data/members";
               </div>
 
               <div class="info flex-fill pa-10">
-                <h6 class="text-h6">{{ member.name }}</h6>
-                <p class="text-body-1 text-blue-grey">{{ member.position }}</p>
-                <p class="text-body-2 text-grey">{{ member.description }}</p>
+                <h6 class="text-title-large">{{ member.name }}</h6>
+                <p class="text-body-large text-blue-grey">{{ member.position }}</p>
+                <p class="text-body-medium text-grey">{{ member.description }}</p>
                 <div>
-                  <v-btn
-                    density="compact"
-                    icon
-                    class="mr-2 mt-3"
-                    v-for="item in member.social"
-                    :to="item.link"
-                    ><v-icon class="text-blue-grey">{{
-                      item.icon
-                    }}</v-icon></v-btn
-                  >
+                  <v-btn density="compact" icon class="mr-2 mt-3" v-for="item in member.social" :to="item.link"><v-icon class="text-blue-grey">{{ item.icon }}</v-icon></v-btn>
                 </div>
               </div>
             </v-card>

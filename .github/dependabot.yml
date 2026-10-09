@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      # minor / patch updates land as one PR; major versions get their own PR
+      minor-and-patch:
+        update-types: [minor, patch]
+    ignore:
+      # keep the Node typings on the Node version CI and deploys use (24)
+      - dependency-name: "@types/node"
+        update-types: [version-update:semver-major]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

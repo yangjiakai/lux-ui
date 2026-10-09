@@ -16,22 +16,6 @@ export default [
       title: "DataTable",
     },
   },
-  // Tailwind
-  {
-    path: "/ui/tailwind",
-    name: "ui-tailwind",
-    component: () =>
-      import(
-        /* webpackChunkName: "ui-tailwind" */ "@/views/ui/TailwindPage.vue"
-      ),
-    meta: {
-      requiresAuth: true,
-      layout: "ui",
-      category: "UI",
-      title: "Tailwind",
-    },
-  },
-
   {
     path: "/ui/colors",
     name: "ui-colors",

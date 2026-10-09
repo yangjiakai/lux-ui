@@ -56,7 +56,7 @@ const pricing_plans = [
         color="transparent"
       >
         <v-item-group mandatory selected-class="active-card">
-          <v-row align="stretch">
+          <v-row class="align-stretch">
             <v-col cols="12" md="4" v-for="plan in pricing_plans">
               <v-item v-slot="{ isSelected, selectedClass, toggle }">
                 <v-card
@@ -68,14 +68,14 @@ const pricing_plans = [
                   @click="toggle"
                 >
                   <div>
-                    <h3 class="font-weight-bold text-h5 mt-5 mb-10">
+                    <h3 class="font-weight-bold text-headline-small mt-5 mb-10">
                       {{ plan.plan_name }}
                     </h3>
-                    <h1 class="font-weight-black text-h3 mt-5 mb-10">
+                    <h1 class="font-weight-black text-display-medium mt-5 mb-10">
                       <span class="text-primary">{{ plan.price }}</span>
                     </h1>
 
-                    <div class="text-h6 font-weight-bold mb-10">
+                    <div class="text-title-large font-weight-bold mb-10">
                       {{ plan.storage }}
                     </div>
                     <div>

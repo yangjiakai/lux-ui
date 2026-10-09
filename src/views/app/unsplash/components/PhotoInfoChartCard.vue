@@ -8,6 +8,7 @@ import axios from "axios";
 import { BASE_URL, config } from "../unsplashConfig";
 import { Photo } from "../unsplashTypes";
 import VChart from "vue-echarts";
+import "echarts/theme/v5";
 import { use } from "echarts/core";
 import { CanvasRenderer } from "echarts/renderers";
 import { BarChart } from "echarts/charts";
@@ -151,10 +152,10 @@ const changeChart = (type) => {
   <div class="">
     <v-card class="shadow-1">
       <v-card-text style="height: 300px">
-        <v-chart :option="chartOptions" autoresize />
+        <v-chart :option="chartOptions" theme="v5" autoresize />
       </v-card-text>
       <v-divider></v-divider>
-      <div class="flex mx-5 my-3 bg-grey-lighten-3 pa-2">
+      <div class="d-flex mx-5 my-3 bg-grey-lighten-3 pa-2">
         <v-btn
           :variant="currentChart === 'view' ? 'flat' : 'text'"
           color="primary"

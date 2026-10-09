@@ -115,12 +115,12 @@ onMounted(() => {
   <!-- loading spinner -->
   <div
     v-if="loading"
-    class="h-full d-flex flex-grow-1 align-center justify-center"
+    class="h-100 d-flex flex-grow-1 align-center justify-center"
   >
     <v-progress-circular indeterminate color="primary"></v-progress-circular>
   </div>
   <div v-else>
-    <h6 class="text-h6 pa-5 d-flex align-center">
+    <h6 class="text-title-large pa-5 d-flex align-center">
       <span class="flex-fill font-weight-bold">Github Activity5</span>
       <v-menu location="bottom end" transition="slide-x-transition">
         <template v-slot:activator="{ props }">
@@ -165,7 +165,7 @@ onMounted(() => {
     </h6>
     <perfect-scrollbar class="timeline-container">
       <v-timeline
-        class="time-line text-body-2"
+        class="time-line text-body-medium"
         density="compact"
         side="end"
         truncate-line="start"
@@ -184,7 +184,7 @@ onMounted(() => {
             <span>{{ moment(activity.created_at).format("MM,DD hh:mm") }}</span>
           </template>
           <div class="mb-1">
-            <span class="text-h6 font-weight-bold">
+            <span class="text-title-large font-weight-bold">
               {{ activity.user }}
             </span>
             <span class="ml-2 text-grey">{{
@@ -202,7 +202,7 @@ onMounted(() => {
               >
                 <span>{{ activity.type }}</span>
               </v-chip>
-              <span class="text-body-2">{{ activity.repo }}</span>
+              <span class="text-body-medium">{{ activity.repo }}</span>
             </v-card-subtitle>
             <v-card-text>
               <div v-html="activity.content"></div>

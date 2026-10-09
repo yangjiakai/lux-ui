@@ -88,7 +88,7 @@ const navs = [
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <span>Footer4</span>
     </v-toolbar-title>
   </v-toolbar>
@@ -119,11 +119,11 @@ const navs = [
           <v-col cols="12" md="8">
             <v-row>
               <v-col cols="12" md="3" v-for="nav in navs">
-                <p class="text-h6 mb-4">
+                <p class="text-title-large mb-4">
                   <b>{{ nav.title }}</b>
                 </p>
                 <p
-                  class="text-body-2 text-primary mb-2"
+                  class="text-body-medium text-primary mb-2"
                   v-for="subNav in nav.subNavs"
                   :key="subNav.title"
                 >
@@ -136,7 +136,7 @@ const navs = [
           </v-col>
         </v-row>
         <hr class="my-3" />
-        <p class="text-center text-body-2 py-5">
+        <p class="text-center text-body-medium py-5">
           <span>© INDIELAYER 2021</span>
           <a class="text-blue-grey mx-5" href="#">PRIVACY POLICY</a>
           <a class="text-blue-grey" href="#">TEARMS OF SERVICE</a>

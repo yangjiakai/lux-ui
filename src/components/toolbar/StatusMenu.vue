@@ -72,7 +72,7 @@ const setStatus = (status: string) => {
         @click="setStatus(status.code)"
         density="compact"
       >
-        <v-list-item-title class="text-body-2">
+        <v-list-item-title class="text-body-medium">
           <v-icon size="small" :color="status.color">mdi-circle-medium</v-icon>
           {{ status.label }}</v-list-item-title
         >

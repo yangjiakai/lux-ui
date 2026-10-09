@@ -6,8 +6,8 @@
   >
     <div>
       <img src="@/assets/images/500.svg" max-width="500" alt="500" />
-      <h1 class="text-h1 pt-3">Opps!!!</h1>
-      <h4 class="text-h4 my-8">
+      <h1 class="text-display-large pt-3">Opps!!!</h1>
+      <h4 class="text-headline-large my-8">
         This page you are looking for could not be found.
       </h4>
       <v-btn flat color="#705CF6" class="mb-4 text-white" to="/"

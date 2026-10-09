@@ -9,7 +9,7 @@ import { Icon } from "@iconify/vue";
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <span>Card6</span>
     </v-toolbar-title>
   </v-toolbar>
@@ -21,7 +21,7 @@ import { Icon } from "@iconify/vue";
       class="mx-auto my-10"
     >
       <v-container>
-        <v-row align="center" justify="center">
+        <v-row class="align-center justify-center">
           <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 3">
             <div class="card">
               <div class="cup-warp">

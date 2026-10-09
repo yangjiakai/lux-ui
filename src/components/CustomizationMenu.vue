@@ -107,7 +107,7 @@ const updatePrimaryColor = (newColor: Color) => {
           <v-item-group
             class="mt-3"
             v-model="currentColor"
-            selected-class="elevation-12"
+            selected-class="elevation-4"
             mandatory
           >
             <v-item

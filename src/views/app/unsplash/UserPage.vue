@@ -99,7 +99,7 @@ initData();
           ></v-img>
         </v-col>
         <v-col cols="12" md="9">
-          <h1 class="text-h3 font-weight-bold">
+          <h1 class="text-display-medium font-weight-bold">
             {{ userProfileData.username }}
           </h1>
           <p class="my-5">

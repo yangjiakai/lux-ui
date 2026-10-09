@@ -34,7 +34,7 @@ const comments = [
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <span>Testimonial3</span>
     </v-toolbar-title>
   </v-toolbar>
@@ -45,9 +45,9 @@ const comments = [
       max-width="1400 "
       class="mx-auto my-10 pa-10"
     >
-      <h1 class="text-h3 text-center my-10 font-weight-bold">Our Customers</h1>
+      <h1 class="text-display-medium text-center my-10 font-weight-bold">Our Customers</h1>
       <v-item-group mandatory>
-        <v-row align="stretch">
+        <v-row class="align-stretch">
           <v-col cols="12" md="4" v-for="comment in comments">
             <v-item v-slot="{ isSelected, selectedClass, toggle }">
               <v-card
@@ -71,7 +71,7 @@ const comments = [
                         <img :src="comment.avatar" />
                       </v-avatar>
                     </div>
-                    <div class="user-info text-body-2">
+                    <div class="user-info text-body-medium">
                       <div class="font-weight-bold text-purple">
                         {{ comment.name }}
                       </div>

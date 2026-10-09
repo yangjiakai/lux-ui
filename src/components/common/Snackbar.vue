@@ -19,7 +19,7 @@ const getIcon = (type) => {
       v-model="snackbarStore.isShow"
       timeout="2000"
       :color="snackbarStore.type"
-      class="elevation-10"
+      class="elevation-3"
       location="top"
     >
       <div class="d-flex align-center">

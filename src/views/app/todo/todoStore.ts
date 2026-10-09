@@ -74,11 +74,13 @@ const todos = [
   },
 ];
 
-export const useTodoStore = defineStore({
-  id: "todo",
+export const useTodoStore = defineStore("todo", {
   state: () => ({
     todList: todos,
     currentLabel: "work",
+    // TodoCard dialog: null editingTodo means "add a new task"
+    todoCardOpen: false,
+    editingTodo: null as Todo | null,
     labels: [
       {
         id: "work",
@@ -128,6 +130,13 @@ export const useTodoStore = defineStore({
     },
   },
   actions: {
+    openTodoCard(todo?: Todo) {
+      this.editingTodo = todo ? { ...todo, tags: [...todo.tags] } : null;
+      this.todoCardOpen = true;
+    },
+    closeTodoCard() {
+      this.todoCardOpen = false;
+    },
     // Add new todo
     addNewTodo(todo: Todo) {
       todo.id = "_" + Math.random().toString(36).substring(2, 11);

@@ -1,15 +1,66 @@
-// tailwindcss
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+// Vuetify styles are imported in plugins/vuetify.ts; Vuetify Sass settings live in ./settings.scss
+@use "./override";
+@use "./common/gradients";
+@use "./common/animation";
+@use "./common/beautify";
+@use "./pages/editor";
 
-// enforce font globally
-// @use "vuetify/variables";
-@import "./variables";
-@import 'vuetify/styles';
-@import "./override";
-@import "./common/gradients.scss";
-@import "./common/animation.scss";
-@import "./common/beautify.scss";
+// Vuetify 4 typography variants cannot set text-transform; `overline` is defined in ./settings.scss
+.text-overline {
+  text-transform: uppercase;
+}
 
-@import './pages/editor';
+// Fixed-size Lottie animations (e.g. size 400) must not overflow narrow screens
+.lottie-animation-container {
+  max-width: 100%;
+}
+
+// Vuetify 4 typography classes (text-display-large, ...) set font-weight and come after
+// the font-weight utilities, so `font-weight-bold text-title-large` lost its weight.
+// Re-declare them in a layer ordered after Vuetify's utilities (see public/layers.css).
+@layer lux-utilities {
+  $font-weights: (
+    "thin": 100,
+    "light": 300,
+    "regular": 400,
+    "medium": 500,
+    "semibold": 600,
+    "bold": 700,
+    "black": 900,
+  );
+
+  @each $name, $weight in $font-weights {
+    .font-weight-#{$name} {
+      font-weight: $weight;
+    }
+  }
+
+  // The global VBtn default `rounded: "md"` (plugins/vuetify.ts) now beats the
+  // circular icon-button shape; keep icon buttons round as in Vuetify 3.
+  .v-btn--icon.rounded-md {
+    border-radius: 50%;
+  }
+}
+
+// Vuetify 4 removed the global `* { margin: 0; padding: 0 }` reset.
+// Restore the spacing reset for the elements the pages rely on.
+@layer vuetify-core.reset {
+  ul,
+  ol,
+  figure,
+  details,
+  summary {
+    padding: 0;
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+}

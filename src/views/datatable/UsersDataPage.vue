@@ -113,7 +113,7 @@ const getLikesColor = (likes) => {
         >
           <template v-slot:item="{ item }">
             <tr class="">
-              <td class="font-weight-bold text-body-2">
+              <td class="font-weight-bold text-body-medium">
                 <CopyLabel :text="item?.username" />
               </td>
               <td>

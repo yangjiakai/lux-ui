@@ -29,6 +29,35 @@ for (let i = 0; i < 20; i++) {
 }
 const option = computed<EChartsOption>(() => ({
   backgroundColor: "#0F224C", //背景色
+  tooltip: {
+    trigger: "axis",
+    axisPointer: {
+      type: "shadow",
+    },
+  },
+  legend: {
+    data: ["line", "bar", "line", "dotted"],
+    textStyle: {
+      color: "#ccc",
+    },
+    padding: [30, 0, 0, 0],
+  },
+  xAxis: {
+    data: category,
+    axisLine: {
+      lineStyle: {
+        color: "#ccc",
+      },
+    },
+  },
+  yAxis: {
+    splitLine: { show: false },
+    axisLine: {
+      lineStyle: {
+        color: "#ccc",
+      },
+    },
+  },
 
   series: [
     {

@@ -90,12 +90,12 @@ onMounted(() => {
   <!-- loading spinner -->
   <div
     v-if="loading"
-    class="h-full d-flex flex-grow-1 align-center justify-center"
+    class="h-100 d-flex flex-grow-1 align-center justify-center"
   >
     <v-progress-circular indeterminate color="primary"></v-progress-circular>
   </div>
   <div v-else>
-    <h6 class="text-h6 px-5 pt-5 d-flex align-center font-weight-bold">
+    <h6 class="text-title-large px-5 pt-5 d-flex align-center font-weight-bold">
       <span class="flex-fill font-weight-bold">Table</span>
     </h6>
     <perfect-scrollbar style="height: 400px">
@@ -120,7 +120,7 @@ onMounted(() => {
                 </v-avatar>
                 <div class="ml-1">
                   <div class="font-weight-bold">{{ item.user.name }}</div>
-                  <div class="text-caption">
+                  <div class="text-body-small">
                     <copy-label :text="item.user.email" />
                   </div>
                 </div>

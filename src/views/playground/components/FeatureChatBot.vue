@@ -41,9 +41,9 @@ const sendMessage = async () => {
   }
 };
 
-// If you have set up an API key, please use your own key. If not, please use the one I provided.
+// The key is entered by the user (ApiKeyDialog); never bake one into the build
 const myApikey = computed(() => {
-  return chatGPTStore.apiKey || import.meta.env.VITE_OPENAI_API_KEY;
+  return chatGPTStore.apiKey;
 });
 
 const createCompletion = async () => {
@@ -154,7 +154,7 @@ watch(
       </template>
     </perfect-scrollbar>
     <div class="no-message-container" v-else>
-      <h1 class="text-h2 text-blue-lighten-1 font-weight-bold">
+      <h1 class="text-display-large text-blue-lighten-1 font-weight-bold">
         Ask Me Any Thing
       </h1>
       <AnimationAi />

@@ -2,10 +2,10 @@
 import { faker } from "@faker-js/faker";
 const generateMessage = () => {
   return {
-    avatar: faker.internet.avatar(),
+    avatar: faker.image.avatar(),
     message: faker.lorem.text(),
-    username: faker.internet.userName(),
-    color: faker.internet.color(),
+    username: faker.internet.username(),
+    color: faker.color.rgb(),
     time: faker.date.past(),
     title: faker.lorem.sentence(),
   };
@@ -54,7 +54,7 @@ const selectedItem = ref<any>();
             <!-- ---------------------------------------------- -->
             <template v-slot:append>
               <div class="full-h d-flex align-center">
-                <span class="text-body-2 text-grey"> {{ item.past }}</span>
+                <span class="text-body-medium text-grey"> {{ item.past }}</span>
               </div>
             </template>
             <!-- ---------------------------------------------- -->

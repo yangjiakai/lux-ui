@@ -118,6 +118,6 @@ watch(
   <v-card class="ma-5 pa-5">
     <div ref="chartEl" :style="{ width: `100%`, height: `800px` }"></div>
 
-    <h1 class="text-h5 my-5">Control Panel</h1>
+    <h1 class="text-headline-small my-5">Control Panel</h1>
   </v-card>
 </template>

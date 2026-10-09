@@ -1,17 +1,11 @@
 import { defineStore } from "pinia";
 
-export const useStableDiffusionStore = defineStore({
-  id: "stableDiffusion",
+export const useStableDiffusionStore = defineStore("stableDiffusion", {
   state: () => ({
     imgList: [],
     modelList: [],
     currentModel: "",
   }),
-
-  persist: {
-    enabled: true,
-    strategies: [{ storage: localStorage, paths: [""] }],
-  },
 
   getters: {},
   actions: {

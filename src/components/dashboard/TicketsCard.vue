@@ -85,12 +85,12 @@ onMounted(() => {
   <!-- loading spinner -->
   <div
     v-if="loading"
-    class="h-full d-flex flex-grow-1 align-center justify-center"
+    class="h-100 d-flex flex-grow-1 align-center justify-center"
   >
     <v-progress-circular indeterminate color="primary"></v-progress-circular>
   </div>
   <div v-else>
-    <h6 class="text-h6 font-weight-bold pa-5 d-flex align-center">
+    <h6 class="text-title-large font-weight-bold pa-5 d-flex align-center">
       <span class="flex-fill">Ticket</span>
     </h6>
     <v-table class="pa-3">
@@ -132,7 +132,7 @@ onMounted(() => {
           <td>{{ item.date }}</td>
           <td>
             <v-btn
-              elevation="4"
+              elevation="2"
               variant="elevated"
               size="small"
               @click="open(item)"

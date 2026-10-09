@@ -37,7 +37,7 @@ const currentLayout = computed(() => {
 });
 
 onMounted(() => {
-  theme.global.name.value = appStore.theme;
+  theme.change(appStore.theme);
 });
 </script>
 

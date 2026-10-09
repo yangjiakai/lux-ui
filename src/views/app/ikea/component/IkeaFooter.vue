@@ -168,7 +168,7 @@ const footerNavs = [
 </script>
 
 <template>
-  <v-sheet elevation="0" class="mx-auto text-body-2" color="#F5F5F5" rounded>
+  <v-sheet elevation="0" class="mx-auto text-body-medium" color="#F5F5F5" rounded>
     <v-sheet
       class="mx-auto text-left pa-10"
       color="transparent"
@@ -179,18 +179,18 @@ const footerNavs = [
         <v-col cols="12" md="4">
           <div>
             <h6 class="font-weight-bold">IKEA Familyに入会する</h6>
-            <p class="my-4 text-body-2 pr-10">
+            <p class="my-4 text-body-medium pr-10">
               IKEA
               Familyメンバーになると、お買い得な商品や便利なサービスなど、さまざまな会員特典をご利用いただけます。入会費・年会費無料。
             </p>
 
             <p>
-              <RouterLink to="/ " class="text-decoration-underline text-body-2"
+              <RouterLink to="/ " class="text-decoration-underline text-body-medium"
                 >詳しく見る</RouterLink
               >
             </p>
             <v-btn
-              class="text-body-2 font-weight-bold my-5"
+              class="text-body-medium font-weight-bold my-5"
               color="black"
               rounded="pill"
               >入会する</v-btn
@@ -198,18 +198,18 @@ const footerNavs = [
           </div>
           <div>
             <h6 class="font-weight-bold">IKEA Business Networkに入会する</h6>
-            <p class="my-4 text-body-2 pr-10">
+            <p class="my-4 text-body-medium pr-10">
               IKEA Business
               Networkメンバーになると、ビジネスに役立つさまざまな会員特典をご利用いただけます。イケアはビジネスの成長のサポートします。入会費・年会費無料。
             </p>
 
             <p>
-              <RouterLink to="/ " class="text-decoration-underline text-body-2"
+              <RouterLink to="/ " class="text-decoration-underline text-body-medium"
                 >詳しく見る</RouterLink
               >
             </p>
             <v-btn
-              class="text-body-2 font-weight-bold my-5"
+              class="text-body-medium font-weight-bold my-5"
               color="black"
               rounded="pill"
               >入会する</v-btn
@@ -219,11 +219,11 @@ const footerNavs = [
         <v-col cols="12" md="8">
           <v-row>
             <v-col cols="12" md="4" v-for="nav in navs">
-              <p class="text-body-2 font-weight-bold mb-4">
+              <p class="text-body-medium font-weight-bold mb-4">
                 <b>{{ nav.title }}</b>
               </p>
               <p
-                class="text-body-2 mb-4"
+                class="text-body-medium mb-4"
                 v-for="subNav in nav.subNavs"
                 :key="subNav.title"
               >
@@ -252,7 +252,7 @@ const footerNavs = [
             color="grey-darken-2"
             rounded="pill"
             prepend-icon="mdi-earth"
-            class="text-body-2 mr-5"
+            class="text-body-medium mr-5"
             >国の変更</v-btn
           >
           <v-btn
@@ -260,7 +260,7 @@ const footerNavs = [
             color="grey-darken-2"
             rounded="pill"
             append-icon="mdi-chevron-down"
-            class="text-body-2"
+            class="text-body-medium"
             >日本語-Japanese</v-btn
           >
         </div>
