@@ -10,6 +10,11 @@
   text-transform: uppercase;
 }
 
+// Fixed-size Lottie animations (e.g. size 400) must not overflow narrow screens
+.lottie-animation-container {
+  max-width: 100%;
+}
+
 // Vuetify 4 typography classes (text-display-large, ...) set font-weight and come after
 // the font-weight utilities, so `font-weight-bold text-title-large` lost its weight.
 // Re-declare them in a layer ordered after Vuetify's utilities (see public/layers.css).

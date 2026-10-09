@@ -81,7 +81,7 @@ const articles = [
     </v-toolbar-title>
   </v-toolbar>
 
-  <v-container width="1600">
+  <v-container max-width="1600">
     <v-row class="align-center">
       <v-col
         cols="12"

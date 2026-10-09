@@ -2,7 +2,7 @@
   <v-container grid-list-xs>
     <v-row>
       <v-col>
-        <v-card width="600" height="800" class="pa-5" elevation="4">
+        <v-card max-width="600" height="800" class="pa-5" elevation="4">
           <v-form ref="form" v-model="valid" lazy-validation class="formStyle">
             <svg
               xmlns="http://www.w3.org/2000/svg"

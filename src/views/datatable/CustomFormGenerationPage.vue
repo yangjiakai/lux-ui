@@ -10,7 +10,7 @@ import AnimationFolder from "@/components/animations/AnimationFolder.vue";
 <template>
   <v-container class="h-100">
     <div class="h-100 d-flex align-center justify-center">
-      <div class="text-center">
+      <div class="text-center w-100">
         <h1 class="text-headline-large font-weight-bold text-grey">New folder.jpg</h1>
         <AnimationFolder :size="400" />
       </div>

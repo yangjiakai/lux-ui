@@ -22,7 +22,7 @@ const getPhotoHeight = (index: number) => {
 const initPhotos = () => {
   photos.value = Array.from({ length: 15 }, (value, index) => ({
     id: index + "",
-    url: faker.image.urlLoremFlickr({ width: 640, height: getPhotoHeight(index), category: "animals" }),
+    url: faker.image.url({ width: 640, height: getPhotoHeight(index) }),
     title: faker.lorem.word(),
     description: faker.lorem.text(),
   }));
@@ -32,7 +32,7 @@ const initPhotos = () => {
 //   photos.value = photos.value.concat(
 //     Array.from({ length: 5 }, (value, index) => ({
 //       id: photos.value.length + index + "",
-//       url: faker.image.urlLoremFlickr({ width: 640, height: getPhotoHeight(index), category: "animals" }),
+//       url: faker.image.url({ width: 640, height: getPhotoHeight(index) }),
 //       title: faker.lorem.word(),
 //       description: faker.lorem.text(),
 //     }))

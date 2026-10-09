@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="overflow-x-auto">
     <!-- board column -->
     <v-row style="min-width: 800px">
       <v-col
