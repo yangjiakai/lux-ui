@@ -23,6 +23,10 @@ export default defineConfig({
     }),
   ],
   define: { "process.env": {} },
+  test: {
+    globals: true,
+    environment: "happy-dom",
+  },
   resolve: {
     alias: {
       "~": fileURLToPath(new URL("./", import.meta.url)),
