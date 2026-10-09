@@ -9,13 +9,23 @@
  * restores the Vuetify 3 behaviour: app styles override components, utilities override
  * app styles. Rules that already declare their own `@layer` are left untouched.
  */
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
 const KEEP_AT_TOP_LEVEL = new Set(["layer", "import", "charset"]);
+const PROJECT_ROOT = path.dirname(fileURLToPath(import.meta.url));
+
+// Only the project's own src/ folder, wherever the repo is checked out
+const isAppStyle = (file) => {
+  const relative = path.relative(PROJECT_ROOT, file.split("?")[0]).replace(/\\/g, "/");
+  return relative.startsWith("src/") && !relative.includes("node_modules");
+};
 
 const layerAppStyles = () => ({
   postcssPlugin: "lux-layer-app-styles",
   Once(root, { AtRule }) {
-    const file = (root.source?.input.file ?? "").replace(/\\/g, "/");
-    if (!file.includes("/src/")) return;
+    const file = root.source?.input.file;
+    if (!file || !isAppStyle(file)) return;
 
     const nodes = root.nodes.filter(
       (node) => !(node.type === "atrule" && KEEP_AT_TOP_LEVEL.has(node.name))
