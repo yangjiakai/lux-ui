@@ -19,7 +19,7 @@ services:
       - "8080:8080"
     environment:
       - NODE_ENV=development
-    command: npm run dev
+    command: yarn dev
 
 volumes:
   node_modules:

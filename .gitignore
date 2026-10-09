@@ -28,5 +28,3 @@ pnpm-debug.log*
 .netlify
 .env
 
-# yarn.lock
-yarn.lock

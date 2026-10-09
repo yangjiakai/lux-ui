@@ -21,6 +21,7 @@ import router from "./router";
 import i18n from "./plugins/i18n";
 import Vue3Lottie from "vue3-lottie";
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
+import { setupAnalytics } from "./plugins/analytics";
 
 
 const pinia = createPinia();
@@ -39,3 +40,5 @@ app.use(autoAnimatePlugin);
 
 app.use(vuetify);
 app.mount("#app");
+
+setupAnalytics(import.meta.env.VITE_GA_ID);

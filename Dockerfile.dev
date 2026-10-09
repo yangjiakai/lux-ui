@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 EXPOSE 8080
-CMD ["npm", "run", "dev"]
+CMD ["yarn", "dev"]
