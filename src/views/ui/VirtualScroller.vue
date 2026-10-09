@@ -2,10 +2,10 @@
 import { faker } from "@faker-js/faker";
 const generateMessage = () => {
   return {
-    avatar: faker.internet.avatar(),
+    avatar: faker.image.avatar(),
     message: faker.lorem.text(),
-    username: faker.internet.userName(),
-    color: faker.internet.color(),
+    username: faker.internet.username(),
+    color: faker.color.rgb(),
     time: faker.date.past(),
     title: faker.lorem.sentence(),
   };

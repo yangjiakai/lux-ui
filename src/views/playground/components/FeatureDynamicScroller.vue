@@ -7,7 +7,7 @@
 import { faker } from "@faker-js/faker";
 const generateMessage = () => {
   return {
-    avatar: faker.internet.avatar(),
+    avatar: faker.image.avatar(),
     message: faker.lorem.text(),
   };
 };

@@ -11,12 +11,12 @@ const chooseColor = () => {
 const generateMessage = () => {
   return {
     // 生成4位id
-    avatar: faker.internet.avatar(),
-    username: faker.internet.userName(),
+    avatar: faker.image.avatar(),
+    username: faker.internet.username(),
     usermail: faker.internet.email(),
     phone: faker.phone.number(),
     jdate: moment(faker.date.past()).format("YYYY/MM/DD"),
-    role: faker.name.jobTitle(),
+    role: faker.person.jobTitle(),
     rolestatus: chooseColor(),
   };
 };
@@ -52,7 +52,7 @@ const editedItem = ref({
 });
 const defaultItem = ref({
   id: "",
-  avatar: faker.internet.avatar(),
+  avatar: faker.image.avatar(),
   username: "",
   usermail: "",
   phone: "",

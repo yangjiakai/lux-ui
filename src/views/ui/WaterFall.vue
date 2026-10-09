@@ -20,7 +20,7 @@ const getPhotoHeight = (index: number) => {
 const initPhotos = () => {
   photos.value = Array.from({ length: 25 }, (value, index) => ({
     id: index + "",
-    url: faker.image.business(undefined, getPhotoHeight(index), true),
+    url: faker.image.urlLoremFlickr({ width: 640, height: getPhotoHeight(index), category: "business" }),
     title: faker.lorem.word(),
     description: faker.lorem.text(),
   }));
