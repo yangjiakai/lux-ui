@@ -7,16 +7,16 @@
 
 <p align="center">
   <a href="https://vuejs.org/">
-    <img src="https://img.shields.io/badge/vue-v3.2.47-brightgreen.svg" alt="vue">
+    <img src="https://img.shields.io/badge/vue-v3.5-brightgreen.svg" alt="vue">
   </a>
   <a href="https://vuetifyjs.com/">
-    <img src="https://img.shields.io/badge/vuetify-v3.1.13-blue.svg" alt="element-ui">
+    <img src="https://img.shields.io/badge/vuetify-v4.2-blue.svg" alt="vuetify">
   </a>
     <a href="https://vitejs.dev/">
-    <img src="https://img.shields.io/badge/vite-v4.2.1-blueviolet.svg" alt="element-ui">
+    <img src="https://img.shields.io/badge/vite-v8.3-blueviolet.svg" alt="vite">
   </a>
   
-  <a href="https://github.com/yangjiakai/lux-admin-vuetify3/blob/main/LICENSE">
+  <a href="https://github.com/yangjiakai/lux-ui/blob/main/LICENSE">
     <img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license">
   </a>
 </p>
@@ -28,12 +28,14 @@
 <br>
 
 <p align='center'>
-<b>English</b> | <a href="https://github.com/yangjiakai/jk-vuetify3-lux-admin/blob/main/README.zh-CN.md">简体中文</a>| <a href="https://github.com/yangjiakai/jk-vuetify3-lux-admin/blob/main/README.jp.md">日本語</a>
+<b>English</b> | <a href="./README.zh-CN.md">简体中文</a> | <a href="./README.jp.md">日本語</a>
 </p>
+
+> **Maintenance mode** — Lux UI keeps up with new Vue / Vuetify releases (now on **Vuetify 4**), but no new features are planned. Issues and pull requests are still welcome.
 
 ## 📖Introduction
 
-> Goal: Creating the best Vuetify 3 Admin open-source template.
+> Goal: Creating the best Vuetify Admin open-source template.
 
 Built upon the elegant themes of Vuetify, we have established a clear and efficient project structure, integrating the latest technology frameworks. This project aims to address a wide range of common technical requirements and features, while incorporating an AI assistant for a more intelligent experience. Additionally, we ensure that all pages are adaptive across multiple devices, achieving a seamless cross-platform compatibility.
 
@@ -57,16 +59,15 @@ Nuxt3 Simplified Version [lux-nuxt3-template](https://github.com/yangjiakai/lux-
 
 ## 📚Features
 
-- 📖 [Vue 3.2](https://github.com/vuejs/core)
-- 📖 [Vite 4.x](https://github.com/vitejs/vite)
-- 📖 UI Framework [Vuetify 3](https://next.vuetifyjs.com/en/)
+- 📖 [Vue 3.5](https://github.com/vuejs/core)
+- 📖 [Vite 8](https://github.com/vitejs/vite)
+- 📖 UI Framework [Vuetify 4](https://vuetifyjs.com/)
 - 📖 TypeScript
 - 📦 Component Auto Importing
 - 🍍 [Pinia](https://pinia.vuejs.org/)
 - 📔 `<script setup>`
 - 📚 Use icons from any icon sets in [Iconify](https://icon-sets.iconify.design/)
 - ☁️ Deploy on Netlify, zero-config
-- 🔑 Firebase auth
 - 📈 Echarts, ApexChart
 - 🧭 Openai, Chatgpt
 - 🌍 vue-i18n
@@ -104,16 +105,15 @@ Nuxt3 Simplified Version [lux-nuxt3-template](https://github.com/yangjiakai/lux-
 
 ### 🏷️ UI Frameworks
 
-- [Vuetify3](https://next.vuetifyjs.com/en/) - Vuetify is a no design skills required UI Framework with beautifully handcrafted Vue Components.
+- [Vuetify3](https://vuetifyjs.com/) - Vuetify is a no design skills required UI Framework with beautifully handcrafted Vue Components.
 
 ### 🏷️ Icons
 
 - [Iconify](https://iconify.design) - use icons from any icon sets [🔍Icônes](https://icones.netlify.app/)
-- [Pure CSS Icons via UnoCSS](https://github.com/antfu/unocss/tree/main/packages/preset-icons)
 
 ### 🏷️ Plugins
 
-- [Vue Router4](https://router.vuejs.org/)
+- [Vue Router 5](https://router.vuejs.org/)
 - [VueUse](https://github.com/antfu/vueuse) - collection of useful composition APIs
 - [VuedDaggable](https://github.com/SortableJS/Vue.Draggable) - allowing drag-and-drop and synchronization with view model array.
 - [Vue-Masonry-Wall](https://github.com/DerYeger/yeger/tree/main/packages/vue-masonry-wall) - Responsive masonry layout with SSR support and zero dependencies for Vue 3.
@@ -121,10 +121,12 @@ Nuxt3 Simplified Version [lux-nuxt3-template](https://github.com/yangjiakai/lux-
 
 ## 👻Try it now!
 
-```
-git clone https://github.com/yangjiakai/lux-admin-vuetify3.git
+> Requires Node.js 20.19+ (24 recommended).
 
-cd lux-admin-vuetify3
+```
+git clone https://github.com/yangjiakai/lux-ui.git
+
+cd lux-ui
 
 yarn install
 
@@ -156,11 +158,14 @@ yarn dev
    docker-compose up app
    ```
 
-这应该能解决实时更新的问题。如果您还有任何疑问或遇到其他问题，请随时告诉我。
 
-### 🔑Set ApiKey
+### 🔑 Set ApiKey
 
-Find the `.env.template` file in the root directory, remove the `.template` suffix, and replace` VITE_OPENAI_API_KEY`, `VITE_UNSPLASH_ACCESS_KEY`, and `VITE_GITHUB_CLIENT_ID`, and `VITE_TTS_KEY` and `VITE_TTS_REGION` with your own keys.
+Copy `.env.template` to `.env` and fill in `VITE_UNSPLASH_ACCESS_KEY`, `VITE_GITHUB_CLIENT_ID`, `VITE_TTS_KEY` and `VITE_TTS_REGION` with your own keys. `VITE_GA_ID` (Google Analytics) is optional.
+
+The OpenAI API key is entered in the app itself and stored in the browser.
+
+> Every `VITE_*` value is embedded in the built JavaScript, so only use keys that are safe to expose.
 
 > openai apikey： https://platform.openai.com/account/api-keys
 
