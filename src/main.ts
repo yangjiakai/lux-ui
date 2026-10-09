@@ -13,7 +13,7 @@ import MasonryWall from "@yeger/vue-masonry-wall";
 import VueVirtualScroller from "vue-virtual-scroller";
 import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
 import VueApexCharts from "vue3-apexcharts";
-import piniaPersist from "pinia-plugin-persist";
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 import { PerfectScrollbarPlugin } from 'vue3-perfect-scrollbar';
 import 'vue3-perfect-scrollbar/style.css';
 import "@/styles/main.scss";
@@ -24,7 +24,7 @@ import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 
 
 const pinia = createPinia();
-pinia.use(piniaPersist);
+pinia.use(piniaPluginPersistedstate);
 const app = createApp(App);
 
 app.use(router);

@@ -14,8 +14,7 @@ interface State {
   localCode: string;
 }
 
-export const useCustomizeThemeStore = defineStore({
-  id: "customizeTheme",
+export const useCustomizeThemeStore = defineStore("customizeTheme", {
   state: (): State => ({
     miniSidebar: false,
     darkTheme: false,
@@ -30,13 +29,7 @@ export const useCustomizeThemeStore = defineStore({
   }),
 
   persist: {
-    enabled: true,
-    strategies: [
-      {
-        storage: localStorage,
-        paths: ["darkTheme", "primaryColor", "localCode", "mainSidebar"],
-      },
-    ],
+    pick: ["darkTheme", "primaryColor", "localCode", "mainSidebar"],
   },
 
   getters: {},

@@ -74,8 +74,7 @@ const todos = [
   },
 ];
 
-export const useTodoStore = defineStore({
-  id: "todo",
+export const useTodoStore = defineStore("todo", {
   state: () => ({
     todList: todos,
     currentLabel: "work",

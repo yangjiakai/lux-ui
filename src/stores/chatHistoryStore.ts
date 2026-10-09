@@ -5,8 +5,7 @@ interface Message {
     content: string;
     role: "user" | "assistant" | "system";
 }
-export const useChatHistoryStore = defineStore({
-    id: "chatHistory",
+export const useChatHistoryStore = defineStore("chatHistory", {
     state: () => ({
         activeChatMenuId: 1,
         chatMenus: [
@@ -25,8 +24,7 @@ export const useChatHistoryStore = defineStore({
     }),
 
     persist: {
-        enabled: true,
-        strategies: [{ storage: localStorage, paths: ["chatMenus"] }],
+        pick: ["chatMenus"],
     },
 
     getters: {

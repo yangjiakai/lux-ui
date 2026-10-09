@@ -9,8 +9,7 @@ import {
   SpeechSynthesizer,
 } from "microsoft-cognitiveservices-speech-sdk";
 
-export const useSpeechStore = defineStore({
-  id: "speech",
+export const useSpeechStore = defineStore("speech", {
   state: () => ({
     subscriptionKey: import.meta.env.VITE_TTS_KEY,
     region: import.meta.env.VITE_TTS_REGION || "eastus",
@@ -26,18 +25,12 @@ export const useSpeechStore = defineStore({
   }),
 
   persist: {
-    enabled: true,
-    strategies: [
-      {
-        storage: localStorage,
-        paths: [
-          "speechSynthesisLanguage",
-          "speechSynthesisVoiceName",
-          "localName",
-          "voiceRate",
-          "voiceEmotion",
-        ],
-      },
+    pick: [
+      "speechSynthesisLanguage",
+      "speechSynthesisVoiceName",
+      "localName",
+      "voiceRate",
+      "voiceEmotion",
     ],
   },
 

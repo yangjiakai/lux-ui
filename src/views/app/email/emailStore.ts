@@ -2,8 +2,7 @@ import { defineStore } from "pinia";
 import { Email } from "./emailTypes";
 import { inboxList, starredList } from "./emailData";
 
-export const useEmailStore = defineStore({
-  id: "email",
+export const useEmailStore = defineStore("email", {
   state: () => ({
     inbox: inboxList,
     starred: starredList,

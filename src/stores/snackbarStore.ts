@@ -2,18 +2,12 @@ import { defineStore } from "pinia";
 
 type MessageType = "" | "info" | "success" | "error" | "warning";
 
-export const useSnackbarStore = defineStore({
-  id: "snackbarStore",
+export const useSnackbarStore = defineStore("snackbarStore", {
   state: () => ({
     isShow: false,
     message: "",
     type: "",
   }),
-
-  persist: {
-    enabled: true,
-    strategies: [{ storage: localStorage, paths: [""] }],
-  },
 
   getters: {},
   actions: {
