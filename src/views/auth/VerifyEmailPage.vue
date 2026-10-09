@@ -46,8 +46,8 @@ onUnmounted(() => {
 </script>
 <template>
   <v-card class="pa-5">
-    <h1 class="text-h5 font-weight-bold">Please verify the email</h1>
-    <div class="mb-5 text-grey text-caption">
+    <h1 class="text-headline-small font-weight-bold">Please verify the email</h1>
+    <div class="mb-5 text-grey text-body-small">
       Please check your email for the link to verify the email.
     </div>
     <v-btn

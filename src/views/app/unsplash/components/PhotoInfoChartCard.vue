@@ -154,7 +154,7 @@ const changeChart = (type) => {
         <v-chart :option="chartOptions" autoresize />
       </v-card-text>
       <v-divider></v-divider>
-      <div class="flex mx-5 my-3 bg-grey-lighten-3 pa-2">
+      <div class="d-flex mx-5 my-3 bg-grey-lighten-3 pa-2">
         <v-btn
           :variant="currentChart === 'view' ? 'flat' : 'text'"
           color="primary"

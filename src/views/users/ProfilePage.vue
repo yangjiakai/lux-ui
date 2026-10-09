@@ -67,18 +67,18 @@ Basic with Icons
       <v-col cols="12" md="3">
         <v-card>
           <div class="d-flex flex-column pa-10">
-            <v-avatar size="120" class="mx-auto elevation-12" color="white">
+            <v-avatar size="120" class="mx-auto elevation-4" color="white">
               <v-img :src="basic.avatar"> </v-img>
             </v-avatar>
 
             <div class="text-center mt-5">
-              <h3 class="text-h6 font-weight-bold">
+              <h3 class="text-title-large font-weight-bold">
                 {{ basic.username }}
                 <v-chip size="small" class="font-weight-bold" color="blue">
                   {{ basic.role }}
                 </v-chip>
               </h3>
-              <p class="text-body-2">{{ basic.about }}</p>
+              <p class="text-body-medium">{{ basic.about }}</p>
             </div>
           </div>
           <v-divider></v-divider>

@@ -39,7 +39,7 @@
               v-for="item in list"
               :key="item.index"
             >
-              <v-card height="500" elevation="4">
+              <v-card height="500" elevation="2">
                 <v-img
                   class="align-end text-white"
                   :src="'https://picsum.photos/200/300?random=' + item.index"
@@ -50,15 +50,8 @@
                   :aspect-ratio="2 / 3"
                 >
                   <template v-slot:placeholder>
-                    <v-row
-                      class="fill-height ma-0"
-                      align="center"
-                      justify="center"
-                    >
-                      <v-progress-circular
-                        indeterminate
-                        color="grey-lighten-5"
-                      ></v-progress-circular>
+                    <v-row class="fill-height ma-0 align-center justify-center">
+                      <v-progress-circular indeterminate color="grey-lighten-5"></v-progress-circular>
                     </v-row>
                   </template>
                   <v-card-title

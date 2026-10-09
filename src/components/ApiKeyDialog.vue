@@ -84,7 +84,7 @@ const promptList = computed(() => {
         <v-label class="font-weight-medium mb-2 ml-2 mt-5">{{
           $t("chatgpt.config.model")
         }}</v-label>
-        <v-card variant="outlined" style="width: 430px" class="flex ml-2 pa-2">
+        <v-card variant="outlined" style="width: 430px" class="d-flex ml-2 pa-2">
           <v-btn
             :variant="chatGPTStore.model === 'gpt-3.5-turbo' ? 'flat' : 'text'"
             color="primary"

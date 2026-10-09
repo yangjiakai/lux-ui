@@ -7,7 +7,7 @@
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
       <span>Toobar5</span>
     </v-toolbar-title>
@@ -21,7 +21,7 @@
   >
     <v-toolbar color="primary">
       <div class="ml-5 mr-5">
-        <h3 class="text-h5 font-weight-bold">Vuetify</h3>
+        <h3 class="text-headline-small font-weight-bold">Vuetify</h3>
       </div>
       <v-btn active class="text-none" stacked> Home </v-btn>
       <v-btn class="text-none" stacked> Products </v-btn>

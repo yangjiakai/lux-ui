@@ -9,7 +9,7 @@ import logos from "@/data/logos";
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <span>Logo1</span>
     </v-toolbar-title>
   </v-toolbar>
@@ -21,12 +21,9 @@ import logos from "@/data/logos";
       class="mx-auto my-10"
     >
       <v-container>
-        <v-row align="center" justify="center">
+        <v-row class="align-center justify-center">
           <v-col cols="6" sm="6" md="4" lg="3" v-for="logo in logos">
-            <v-card
-              elevation="0"
-              class="pa-5 base-card text-center mx-auto d-flex flex-column justify-center"
-            >
+            <v-card elevation="0" class="pa-5 base-card text-center mx-auto d-flex flex-column justify-center">
               <v-img height="60" :src="logo.logoUrl"></v-img>
             </v-card>
           </v-col>

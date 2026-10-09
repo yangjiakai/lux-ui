@@ -6,8 +6,8 @@
           :width="width"
           color="rgba(0,0,0,.1)"
           rounded="lg"
-          class="fixed pa-2"
-          elevation="2"
+          class="position-fixed pa-2"
+          elevation="1"
         >
           <!--  -->
           <v-list height="1000">
@@ -35,7 +35,7 @@
         </v-sheet>
       </v-col>
       <v-col cols="12" sm="10">
-        <v-sheet class="pa-5" min-height="70vh" rounded="lg" elevation="4">
+        <v-sheet class="pa-5" min-height="70vh" rounded="lg" elevation="2">
           <template v-for="item in sections" :key="item.index">
             <v-card class="pa-5" :id="item.id" height="2000" color="blue">
               <h1>{{ item.title }}</h1>

@@ -15,10 +15,10 @@ const panelTab = ref("textToImage");
 </script>
 
 <template>
-  <v-container class="h-full">
-    <v-row class="h-full">
+  <v-container class="h-100">
+    <v-row class="h-100">
       <v-col cols="12" md="6">
-        <v-card class="h-full">
+        <v-card class="h-100">
           <v-toolbar color="primary">
             <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
@@ -56,7 +56,7 @@ const panelTab = ref("textToImage");
         </v-card>
       </v-col>
       <v-col cols="12" md="6">
-        <v-card class="h-full">
+        <v-card class="h-100">
           <v-card-title> Image Panel </v-card-title>
           <v-divider></v-divider>
           <v-card-text>

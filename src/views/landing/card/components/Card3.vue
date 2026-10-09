@@ -7,7 +7,7 @@
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <span>Card3</span>
     </v-toolbar-title>
   </v-toolbar>
@@ -24,7 +24,7 @@
       class="mx-auto my-10"
     >
       <v-container>
-        <v-row align="center">
+        <v-row class="align-center">
           <v-col cols="12" md="4">
             <div class="card">
               <div class="wrapper">

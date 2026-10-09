@@ -1,6 +1,32 @@
-import enMessages from "@/locales/en";
-import zhHansMessages from "@/locales/zhHans";
-import jaMessages from "@/locales/ja";
+import { en as vuetifyEn, ja as vuetifyJa, zhHans as vuetifyZhHans } from "vuetify/locale";
+import en from "@/locales/en";
+import zhHans from "@/locales/zhHans";
+import ja from "@/locales/ja";
+
+type Messages = Record<string, unknown>;
+
+const isObject = (value: unknown): value is Messages =>
+  typeof value === "object" && value !== null;
+
+const deepMerge = (base: Messages, override: Messages): Messages =>
+  Object.fromEntries(
+    [...new Set([...Object.keys(base), ...Object.keys(override)])].map((key) => {
+      const a = base[key];
+      const b = override[key];
+      return [key, isObject(a) && isObject(b) ? deepMerge(a, b) : b ?? a];
+    })
+  );
+
+// Use Vuetify's bundled component translations as the base so keys added in newer
+// Vuetify versions resolve, while the app's own `$vuetify` wording still wins.
+const withVuetifyMessages = (messages: Messages, vuetify: Messages): Messages => ({
+  ...messages,
+  $vuetify: deepMerge(vuetify, isObject(messages.$vuetify) ? messages.$vuetify : {}),
+});
+
+const enMessages = withVuetifyMessages(en, vuetifyEn);
+const zhHansMessages = withVuetifyMessages(zhHans, vuetifyZhHans);
+const jaMessages = withVuetifyMessages(ja, vuetifyJa);
 
 const supported = ["en", "zhHans", "ja"];
 let locale = "en";

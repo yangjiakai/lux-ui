@@ -1,6 +1,7 @@
 {
   "name": "vuetify3-design",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite --mode dev",
     "build": "vite build --base=/ --mode pro",
@@ -39,7 +40,7 @@
     "vue3-lottie": "^3.3.0",
     "vue3-perfect-scrollbar": "^2.0.0",
     "vuedraggable": "^4.1.0",
-    "vuetify": "^3.6.14"
+    "vuetify": "^4"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
@@ -52,7 +53,6 @@
     "happy-dom": "^20.14.6",
     "postcss": "^8.4.41",
     "sass": "^1.105.1",
-    "tailwindcss": "^3.4.8",
     "unplugin-auto-import": "^21.1.0",
     "vite": "^8",
     "vite-plugin-vuetify": "^2.1.3",

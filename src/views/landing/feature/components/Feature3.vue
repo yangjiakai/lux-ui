@@ -10,7 +10,7 @@
     <v-card-title class="card-title">Feature3</v-card-title>
     <v-divider></v-divider>
     <div>
-      <v-row no-gutters align="stretch">
+      <v-row class="align-stretch" no-gutters>
         <v-col cols="12" md="6">
           <v-card
             theme="dark"
@@ -22,7 +22,7 @@
               <RouterLink to="/" class="text-primary font-weight-bold"
                 >WORK WITH US</RouterLink
               >
-              <h1 class="font-weight-black text-h3 mt-5 mb-10">
+              <h1 class="font-weight-black text-display-medium mt-5 mb-10">
                 Get your startup ready for
                 <span class="text-primary">Business</span>
               </h1>

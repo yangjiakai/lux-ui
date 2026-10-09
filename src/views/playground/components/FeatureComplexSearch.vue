@@ -253,7 +253,7 @@ const search = ref<string>("");
   <v-sheet class="mt-5">
     <perfect-scrollbar style="height: 800px">
       <v-container>
-        <v-row align="center">
+        <v-row class="align-center">
           <v-col
             v-for="item in filteredList"
             :key="item.id"
@@ -268,7 +268,7 @@ const search = ref<string>("");
                 style="height: 120px"
                 class="d-flex flex-column justify-space-between"
               >
-                <p class="text-h6" style="word-wrap: break-word">
+                <p class="text-title-large" style="word-wrap: break-word">
                   {{ item.title }}
                 </p>
 

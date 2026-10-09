@@ -56,8 +56,8 @@ const resetErrors = () => {
 };
 </script>
 <template>
-  <v-card color="white" class="pa-3 ma-3" elevation="3">
-    <v-card-title primary-title class="my-4 text-h4">
+  <v-card color="white" class="pa-3 ma-3" elevation="1">
+    <v-card-title primary-title class="my-4 text-headline-large">
       <span class="flex-fill"> {{ $t("register.title") }} </span>
     </v-card-title>
     <v-card-subtitle>Let's build amazing products</v-card-subtitle>
@@ -135,7 +135,7 @@ const resetErrors = () => {
         >
 
         <div
-          class="text-grey text-center text-caption font-weight-bold text-uppercase my-5"
+          class="text-grey text-center text-body-small font-weight-bold text-uppercase my-5"
         >
           {{ $t("register.orsign") }}
         </div>

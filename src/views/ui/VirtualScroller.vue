@@ -54,7 +54,7 @@ const selectedItem = ref<any>();
             <!-- ---------------------------------------------- -->
             <template v-slot:append>
               <div class="full-h d-flex align-center">
-                <span class="text-body-2 text-grey"> {{ item.past }}</span>
+                <span class="text-body-medium text-grey"> {{ item.past }}</span>
               </div>
             </template>
             <!-- ---------------------------------------------- -->

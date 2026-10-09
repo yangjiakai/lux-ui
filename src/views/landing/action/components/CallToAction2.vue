@@ -7,7 +7,7 @@
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <span>CallToAction2</span>
     </v-toolbar-title>
   </v-toolbar>
@@ -23,7 +23,7 @@
       max-width="1600 "
       class="mx-auto my-10"
     >
-      <v-row no-gutters align="stretch">
+      <v-row class="align-stretch" no-gutters>
         <v-col cols="12">
           <v-card
             elevation="0"
@@ -34,7 +34,7 @@
               <RouterLink to="/" class="text-primary font-weight-bold"
                 >WORK WITH US</RouterLink
               >
-              <h1 class="font-weight-black text-h3 mt-5 mb-10">
+              <h1 class="font-weight-black text-display-medium mt-5 mb-10">
                 Get your startup ready for
                 <span class="text-primary">Business</span>
               </h1>

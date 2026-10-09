@@ -9,7 +9,7 @@ import members from "@/data/members";
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <span>Team1</span>
     </v-toolbar-title>
   </v-toolbar>
@@ -22,24 +22,22 @@ import members from "@/data/members";
     >
       <v-container>
         <v-item-group mandatory selected-class="active-card">
-          <v-row align="center" justify="center">
+          <v-row class="align-center justify-center">
             <v-col cols="12" sm="6" md="4" lg="3" v-for="member in members">
-              <v-item v-slot="{ isSelected, selectedClass, toggle }">
-                <v-card
-                  :theme="isSelected ? 'dark' : 'light'"
-                  max-width="300"
-                  class="base-card text-center mx-auto pa-10 pa-md-15 d-flex flex-column justify-center"
-                  :class="selectedClass"
-                  @click="toggle"
-                >
+              <v-item v-slot="{
+  isSelected,
+  selectedClass,
+  toggle,
+}">
+                <v-card :theme="isSelected ? 'dark' : 'light'" max-width="300" class="base-card text-center mx-auto pa-10 pa-md-15 d-flex flex-column justify-center" :class="selectedClass" @click="toggle">
                   <v-avatar class="mx-auto" size="200">
                     <v-img :src="member.avatar" alt="alt" />
                   </v-avatar>
-                  <h6 class="text-h6">{{ member.name }}</h6>
-                  <p class="text-body-1 text-blue-grey">
+                  <h6 class="text-title-large">{{ member.name }}</h6>
+                  <p class="text-body-large text-blue-grey">
                     {{ member.position }}
                   </p>
-                  <p class="text-body-2 text-grey">{{ member.description }}</p>
+                  <p class="text-body-medium text-grey">{{ member.description }}</p>
                 </v-card>
               </v-item>
             </v-col>

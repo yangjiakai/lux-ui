@@ -20,7 +20,7 @@ import Card8 from "./components/Card8.vue";
   <!-- ---------------------------------------------- -->
   <v-toolbar rounded="lg" height="100" color="primary">
     <div class="ml-5">
-      <h3 class="text-h5 font-weight-bold">
+      <h3 class="text-headline-small font-weight-bold">
         Card
         <v-chip size="small" class="ma-2"> 8 Components </v-chip>
       </h3>

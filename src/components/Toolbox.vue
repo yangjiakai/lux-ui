@@ -15,7 +15,7 @@ const toolboxShow = ref(false);
 
 <template>
   <v-btn
-    class="toolbox-activator elevation-10"
+    class="toolbox-activator elevation-3"
     @click="toolboxShow = !toolboxShow"
     size="50"
     color="white"
@@ -26,7 +26,7 @@ const toolboxShow = ref(false);
   <transition name="slide-y">
     <v-card
       v-if="toolboxShow"
-      elevation="10"
+      elevation="3"
       class="d-flex flex-column mb-1 toolbox"
     >
       <!-- ---------------------------------------------- -->

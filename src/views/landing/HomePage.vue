@@ -3,7 +3,7 @@
     <v-container style="max-width: 1400px" grid-list-xs>
       <v-row>
         <v-col cols="12" md="4">
-          <h1 class="text-h5 my-5 d-flex align-center text-title">
+          <h1 class="text-headline-small my-5 d-flex align-center text-title">
             <Icon icon="logos:webix-icon" class="mr-3 my-2" />News
           </h1>
           <v-card
@@ -14,19 +14,19 @@
             color="secondary"
           >
             <v-card-text class="text-content">
-              <v-row align="center" no-gutters>
+              <v-row class="align-center" no-gutters>
                 <v-col cols="2" class="text-left">
-                  <Icon :icon="card.icon" class="text-h4" />
+                  <Icon :icon="card.icon" class="text-headline-large" />
                 </v-col>
                 <v-col class="text-left" cols="10">
                   {{ card.content }}
                 </v-col>
               </v-row>
-              <v-row align="center" no-gutters>
+              <v-row class="align-center" no-gutters>
                 <v-col cols="3" class="text-left">
                   <span>12:24</span>
                 </v-col>
-                <v-col class="text-h5 text-right" cols="9">
+                <v-col class="text-headline-small text-right" cols="9">
                   <v-btn variant="text" color="accent">Read➧</v-btn>
                 </v-col>
               </v-row>
@@ -34,13 +34,13 @@
           </v-card>
         </v-col>
         <v-col cols="12" md="8" class="text-left">
-          <h1 class="text-h5 my-5 d-flex align-center text-title">
+          <h1 class="text-headline-small my-5 d-flex align-center text-title">
             <Icon icon="logos:archlinux" class="mr-3 my-2" />TimeLine
           </h1>
           <!-- Info Card1 -->
           <v-card elevation="0" color="secondary" class="info-card gradient">
             <v-card-text class="d-flex align-center text-content">
-              <Icon class="mr-5 text-h4" icon="logos:browserslist" />
+              <Icon class="mr-5 text-headline-large" icon="logos:browserslist" />
               <span>Write something...</span>
               <v-spacer></v-spacer>
               <v-btn
@@ -90,7 +90,7 @@
           <!-- Info Card 2 -->
           <v-card color="secondary" class="info-card">
             <div class="card-top r text-content">
-              <Icon class="mr-5 text-h4" icon="logos:capacitorjs-icon" />
+              <Icon class="mr-5 text-headline-large" icon="logos:capacitorjs-icon" />
               <div class="flex-fill">
                 Who has the advantage now? Who do you think will win the
                 election?
@@ -105,7 +105,7 @@
                   </template>
                   <v-radio value="Google">
                     <template v-slot:label>
-                      <v-row align="center">
+                      <v-row class="align-center">
                         <v-col cols="6" sm="5" md="3">
                           <span> Of course it's</span>
                           <strong class="ml-1 text-info">Google</strong></v-col
@@ -123,7 +123,7 @@
                   </v-radio>
                   <v-radio value="Duckduckgo">
                     <template v-slot:label>
-                      <v-row align="center">
+                      <v-row class="align-center">
                         <v-col cols="6" sm="5" md="3">
                           <span> Of course it's</span>
                           <strong class="ml-1 text-info">Meta</strong></v-col
@@ -156,7 +156,7 @@
           <!-- Info Card3 -->
           <v-card color="secondary" class="info-card">
             <div class="card-top r text-content">
-              <Icon class="text-h4" icon="logos:engine-yard-icon" />
+              <Icon class="text-headline-large" icon="logos:engine-yard-icon" />
               <div class="flex-fill mx-4">
                 <p>
                   <span class="text-accent">Elon Mask</span> shared a
@@ -230,7 +230,7 @@
                 src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
               ></v-img>
             </v-avatar>
-            <span class="text-h4 mx-5">67903</span>
+            <span class="text-headline-large mx-5">67903</span>
             <div class="flex-fill text-content">
               people viewed your profile in the past 90 days
             </div>
@@ -273,7 +273,7 @@ import { useTheme } from "vuetify";
 const theme = useTheme();
 
 const toggleTheme = () => {
-  theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
+  theme.change(theme.global.current.value.dark ? "light" : "dark");
 };
 const newsCards = [
   {

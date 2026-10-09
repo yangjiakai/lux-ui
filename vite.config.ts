@@ -16,13 +16,24 @@ export default defineConfig({
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
     vuetify({
       autoImport: true,
-      styles: { configFile: "src/styles/variables.scss" },
+      styles: { configFile: "src/styles/settings.scss" },
     }),
     AutoImport({
       imports: ["vue", "vue-router", "pinia"],
     }),
   ],
   define: { "process.env": {} },
+  // Pre-bundle Vuetify overlay modules together so overlays opened inside a dialog
+  // share one z-index stack in dev mode (Vuetify 4 upgrade guide)
+  optimizeDeps: {
+    include: [
+      "vuetify/components/VOverlay",
+      "vuetify/components/VDialog",
+      "vuetify/components/VMenu",
+      "vuetify/components/VSelect",
+      "vuetify/components/VTooltip",
+    ],
+  },
   test: {
     globals: true,
     environment: "happy-dom",

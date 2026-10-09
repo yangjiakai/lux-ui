@@ -21,7 +21,7 @@ const list = ref(
 </script>
 
 <template>
-  <v-card height="200" elevation="6"> </v-card>
+  <v-card height="200" elevation="2"> </v-card>
 </template>
 
 <style scoped lang="scss"></style>

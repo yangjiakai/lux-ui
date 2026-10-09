@@ -7,7 +7,7 @@
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <!-- <v-icon class="mr-2">mdi-account</v-icon> -->
       <span>Toobar1</span>
     </v-toolbar-title>

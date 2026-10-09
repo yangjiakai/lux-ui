@@ -6,8 +6,8 @@
           :width="width"
           color="rgba(0,0,0,.1)"
           rounded="lg"
-          class="fixed pa-2"
-          elevation="2"
+          class="position-fixed pa-2"
+          elevation="1"
         >
           <!--  -->
           <v-list height="1000">
@@ -33,7 +33,7 @@
         </v-sheet>
       </v-col>
       <v-col cols="12" sm="10">
-        <v-sheet class="pa-5" min-height="70vh" rounded="lg" elevation="4">
+        <v-sheet class="pa-5" min-height="70vh" rounded="lg" elevation="2">
           <template
             v-for="sitesSection in siteList"
             :key="sitesSection.category_id"
@@ -44,7 +44,7 @@
               height=""
               color=""
             >
-              <h1 :id="`category_${sitesSection.category_id}`" class="text-h6">
+              <h1 :id="`category_${sitesSection.category_id}`" class="text-title-large">
                 {{ sitesSection.category_name_cn }}
               </h1>
               <v-divider class="my-5"></v-divider>
@@ -65,7 +65,7 @@
                         :elevation="isHovering ? 6 : 2"
                       >
                         <v-card-title
-                          class="text-subtitle-1 d-flex align-center"
+                          class="text-body-large d-flex align-center"
                         >
                           <span class="mr-2">
                             <v-img

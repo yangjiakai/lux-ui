@@ -12,7 +12,7 @@
 
     <v-row>
       <v-col cols="12" md="3" xl="2">
-        <div class="text-subtitle-1 my-5 ml-2">Category</div>
+        <div class="text-body-large my-5 ml-2">Category</div>
         <div v-for="faq in computedFaqs" :key="faq.id">
           <v-btn variant="text" color="primary" @click="goTo(faq.id)">{{
             faq.title
@@ -21,7 +21,7 @@
       </v-col>
       <v-col cols="12" md="9" xl="10">
         <div v-for="faq in computedFaqs" :id="faq.id" :key="faq.id">
-          <div id="#general" class="text-subtitle-2 my-5 ml-2">
+          <div id="#general" class="text-title-small my-5 ml-2">
             {{ faq.title }}
           </div>
           <v-expansion-panels>

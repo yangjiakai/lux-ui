@@ -31,7 +31,7 @@ const computedColors: any = computed(() => {
         <v-col cols="12" sm="6" md="4" lg="3" v-for="colorTheme in computedColors" :key="colorTheme.key">
           <v-card elevation="1" class="mb-10">
             <v-card :color="colorTheme.class" height="200">
-              <h1 class="text-h6 font-weight-bold pa-5">
+              <h1 class="text-title-large font-weight-bold pa-5">
                 {{ colorTheme.key }}
               </h1>
             </v-card>

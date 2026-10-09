@@ -119,7 +119,7 @@ const navs = [
           </template>
 
           <div>
-            <v-list-item-subtitle class="text-body-2">{{
+            <v-list-item-subtitle class="text-body-medium">{{
               nav.title
             }}</v-list-item-subtitle>
           </div>
@@ -138,7 +138,7 @@ const navs = [
           </template>
 
           <div>
-            <v-list-item-subtitle class="text-body-2">
+            <v-list-item-subtitle class="text-body-medium">
               Help Center
             </v-list-item-subtitle>
           </div>
@@ -156,7 +156,7 @@ const navs = [
           </template>
 
           <div>
-            <v-list-item-subtitle class="text-body-2">
+            <v-list-item-subtitle class="text-body-medium">
               Logout
             </v-list-item-subtitle>
           </div>

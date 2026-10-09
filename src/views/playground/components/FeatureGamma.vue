@@ -178,7 +178,7 @@ const cards = [
       <v-btn class="mr-2" color="success">success</v-btn>
     </div>
 
-    <v-card rounded="md" elevation="10" class="mt-2 d-flex flex-column toolbox">
+    <v-card rounded="md" elevation="3" class="mt-2 d-flex flex-column toolbox">
       <v-btn
         v-for="item in menu"
         :key="item.title"
@@ -209,7 +209,7 @@ const cards = [
                     <v-img :src="item.imgUrl" width="120" />
                   </div>
                   <div
-                    class="ml-3 font-weight-bold text-grey-darken-2 text-body-2"
+                    class="ml-3 font-weight-bold text-grey-darken-2 text-body-medium"
                   >
                     {{ item.title }}
                   </div>

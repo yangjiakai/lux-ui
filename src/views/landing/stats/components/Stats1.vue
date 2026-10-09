@@ -38,7 +38,7 @@ const items = [
 
 <template>
   <v-toolbar height="60">
-    <v-toolbar-title class="text-h6 font-weight-bold">
+    <v-toolbar-title class="text-title-large font-weight-bold">
       <span>Stats1</span>
     </v-toolbar-title>
   </v-toolbar>
@@ -50,13 +50,10 @@ const items = [
       class="mx-auto my-10"
     >
       <v-container>
-        <v-row align="center" justify="center">
+        <v-row class="align-center justify-center">
           <v-col cols="12" md="4" lg="3" v-for="item in items">
-            <v-card
-              elevation="0"
-              class="text-center pa-5 base-card text-center mx-auto d-flex flex-column justify-center"
-            >
-              <h1 class="text-h2 font-weight-black">{{ item.title }}</h1>
+            <v-card elevation="0" class="text-center pa-5 base-card text-center mx-auto d-flex flex-column justify-center">
+              <h1 class="text-display-large font-weight-black">{{ item.title }}</h1>
               <p class="py-5">
                 {{ item.description }}
               </p>

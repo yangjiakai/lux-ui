@@ -3,8 +3,8 @@
     <Icon class="animate-icon" icon="logos:bamboo" />
     <v-card class="card-container d-flex pa-5">
       <v-container>
-        <h1 class="text-h4">Card 1</h1>
-        <v-row align="center" justify="center">
+        <h1 class="text-headline-large">Card 1</h1>
+        <v-row class="align-center justify-center">
           <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 4" :key="i">
             <v-card class="card-1 pa-5 mx-auto" height="400" width="300">
               <h1 class="text-white">Let Test Some thing</h1>
@@ -15,8 +15,8 @@
         </v-row>
 
         <v-divider class="my-10"></v-divider>
-        <h1 class="text-h4">Card 2</h1>
-        <v-row align="center" justify="center">
+        <h1 class="text-headline-large">Card 2</h1>
+        <v-row class="align-center justify-center">
           <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 4" :key="i">
             <div class="card-2">
               <div class="cup-warp">
@@ -29,8 +29,8 @@
           </v-col>
         </v-row>
         <v-divider class="my-10"></v-divider>
-        <h1 class="text-h4">Card 3</h1>
-        <v-row align="center" justify="center">
+        <h1 class="text-headline-large">Card 3</h1>
+        <v-row class="align-center justify-center">
           <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 4" :key="i">
             <div class="card-3 mx-auto my-5">
               <v-card height="400" width="300"> </v-card>
@@ -38,14 +38,12 @@
           </v-col>
         </v-row>
         <v-divider class="my-10"></v-divider>
-        <h1 class="text-h4">Card 4</h1>
-        <v-row align="center" justify="center">
+        <h1 class="text-headline-large">Card 4</h1>
+        <v-row class="align-center justify-center">
           <v-col cols="12" md="6" lg="4" xl="3" v-for="i in 4" :key="i">
             <div class="card-4 mx-auto my-5">
               <v-card variant="flat" height="400" width="300">
-                <v-img
-                  :src="'https://picsum.photos/400/400?random=' + i"
-                ></v-img>
+                <v-img :src="'https://picsum.photos/400/400?random=' + i"></v-img>
               </v-card>
             </div>
           </v-col>
@@ -74,7 +72,7 @@ $black: #000000;
 }
 .card-1 {
   background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid transparentize($white, 0.5);
+  border: 1px solid rgba($white, 0.5);
   border-radius: 1rem;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }

@@ -240,15 +240,15 @@ const formTitle = computed(() => {
       <v-table class="mt-5">
         <thead>
           <tr>
-            <th class="text-subtitle-1 font-weight-semibold">Id</th>
-            <th class="text-subtitle-1 font-weight-semibold">UserInfo</th>
-            <th class="text-subtitle-1 font-weight-semibold">Phone</th>
-            <th class="text-subtitle-1 font-weight-semibold">Joining Date</th>
-            <th class="text-subtitle-1 font-weight-semibold">Role</th>
-            <th class="text-subtitle-1 font-weight-semibold">Actions</th>
+            <th class="text-body-large font-weight-semibold">Id</th>
+            <th class="text-body-large font-weight-semibold">UserInfo</th>
+            <th class="text-body-large font-weight-semibold">Phone</th>
+            <th class="text-body-large font-weight-semibold">Joining Date</th>
+            <th class="text-body-large font-weight-semibold">Role</th>
+            <th class="text-body-large font-weight-semibold">Actions</th>
           </tr>
         </thead>
-        <tbody class="text-body-1">
+        <tbody class="text-body-large">
           <tr v-for="item in filteredList" :key="item.id">
             <td class="font-weight-bold">{{ item.id }}</td>
             <td>
@@ -263,7 +263,7 @@ const formTitle = computed(() => {
 
                 <div class="ml-5">
                   <p class="font-weight-bold">{{ item.username }}</p>
-                  <span class="d-block mt-1 text-caption textSecondary">{{
+                  <span class="d-block mt-1 text-body-small textSecondary">{{
                     item.usermail
                   }}</span>
                 </div>

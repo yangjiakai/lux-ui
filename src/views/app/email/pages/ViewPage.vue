@@ -19,7 +19,7 @@ const submit = () => {
       <v-expansion-panel elevation="1" v-for="i in 3">
         <v-expansion-panel-title>
           <template v-slot:default="{ expanded }">
-            <div class="d-flex align-center w-full">
+            <div class="d-flex align-center w-100">
               <v-avatar size="36px">
                 <img src="@/assets/images/svg1.svg" alt="" />
               </v-avatar>

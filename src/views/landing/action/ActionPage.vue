@@ -14,7 +14,7 @@ import CallToAction2 from "./components/CallToAction2.vue";
   <!-- ---------------------------------------------- -->
   <v-toolbar rounded="lg" height="100" color="primary">
     <div class="ml-5">
-      <h3 class="text-h5 font-weight-bold">
+      <h3 class="text-headline-small font-weight-bold">
         CallToAction
         <v-chip size="small" class="ma-2"> 2 Components </v-chip>
       </h3>

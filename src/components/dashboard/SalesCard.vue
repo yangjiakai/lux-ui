@@ -135,7 +135,7 @@ onMounted(() => {
 
       <div class="d-flex flex-column flex-grow-1">
         <div class="pa-2">
-          <div class="text-h4">
+          <div class="text-headline-large">
             {{ formatCurrency(12145.49) }}
           </div>
           <div class="text-primary mt-1">
@@ -151,7 +151,7 @@ onMounted(() => {
             {{ $t("dashboard.weeklySales") }}
           </div>
           <div class="d-flex align-center">
-            <div class="text-h4">
+            <div class="text-headline-large">
               {{ formatCurrency(value) }}
             </div>
             <v-spacer></v-spacer>
@@ -159,7 +159,7 @@ onMounted(() => {
               <div class="font-weight-bold">
                 <percent-trend :value="percentage" />
               </div>
-              <div class="text-caption">{{ percentageLabel }}</div>
+              <div class="text-body-small">{{ percentageLabel }}</div>
             </div>
           </div>
         </div>
